@@ -5,235 +5,704 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stolárstvo Petro</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        :root {
+            --primary: #00796b;
+            --primary-light: #48a999;
+            --primary-dark: #004c40;
+            --accent: #ff6e40;
+            --text-light: #ffffff;
+            --text-dark: #263238;
+            --background: #eceff1;
+        }
+
+        * {
             margin: 0;
             padding: 0;
-            background-color: #f5f5f5;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--background);
+            background-image: url('/api/placeholder/1920/1080');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
 
         header {
-            background-color: #4a3c27;
-            color: white;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
             padding: 1rem 0;
-            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
-        header h1 {
-            margin: 0;
-            padding: 0.5rem;
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            color: var(--primary-dark);
+            text-decoration: none;
+        }
+
+        .logo i {
+            font-size: 2rem;
+            color: var(--primary);
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            font-weight: 600;
         }
 
         nav {
-            background-color: #6b573a;
-            padding: 1rem;
-            text-align: center;
+            display: flex;
+            gap: 2rem;
         }
 
         nav a {
-            color: white;
+            color: var(--text-dark);
             text-decoration: none;
-            margin: 0 1.5rem;
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
-            font-weight: bold;
-            transition: background-color 0.3s;
+            font-weight: 500;
+            font-size: 1.1rem;
+            position: relative;
+            padding: 0.5rem 0;
+            transition: color 0.3s;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent);
+            transition: width 0.3s;
         }
 
         nav a:hover {
-            background-color: #8b7355;
+            color: var(--primary);
+        }
+
+        nav a:hover::after,
+        nav a.active::after {
+            width: 100%;
+        }
+
+        nav a.active {
+            color: var(--primary);
+        }
+
+        main {
+            flex: 1;
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
         }
 
         section {
             display: none;
-            padding: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
+            animation: fadeIn 0.5s ease-in-out;
+            padding: 2rem 0;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         section.active {
             display: block;
         }
 
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
         h2 {
-            color: #4a3c27;
-            border-bottom: 2px solid #6b573a;
-            padding-bottom: 0.5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            font-size: 2rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: var(--accent);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .about-image {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
         }
 
         .service-grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
         }
 
         .service-card {
-            flex: 1;
-            min-width: 300px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 15px;
             overflow: hidden;
-            background-color: white;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
             cursor: pointer;
+            position: relative;
         }
 
         .service-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
         }
 
         .service-card img {
             width: 100%;
-            height: 200px;
+            height: 220px;
             object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .service-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .service-card-content {
+            padding: 1.5rem;
         }
 
         .service-card h3 {
-            text-align: center;
-            padding: 1rem;
-            margin: 0;
-            background-color: #6b573a;
-            color: white;
+            color: var(--primary-dark);
+            margin-bottom: 0.5rem;
+            font-size: 1.5rem;
         }
 
-        footer {
-            background-color: #4a3c27;
-            color: white;
-            text-align: center;
-            padding: 1rem;
-            margin-top: 2rem;
+        .service-card p {
+            color: var(--text-dark);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
         }
 
-        .contact-info {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            background-color: white;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            max-width: 600px;
-            margin: 0 auto;
+        .btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: var(--text-light);
+            padding: 0.6rem 1.2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background-color 0.3s, transform 0.3s;
         }
 
-        .contact-info p {
-            margin: 0.5rem 0;
-            font-size: 1.1rem;
+        .btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
         }
 
         .service-detail {
-            display: none;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             padding: 2rem;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             margin-top: 2rem;
+            display: none;
+            animation: slideIn 0.5s ease-in-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .service-detail.active {
             display: block;
         }
 
+        .service-detail-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .service-detail-image {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-detail-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
         .back-button {
-            display: inline-block;
-            background-color: #6b573a;
-            color: white;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background-color: transparent;
+            color: var(--primary);
             padding: 0.5rem 1rem;
-            border-radius: 4px;
-            margin-bottom: 1rem;
-            cursor: pointer;
+            border-radius: 50px;
             text-decoration: none;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            transition: color 0.3s;
+            cursor: pointer;
         }
 
         .back-button:hover {
-            background-color: #8b7355;
+            color: var(--accent);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .contact-info {
+            padding: 2rem;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-info-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-info-item i {
+            font-size: 1.5rem;
+            color: var(--primary);
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(0, 121, 107, 0.1);
+            border-radius: 50%;
+        }
+
+        .contact-form {
+            padding: 2rem;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--primary-dark);
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .form-button {
+            background-color: var(--primary);
+            color: var(--text-light);
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .form-button:hover {
+            background-color: var(--primary-dark);
+        }
+
+        footer {
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            color: var(--text-light);
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .social-icons a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+            text-decoration: none;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .social-icons a:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                padding: 1rem;
+            }
+
+            nav {
+                margin-top: 1rem;
+            }
+
+            .about-content,
+            .service-detail-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .service-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 
 <body>
-    <header>
-        <h1>Stolárstvo Petro</h1>
-        <nav>
-            <a href="#" onclick="showSection('onas')">O nás</a>
-            <a href="#" onclick="showSection('sluzby')">Služby</a>
-            <a href="#" onclick="showSection('kontakt')">Kontakt</a>
-        </nav>
-    </header>
-
-    <section id="onas">
-        <h2>O nás</h2>
-        <p>Stolárstvo Petro je rodinný podnik s dlhoročnou tradíciou. Špecializujeme sa na kvalitné drevené výrobky a
-            ponúkame komplexné služby v oblasti stolárstva.</p>
-        <p>Od roku 1995 poskytujeme našim zákazníkom profesionálne služby a výrobky najvyššej kvality. Naša dielňa je
-            vybavená modernými technológiami, ktoré nám umožňujú vyrábať široký sortiment výrobkov podľa požiadaviek
-            našich zákazníkov.</p>
-        <p>Náš tím skúsených stolárov sa postará o realizáciu vašich predstáv a potrieb. Stačí nás kontaktovať a my vám
-            ochotne poradíme a navrhneme najlepšie riešenie.</p>
-    </section>
-
-    <section id="sluzby">
-        <h2>Naše služby</h2>
-        <div class="service-grid">
-            <div class="service-card" onclick="showServiceDetail('rakvy')">
-                <img src="/api/placeholder/400/300" alt="Výroba rakiev">
-                <h3>Výroba rakiev</h3>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <a href="#" class="logo">
+                    <i class="fas fa-tools"></i>
+                    <h1>Stolárstvo Petro</h1>
+                </a>
+                <nav>
+                    <a href="#" id="nav-onas" onclick="showSection('onas')">O nás</a>
+                    <a href="#" id="nav-sluzby" onclick="showSection('sluzby')">Služby</a>
+                    <a href="#" id="nav-kontakt" onclick="showSection('kontakt')">Kontakt</a>
+                </nav>
             </div>
-            <div class="service-card" onclick="showServiceDetail('okna')">
-                <img src="/api/placeholder/400/300" alt="Výroba okien">
-                <h3>Výroba okien</h3>
+        </header>
+
+        <main>
+            <section id="onas" class="active">
+                <div class="glass-card">
+                    <h2>O nás</h2>
+                    <div class="about-content">
+                        <div>
+                            <p>Stolárstvo Petro je rodinný podnik s dlhoročnou tradíciou. Špecializujeme sa na kvalitné
+                                drevené výrobky a ponúkame komplexné služby v oblasti stolárstva.</p>
+                            <p>Od roku 1995 poskytujeme našim zákazníkom profesionálne služby a výrobky najvyššej
+                                kvality. Naša dielňa je vybavená modernými technológiami, ktoré nám umožňujú vyrábať
+                                široký sortiment výrobkov podľa požiadaviek našich zákazníkov.</p>
+                            <p>Náš tím skúsených stolárov sa postará o realizáciu vašich predstáv a potrieb. Stačí nás
+                                kontaktovať a my vám ochotne poradíme a navrhneme najlepšie riešenie.</p>
+                            <a href="#" class="btn" onclick="showSection('kontakt')">Kontaktujte nás</a>
+                        </div>
+                        <div class="about-image">
+                            <img src="/api/placeholder/600/400" alt="Stolárstvo Petro">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="sluzby">
+                <div class="glass-card">
+                    <h2>Naše služby</h2>
+                    <div class="service-grid">
+                        <div class="service-card" onclick="showServiceDetail('rakvy')">
+                            <img src="/api/placeholder/400/300" alt="Výroba rakiev">
+                            <div class="service-card-content">
+                                <h3>Výroba rakiev</h3>
+                                <p>Kvalitné rakvy vyrobené z tých najkvalitnejších materiálov.</p>
+                                <a href="#" class="btn">Zobraziť viac</a>
+                            </div>
+                        </div>
+                        <div class="service-card" onclick="showServiceDetail('okna')">
+                            <img src="/api/placeholder/400/300" alt="Výroba okien">
+                            <div class="service-card-content">
+                                <h3>Výroba okien</h3>
+                                <p>Moderné drevené okná s dokonalou tepelnou a zvukovou izoláciou.</p>
+                                <a href="#" class="btn">Zobraziť viac</a>
+                            </div>
+                        </div>
+                        <div class="service-card" onclick="showServiceDetail('brikety')">
+                            <img src="/api/placeholder/400/300" alt="Predaj brikiet">
+                            <div class="service-card-content">
+                                <h3>Predaj brikiet</h3>
+                                <p>Ekologické drevené brikety s vysokou výhrevnosťou.</p>
+                                <a href="#" class="btn">Zobraziť viac</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="rakvy" class="service-detail">
+                    <a class="back-button" onclick="hideServiceDetail('rakvy')">
+                        <i class="fas fa-arrow-left"></i> Späť na služby
+                    </a>
+                    <h2>Výroba rakiev</h2>
+                    <div class="service-detail-grid">
+                        <div>
+                            <p>Ponúkame široký sortiment rakiev vyrobených z kvalitného dreva. Všetky naše výrobky sa
+                                vyznačujú precíznym spracovaním a rešpektujú požiadavky našich zákazníkov.</p>
+                            <p>K dispozícii máme rôzne typy a veľkosti, s možnosťou prispôsobenia podľa individuálnych
+                                požiadaviek.</p>
+                            <p>Materiály, ktoré používame:</p>
+                            <ul>
+                                <li>Dub</li>
+                                <li>Buk</li>
+                                <li>Borovica</li>
+                                <li>Smrek</li>
+                            </ul>
+                            <p>Súčasťou našej ponuky je aj výroba urien a príslušenstva.</p>
+                            <a href="#" class="btn" onclick="showSection('kontakt')">Kontaktujte nás</a>
+                        </div>
+                        <div class="service-detail-image">
+                            <img src="/api/placeholder/600/400" alt="Výroba rakiev detail">
+                        </div>
+                    </div>
+                </div>
+
+                <div id="okna" class="service-detail">
+                    <a class="back-button" onclick="hideServiceDetail('okna')">
+                        <i class="fas fa-arrow-left"></i> Späť na služby
+                    </a>
+                    <h2>Výroba okien</h2>
+                    <div class="service-detail-grid">
+                        <div>
+                            <p>Vyrábame kvalitné drevené okná podľa vašich predstáv. Naše okná spĺňajú najvyššie
+                                štandardy kvality a poskytujú vynikajúcu tepelnú a zvukovú izoláciu.</p>
+                            <p>Ponúkame rôzne druhy profilov, zasklenia a povrchových úprav. Zabezpečujeme aj montáž a
+                                servis.</p>
+                            <p>Výhody našich okien:</p>
+                            <ul>
+                                <li>Dlhá životnosť</li>
+                                <li>Vynikajúca tepelná izolácia</li>
+                                <li>Zvuková izolácia</li>
+                                <li>Ekologický materiál</li>
+                                <li>Elegantný vzhľad</li>
+                            </ul>
+                            <a href="#" class="btn" onclick="showSection('kontakt')">Vyžiadať cenovú ponuku</a>
+                        </div>
+                        <div class="service-detail-image">
+                            <img src="/api/placeholder/600/400" alt="Výroba okien detail">
+                        </div>
+                    </div>
+                </div>
+
+                <div id="brikety" class="service-detail">
+                    <a class="back-button" onclick="hideServiceDetail('brikety')">
+                        <i class="fas fa-arrow-left"></i> Späť na služby
+                    </a>
+                    <h2>Predaj brikiet</h2>
+                    <div class="service-detail-grid">
+                        <div>
+                            <p>V našej ponuke nájdete kvalitné drevené brikety, ktoré sú vyrobené z čistých drevených
+                                pilín a hoblín bez chemických prísad.</p>
+                            <p>Brikety sú ekologické palivo s vysokou výhrevnosťou a dlhou dobou horenia. Ideálne pre
+                                krby, kachle a kotly. Ponúkame možnosť dovozu priamo k vám domov.</p>
+                            <p>Prednosti našich brikiet:</p>
+                            <ul>
+                                <li>Vysoká výhrevnosť</li>
+                                <li>Dlhá doba horenia</li>
+                                <li>Minimálne množstvo popola</li>
+                                <li>Ekologické palivo</li>
+                                <li>Jednoduché skladovanie</li>
+                            </ul>
+                            <a href="#" class="btn" onclick="showSection('kontakt')">Objednať brikety</a>
+                        </div>
+                        <div class="service-detail-image">
+                            <img src="/api/placeholder/600/400" alt="Predaj brikiet detail">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="kontakt">
+                <div class="glass-card">
+                    <h2>Kontakt</h2>
+                    <div class="contact-grid">
+                        <div class="contact-info">
+                            <div class="contact-info-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div>
+                                    <h3>Adresa</h3>
+                                    <p>Drevená ulica 123, 123 45 Stolárovo</p>
+                                </div>
+                            </div>
+                            <div class="contact-info-item">
+                                <i class="fas fa-phone-alt"></i>
+                                <div>
+                                    <h3>Telefón</h3>
+                                    <p>+421 900 123 456</p>
+                                </div>
+                            </div>
+                            <div class="contact-info-item">
+                                <i class="fas fa-envelope"></i>
+                                <div>
+                                    <h3>Email</h3>
+                                    <p>info@stolarstvopetro.sk</p>
+                                </div>
+                            </div>
+                            <div class="contact-info-item">
+                                <i class="fas fa-clock"></i>
+                                <div>
+                                    <h3>Otváracie hodiny</h3>
+                                    <p>Pondelok - Piatok: 8:00 - 17:00</p>
+                                    <p>Sobota: 9:00 - 12:00</p>
+                                    <p>Nedeľa: Zatvorené</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="contact-form">
+                            <h3>Napíšte nám</h3>
+                            <form>
+                                <div class="form-group">
+                                    <label for="name">Meno a priezvisko</label>
+                                    <input type="text" id="name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="email" id="email" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone">Telefón</label>
+                                    <input type="tel" id="phone">
+                                </div>
+                                <div class="form-group">
+                                    <label for="message">Správa</label>
+                                    <textarea id="message" required></textarea>
+                                </div>
+                                <button type="submit" class="form-button">Odoslať správu</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div class="footer-content">
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+                <p>&copy; 2025 Stolárstvo Petro - Všetky práva vyhradené</p>
             </div>
-            <div class="service-card" onclick="showServiceDetail('brikety')">
-                <img src="/api/placeholder/400/300" alt="Predaj brikiet">
-                <h3>Predaj brikiet</h3>
-            </div>
-        </div>
-
-        <div id="rakvy" class="service-detail">
-            <a class="back-button" onclick="hideServiceDetail('rakvy')">Späť na služby</a>
-            <h2>Výroba rakiev</h2>
-            <p>Ponúkame široký sortiment rakiev vyrobených z kvalitného dreva. Všetky naše výrobky sa vyznačujú
-                precíznym spracovaním a rešpektujú požiadavky našich zákazníkov.</p>
-            <p>K dispozícii máme rôzne typy a veľkosti, s možnosťou prispôsobenia podľa individuálnych požiadaviek.</p>
-        </div>
-
-        <div id="okna" class="service-detail">
-            <a class="back-button" onclick="hideServiceDetail('okna')">Späť na služby</a>
-            <h2>Výroba okien</h2>
-            <p>Vyrábame kvalitné drevené okná podľa vašich predstáv. Naše okná spĺňajú najvyššie štandardy kvality a
-                poskytujú vynikajúcu tepelnú a zvukovú izoláciu.</p>
-            <p>Ponúkame rôzne druhy profilov, zasklenia a povrchových úprav. Zabezpečujeme aj montáž a servis.</p>
-        </div>
-
-        <div id="brikety" class="service-detail">
-            <a class="back-button" onclick="hideServiceDetail('brikety')">Späť na služby</a>
-            <h2>Predaj brikiet</h2>
-            <p>V našej ponuke nájdete kvalitné drevené brikety, ktoré sú vyrobené z čistých drevených pilín a hoblín bez
-                chemických prísad.</p>
-            <p>Brikety sú ekologické palivo s vysokou výhrevnosťou a dlhou dobou horenia. Ideálne pre krby, kachle a
-                kotly. Ponúkame možnosť dovozu priamo k vám domov.</p>
-        </div>
-    </section>
-
-    <section id="kontakt">
-        <h2>Kontakt</h2>
-        <div class="contact-info">
-            <p><strong>Adresa:</strong> Drevená ulica 123, 123 45 Stolárovo</p>
-            <p><strong>Telefón:</strong> +421 900 123 456</p>
-            <p><strong>Email:</strong> info@stolarstvopetro.sk</p>
-            <p><strong>Otváracie hodiny:</strong></p>
-            <p>Pondelok - Piatok: 8:00 - 17:00</p>
-            <p>Sobota: 9:00 - 12:00</p>
-            <p>Nedeľa: Zatvorené</p>
-        </div>
-    </section>
-
-    <footer>
-        <p>&copy; 2025 Stolárstvo Petro - Všetky práva vyhradené</p>
-    </footer>
+        </footer>
+    </div>
 
     <script>
         // Zobrazí zvolenú sekciu a skryje ostatné
@@ -247,16 +716,29 @@
             // Zobrazíme zvolenú sekciu
             document.getElementById(sectionId).classList.add('active');
 
+            // Aktualizujeme aktívne tlačidlo v navigácii
+            const navLinks = document.querySelectorAll('nav a');
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+            });
+            document.getElementById('nav-' + sectionId).classList.add('active');
+
             // Skryjeme detaily služieb ak sú zobrazené
             const serviceDetails = document.querySelectorAll('.service-detail');
             serviceDetails.forEach(detail => {
                 detail.classList.remove('active');
             });
+
+            // Scrollneme hore
+            window.scrollTo(0, 0);
         }
 
         // Zobrazí detail zvolenej služby
         function showServiceDetail(serviceId) {
             document.getElementById(serviceId).classList.add('active');
+
+            // Scrollneme k detailu služby
+            document.getElementById(serviceId).scrollIntoView({ behavior: 'smooth' });
         }
 
         // Skryje detail služby

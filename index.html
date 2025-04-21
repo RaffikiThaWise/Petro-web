@@ -1,39 +1,274 @@
-
 <!DOCTYPE html>
 <html lang="sk">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stolárstvo Petro</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+
+        header {
+            background-color: #4a3c27;
+            color: white;
+            padding: 1rem 0;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            padding: 0.5rem;
+        }
+
+        nav {
+            background-color: #6b573a;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #8b7355;
+        }
+
+        section {
+            display: none;
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        section.active {
+            display: block;
+        }
+
+        h2 {
+            color: #4a3c27;
+            border-bottom: 2px solid #6b573a;
+            padding-bottom: 0.5rem;
+        }
+
+        .service-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+
+        .service-card {
+            flex: 1;
+            min-width: 300px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .service-card h3 {
+            text-align: center;
+            padding: 1rem;
+            margin: 0;
+            background-color: #6b573a;
+            color: white;
+        }
+
+        footer {
+            background-color: #4a3c27;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 2rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-info p {
+            margin: 0.5rem 0;
+            font-size: 1.1rem;
+        }
+
+        .service-detail {
+            display: none;
+            padding: 2rem;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-top: 2rem;
+        }
+
+        .service-detail.active {
+            display: block;
+        }
+
+        .back-button {
+            display: inline-block;
+            background-color: #6b573a;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .back-button:hover {
+            background-color: #8b7355;
+        }
+    </style>
 </head>
+
 <body>
     <header>
         <h1>Stolárstvo Petro</h1>
         <nav>
-            <a href="#onas">O nás</a>
-            <a href="#sluzby">Služby</a>
-            <a href="#kontakt">Kontakt</a>
+            <a href="#" onclick="showSection('onas')">O nás</a>
+            <a href="#" onclick="showSection('sluzby')">Služby</a>
+            <a href="#" onclick="showSection('kontakt')">Kontakt</a>
         </nav>
     </header>
+
     <section id="onas">
         <h2>O nás</h2>
-        <p>Informácie budú pridané čoskoro...</p>
+        <p>Stolárstvo Petro je rodinný podnik s dlhoročnou tradíciou. Špecializujeme sa na kvalitné drevené výrobky a
+            ponúkame komplexné služby v oblasti stolárstva.</p>
+        <p>Od roku 1995 poskytujeme našim zákazníkom profesionálne služby a výrobky najvyššej kvality. Naša dielňa je
+            vybavená modernými technológiami, ktoré nám umožňujú vyrábať široký sortiment výrobkov podľa požiadaviek
+            našich zákazníkov.</p>
+        <p>Náš tím skúsených stolárov sa postará o realizáciu vašich predstáv a potrieb. Stačí nás kontaktovať a my vám
+            ochotne poradíme a navrhneme najlepšie riešenie.</p>
     </section>
+
     <section id="sluzby">
         <h2>Naše služby</h2>
-        <ul>
-            <li>Výroba rakiev</li>
-            <li>Výroba okien</li>
-            <li>Predaj brikiet</li>
-        </ul>
+        <div class="service-grid">
+            <div class="service-card" onclick="showServiceDetail('rakvy')">
+                <img src="/api/placeholder/400/300" alt="Výroba rakiev">
+                <h3>Výroba rakiev</h3>
+            </div>
+            <div class="service-card" onclick="showServiceDetail('okna')">
+                <img src="/api/placeholder/400/300" alt="Výroba okien">
+                <h3>Výroba okien</h3>
+            </div>
+            <div class="service-card" onclick="showServiceDetail('brikety')">
+                <img src="/api/placeholder/400/300" alt="Predaj brikiet">
+                <h3>Predaj brikiet</h3>
+            </div>
+        </div>
+
+        <div id="rakvy" class="service-detail">
+            <a class="back-button" onclick="hideServiceDetail('rakvy')">Späť na služby</a>
+            <h2>Výroba rakiev</h2>
+            <p>Ponúkame široký sortiment rakiev vyrobených z kvalitného dreva. Všetky naše výrobky sa vyznačujú
+                precíznym spracovaním a rešpektujú požiadavky našich zákazníkov.</p>
+            <p>K dispozícii máme rôzne typy a veľkosti, s možnosťou prispôsobenia podľa individuálnych požiadaviek.</p>
+        </div>
+
+        <div id="okna" class="service-detail">
+            <a class="back-button" onclick="hideServiceDetail('okna')">Späť na služby</a>
+            <h2>Výroba okien</h2>
+            <p>Vyrábame kvalitné drevené okná podľa vašich predstáv. Naše okná spĺňajú najvyššie štandardy kvality a
+                poskytujú vynikajúcu tepelnú a zvukovú izoláciu.</p>
+            <p>Ponúkame rôzne druhy profilov, zasklenia a povrchových úprav. Zabezpečujeme aj montáž a servis.</p>
+        </div>
+
+        <div id="brikety" class="service-detail">
+            <a class="back-button" onclick="hideServiceDetail('brikety')">Späť na služby</a>
+            <h2>Predaj brikiet</h2>
+            <p>V našej ponuke nájdete kvalitné drevené brikety, ktoré sú vyrobené z čistých drevených pilín a hoblín bez
+                chemických prísad.</p>
+            <p>Brikety sú ekologické palivo s vysokou výhrevnosťou a dlhou dobou horenia. Ideálne pre krby, kachle a
+                kotly. Ponúkame možnosť dovozu priamo k vám domov.</p>
+        </div>
     </section>
+
     <section id="kontakt">
         <h2>Kontakt</h2>
-        <p>Telefón: +420 000 222</p>
+        <div class="contact-info">
+            <p><strong>Adresa:</strong> Drevená ulica 123, 123 45 Stolárovo</p>
+            <p><strong>Telefón:</strong> +421 900 123 456</p>
+            <p><strong>Email:</strong> info@stolarstvopetro.sk</p>
+            <p><strong>Otváracie hodiny:</strong></p>
+            <p>Pondelok - Piatok: 8:00 - 17:00</p>
+            <p>Sobota: 9:00 - 12:00</p>
+            <p>Nedeľa: Zatvorené</p>
+        </div>
     </section>
+
     <footer>
-        <p>&copy; 2025 Stolárstvo Petro</p>
+        <p>&copy; 2025 Stolárstvo Petro - Všetky práva vyhradené</p>
     </footer>
+
+    <script>
+        // Zobrazí zvolenú sekciu a skryje ostatné
+        function showSection(sectionId) {
+            // Skryjeme všetky sekcie
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+
+            // Zobrazíme zvolenú sekciu
+            document.getElementById(sectionId).classList.add('active');
+
+            // Skryjeme detaily služieb ak sú zobrazené
+            const serviceDetails = document.querySelectorAll('.service-detail');
+            serviceDetails.forEach(detail => {
+                detail.classList.remove('active');
+            });
+        }
+
+        // Zobrazí detail zvolenej služby
+        function showServiceDetail(serviceId) {
+            document.getElementById(serviceId).classList.add('active');
+        }
+
+        // Skryje detail služby
+        function hideServiceDetail(serviceId) {
+            document.getElementById(serviceId).classList.remove('active');
+        }
+
+        // Po načítaní stránky zobrazíme sekciu O nás
+        window.onload = function () {
+            showSection('onas');
+        };
+    </script>
 </body>
+
 </html>

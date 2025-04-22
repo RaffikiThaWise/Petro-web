@@ -288,7 +288,6 @@
             transform: translateY(-2px);
         }
 
-        /* Updated "Zobraziť viac" button styling */
         .service-card .btn {
             position: absolute;
             bottom: 10px;
@@ -298,7 +297,6 @@
             text-align: center;
         }
 
-        /* Position "Vyžiadať cenovú ponuku" button under gallery */
         .price-request-btn {
             margin-top: 40px;
             display: block;
@@ -365,7 +363,6 @@
             display: block;
         }
 
-        /* Updated close button with text */
         .back-button {
             display: inline-flex;
             align-items: center;
@@ -518,7 +515,6 @@
             transform: translateY(-3px);
         }
 
-        /* Gallery styles */
         .gallery {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -633,7 +629,7 @@
                     <h2>Naše služby</h2>
                     <div class="service-grid">
                         <div class="service-card" onclick="showServiceDetail('rakvy')">
-                            <img src="/api/placeholder/400/300" alt="Výroba rakiev">
+                            <img src="M20.jpg" alt="Výroba rakiev">
                             <div class="service-card-content">
                                 <h3>Výroba rakiev</h3>
                                 <p>Kvalitné rakvy vyrobené z tých najkvalitnejších materiálov.</p>
@@ -641,7 +637,7 @@
                             </div>
                         </div>
                         <div class="service-card" onclick="showServiceDetail('okna')">
-                            <img src="/api/placeholder/400/300" alt="Výroba okien">
+                            <img src="schody_tocive.jpg" alt="Výroba dreveného nábytku">
                             <div class="service-card-content">
                                 <h3>Výroba dreveného nábytku</h3>
                                 <p>Moderné drevené okná s dokonalou tepelnou a zvukovou izoláciou.</p>
@@ -649,7 +645,7 @@
                             </div>
                         </div>
                         <div class="service-card" onclick="showServiceDetail('brikety')">
-                            <img src="IMG_0253.jpg" alt="Predaj brikiet">
+                            <img src="briketa.jpg" alt="Predaj brikiet">
                             <div class="service-card-content">
                                 <h3>Predaj brikiet</h3>
                                 <p>Ekologické drevené brikety s vysokou výhrevnosťou.</p>
@@ -677,7 +673,6 @@
                             </ul>
                             <p>Súčasťou našej ponuky je aj výroba urien a príslušenstva.</p>
 
-                            <!-- Gallery section for rakvy -->
                             <div class="gallery">
                                 <div class="gallery-item" onclick="showGalleryImage('rakvy', 'M20.jpg', 'M20')">
                                     <img src="M20.jpg" alt="Model M20">
@@ -749,7 +744,6 @@
                                 <li>Elegantný vzhľad</li>
                             </ul>
 
-                            <!-- Gallery section -->
                             <div class="gallery">
                                 <div class="gallery-item"
                                     onclick="showGalleryImage('okna', 'dvere_fra.jpg', 'Drevené dvere')">
@@ -766,13 +760,69 @@
                                     <img src="trojokno.jpg" alt="Trojité okno">
                                     <div class="gallery-item-caption">Trojité okno</div>
                                 </div>
+                                <div class="gallery-item" onclick="showGalleryImage('okna', 'd1.jpg', 'Model D1')">
+                                    <img src="d1.jpg" alt="Model D1">
+                                    <div class="gallery-item-caption">D1</div>
+                                </div>
+                                <div class="gallery-item" onclick="showGalleryImage('okna', 'd2.jpg', 'Model D2')">
+                                    <img src="d2.jpg" alt="Model D2">
+                                    <div class="gallery-item-caption">D2</div>
+                                </div>
+                                <div class="gallery-item" onclick="showGalleryImage('okna', 'd3.jpg', 'Model D3')">
+                                    <img src="d3.jpg" alt="Model D3">
+                                    <div class="gallery-item-caption">D3</div>
+                                </div>
+                                <div class="gallery-item" onclick="showGalleryImage('okna', 'd4.jpg', 'Model D4')">
+                                    <img src="d4.jpg" alt="Model D4">
+                                    <div class="gallery-item-caption">D4</div>
+                                </div>
+                                <div class="gallery-item" onclick="showGalleryImage('okna', 'd5.jpg', 'Model D5')">
+                                    <img src="d5.jpg" alt="Model D5">
+                                    <div class="gallery-item-caption">D5</div>
+                                </div>
+                                <div class="gallery-item" onclick="showGalleryImage('okna', 'd6.jpg', 'Model D6')">
+                                    <img src="d6.jpg" alt="Model D6">
+                                    <div class="gallery-item-caption">D6</div>
+                                </div>
+                                <div class="gallery-item" onclick="showGalleryImage('okna', 'd7.jpg', 'Model D7')">
+                                    <img src="d7.jpg" alt="Model D7">
+                                    <div class="gallery-item-caption">D7</div>
+                                </div>
+                                <div class="gallery-item" onclick="showGalleryImage('okna', 'd8.jpg', 'Model D8')">
+                                    <img src="d8.jpg" alt="Model D8">
+                                    <div class="gallery-item-caption">D8</div>
+                                </div>
+                                <div class="gallery-item" onclick="showGalleryImage('okna', 'balkon.jpg', 'Balkón')">
+                                    <img src="balkon.jpg" alt="Balkón">
+                                    <div class="gallery-item-caption">Balkón</div>
+                                </div>
+                                <div class="gallery-item" onclick="showGalleryImage('okna', 'okno.jpg', 'Okno')">
+                                    <img src="okno.jpg" alt="Okno">
+                                    <div class="gallery-item-caption">Okno</div>
+                                </div>
+                                <div class="gallery-item" onclick="showGalleryImage('okna', 'okno2.jpg', 'Okno 2')">
+                                    <img src="okno2.jpg" alt="Okno 2">
+                                    <div class="gallery-item-caption">Okno 2</div>
+                                </div>
+                                <div class="gallery-item" onclick="showGalleryImage('okna', 'okno3.jpg', 'Okno 3')">
+                                    <img src="okno3.jpg" alt="Okno 3">
+                                    <div class="gallery-item-caption">Okno 3</div>
+                                </div>
+                                <div class="gallery-item" onclick="showGalleryImage('okna', 'schod.jpg', 'Schod')">
+                                    <img src="schod.jpg" alt="Schod">
+                                    <div class="gallery-item-caption">Schod</div>
+                                </div>
+                                <div class="gallery-item" onclick="showGalleryImage('okna', 'schod2.jpg', 'Schod 2')">
+                                    <img src="schod2.jpg" alt="Schod 2">
+                                    <div class="gallery-item-caption">Schod 2</div>
+                                </div>
                             </div>
 
                             <a href="#" class="btn price-request-btn" onclick="showSection('kontakt')">Vyžiadať cenovú
                                 ponuku</a>
                         </div>
                         <div class="service-detail-image">
-                            <img id="okna-main-image" src="dvere_fra.jpg" alt="Výroba dreveného nábytku detail">
+                            <img id="okna-main-image" src="schody_tocive.jpg" alt="Výroba dreveného nábytku detail">
                         </div>
                     </div>
                 </div>
@@ -783,11 +833,9 @@
                     <div class="service-detail-grid">
                         <div>
                             <p>V našej ponuke nájdete kvalitné drevené brikety, ktoré sú vyrobené z čistých
-                                drevených
-                                pilín a hoblín bez chemických prísad.</p>
+                                drevených pilín a hoblín bez chemických prísad.</p>
                             <p>Brikety sú ekologické palivo s vysokou výhrevnosťou a dlhou dobou horenia. Ideálne
-                                pre
-                                krby, kachle a kotly. Ponúkame možnosť dovozu priamo k vám domov.</p>
+                                pre krby, kachle a kotly. Ponúkame možnosť dovozu priamo k vám domov.</p>
                             <p>Prednosti našich brikiet:</p>
                             <ul style="padding-left: 20px;">
                                 <li>Vysoká výhrevnosť</li>
@@ -796,11 +844,35 @@
                                 <li>Ekologické palivo</li>
                                 <li>Jednoduché skladovanie</li>
                             </ul>
+
+                            <div class="gallery">
+                                <div class="gallery-item"
+                                    onclick="showGalleryImage('brikety', 'briketa.jpg', 'Briketa')">
+                                    <img src="briketa.jpg" alt="Briketa">
+                                    <div class="gallery-item-caption">Briketa</div>
+                                </div>
+                                <div class="gallery-item"
+                                    onclick="showGalleryImage('brikety', 'drevo_briketa.jpg', 'Drevo na brikety')">
+                                    <img src="drevo_briketa.jpg" alt="Drevo na brikety">
+                                    <div class="gallery-item-caption">Drevo na brikety</div>
+                                </div>
+                                <div class="gallery-item"
+                                    onclick="showGalleryImage('brikety', 'stroj_1.jpg', 'Stroj 1')">
+                                    <img src="stroj_1.jpg" alt="Stroj 1">
+                                    <div class="gallery-item-caption">Stroj 1</div>
+                                </div>
+                                <div class="gallery-item"
+                                    onclick="showGalleryImage('brikety', 'stroj_2.jpg', 'Stroj 2')">
+                                    <img src="stroj_2.jpg" alt="Stroj 2">
+                                    <div class="gallery-item-caption">Stroj 2</div>
+                                </div>
+                            </div>
+
                             <a href="#" class="btn price-request-btn" onclick="showSection('kontakt')">Objednať
                                 brikety</a>
                         </div>
                         <div class="service-detail-image">
-                            <img src="IMG_0253.jpg" alt="Predaj brikiet detail">
+                            <img id="brikety-main-image" src="briketa.jpg" alt="Predaj brikiet detail">
                         </div>
                     </div>
                 </div>
@@ -823,10 +895,8 @@
                                 <div>
                                     <h3>Telefón</h3>
                                     <p>+ 421 905 609 059</p>
-
                                     <h3>Doprava</h3>
                                     <p>+ 421 905 213 426</p>
-
                                     <h3>Ekobrikety a palivové drevo</h3>
                                     <p>+ 421 908 124 00</p>
                                 </div>

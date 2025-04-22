@@ -212,7 +212,7 @@
             text-decoration: none;
             font-weight: 500;
             transition: background-color 0.3s, transform 0.3s;
-            margin-top: 35px;
+            margin-top: 5px;
             /* Posunutie tlačidla o 5px nadol */
             align-self: flex-start;
         }
@@ -258,9 +258,6 @@
 
         .service-card-content {
             padding: 1.5rem;
-            position: relative;
-            padding-bottom: calc(1.5rem + 20px);
-            /* Pridané pre zarovnanie tlačidla */
         }
 
         .service-card h3 {
@@ -284,11 +281,6 @@
             text-decoration: none;
             font-weight: 500;
             transition: background-color 0.3s, transform 0.3s;
-            position: absolute;
-            /* Pridané pre umiestnenie tlačidla */
-            bottom: 20px;
-            margin-top: 80;
-            /* 20px od spodnej hrany */
         }
 
         .btn:hover {
@@ -307,8 +299,6 @@
             margin-top: 2rem;
             display: none;
             animation: slideIn 0.5s ease-in-out;
-            position: relative;
-            /* Pridané pre umiestnenie tlačidla zavrieť */
         }
 
         @keyframes slideIn {
@@ -347,12 +337,6 @@
         }
 
         .back-button {
-            position: absolute;
-            /* Zmenené na absolútne poziciovanie */
-            top: 20px;
-            /* 20px od vrchu */
-            right: 20px;
-            /* 20px od pravého okraja */
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
@@ -362,17 +346,13 @@
             border-radius: 50px;
             text-decoration: none;
             font-weight: 500;
+            margin-bottom: 1.5rem;
             transition: color 0.3s;
             cursor: pointer;
         }
 
         .back-button:hover {
             color: var(--primary-dark);
-        }
-
-        /* Upravený X namiesto šípky */
-        .back-button i {
-            font-size: 1.2rem;
         }
 
         .contact-grid {
@@ -499,18 +479,6 @@
             transform: translateY(-3px);
         }
 
-        /* Úprava tlačidiel v detailoch služieb */
-        .service-detail .btn {
-            position: relative;
-            /* Zmenené naspäť na relatívne poziciovanie */
-            margin-top: auto;
-            /* Pridaný odstup od textu */
-            margin-right: 60px;
-            /* Pridaný odstup medzi tlačidlami */
-            bottom: 20px;
-            /* Zrušenie absolútneho poziciovania */
-        }
-
         @media (max-width: 768px) {
             .header-content {
                 flex-direction: column;
@@ -604,7 +572,7 @@
 
                 <div id="rakvy" class="service-detail">
                     <a class="back-button" onclick="hideServiceDetail('rakvy')">
-                        <i class="fas fa-times"></i> Zavrieť
+                        <i class="fas fa-arrow-left"></i> Zavrieť
                     </a>
                     <h2>Výroba rakiev</h2>
                     <div class="service-detail-grid">
@@ -631,7 +599,7 @@
 
                 <div id="okna" class="service-detail">
                     <a class="back-button" onclick="hideServiceDetail('okna')">
-                        <i class="fas fa-times"></i> Zavrieť
+                        <i class="fas fa-arrow-left"></i> Zavrieť
                     </a>
                     <h2>Výroba dreveného nábytku</h2>
                     <div class="service-detail-grid">
@@ -785,7 +753,7 @@
 
                 <div id="brikety" class="service-detail">
                     <a class="back-button" onclick="hideServiceDetail('brikety')">
-                        <i class="fas fa-times"></i> Zavrieť
+                        <i class="fas fa-arrow-left"></i> Zavrieť
                     </a>
                     <h2>Predaj brikiet</h2>
                     <div class="service-detail-grid">

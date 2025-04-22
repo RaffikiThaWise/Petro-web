@@ -293,22 +293,14 @@
             position: absolute;
             bottom: 10px;
             left: 1.5rem;
-            /* Aligned to left with same padding as content */
             transform: none;
             width: calc(100% - 3rem);
-            /* Full width minus padding */
             text-align: center;
-            /* Center text */
         }
 
         /* Position "Vyžiadať cenovú ponuku" button under gallery */
-        #okna .btn:first-child {
-            position: relative;
-            bottom: auto;
-            right: auto;
-            left: auto;
-            transform: none;
-            margin-top: 20px;
+        .price-request-btn {
+            margin-top: 40px;
             display: block;
             width: 100%;
             text-align: center;
@@ -397,7 +389,7 @@
         }
 
         .back-button::after {
-            content: 'Zavrieť ×';
+            content: '× Zavrieť';
             font-size: 16px;
             font-weight: bold;
         }
@@ -541,6 +533,7 @@
             height: 150px;
             transition: transform 0.3s;
             cursor: pointer;
+            text-align: center;
         }
 
         .gallery-item img {
@@ -552,6 +545,17 @@
 
         .gallery-item:hover img {
             transform: scale(1.1);
+        }
+
+        .gallery-item-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 5px;
+            font-size: 14px;
         }
 
         @media (max-width: 768px) {
@@ -573,6 +577,12 @@
                 grid-template-columns: 1fr;
             }
 
+            .gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
             .gallery {
                 grid-template-columns: 1fr;
             }
@@ -666,10 +676,57 @@
                                 <li>Smrek</li>
                             </ul>
                             <p>Súčasťou našej ponuky je aj výroba urien a príslušenstva.</p>
-                            <a href="#" class="btn" onclick="showSection('kontakt')">Kontaktujte nás</a>
+
+                            <!-- Gallery section for rakvy -->
+                            <div class="gallery">
+                                <div class="gallery-item" onclick="showGalleryImage('rakvy', 'M20.jpg', 'M20')">
+                                    <img src="M20.jpg" alt="Model M20">
+                                    <div class="gallery-item-caption">M20</div>
+                                </div>
+                                <div class="gallery-item" onclick="showGalleryImage('rakvy', 'M19.jpg', 'M19')">
+                                    <img src="M19.jpg" alt="Model M19">
+                                    <div class="gallery-item-caption">M19</div>
+                                </div>
+                                <div class="gallery-item"
+                                    onclick="showGalleryImage('rakvy', 'M10+Pbuk.jpg', 'M10+Pbuk')">
+                                    <img src="M10+Pbuk.jpg" alt="Model M10+Pbuk">
+                                    <div class="gallery-item-caption">M10+Pbuk</div>
+                                </div>
+                                <div class="gallery-item" onclick="showGalleryImage('rakvy', 'M18.jpg', 'M18')">
+                                    <img src="M18.jpg" alt="Model M18">
+                                    <div class="gallery-item-caption">M18</div>
+                                </div>
+                                <div class="gallery-item" onclick="showGalleryImage('rakvy', 'M10+P.jpg', 'M10+P')">
+                                    <img src="M10+P.jpg" alt="Model M10+P">
+                                    <div class="gallery-item-caption">M10+P</div>
+                                </div>
+                                <div class="gallery-item" onclick="showGalleryImage('rakvy', 'M17.jpg', 'M17')">
+                                    <img src="M17.jpg" alt="Model M17">
+                                    <div class="gallery-item-caption">M17</div>
+                                </div>
+                                <div class="gallery-item" onclick="showGalleryImage('rakvy', 'M10.jpg', 'M10')">
+                                    <img src="M10.jpg" alt="Model M10">
+                                    <div class="gallery-item-caption">M10</div>
+                                </div>
+                                <div class="gallery-item" onclick="showGalleryImage('rakvy', 'M8+P.jpg', 'M8+P')">
+                                    <img src="M8+P.jpg" alt="Model M8+P">
+                                    <div class="gallery-item-caption">M8+P</div>
+                                </div>
+                                <div class="gallery-item" onclick="showGalleryImage('rakvy', 'M21.jpg', 'M21')">
+                                    <img src="M21.jpg" alt="Model M21">
+                                    <div class="gallery-item-caption">M21</div>
+                                </div>
+                                <div class="gallery-item" onclick="showGalleryImage('rakvy', 'm3+p.jpg', 'm3+p')">
+                                    <img src="m3+p.jpg" alt="Model m3+p">
+                                    <div class="gallery-item-caption">m3+p</div>
+                                </div>
+                            </div>
+
+                            <a href="#" class="btn price-request-btn" onclick="showSection('kontakt')">Kontaktujte
+                                nás</a>
                         </div>
                         <div class="service-detail-image">
-                            <img src="/api/placeholder/600/400" alt="Výroba rakiev detail">
+                            <img id="rakvy-main-image" src="M20.jpg" alt="Výroba rakiev detail">
                         </div>
                     </div>
                 </div>
@@ -694,21 +751,28 @@
 
                             <!-- Gallery section -->
                             <div class="gallery">
-                                <div class="gallery-item" onclick="showGalleryImage('dvere_fra.jpg')">
+                                <div class="gallery-item"
+                                    onclick="showGalleryImage('okna', 'dvere_fra.jpg', 'Drevené dvere')">
                                     <img src="dvere_fra.jpg" alt="Drevené dvere">
+                                    <div class="gallery-item-caption">Drevené dvere</div>
                                 </div>
-                                <div class="gallery-item" onclick="showGalleryImage('schody_tocive.jpg')">
+                                <div class="gallery-item"
+                                    onclick="showGalleryImage('okna', 'schody_tocive.jpg', 'Točité schody')">
                                     <img src="schody_tocive.jpg" alt="Točité schody">
+                                    <div class="gallery-item-caption">Točité schody</div>
                                 </div>
-                                <div class="gallery-item" onclick="showGalleryImage('trojokno.jpg')">
+                                <div class="gallery-item"
+                                    onclick="showGalleryImage('okna', 'trojokno.jpg', 'Trojité okno')">
                                     <img src="trojokno.jpg" alt="Trojité okno">
+                                    <div class="gallery-item-caption">Trojité okno</div>
                                 </div>
                             </div>
 
-                            <a href="#" class="btn" onclick="showSection('kontakt')">Vyžiadať cenovú ponuku</a>
+                            <a href="#" class="btn price-request-btn" onclick="showSection('kontakt')">Vyžiadať cenovú
+                                ponuku</a>
                         </div>
                         <div class="service-detail-image">
-                            <img id="mainGalleryImage" src="dvere_fra.jpg" alt="Výroba dreveného nábytku detail">
+                            <img id="okna-main-image" src="dvere_fra.jpg" alt="Výroba dreveného nábytku detail">
                         </div>
                     </div>
                 </div>
@@ -732,7 +796,8 @@
                                 <li>Ekologické palivo</li>
                                 <li>Jednoduché skladovanie</li>
                             </ul>
-                            <a href="#" class="btn" onclick="showSection('kontakt')">Objednať brikety</a>
+                            <a href="#" class="btn price-request-btn" onclick="showSection('kontakt')">Objednať
+                                brikety</a>
                         </div>
                         <div class="service-detail-image">
                             <img src="IMG_0253.jpg" alt="Predaj brikiet detail">
@@ -872,8 +937,9 @@
         }
 
         // Gallery functionality
-        function showGalleryImage(imageSrc) {
-            document.getElementById('mainGalleryImage').src = imageSrc;
+        function showGalleryImage(section, imageSrc, altText) {
+            document.getElementById(section + '-main-image').src = imageSrc;
+            document.getElementById(section + '-main-image').alt = altText;
         }
 
         // Po načítaní stránky zobrazíme sekciu O nás

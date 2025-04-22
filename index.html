@@ -7,54 +7,6 @@
     <title>Stolárstvo Petro</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Nastavenie relatívneho pozicionovania pre karty služieb */
-        .service-card {
-            padding-bottom: 60px;
-            /* Priestor pre tlačidlo na spodnej strane */
-        }
-
-        /* Poziciovanie tlačidla "Zobraziť viac" pre všetky karty */
-        .service-card .btn {
-            position: absolute;
-            bottom: 10px;
-            right: 40px;
-            /* Zmena: použitie right namiesto left */
-            transform: none;
-            /* Zmena: odstránenie transformácie */
-        }
-
-        /* Oprava hover efektu - zabránenie posunu */
-        .btn:hover {
-            transform: none !important;
-            /* Prepíše pôvodný hover efekt */
-        }
-
-        /* Odstránenie "Zobraziť viac" tlačidla špecificky pre sekciu výroby dreveného nábytku */
-        #okna .btn:nth-child(2) {
-            display: none;
-        }
-
-        /* Poziciovanie tlačidla "Vyžiadať cenovú ponuku" v detaile služby */
-        #okna .btn:first-child {
-            position: absolute;
-            bottom: 40px;
-            /* Zmena: 40px od spodu */
-            right: 40px;
-            /* Zmena: 40px od pravého okraja */
-            left: auto;
-            /* Zmena: odstránenie zarovnania vľavo */
-            transform: none;
-            /* Zmena: odstránenie transformácie */
-            margin-bottom: 0;
-        }
-
-        /* Úprava priestoru pre poziciovanie tlačidla v detaile služby */
-        .service-detail-grid>div:first-child {
-            position: relative;
-            padding-bottom: 70px;
-            /* Priestor pre tlačidlo na spodnej strane */
-        }
-
         :root {
             --primary: #5D4037;
             --primary-light: #8D6E63;
@@ -261,7 +213,6 @@
             font-weight: 500;
             transition: background-color 0.3s, transform 0.3s;
             margin-top: 5px;
-            /* Posunutie tlačidla o 5px nadol */
             align-self: flex-start;
         }
 
@@ -286,6 +237,8 @@
             transition: transform 0.3s, box-shadow 0.3s;
             cursor: pointer;
             position: relative;
+            padding-bottom: 60px;
+            /* Space for button at bottom */
         }
 
         .service-card:hover {
@@ -336,6 +289,40 @@
             transform: translateY(-2px);
         }
 
+        /* Position "Zobraziť viac" buttons 40px from right */
+        .service-card .btn {
+            position: absolute;
+            bottom: 10px;
+            right: 40px;
+            transform: none;
+        }
+
+        /* Remove hover effect that causes shifting */
+        .btn:hover {
+            transform: translateY(-2px) !important;
+        }
+
+        /* Hide second button in windows section */
+        #okna .btn:nth-child(2) {
+            display: none;
+        }
+
+        /* Position "Vyžiadať cenovú ponuku" button */
+        #okna .btn:first-child {
+            position: absolute;
+            bottom: 40px;
+            right: 40px;
+            left: auto;
+            transform: none;
+            margin-bottom: 0;
+        }
+
+        /* Add space for positioning button in service detail */
+        .service-detail-grid>div:first-child {
+            position: relative;
+            padding-bottom: 70px;
+        }
+
         .service-detail {
             background: rgba(255, 255, 255, 0.8);
             backdrop-filter: blur(10px);
@@ -384,6 +371,7 @@
             display: block;
         }
 
+        /* Changed back button to close button with X */
         .back-button {
             display: inline-flex;
             align-items: center;
@@ -397,10 +385,23 @@
             margin-bottom: 1.5rem;
             transition: color 0.3s;
             cursor: pointer;
+            position: absolute;
+            top: 20px;
+            right: 20px;
         }
 
         .back-button:hover {
             color: var(--primary-dark);
+        }
+
+        .back-button i {
+            display: none;
+        }
+
+        .back-button::after {
+            content: '×';
+            font-size: 24px;
+            font-weight: bold;
         }
 
         .contact-grid {
@@ -527,6 +528,92 @@
             transform: translateY(-3px);
         }
 
+        /* Gallery styles */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            height: 200px;
+            transition: transform 0.3s;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            overflow: auto;
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            max-width: 80%;
+            max-height: 80vh;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 10px;
+        }
+
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .prev,
+        .next {
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+            color: white;
+            font-weight: bold;
+            font-size: 24px;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+        .prev {
+            left: 0;
+            border-radius: 0 3px 3px 0;
+        }
+
         @media (max-width: 768px) {
             .header-content {
                 flex-direction: column;
@@ -543,6 +630,10 @@
             }
 
             .service-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery {
                 grid-template-columns: 1fr;
             }
         }
@@ -619,9 +710,7 @@
                 </div>
 
                 <div id="rakvy" class="service-detail">
-                    <a class="back-button" onclick="hideServiceDetail('rakvy')">
-                        <i class="fas fa-arrow-left"></i> Zavrieť
-                    </a>
+                    <a class="back-button" onclick="hideServiceDetail('rakvy')"></a>
                     <h2>Výroba rakiev</h2>
                     <div class="service-detail-grid">
                         <div>
@@ -646,9 +735,7 @@
                 </div>
 
                 <div id="okna" class="service-detail">
-                    <a class="back-button" onclick="hideServiceDetail('okna')">
-                        <i class="fas fa-arrow-left"></i> Zavrieť
-                    </a>
+                    <a class="back-button" onclick="hideServiceDetail('okna')"></a>
                     <h2>Výroba dreveného nábytku</h2>
                     <div class="service-detail-grid">
                         <div>
@@ -666,156 +753,51 @@
                             </ul>
                             <a href="#" class="btn" onclick="showSection('kontakt')">Vyžiadať cenovú ponuku</a>
 
-                            <div class="service-detail-image">
-                                <img src="dvere_fra.jpg" alt="Výroba dreveného nábytku detail">
+                            <!-- Gallery section -->
+                            <div class="gallery">
+                                <div class="gallery-item" onclick="openModal(0)">
+                                    <img src="dvere_fra.jpg" alt="Drevené dvere">
+                                </div>
+                                <div class="gallery-item" onclick="openModal(1)">
+                                    <img src="schody_tocive.jpg" alt="Točité schody">
+                                </div>
+                                <div class="gallery-item" onclick="openModal(2)">
+                                    <img src="trojokno.jpg" alt="Trojité okno">
+                                </div>
                             </div>
                         </div>
-                    </div>
-
-                    <!-- Modal -->
-                    <div id="imgModal" class="modal" onclick="closeModal()">
-                        <span class="close">&times;</span>
-                        <img class="modal-content" id="modalImage">
-                        <a class="prev" onclick="event.stopPropagation(); changeSlide(-1)">&#10094;</a>
-                        <a class="next" onclick="event.stopPropagation(); changeSlide(1)">&#10095;</a>
-                    </div>
-
-                    <!-- Štýly -->
-                    <style>
-                        .gallery-wrapper {
-                            display: none;
-                            margin-top: 20px;
-                        }
-
-                        .gallery {
-                            display: flex;
-                            gap: 15px;
-                            justify-content: center;
-                            flex-wrap: wrap;
-                        }
-
-                        .gallery img {
-                            width: 200px;
-                            border-radius: 10px;
-                            cursor: pointer;
-                            transition: transform 0.3s;
-                        }
-
-                        .gallery img:hover {
-                            transform: scale(1.05);
-                        }
-
-                        .modal {
-                            display: none;
-                            position: fixed;
-                            z-index: 100;
-                            padding-top: 60px;
-                            left: 0;
-                            top: 0;
-                            width: 100%;
-                            height: 100%;
-                            overflow: auto;
-                            background-color: rgba(0, 0, 0, 0.9);
-                        }
-
-                        .modal-content {
-                            margin: auto;
-                            display: block;
-                            width: 80%;
-                            max-width: 700px;
-                            border-radius: 10px;
-                        }
-
-                        .close,
-                        .prev,
-                        .next {
-                            position: absolute;
-                            color: white;
-                            font-size: 40px;
-                            font-weight: bold;
-                            cursor: pointer;
-                            user-select: none;
-                            padding: 10px;
-                        }
-
-                        .close {
-                            top: 20px;
-                            right: 35px;
-                            font-size: 35px;
-                        }
-
-                        .prev {
-                            top: 50%;
-                            left: 0;
-                            transform: translateY(-50%);
-                        }
-
-                        .next {
-                            top: 50%;
-                            right: 0;
-                            transform: translateY(-50%);
-                        }
-                    </style>
-
-                    <!-- Skript -->
-                    <script>
-                        let currentSlide = 0;
-                        const images = [
-                            'img/dvere_fra.jpg',
-                            'img/schody_tocive.jpg',
-                            'img/trojokno.jpg'
-                        ];
-
-                        function toggleGallery() {
-                            const gallery = document.getElementById('gallery-section');
-                            gallery.style.display = gallery.style.display === 'none' ? 'block' : 'none';
-                        }
-
-                        function openModal(index) {
-                            currentSlide = index;
-                            document.getElementById('imgModal').style.display = 'block';
-                            document.getElementById('modalImage').src = images[currentSlide];
-                        }
-
-                        function closeModal() {
-                            document.getElementById('imgModal').style.display = 'none';
-                        }
-
-                        function changeSlide(n) {
-                            currentSlide = (currentSlide + n + images.length) % images.length;
-                            document.getElementById('modalImage').src = images[currentSlide];
-                        }
-                    </script>
-
-
-                    <div id="brikety" class="service-detail">
-                        <a class="back-button" onclick="hideServiceDetail('brikety')">
-                            <i class="fas fa-arrow-left"></i> Zavrieť
-                        </a>
-                        <h2>Predaj brikiet</h2>
-                        <div class="service-detail-grid">
-                            <div>
-                                <p>V našej ponuke nájdete kvalitné drevené brikety, ktoré sú vyrobené z čistých
-                                    drevených
-                                    pilín a hoblín bez chemických prísad.</p>
-                                <p>Brikety sú ekologické palivo s vysokou výhrevnosťou a dlhou dobou horenia. Ideálne
-                                    pre
-                                    krby, kachle a kotly. Ponúkame možnosť dovozu priamo k vám domov.</p>
-                                <p>Prednosti našich brikiet:</p>
-                                <ul style="padding-left: 20px;">
-                                    <li>Vysoká výhrevnosť</li>
-                                    <li>Dlhá doba horenia</li>
-                                    <li>Minimálne množstvo popola</li>
-                                    <li>Ekologické palivo</li>
-                                    <li>Jednoduché skladovanie</li>
-                                </ul>
-                                <a href="#" class="btn" onclick="showSection('kontakt')">Objednať brikety</a>
-                            </div>
-                            <div class="service-detail-image">
-                                <img src="IMG_0253.jpg" alt="Predaj brikiet detail">
-                            </div>
+                        <div class="service-detail-image">
+                            <img src="dvere_fra.jpg" alt="Výroba dreveného nábytku detail">
                         </div>
                     </div>
+                </div>
+
+                <div id="brikety" class="service-detail">
+                    <a class="back-button" onclick="hideServiceDetail('brikety')"></a>
+                    <h2>Predaj brikiet</h2>
+                    <div class="service-detail-grid">
+                        <div>
+                            <p>V našej ponuke nájdete kvalitné drevené brikety, ktoré sú vyrobené z čistých
+                                drevených
+                                pilín a hoblín bez chemických prísad.</p>
+                            <p>Brikety sú ekologické palivo s vysokou výhrevnosťou a dlhou dobou horenia. Ideálne
+                                pre
+                                krby, kachle a kotly. Ponúkame možnosť dovozu priamo k vám domov.</p>
+                            <p>Prednosti našich brikiet:</p>
+                            <ul style="padding-left: 20px;">
+                                <li>Vysoká výhrevnosť</li>
+                                <li>Dlhá doba horenia</li>
+                                <li>Minimálne množstvo popola</li>
+                                <li>Ekologické palivo</li>
+                                <li>Jednoduché skladovanie</li>
+                            </ul>
+                            <a href="#" class="btn" onclick="showSection('kontakt')">Objednať brikety</a>
+                        </div>
+                        <div class="service-detail-image">
+                            <img src="IMG_0253.jpg" alt="Predaj brikiet detail">
+                        </div>
+                    </div>
+                </div>
             </section>
 
             <section id="kontakt">
@@ -899,6 +881,14 @@
         </footer>
     </div>
 
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modalImg">
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+
     <script>
         // Zobrazí zvolenú sekciu a skryje ostatné
         function showSection(sectionId) {
@@ -939,6 +929,32 @@
         // Skryje detail služby
         function hideServiceDetail(serviceId) {
             document.getElementById(serviceId).classList.remove('active');
+        }
+
+        // Gallery functionality
+        let slideIndex = 0;
+        const images = ['dvere_fra.jpg', 'schody_tocive.jpg', 'trojokno.jpg'];
+
+        function openModal(index) {
+            slideIndex = index;
+            document.getElementById('myModal').style.display = 'block';
+            document.getElementById('modalImg').src = images[slideIndex];
+        }
+
+        function closeModal() {
+            document.getElementById('myModal').style.display = 'none';
+        }
+
+        function plusSlides(n) {
+            slideIndex = (slideIndex + n + images.length) % images.length;
+            document.getElementById('modalImg').src = images[slideIndex];
+        }
+
+        // Close modal when clicking outside the image
+        window.onclick = function (event) {
+            if (event.target == document.getElementById('myModal')) {
+                closeModal();
+            }
         }
 
         // Po načítaní stránky zobrazíme sekciu O nás

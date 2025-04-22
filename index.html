@@ -7,6 +7,41 @@
     <title>Stolárstvo Petro</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        /* Nastavenie relatívneho pozicionovania pre karty služieb */
+        .service-card {
+            padding-bottom: 60px;
+            /* Priestor pre tlačidlo na spodnej strane */
+        }
+
+        /* Poziciovanie tlačidla "Zobraziť viac" pre všetky karty */
+        .service-card .btn {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Odstránenie "Zobraziť viac" tlačidla špecificky pre sekciu výroby dreveného nábytku */
+        #okna .btn:nth-child(2) {
+            display: none;
+        }
+
+        /* Poziciovanie tlačidla "Vyžiadať cenovú ponuku" v detaile služby */
+        #okna .btn:first-child {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            margin-bottom: 0;
+        }
+
+        /* Úprava priestoru pre poziciovanie tlačidla v detaile služby */
+        .service-detail-grid>div:first-child {
+            position: relative;
+            padding-bottom: 70px;
+            /* Priestor pre tlačidlo na spodnej strane */
+        }
+
         :root {
             --primary: #5D4037;
             --primary-light: #8D6E63;

@@ -17,8 +17,16 @@
         .service-card .btn {
             position: absolute;
             bottom: 10px;
-            left: 50%;
-            transform: translateX(-50%);
+            right: 40px;
+            /* Zmena: použitie right namiesto left */
+            transform: none;
+            /* Zmena: odstránenie transformácie */
+        }
+
+        /* Oprava hover efektu - zabránenie posunu */
+        .btn:hover {
+            transform: none !important;
+            /* Prepíše pôvodný hover efekt */
         }
 
         /* Odstránenie "Zobraziť viac" tlačidla špecificky pre sekciu výroby dreveného nábytku */
@@ -29,9 +37,14 @@
         /* Poziciovanie tlačidla "Vyžiadať cenovú ponuku" v detaile služby */
         #okna .btn:first-child {
             position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
+            bottom: 40px;
+            /* Zmena: 40px od spodu */
+            right: 40px;
+            /* Zmena: 40px od pravého okraja */
+            left: auto;
+            /* Zmena: odstránenie zarovnania vľavo */
+            transform: none;
+            /* Zmena: odstránenie transformácie */
             margin-bottom: 0;
         }
 

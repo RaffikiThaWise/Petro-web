@@ -258,6 +258,9 @@
 
         .service-card-content {
             padding: 1.5rem;
+            position: relative;
+            padding-bottom: calc(1.5rem + 20px);
+            /* Pridané pre zarovnanie tlačidla */
         }
 
         .service-card h3 {
@@ -281,6 +284,10 @@
             text-decoration: none;
             font-weight: 500;
             transition: background-color 0.3s, transform 0.3s;
+            position: absolute;
+            /* Pridané pre umiestnenie tlačidla */
+            bottom: 20px;
+            /* 20px od spodnej hrany */
         }
 
         .btn:hover {
@@ -299,6 +306,8 @@
             margin-top: 2rem;
             display: none;
             animation: slideIn 0.5s ease-in-out;
+            position: relative;
+            /* Pridané pre umiestnenie tlačidla zavrieť */
         }
 
         @keyframes slideIn {
@@ -337,6 +346,12 @@
         }
 
         .back-button {
+            position: absolute;
+            /* Zmenené na absolútne poziciovanie */
+            top: 20px;
+            /* 20px od vrchu */
+            right: 20px;
+            /* 20px od pravého okraja */
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
@@ -346,13 +361,17 @@
             border-radius: 50px;
             text-decoration: none;
             font-weight: 500;
-            margin-bottom: 1.5rem;
             transition: color 0.3s;
             cursor: pointer;
         }
 
         .back-button:hover {
             color: var(--primary-dark);
+        }
+
+        /* Upravený X namiesto šípky */
+        .back-button i {
+            font-size: 1.2rem;
         }
 
         .contact-grid {
@@ -479,6 +498,18 @@
             transform: translateY(-3px);
         }
 
+        /* Úprava tlačidiel v detailoch služieb */
+        .service-detail .btn {
+            position: relative;
+            /* Zmenené naspäť na relatívne poziciovanie */
+            margin-top: 20px;
+            /* Pridaný odstup od textu */
+            margin-right: 10px;
+            /* Pridaný odstup medzi tlačidlami */
+            bottom: auto;
+            /* Zrušenie absolútneho poziciovania */
+        }
+
         @media (max-width: 768px) {
             .header-content {
                 flex-direction: column;
@@ -572,7 +603,7 @@
 
                 <div id="rakvy" class="service-detail">
                     <a class="back-button" onclick="hideServiceDetail('rakvy')">
-                        <i class="fas fa-arrow-left"></i> Zavrieť
+                        <i class="fas fa-times"></i> Zavrieť
                     </a>
                     <h2>Výroba rakiev</h2>
                     <div class="service-detail-grid">
@@ -599,7 +630,7 @@
 
                 <div id="okna" class="service-detail">
                     <a class="back-button" onclick="hideServiceDetail('okna')">
-                        <i class="fas fa-arrow-left"></i> Zavrieť
+                        <i class="fas fa-times"></i> Zavrieť
                     </a>
                     <h2>Výroba dreveného nábytku</h2>
                     <div class="service-detail-grid">
@@ -753,7 +784,7 @@
 
                 <div id="brikety" class="service-detail">
                     <a class="back-button" onclick="hideServiceDetail('brikety')">
-                        <i class="fas fa-arrow-left"></i> Zavrieť
+                        <i class="fas fa-times"></i> Zavrieť
                     </a>
                     <h2>Predaj brikiet</h2>
                     <div class="service-detail-grid">
@@ -810,103 +841,3 @@
                                     <h3>Email</h3>
                                     <p>petrostolarstvo@gmail.com</p>
                                 </div>
-                            </div>
-                            <div class="contact-info-item">
-                                <i class="fas fa-clock"></i>
-                                <div>
-                                    <h3>Otváracie hodiny</h3>
-                                    <p>Pondelok - Piatok: 8:00 - 18:00</p>
-                                    <p>Sobota: Na objednávku</p>
-                                    <p>Nedeľa: Zatvorené</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="contact-form">
-                            <h3>Napíšte nám</h3>
-                            <form>
-                                <div class="form-group">
-                                    <label for="name">Meno a priezvisko</label>
-                                    <input type="text" id="name" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="email">Email</label>
-                                    <input type="email" id="email" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="phone">Telefón</label>
-                                    <input type="tel" id="phone">
-                                </div>
-                                <div class="form-group">
-                                    <label for="message">Správa</label>
-                                    <textarea id="message" required></textarea>
-                                </div>
-                                <button type="submit" class="form-button">Odoslať správu</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </main>
-
-        <footer>
-            <div class="footer-content">
-                <div class="social-icons">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
-                </div>
-                <p>&copy; 2025 M. G. - Všetky práva vyhradené</p>
-            </div>
-        </footer>
-    </div>
-
-    <script>
-        // Zobrazí zvolenú sekciu a skryje ostatné
-        function showSection(sectionId) {
-            // Skryjeme všetky sekcie
-            const sections = document.querySelectorAll('section');
-            sections.forEach(section => {
-                section.classList.remove('active');
-            });
-
-            // Zobrazíme zvolenú sekciu
-            document.getElementById(sectionId).classList.add('active');
-
-            // Aktualizujeme aktívne tlačidlo v navigácii
-            const navLinks = document.querySelectorAll('nav a');
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-            });
-            document.getElementById('nav-' + sectionId).classList.add('active');
-
-            // Skryjeme detaily služieb ak sú zobrazené
-            const serviceDetails = document.querySelectorAll('.service-detail');
-            serviceDetails.forEach(detail => {
-                detail.classList.remove('active');
-            });
-
-            // Scrollneme hore
-            window.scrollTo(0, 0);
-        }
-
-        // Zobrazí detail zvolenej služby
-        function showServiceDetail(serviceId) {
-            document.getElementById(serviceId).classList.add('active');
-
-            // Scrollneme k detailu služby
-            document.getElementById(serviceId).scrollIntoView({ behavior: 'smooth' });
-        }
-
-        // Skryje detail služby
-        function hideServiceDetail(serviceId) {
-            document.getElementById(serviceId).classList.remove('active');
-        }
-
-        // Po načítaní stránky zobrazíme sekciu O nás
-        window.onload = function () {
-            showSection('onas');
-        };
-    </script>
-</body>
-
-</html>

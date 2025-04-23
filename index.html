@@ -7,6 +7,52 @@
     <title>Stolárstvo Petro</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        body.dark-mode .service-detail ul li {
+            color: var(--text-dark) !important;
+        }
+
+        body.dark-mode .service-detail-grid {
+            background: rgba(40, 40, 40, 0.7) !important;
+        }
+
+        body.dark-mode .gallery-item {
+            border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        }
+
+        body.dark-mode .gallery-item:hover {
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.1) !important;
+        }
+
+        /* Dark mode pre detaily služieb */
+        body.dark-mode .service-detail {
+            background: rgba(40, 40, 40, 0.9) !important;
+            color: var(--text-dark) !important;
+            border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        }
+
+        body.dark-mode .service-detail h2,
+        body.dark-mode .service-detail h3,
+        body.dark-mode .service-detail p {
+            color: var(--text-dark) !important;
+        }
+
+        body.dark-mode .service-detail .btn {
+            background-color: var(--primary-light) !important;
+            color: var(--text-dark) !important;
+        }
+
+        body.dark-mode .service-detail .btn:hover {
+            background-color: var(--primary) !important;
+        }
+
+        body.dark-mode .back-button {
+            color: var(--text-dark) !important;
+        }
+
+        body.dark-mode .gallery-item-caption {
+            background: rgba(0, 0, 0, 0.8) !important;
+        }
+
         .dark-mode-btn {
             background: rgba(255, 255, 255, 0.1);
             border: none;

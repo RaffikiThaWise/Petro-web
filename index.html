@@ -9,54 +9,50 @@
     <style>
         @media (max-width: 768px) {
 
-            /* Oprava pre kontaktné informácie */
-            .contact-info {
-                padding: 1rem !important;
-                text-align: left !important;
+            /* Oprava pre celý kontaktný kontajner */
+            .contact-grid {
+                display: flex !important;
+                flex-direction: column !important;
+                gap: 20px !important;
+                padding: 0 !important;
+                margin: 0 !important;
+                width: 100% !important;
+                max-width: 100% !important;
             }
 
-            /* Oprava pre formulár */
+            /* Oprava pre obe "tabule" */
+            .contact-info,
             .contact-form {
-                padding: 1rem !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                margin: 0 !important;
+                padding: 20px !important;
+                box-sizing: border-box !important;
             }
 
-            /* Oprava pre zarovnanie textu v kontaktných položkách */
-            .contact-info-item div {
-                width: 100%;
-                text-align: left;
-                padding-left: 0;
+            /* Špeciálna oprava pre odsadenie */
+            .glass-card {
+                padding: 15px !important;
             }
 
-            /* Odstránenie prílišného odsadenia */
-            .contact-info-item {
-                padding-left: 0;
-                margin-left: 0;
-            }
-
-            /* Zarovnanie ikon */
-            .contact-info-item i {
-                margin-right: 10px;
+            /* Reset pre všetky vnútorné elementy */
+            .contact-info>*,
+            .contact-form>* {
+                max-width: 100% !important;
+                margin-left: 0 !important;
+                margin-right: 0 !important;
             }
         }
 
         @media (max-width: 480px) {
 
-            /* Ešte výraznejšie úpravy pre veľmi malé obrazovky */
-            .contact-grid {
-                padding: 0 !important;
-            }
-
             .contact-info,
             .contact-form {
-                margin: 0;
-                width: 100%;
-                border-radius: 0 !important;
+                padding: 15px !important;
             }
 
-            /* Zarovnanie nadpisov "Napíšte nám" */
-            .contact-form h3 {
-                text-align: left;
-                padding-left: 0;
+            .glass-card {
+                padding: 10px !important;
             }
         }
 

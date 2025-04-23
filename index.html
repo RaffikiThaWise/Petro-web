@@ -7,6 +7,169 @@
     <title>Stolárstvo Petro</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        body.dark-mode .service-detail ul li {
+            color: var(--text-dark) !important;
+        }
+
+        body.dark-mode .service-detail-grid {
+            background: rgba(40, 40, 40, 0.7) !important;
+        }
+
+        body.dark-mode .gallery-item {
+            border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        }
+
+        body.dark-mode .gallery-item:hover {
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.1) !important;
+        }
+
+        /* Dark mode pre detaily služieb */
+        body.dark-mode .service-detail {
+            background: rgba(40, 40, 40, 0.9) !important;
+            color: var(--text-dark) !important;
+            border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        }
+
+        body.dark-mode .service-detail h2,
+        body.dark-mode .service-detail h3,
+        body.dark-mode .service-detail p {
+            color: var(--text-dark) !important;
+        }
+
+        body.dark-mode .service-detail .btn {
+            background-color: var(--primary-light) !important;
+            color: var(--text-dark) !important;
+        }
+
+        body.dark-mode .service-detail .btn:hover {
+            background-color: var(--primary) !important;
+        }
+
+        body.dark-mode .back-button {
+            color: var(--text-dark) !important;
+        }
+
+        body.dark-mode .gallery-item-caption {
+            background: rgba(0, 0, 0, 0.8) !important;
+        }
+
+        .dark-mode-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: var(--text-dark);
+            font-size: 1.1rem;
+            cursor: pointer;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+        }
+
+        .dark-mode-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        body.dark-mode .dark-mode-btn {
+            background: rgba(0, 0, 0, 0.2);
+            color: var(--text-dark);
+        }
+
+        /* Dark mode tlačidlo */
+        .dark-mode-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-dark);
+            font-size: 1.2rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            margin-left: 1rem;
+        }
+
+        /* Dark mode premenné */
+        body.dark-mode {
+            --primary: #8D6E63;
+            --primary-light: #5D4037;
+            --primary-dark: #D7CCC8;
+            --accent: #3E2723;
+            --text-light: #263238;
+            --text-dark: #ffffff;
+            --background: #121212;
+            background-color: var(--background);
+        }
+
+        body.dark-mode .glass-card,
+        body.dark-mode .service-card,
+        body.dark-mode .contact-info,
+        body.dark-mode .contact-form {
+            background: rgba(30, 30, 30, 0.8);
+            color: var(--text-dark);
+        }
+
+        body.dark-mode header {
+            background: rgba(30, 30, 30, 0.9);
+        }
+
+        body.dark-mode footer {
+            background: rgba(20, 20, 20, 0.95);
+        }
+
+        body.dark-mode .dark-mode-btn {
+            color: var(--text-dark);
+        }
+
+        @media (max-width: 768px) {
+
+            /* Oprava pre celý kontaktný kontajner */
+            .contact-grid {
+                display: flex !important;
+                flex-direction: column !important;
+                gap: 20px !important;
+                padding: 0 !important;
+                margin: 0 !important;
+                width: 100% !important;
+                max-width: 100% !important;
+            }
+
+            /* Oprava pre obe "tabule" */
+            .contact-info,
+            .contact-form {
+                width: 100% !important;
+                max-width: 100% !important;
+                margin: 0 !important;
+                padding: 20px !important;
+                box-sizing: border-box !important;
+            }
+
+            /* Špeciálna oprava pre odsadenie */
+            .glass-card {
+                padding: 15px !important;
+            }
+
+            /* Reset pre všetky vnútorné elementy */
+            .contact-info>*,
+            .contact-form>* {
+                max-width: 100% !important;
+                margin-left: 0 !important;
+                margin-right: 0 !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+
+            .contact-info,
+            .contact-form {
+                padding: 15px !important;
+            }
+
+            .glass-card {
+                padding: 10px !important;
+            }
+        }
+
         :root {
             --primary: #5D4037;
             --primary-light: #8D6E63;
@@ -608,6 +771,10 @@
                     <a href="#" id="nav-onas" onclick="showSection('onas')">O nás</a>
                     <a href="#" id="nav-sluzby" onclick="showSection('sluzby')">Služby</a>
                     <a href="#" id="nav-kontakt" onclick="showSection('kontakt')">Kontakt</a>
+                    <!-- Pridané tlačidlo pre dark mode -->
+                    <button id="darkModeToggle" class="dark-mode-btn">
+                        <i class="fas fa-moon"></i>
+                    </button>
                 </nav>
             </div>
         </header>
@@ -1044,6 +1211,28 @@
         window.onload = function () {
             showSection('onas');
         };
+        // Dark mode funkcionalita
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const body = document.body;
+
+        // Skontrolujte lokálne úložisko pre dark mode
+        if (localStorage.getItem('darkMode') === 'enabled') {
+            body.classList.add('dark-mode');
+            darkModeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+        }
+
+        // Prepínanie dark módu
+        darkModeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+
+            if (body.classList.contains('dark-mode')) {
+                localStorage.setItem('darkMode', 'enabled');
+                darkModeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+            } else {
+                localStorage.setItem('darkMode', 'disabled');
+                darkModeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+            }
+        });
     </script>
 </body>
 

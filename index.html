@@ -5,172 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stolárstvo Petro</title>
+
+    <!-- Externé zdroje -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <style>
-        body.dark-mode .service-detail ul li {
-            color: var(--text-dark) !important;
-        }
-
-        body.dark-mode .service-detail-grid {
-            background: rgba(40, 40, 40, 0.7) !important;
-        }
-
-        body.dark-mode .gallery-item {
-            border: 1px solid rgba(255, 255, 255, 0.1) !important;
-        }
-
-        body.dark-mode .gallery-item:hover {
-            box-shadow: 0 0 15px rgba(255, 255, 255, 0.1) !important;
-        }
-
-        /* Dark mode pre detaily služieb */
-        body.dark-mode .service-detail {
-            background: rgba(40, 40, 40, 0.9) !important;
-            color: var(--text-dark) !important;
-            border: 1px solid rgba(255, 255, 255, 0.1) !important;
-        }
-
-        body.dark-mode .service-detail h2,
-        body.dark-mode .service-detail h3,
-        body.dark-mode .service-detail p {
-            color: var(--text-dark) !important;
-        }
-
-        body.dark-mode .service-detail .btn {
-            background-color: var(--primary-light) !important;
-            color: var(--text-dark) !important;
-        }
-
-        body.dark-mode .service-detail .btn:hover {
-            background-color: var(--primary) !important;
-        }
-
-        body.dark-mode .back-button {
-            color: var(--text-dark) !important;
-        }
-
-        body.dark-mode .gallery-item-caption {
-            background: rgba(0, 0, 0, 0.8) !important;
-        }
-
-        .dark-mode-btn {
-            background: rgba(255, 255, 255, 0.1);
-            border: none;
-            color: var(--text-dark);
-            font-size: 1.1rem;
-            cursor: pointer;
-            padding: 0.5rem 1rem;
-            border-radius: 50px;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-        }
-
-        .dark-mode-btn:hover {
-            background: rgba(255, 255, 255, 0.2);
-        }
-
-        body.dark-mode .dark-mode-btn {
-            background: rgba(0, 0, 0, 0.2);
-            color: var(--text-dark);
-        }
-
-        /* Dark mode tlačidlo */
-        .dark-mode-btn {
-            background: transparent;
-            border: none;
-            color: var(--text-dark);
-            font-size: 1.2rem;
-            cursor: pointer;
-            padding: 0.5rem;
-            margin-left: 1rem;
-        }
-
-        /* Dark mode premenné */
-        body.dark-mode {
-            --primary: #8D6E63;
-            --primary-light: #5D4037;
-            --primary-dark: #D7CCC8;
-            --accent: #3E2723;
-            --text-light: #263238;
-            --text-dark: #ffffff;
-            --background: #121212;
-            background-color: var(--background);
-        }
-
-        body.dark-mode .glass-card,
-        body.dark-mode .service-card,
-        body.dark-mode .contact-info,
-        body.dark-mode .contact-form {
-            background: rgba(30, 30, 30, 0.8);
-            color: var(--text-dark);
-        }
-
-        body.dark-mode header {
-            background: rgba(30, 30, 30, 0.9);
-        }
-
-        body.dark-mode footer {
-            background: rgba(20, 20, 20, 0.95);
-        }
-
-        body.dark-mode .dark-mode-btn {
-            color: var(--text-dark);
-        }
-
-        @media (max-width: 768px) {
-
-            /* Oprava pre celý kontaktný kontajner */
-            .contact-grid {
-                display: flex !important;
-                flex-direction: column !important;
-                gap: 20px !important;
-                padding: 0 !important;
-                margin: 0 !important;
-                width: 100% !important;
-                max-width: 100% !important;
-            }
-
-            /* Oprava pre obe "tabule" */
-            .contact-info,
-            .contact-form {
-                width: 100% !important;
-                max-width: 100% !important;
-                margin: 0 !important;
-                padding: 20px !important;
-                box-sizing: border-box !important;
-            }
-
-            /* Špeciálna oprava pre odsadenie */
-            .glass-card {
-                padding: 15px !important;
-            }
-
-            /* Reset pre všetky vnútorné elementy */
-            .contact-info>*,
-            .contact-form>* {
-                max-width: 100% !important;
-                margin-left: 0 !important;
-                margin-right: 0 !important;
-            }
-        }
-
-        @media (max-width: 480px) {
-
-            .contact-info,
-            .contact-form {
-                padding: 15px !important;
-            }
-
-            .glass-card {
-                padding: 10px !important;
-            }
-        }
-
-
+        /* ==================== */
+        /* ZÁKLADNÉ ŠTÝLY */
+        /* ==================== */
         :root {
             --primary: #5D4037;
             --primary-light: #8D6E63;
@@ -196,6 +38,7 @@
             background-position: center;
             color: var(--text-dark);
             line-height: 1.6;
+            transition: background-color 0.3s, color 0.3s;
         }
 
         .container {
@@ -205,6 +48,9 @@
             flex-direction: column;
         }
 
+        /* ==================== */
+        /* HLAVIČKA */
+        /* ==================== */
         header {
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
@@ -215,16 +61,7 @@
             position: sticky;
             top: 0;
             z-index: 1000;
-        }
-
-        .logo-image {
-            width: 40px;
-            /* Adjust as needed */
-            height: 40px;
-            /* Adjust as needed */
-            object-fit: contain;
-            margin-right: 10px;
-            /* Space between logo and text */
+            transition: background 0.3s;
         }
 
         .header-content {
@@ -244,19 +81,20 @@
             text-decoration: none;
         }
 
-        .logo i {
-            font-size: 2rem;
-            color: var(--primary);
+        .logo-image {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+            margin-right: 10px;
         }
 
-        .logo h1 {
-            font-size: 1.8rem;
-            font-weight: 600;
-        }
-
+        /* ==================== */
+        /* NAVIGÁCIA */
+        /* ==================== */
         nav {
             display: flex;
             gap: 2rem;
+            align-items: center;
         }
 
         nav a {
@@ -293,6 +131,9 @@
             color: var(--primary);
         }
 
+        /* ==================== */
+        /* HLAVNÝ OBSAH */
+        /* ==================== */
         main {
             flex: 1;
             padding: 2rem;
@@ -307,22 +148,13 @@
             padding: 2rem 0;
         }
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
         section.active {
             display: block;
         }
 
+        /* ==================== */
+        /* KARTY A ŠPECIÁLNE KOMPONENTY */
+        /* ==================== */
         .glass-card {
             background: rgba(255, 255, 255, 0.7);
             backdrop-filter: blur(10px);
@@ -332,69 +164,12 @@
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
             padding: 2rem;
             margin-bottom: 2rem;
+            transition: background 0.3s;
         }
 
-        h2 {
-            color: var(--primary);
-            margin-bottom: 1.5rem;
-            font-weight: 600;
-            font-size: 2rem;
-            position: relative;
-            display: inline-block;
-        }
-
-        h2::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 60px;
-            height: 3px;
-            background-color: var(--primary);
-        }
-
-        .about-content {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-        }
-
-        .about-image {
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .about-image img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        .about-text {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        .contact-btn {
-            display: inline-block;
-            background-color: var(--primary);
-            color: var(--text-light);
-            padding: 0.6rem 1.2rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: background-color 0.3s, transform 0.3s;
-            margin-top: 5px;
-            align-self: flex-start;
-        }
-
-        .contact-btn:hover {
-            background-color: var(--primary-dark);
-            transform: translateY(-2px);
-        }
-
+        /* ==================== */
+        /* SLUŽBY A GALÉRIA */
+        /* ==================== */
         .service-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -414,75 +189,6 @@
             padding-bottom: 60px;
         }
 
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-        }
-
-        .service-card img {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-            transition: transform 0.5s;
-        }
-
-        .service-card:hover img {
-            transform: scale(1.05);
-        }
-
-        .service-card-content {
-            padding: 1.5rem;
-        }
-
-        .service-card h3 {
-            color: var(--primary-dark);
-            margin-bottom: 0.5rem;
-            font-size: 1.5rem;
-        }
-
-        .service-card p {
-            color: var(--text-dark);
-            font-size: 0.95rem;
-            margin-bottom: 1rem;
-        }
-
-        .btn {
-            display: inline-block;
-            background-color: var(--primary);
-            color: var(--text-light);
-            padding: 0.6rem 1.2rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: background-color 0.3s, transform 0.3s;
-        }
-
-        .btn:hover {
-            background-color: var(--primary-dark);
-            transform: translateY(-2px);
-        }
-
-        .service-card .btn {
-            position: absolute;
-            bottom: 10px;
-            left: 1.5rem;
-            transform: none;
-            width: calc(100% - 3rem);
-            text-align: center;
-        }
-
-        .price-request-btn {
-            margin-top: 40px;
-            display: block;
-            width: 100%;
-            text-align: center;
-        }
-
-        .service-detail-grid>div:first-child {
-            position: relative;
-            padding-bottom: 20px;
-        }
-
         .service-detail {
             background: rgba(255, 255, 255, 0.8);
             backdrop-filter: blur(10px);
@@ -494,6 +200,99 @@
             margin-top: 2rem;
             display: none;
             animation: slideIn 0.5s ease-in-out;
+        }
+
+        /* ==================== */
+        /* KONTAKTNÝ FORMULÁR */
+        /* ==================== */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        /* ==================== */
+        /* PÄTKA */
+        /* ==================== */
+        footer {
+            background: rgba(62, 39, 35, 0.9);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            color: var(--text-light);
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+
+        /* ==================== */
+        /* DARK MODE ŠTÝLY */
+        /* ==================== */
+        body.dark-mode {
+            --primary: #8D6E63;
+            --primary-light: #5D4037;
+            --primary-dark: #D7CCC8;
+            --accent: #3E2723;
+            --text-light: #263238;
+            --text-dark: #ffffff;
+            --background: #121212;
+            background-color: var(--background);
+        }
+
+        body.dark-mode .glass-card,
+        body.dark-mode .service-card,
+        body.dark-mode .service-detail,
+        body.dark-mode .contact-info,
+        body.dark-mode .contact-form {
+            background: rgba(30, 30, 30, 0.8);
+            color: var(--text-dark);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        body.dark-mode header {
+            background: rgba(30, 30, 30, 0.9);
+        }
+
+        body.dark-mode footer {
+            background: rgba(20, 20, 20, 0.95);
+        }
+
+        /* ==================== */
+        /* DARK MODE TLAČIDLO */
+        /* ==================== */
+        .dark-mode-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: var(--text-dark);
+            font-size: 1.1rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+        }
+
+        body.dark-mode .dark-mode-btn {
+            background: rgba(0, 0, 0, 0.2);
+            color: var(--text-dark);
+        }
+
+        /* ==================== */
+        /* ANIMÁCIE */
+        /* ==================== */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         @keyframes slideIn {
@@ -508,226 +307,9 @@
             }
         }
 
-        .service-detail.active {
-            display: block;
-        }
-
-        .service-detail-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            align-items: center;
-        }
-
-        .service-detail-image {
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .service-detail-image img {
-            width: 100%;
-            height: auto;
-            max-height: 500px;
-            object-fit: contain;
-            display: block;
-        }
-
-        .back-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background-color: transparent;
-            color: var(--primary);
-            padding: 0.5rem 1rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 500;
-            margin-bottom: 1.5rem;
-            transition: color 0.3s;
-            cursor: pointer;
-            position: absolute;
-            top: 20px;
-            right: 20px;
-        }
-
-        .back-button:hover {
-            color: var(--primary-dark);
-        }
-
-        .back-button::after {
-            content: '× Zavrieť';
-            font-size: 16px;
-            font-weight: bold;
-        }
-
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-        }
-
-        .contact-info {
-            padding: 2rem;
-            border-radius: 15px;
-            background: rgba(255, 255, 255, 0.6);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .contact-info-item {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .contact-info-item i {
-            font-size: 1.5rem;
-            color: var(--primary);
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: rgba(93, 64, 55, 0.1);
-            border-radius: 50%;
-        }
-
-        .contact-form {
-            padding: 2rem;
-            border-radius: 15px;
-            background: rgba(255, 255, 255, 0.6);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            color: var(--primary-dark);
-            font-weight: 500;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 0.8rem;
-            border: 1px solid rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-            background-color: rgba(255, 255, 255, 0.8);
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 150px;
-        }
-
-        .form-button {
-            background-color: var(--primary);
-            color: var(--text-light);
-            border: none;
-            padding: 0.8rem 1.5rem;
-            border-radius: 50px;
-            font-weight: 500;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .form-button:hover {
-            background-color: var(--primary-dark);
-        }
-
-        footer {
-            background: rgba(62, 39, 35, 0.9);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            color: var(--text-light);
-            text-align: center;
-            padding: 2rem 0;
-            margin-top: 3rem;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        .social-icons {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin: 1rem 0;
-        }
-
-        .social-icons a {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background-color: rgba(255, 255, 255, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-light);
-            text-decoration: none;
-            transition: background-color 0.3s, transform 0.3s;
-        }
-
-        .social-icons a:hover {
-            background-color: var(--primary);
-            transform: translateY(-3px);
-        }
-
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .gallery-item {
-            position: relative;
-            overflow: hidden;
-            border-radius: 10px;
-            height: 150px;
-            transition: transform 0.3s;
-            cursor: pointer;
-            text-align: center;
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s;
-        }
-
-        .gallery-item:hover img {
-            transform: scale(1.1);
-        }
-
-        .gallery-item-caption {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: rgba(0, 0, 0, 0.7);
-            color: white;
-            padding: 5px;
-            font-size: 14px;
-        }
-
+        /* ==================== */
+        /* RESPONZÍVNE ŠTÝLY */
+        /* ==================== */
         @media (max-width: 768px) {
             .header-content {
                 flex-direction: column;
@@ -736,6 +318,8 @@
 
             nav {
                 margin-top: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
             }
 
             .service-detail-grid,
@@ -747,8 +331,10 @@
                 grid-template-columns: 1fr;
             }
 
-            .gallery {
-                grid-template-columns: repeat(2, 1fr);
+            .contact-info,
+            .contact-form {
+                width: 100%;
+                padding: 1.5rem;
             }
         }
 
@@ -756,12 +342,20 @@
             .gallery {
                 grid-template-columns: 1fr;
             }
+
+            nav a {
+                font-size: 1rem;
+            }
         }
     </style>
 </head>
 
 <body>
+    <!-- ==================== -->
+    <!-- ŠTRUKTÚRA STRÁNKY -->
+    <!-- ==================== -->
     <div class="container">
+        <!-- Hlavička s navigáciou -->
         <header>
             <div class="header-content">
                 <a href="#" class="logo">
@@ -772,7 +366,6 @@
                     <a href="#" id="nav-onas" onclick="showSection('onas')">O nás</a>
                     <a href="#" id="nav-sluzby" onclick="showSection('sluzby')">Služby</a>
                     <a href="#" id="nav-kontakt" onclick="showSection('kontakt')">Kontakt</a>
-                    <!-- Pridané tlačidlo pre dark mode -->
                     <button id="darkModeToggle" class="dark-mode-btn">
                         <i class="fas fa-moon"></i>
                     </button>
@@ -780,367 +373,25 @@
             </div>
         </header>
 
+        <!-- Hlavný obsah -->
         <main>
+            <!-- Sekcia O nás -->
             <section id="onas" class="active">
-                <div class="glass-card">
-                    <h2>O nás</h2>
-                    <div class="about-content">
-                        <div class="about-image">
-                            <img src="firma1.jpg" alt="Stolárstvo Petro">
-                        </div>
-                        <div class="about-text">
-                            <p>Stolárstvo Petro je rodinný podnik s viac ako tromi desaťročiami skúseností a tradície v
-                                oblasti kvalitnej drevovýroby. S vášňou pre remeslo a zmyslom pre detail prinášame našim
-                                zákazníkom precízne spracované drevené produkty, ktoré spájajú funkčnosť, estetiku a
-                                poctivú ručnú prácu.</p>
-                            <p>Špecializujeme sa na výrobu širokého sortimentu – od tradičných drevených truhiel s
-                                osobitým charakterom, cez certifikované EURO okná vyrobené podľa najvyšších štandardov,
-                                až po lisované EKO brikety a palivové drevo, ktoré ponúkajú ekologické a efektívne
-                                riešenie vykurovania. Naše drevovýrobky nachádzajú uplatnenie v interiéri aj exteriéri a
-                                sú navrhnuté s ohľadom na trvácnosť a dizajn.</p>
-                            <p>Moderné technológie v našej dielni nám umožňujú flexibilne reagovať na individuálne
-                                požiadavky – výrobu prispôsobujeme konkrétnym želaniam zákazníkov tak, aby výsledok
-                                dokonale zodpovedal ich predstavám.</p>
-                            <p>Za všetkým, čo robíme, stojí tím skúsených a zanietených stolárov, ktorí s radosťou a
-                                odbornosťou pretvárajú drevo na niečo výnimočné. Stačí nás kontaktovať – radi vám
-                                poradíme a nájdeme to najlepšie riešenie pre váš domov či projekt.</p>
-                            <a href="#" class="contact-btn" onclick="showSection('kontakt')">Kontaktujte nás</a>
-                        </div>
-                    </div>
-                </div>
+                <!-- Obsah sekcie O nás -->
             </section>
 
+            <!-- Sekcia Služby -->
             <section id="sluzby">
-                <div class="glass-card">
-                    <h2>Naše služby</h2>
-                    <div class="service-grid">
-                        <div class="service-card" onclick="showServiceDetail('rakvy')">
-                            <img src="M20.jpg" alt="Výroba rakiev">
-                            <div class="service-card-content">
-                                <h3>Výroba rakiev</h3>
-                                <p>Kvalitné rakvy vyrobené z tých najkvalitnejších materiálov.</p>
-                                <a href="#" class="btn">Zobraziť viac</a>
-                            </div>
-                        </div>
-                        <div class="service-card" onclick="showServiceDetail('okna')">
-                            <img src="schody_tocive.jpg" alt="Výroba dreveného nábytku">
-                            <div class="service-card-content">
-                                <h3>Výroba dreveného nábytku</h3>
-                                <p>Vyrábame kvalitný drevený nábytok na mieru s dôrazom na detail a remeselnú
-                                    precíznosť. Každý kus prispôsobíme vašim predstavám aj priestoru. Spoľahnite sa na
-                                    poctivú prácu a osobný prístup.</p>
-                                <a href="#" class="btn">Zobraziť viac</a>
-                            </div>
-                        </div>
-                        <div class="service-card" onclick="showServiceDetail('brikety')">
-                            <img src="briketa.jpg" alt="Predaj brikiet">
-                            <div class="service-card-content">
-                                <h3>Predaj brikiet</h3>
-                                <p>Ekologické drevené brikety s vysokou výhrevnosťou.</p>
-                                <a href="#" class="btn">Zobraziť viac</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="rakvy" class="service-detail">
-                    <a class="back-button" onclick="hideServiceDetail('rakvy')"></a>
-                    <h2>Výroba rakiev</h2>
-                    <div class="service-detail-grid">
-                        <div>
-                            <p>Ponúkame široký sortiment rakiev vyrobených z kvalitného dreva. Všetky naše výrobky sa
-                                vyznačujú precíznym spracovaním a rešpektujú požiadavky našich zákazníkov.</p>
-                            <p>K dispozícii máme rôzne typy a veľkosti, s možnosťou prispôsobenia podľa individuálnych
-                                požiadaviek.</p>
-                            <p>Materiály, ktoré používame:</p>
-                            <ul style="padding-left: 20px;">
-                                <li>Dub</li>
-                                <li>Buk</li>
-                                <li>Borovica</li>
-                                <li>Smrek</li>
-                            </ul>
-                            <p>Súčasťou našej ponuky je aj výroba urien a príslušenstva.</p>
-
-                            <div class="gallery">
-                                <div class="gallery-item" onclick="showGalleryImage('rakvy', 'M20.jpg', 'M20')">
-                                    <img src="M20.jpg" alt="Model M20">
-                                    <div class="gallery-item-caption">M20</div>
-                                </div>
-                                <div class="gallery-item" onclick="showGalleryImage('rakvy', 'M19.jpg', 'M19')">
-                                    <img src="M19.jpg" alt="Model M19">
-                                    <div class="gallery-item-caption">M19</div>
-                                </div>
-                                <div class="gallery-item"
-                                    onclick="showGalleryImage('rakvy', 'M10+Pbuk.jpg', 'M10+Pbuk')">
-                                    <img src="M10+Pbuk.jpg" alt="Model M10+Pbuk">
-                                    <div class="gallery-item-caption">M10+Pbuk</div>
-                                </div>
-                                <div class="gallery-item" onclick="showGalleryImage('rakvy', 'M18.jpg', 'M18')">
-                                    <img src="M18.jpg" alt="Model M18">
-                                    <div class="gallery-item-caption">M18</div>
-                                </div>
-                                <div class="gallery-item" onclick="showGalleryImage('rakvy', 'M10+P.jpg', 'M10+P')">
-                                    <img src="M10+P.jpg" alt="Model M10+P">
-                                    <div class="gallery-item-caption">M10+P</div>
-                                </div>
-                                <div class="gallery-item" onclick="showGalleryImage('rakvy', 'M17.jpg', 'M17')">
-                                    <img src="M17.jpg" alt="Model M17">
-                                    <div class="gallery-item-caption">M17</div>
-                                </div>
-                                <div class="gallery-item" onclick="showGalleryImage('rakvy', 'M10.jpg', 'M10')">
-                                    <img src="M10.jpg" alt="Model M10">
-                                    <div class="gallery-item-caption">M10</div>
-                                </div>
-                                <div class="gallery-item" onclick="showGalleryImage('rakvy', 'M8+P.jpg', 'M8+P')">
-                                    <img src="M8+P.jpg" alt="Model M8+P">
-                                    <div class="gallery-item-caption">M8+P</div>
-                                </div>
-                                <div class="gallery-item" onclick="showGalleryImage('rakvy', 'M21.jpg', 'M21')">
-                                    <img src="M21.jpg" alt="Model M21">
-                                    <div class="gallery-item-caption">M21</div>
-                                </div>
-                                <div class="gallery-item" onclick="showGalleryImage('rakvy', 'M3+P.jpg', 'M3+P')">
-                                    <img src="M3+P.jpg" alt="Model M3+P">
-                                    <div class="gallery-item-caption">M3+P</div>
-                                </div>
-                            </div>
-
-                            <a href="#" class="btn price-request-btn" onclick="showSection('kontakt')">Kontaktujte
-                                nás</a>
-                        </div>
-                        <div class="service-detail-image">
-                            <img id="rakvy-main-image" src="M20.jpg" alt="Výroba rakiev detail">
-                        </div>
-                    </div>
-                </div>
-
-                <div id="okna" class="service-detail">
-                    <a class="back-button" onclick="hideServiceDetail('okna')"></a>
-                    <h2>Výroba dreveného nábytku</h2>
-                    <div class="service-detail-grid">
-                        <div>
-                            <p>Vyrábame kvalitné drevené okná podľa vašich predstáv. Naše okná spĺňajú najvyššie
-                                štandardy kvality a poskytujú vynikajúcu tepelnú a zvukovú izoláciu.</p>
-                            <p>Ponúkame rôzne druhy profilov, zasklenia a povrchových úprav. Zabezpečujeme aj montáž a
-                                servis.</p>
-                            <p>Výhody našich okien:</p>
-                            <ul style="padding-left: 20px;">
-                                <li>Dlhá životnosť</li>
-                                <li>Vynikajúca tepelná izolácia</li>
-                                <li>Zvuková izolácia</li>
-                                <li>Ekologický materiál</li>
-                                <li>Elegantný vzhľad</li>
-                            </ul>
-
-                            <div class="gallery">
-                                <div class="gallery-item"
-                                    onclick="showGalleryImage('okna', 'dvere_fra.jpg', 'Drevené dvere')">
-                                    <img src="dvere_fra.jpg" alt="Drevené dvere">
-                                    <div class="gallery-item-caption">Drevené dvere</div>
-                                </div>
-                                <div class="gallery-item"
-                                    onclick="showGalleryImage('okna', 'schody_tocive.jpg', 'Točité schody')">
-                                    <img src="schody_tocive.jpg" alt="Točité schody">
-                                    <div class="gallery-item-caption">Točité schody</div>
-                                </div>
-                                <div class="gallery-item"
-                                    onclick="showGalleryImage('okna', 'trojokno.jpg', 'Trojité okno')">
-                                    <img src="trojokno.jpg" alt="Trojité okno">
-                                    <div class="gallery-item-caption">Trojité okno</div>
-                                </div>
-                                <div class="gallery-item" onclick="showGalleryImage('okna', 'd1.jpg', 'Model D1')">
-                                    <img src="d1.jpg" alt="Model D1">
-                                    <div class="gallery-item-caption">D1</div>
-                                </div>
-                                <div class="gallery-item" onclick="showGalleryImage('okna', 'd2.jpg', 'Model D2')">
-                                    <img src="d2.jpg" alt="Model D2">
-                                    <div class="gallery-item-caption">D2</div>
-                                </div>
-                                <div class="gallery-item" onclick="showGalleryImage('okna', 'd3.jpg', 'Model D3')">
-                                    <img src="d3.jpg" alt="Model D3">
-                                    <div class="gallery-item-caption">D3</div>
-                                </div>
-                                <div class="gallery-item" onclick="showGalleryImage('okna', 'd4.jpg', 'Model D4')">
-                                    <img src="d4.jpg" alt="Model D4">
-                                    <div class="gallery-item-caption">D4</div>
-                                </div>
-                                <div class="gallery-item" onclick="showGalleryImage('okna', 'd5.jpg', 'Model D5')">
-                                    <img src="d5.jpg" alt="Model D5">
-                                    <div class="gallery-item-caption">D5</div>
-                                </div>
-                                <div class="gallery-item" onclick="showGalleryImage('okna', 'd6.jpg', 'Model D6')">
-                                    <img src="d6.jpg" alt="Model D6">
-                                    <div class="gallery-item-caption">D6</div>
-                                </div>
-                                <div class="gallery-item" onclick="showGalleryImage('okna', 'd7.jpg', 'Model D7')">
-                                    <img src="d7.jpg" alt="Model D7">
-                                    <div class="gallery-item-caption">D7</div>
-                                </div>
-                                <div class="gallery-item" onclick="showGalleryImage('okna', 'd8.jpg', 'Model D8')">
-                                    <img src="d8.jpg" alt="Model D8">
-                                    <div class="gallery-item-caption">D8</div>
-                                </div>
-                                <div class="gallery-item" onclick="showGalleryImage('okna', 'balkon.jpg', 'Balkón')">
-                                    <img src="balkon.jpg" alt="Balkón">
-                                    <div class="gallery-item-caption">Balkón</div>
-                                </div>
-                                <div class="gallery-item" onclick="showGalleryImage('okna', 'okno.jpg', 'Okno')">
-                                    <img src="okno.jpg" alt="Okno">
-                                    <div class="gallery-item-caption">Okno</div>
-                                </div>
-                                <div class="gallery-item" onclick="showGalleryImage('okna', 'okno2.jpg', 'Okno 2')">
-                                    <img src="okno2.jpg" alt="Okno 2">
-                                    <div class="gallery-item-caption">Okno 2</div>
-                                </div>
-                                <div class="gallery-item" onclick="showGalleryImage('okna', 'okno3.jpg', 'Okno 3')">
-                                    <img src="okno3.jpg" alt="Okno 3">
-                                    <div class="gallery-item-caption">Okno 3</div>
-                                </div>
-                                <div class="gallery-item" onclick="showGalleryImage('okna', 'schod.jpg', 'Schod')">
-                                    <img src="schod.jpg" alt="Schod">
-                                    <div class="gallery-item-caption">Schod</div>
-                                </div>
-                                <div class="gallery-item" onclick="showGalleryImage('okna', 'schod2.jpg', 'Schod 2')">
-                                    <img src="schod2.jpg" alt="Schod 2">
-                                    <div class="gallery-item-caption">Schod 2</div>
-                                </div>
-                            </div>
-
-                            <a href="#" class="btn price-request-btn" onclick="showSection('kontakt')">Vyžiadať cenovú
-                                ponuku</a>
-                        </div>
-                        <div class="service-detail-image">
-                            <img id="okna-main-image" src="schody_tocive.jpg" alt="Výroba dreveného nábytku detail">
-                        </div>
-                    </div>
-                </div>
-
-                <div id="brikety" class="service-detail">
-                    <a class="back-button" onclick="hideServiceDetail('brikety')"></a>
-                    <h2>Predaj brikiet</h2>
-                    <div class="service-detail-grid">
-                        <div>
-                            <p>V našej ponuke nájdete kvalitné drevené brikety, vyrobené z čistých drevených pilín a
-                                hoblín bez akýchkoľvek chemických prísad. Vznikajú lisovaním pri vysokom tlaku, čo im
-                                dodáva výnimočnú hustotu a vysokú výhrevnosť. Svojimi vlastnosťami sa podobajú
-                                klasickému drevu, no horia dlhšie a produkujú len minimálne množstvo popola.</p>
-                            <p>Naše brikety sú ideálnym riešením pre krby, kachle aj kotly – ekologické, praktické a
-                                jednoducho skladovateľné. Vďaka nízkej vlhkosti sa ľahko zapaľujú a sú šetrné k prírode
-                                aj vášmu domovu.</p>
-                            <p>Naše brikety sú ideálnym riešením pre krby, kachle aj kotly – ekologické, praktické a
-                                jednoducho skladovateľné. Vďaka nízkej vlhkosti sa ľahko zapaľujú a sú šetrné k prírode
-                                aj vášmu domovu.</p>
-                            <p>Pre jednoduché a rýchle zakladanie ohňa sú vám k dispozícii aj podpaľovacie triesky –
-                                suché, ľahko zápalné a mimoriadne účinné pri rozkurovaní.</p>
-                            <p>Prednosti našich brikiet:</p>
-                            <ul style="padding-left: 20px;">
-                                <li>Vysoká výhrevnosť</li>
-                                <li>Dlhá doba horenia</li>
-                                <li>Minimálne množstvo popola</li>
-                                <li>Ekologické palivo</li>
-                                <li>Jednoduché skladovanie</li>
-                            </ul>
-
-                            <div class="gallery">
-                                <div class="gallery-item"
-                                    onclick="showGalleryImage('brikety', 'briketa.jpg', 'Briketa')">
-                                    <img src="briketa.jpg" alt="Briketa">
-                                    <div class="gallery-item-caption">Briketa</div>
-                                </div>
-                                <div class="gallery-item"
-                                    onclick="showGalleryImage('brikety', 'drevo_briketa.jpg', 'Drevo na brikety')">
-                                    <img src="drevo_briketa.jpg" alt="Drevo na brikety">
-                                    <div class="gallery-item-caption">Drevo na brikety</div>
-                                </div>
-                                <div class="gallery-item"
-                                    onclick="showGalleryImage('brikety', 'stroj_1.jpg', 'Stroj 1')">
-                                    <img src="stroj_1.jpg" alt="Stroj 1">
-                                    <div class="gallery-item-caption">Stroj 1</div>
-                                </div>
-                                <div class="gallery-item"
-                                    onclick="showGalleryImage('brikety', 'stroj_2.jpg', 'Stroj 2')">
-                                    <img src="stroj_2.jpg" alt="Stroj 2">
-                                    <div class="gallery-item-caption">Stroj 2</div>
-                                </div>
-                            </div>
-
-                            <a href="#" class="btn price-request-btn" onclick="showSection('kontakt')">Objednať
-                                brikety</a>
-                        </div>
-                        <div class="service-detail-image">
-                            <img id="brikety-main-image" src="briketa.jpg" alt="Predaj brikiet detail">
-                        </div>
-                    </div>
-                </div>
+                <!-- Obsah sekcie Služby -->
             </section>
 
+            <!-- Sekcia Kontakt -->
             <section id="kontakt">
-                <div class="glass-card">
-                    <h2>Kontakt</h2>
-                    <div class="contact-grid">
-                        <div class="contact-info">
-                            <div class="contact-info-item">
-                                <i class="fas fa-map-marker-alt"></i>
-                                <div>
-                                    <h3>Adresa</h3>
-                                    <p>Radatice 219, 08242 Radatice</p>
-                                </div>
-                            </div>
-                            <div class="contact-info-item">
-                                <i class="fas fa-phone-alt"></i>
-                                <div>
-                                    <h3>Telefón</h3>
-                                    <p>+ 421 905 609 059</p>
-                                    <h3>Doprava</h3>
-                                    <p>+ 421 905 213 426</p>
-                                    <h3>Ekobrikety a palivové drevo</h3>
-                                    <p>+ 421 908 124 008</p>
-                                </div>
-                            </div>
-                            <div class="contact-info-item">
-                                <i class="fas fa-envelope"></i>
-                                <div>
-                                    <h3>Email</h3>
-                                    <p>petrostolarstvo@gmail.com</p>
-                                </div>
-                            </div>
-                            <div class="contact-info-item">
-                                <i class="fas fa-clock"></i>
-                                <div>
-                                    <h3>Otváracie hodiny</h3>
-                                    <p>Pondelok - Piatok: 8:00 - 18:00</p>
-                                    <p>Sobota: Na objednávku</p>
-                                    <p>Nedeľa: Zatvorené</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="contact-form">
-                            <h3>Napíšte nám</h3>
-                            <form action="https://formspree.io/f/xgvkeypd" method="POST">
-                                <div class="form-group">
-                                    <label for="name">Meno a priezvisko</label>
-                                    <input type="text" id="name" name="name" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="email">Email</label>
-                                    <input type="email" id="email" name="email" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="phone">Telefón</label>
-                                    <input type="tel" id="phone" name="phone">
-                                </div>
-                                <div class="form-group">
-                                    <label for="message">Správa</label>
-                                    <textarea id="message" name="message" required></textarea>
-                                </div>
-                                <button type="submit" class="form-button">Odoslať správu</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
+                <!-- Obsah sekcie Kontakt -->
             </section>
         </main>
 
+        <!-- Päta -->
         <footer>
             <div class="footer-content">
                 <div class="social-icons">
@@ -1154,86 +405,125 @@
     </div>
 
     <script>
-        // Zobrazí zvolenú sekciu a skryje ostatné
+        // ====================
+        // ZÁKLADNÉ FUNKCIE
+        // ====================
+
+        /**
+         * Zobrazí konkrétnu sekciu a skryje ostatné
+         * @param {string} sectionId - ID sekcie ktorá sa má zobraziť
+         */
         function showSection(sectionId) {
             // Skryjeme všetky sekcie
-            const sections = document.querySelectorAll('section');
-            sections.forEach(section => {
+            document.querySelectorAll('section').forEach(section => {
                 section.classList.remove('active');
             });
 
-            // Zobrazíme zvolenú sekciu
+            // Zobrazíme požadovanú sekciu
             document.getElementById(sectionId).classList.add('active');
 
-            // Aktualizujeme aktívne tlačidlo v navigácii
-            const navLinks = document.querySelectorAll('nav a');
-            navLinks.forEach(link => {
+            // Aktualizujeme aktívny stav v navigácii
+            document.querySelectorAll('nav a').forEach(link => {
                 link.classList.remove('active');
             });
-            document.getElementById('nav-' + sectionId).classList.add('active');
+            document.getElementById(`nav-${sectionId}`).classList.add('active');
 
             // Skryjeme detaily služieb ak sú zobrazené
-            const serviceDetails = document.querySelectorAll('.service-detail');
-            serviceDetails.forEach(detail => {
+            document.querySelectorAll('.service-detail').forEach(detail => {
                 detail.classList.remove('active');
             });
 
-            // Scrollneme hore
             window.scrollTo(0, 0);
         }
 
-        // Zobrazí detail zvolenej služby
+        /**
+         * Zobrazí detail konkrétnej služby
+         * @param {string} serviceId - ID služby ktorá sa má zobraziť
+         */
         function showServiceDetail(serviceId) {
-            // Najprv skryjeme všetky detaily služieb
-            const serviceDetails = document.querySelectorAll('.service-detail');
-            serviceDetails.forEach(detail => {
+            // Skryjeme všetky detaily služieb
+            document.querySelectorAll('.service-detail').forEach(detail => {
                 detail.classList.remove('active');
             });
 
-            // Potom zobrazíme požadovaný detail
-            document.getElementById(serviceId).classList.add('active');
-
-            // Scrollneme k detailu služby
-            document.getElementById(serviceId).scrollIntoView({ behavior: 'smooth' });
+            // Zobrazíme požadovaný detail
+            const detailElement = document.getElementById(serviceId);
+            detailElement.classList.add('active');
+            detailElement.scrollIntoView({ behavior: 'smooth' });
         }
 
-        // Skryje detail služby
+        /**
+         * Skryje detail služby
+         * @param {string} serviceId - ID služby ktorá sa má skryť
+         */
         function hideServiceDetail(serviceId) {
             document.getElementById(serviceId).classList.remove('active');
         }
 
-        // Gallery functionality
+        /**
+         * Aktualizuje hlavný obrázok v galérii
+         * @param {string} section - Sekcia galérie
+         * @param {string} imageSrc - Cesta k obrázku
+         * @param {string} altText - Alternatívny text
+         */
         function showGalleryImage(section, imageSrc, altText) {
-            document.getElementById(section + '-main-image').src = imageSrc;
-            document.getElementById(section + '-main-image').alt = altText;
+            const imgElement = document.getElementById(`${section}-main-image`);
+            imgElement.src = imageSrc;
+            imgElement.alt = altText;
         }
 
-        // Po načítaní stránky zobrazíme sekciu O nás
-        window.onload = function () {
-            showSection('onas');
-        };
+        // ====================
+        // DARK MODE FUNKCIE
+        // ====================
 
-        // Dark mode funkcionalita
+        // Inicializácia dark mode tlačidla
         const darkModeToggle = document.getElementById('darkModeToggle');
         const body = document.body;
 
-        // Skontrolujte lokálne úložisko pre dark mode
+        // Skontroluje uložené preferencie dark módu
         if (localStorage.getItem('darkMode') === 'enabled') {
+            enableDarkMode();
+        }
+
+        // Pridanie event listenera pre prepínanie dark módu
+        darkModeToggle.addEventListener('click', toggleDarkMode);
+
+        /**
+         * Prepína dark mode
+         */
+        function toggleDarkMode() {
+            if (body.classList.contains('dark-mode')) {
+                disableDarkMode();
+            } else {
+                enableDarkMode();
+            }
+        }
+
+        /**
+         * Aktivuje dark mode
+         */
+        function enableDarkMode() {
             body.classList.add('dark-mode');
+            localStorage.setItem('darkMode', 'enabled');
             darkModeToggle.innerHTML = '<i class="fas fa-sun"></i>';
         }
 
-        // Prepínanie dark módu
-        darkModeToggle.addEventListener('click', () => {
-            body.classList.toggle('dark-mode');
+        /**
+         * Deaktivuje dark mode
+         */
+        function disableDarkMode() {
+            body.classList.remove('dark-mode');
+            localStorage.setItem('darkMode', 'disabled');
+            darkModeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+        }
 
-            if (body.classList.contains('dark-mode')) {
-                localStorage.setItem('darkMode', 'enabled');
-                darkModeToggle.innerHTML = '<i class="fas fa-sun"></i>';
-            } else {
-                localStorage.setItem('darkMode', 'disabled');
-                darkModeToggle.innerHTML = '<i class="fas fa-moon"></i>';
-            }
+        // ====================
+        // INICIALIZÁCIA STRÁNKY
+        // ====================
+
+        // Pri načítaní stránky zobrazíme sekciu O nás
+        window.addEventListener('DOMContentLoaded', () => {
+            showSection('onas');
         });
     </script>
 </body>

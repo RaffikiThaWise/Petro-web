@@ -7,6 +7,60 @@
     <title>Stolárstvo Petro</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        @media (max-width: 768px) {
+
+            /* Oprava pre kontaktné informácie */
+            .contact-info {
+                padding: 1rem !important;
+                text-align: left !important;
+            }
+
+            /* Oprava pre formulár */
+            .contact-form {
+                padding: 1rem !important;
+            }
+
+            /* Oprava pre zarovnanie textu v kontaktných položkách */
+            .contact-info-item div {
+                width: 100%;
+                text-align: left;
+                padding-left: 0;
+            }
+
+            /* Odstránenie prílišného odsadenia */
+            .contact-info-item {
+                padding-left: 0;
+                margin-left: 0;
+            }
+
+            /* Zarovnanie ikon */
+            .contact-info-item i {
+                margin-right: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+
+            /* Ešte výraznejšie úpravy pre veľmi malé obrazovky */
+            .contact-grid {
+                padding: 0 !important;
+            }
+
+            .contact-info,
+            .contact-form {
+                margin: 0;
+                width: 100%;
+                border-radius: 0 !important;
+            }
+
+            /* Zarovnanie nadpisov "Napíšte nám" */
+            .contact-form h3 {
+                text-align: left;
+                padding-left: 0;
+            }
+        }
+
+
         :root {
             --primary: #5D4037;
             --primary-light: #8D6E63;

@@ -1127,46 +1127,45 @@
                 <h2>Naše služby</h2>
             </div>
 
-            <div class="services-grid">
-                <div class="service-card" onclick="showServiceDetail('coffins')">
-                    <div class="service-card-img">
-                        <img src="M21_Amerika_01.jpg" alt="Výroba rakiev">
-                    </div>
-                    <div class="service-card-content">
-                        <h3>Výroba rakiev</h3>
-                        <p>Kvalitné a dôstojné rakvy vyrobené z rôznych druhov dreva podľa vašich požiadaviek.</p>
-                        <a href="#" class="btn btn-outline">
-                            <i class="fas fa-arrow-right"></i> Zobraziť detail
-                        </a>
-                    </div>
+            <div class="service-card" onclick="showServiceDetail('coffins')">
+                <div class="service-card-img">
+                    <img src="M21_Amerika_01.jpg" alt="Výroba rakiev">
                 </div>
-
-                <div class="service-card" onclick="showServiceDetail('furniture')">
-                    <div class="service-card-img">
-                        <img src="schody_tocive.jpg" alt="Drevený nábytok">
-                    </div>
-                    <div class="service-card-content">
-                        <h3>Drevený nábytok</h3>
-                        <p>Exkluzívny nábytok na mieru vyrobený z kvalitných materiálov podľa vášho návrhu.</p>
-                        <a href="#" class="btn btn-outline">
-                            <i class="fas fa-arrow-right"></i> Zobraziť detail
-                        </a>
-                    </div>
-                </div>
-
-                <div class="service-card" onclick="showServiceDetail('briquettes')">
-                    <div class="service-card-img">
-                        <img src="briketa.jpg" alt="EKO brikety">
-                    </div>
-                    <div class="service-card-content">
-                        <h3>EKO brikety</h3>
-                        <p>Vysoko kvalitné drevené brikety vyrábané z čistých pilín bez chemických prísad.</p>
-                        <a href="#" class="btn btn-outline">
-                            <i class="fas fa-arrow-right"></i> Zobraziť detail
-                        </a>
-                    </div>
+                <div class="service-card-content">
+                    <h3>Výroba rakiev</h3>
+                    <p>Kvalitné a dôstojné rakvy vyrobené z rôznych druhov dreva podľa vašich požiadaviek.</p>
+                    <button class="btn btn-outline" onclick="showServiceDetail('coffins', event)">
+                        <i class="fas fa-arrow-right"></i> Zobraziť detail
+                    </button>
                 </div>
             </div>
+
+            <div class="service-card" onclick="showServiceDetail('furniture')">
+                <div class="service-card-img">
+                    <img src="schody_tocive.jpg" alt="Drevený nábytok">
+                </div>
+                <div class="service-card-content">
+                    <h3>Drevený nábytok</h3>
+                    <p>Exkluzívny nábytok na mieru vyrobený z kvalitných materiálov podľa vášho návrhu.</p>
+                    <a href="#" class="btn btn-outline">
+                        <i class="fas fa-arrow-right"></i> Zobraziť detail
+                    </a>
+                </div>
+            </div>
+
+            <div class="service-card" onclick="showServiceDetail('briquettes')">
+                <div class="service-card-img">
+                    <img src="briketa.jpg" alt="EKO brikety">
+                </div>
+                <div class="service-card-content">
+                    <h3>EKO brikety</h3>
+                    <p>Vysoko kvalitné drevené brikety vyrábané z čistých pilín bez chemických prísad.</p>
+                    <a href="#" class="btn btn-outline">
+                        <i class="fas fa-arrow-right"></i> Zobraziť detail
+                    </a>
+                </div>
+            </div>
+        </div>
         </div>
     </section>
 
@@ -1182,37 +1181,46 @@
 
             <div class="service-detail-content">
                 <div class="service-detail-text">
-                    <p>Ponúkame široký výber rakiev vyrobených z kvalitného dreva, ktoré spĺňajú najvyššie štandardy.
-                        Každá rakva je vyrábaná s úctou a respektom k zosnulému.</p>
-
-                    <h3>Používané materiály:</h3>
-                    <ul class="service-features">
-                        <li>Dub - trvanlivý a pevný materiál</li>
-                        <li>Buk - jemná textúra a príjemný vzhľad</li>
-                        <li>Borovica - ľahký a cenovo dostupný variant</li>
-                        <li>Smrek - klasický výber s jemnou textúrou</li>
-                    </ul>
-
-                    <h3>Dostupné modely:</h3>
-                    <ul class="service-features">
-                        <li>M21 Amerika - luxusný model s jemnými detaily</li>
-                        <li>M10 - klasický tvar s možnosťou personalizácie</li>
-                        <li>M8+P - praktické riešenie s odnímateľným vekom</li>
-                        <li>M3+P - jednoduchý a elegantný dizajn</li>
-                    </ul>
-
+                    <!-- Content remains the same -->
                     <div class="gallery" id="gallery-coffins"></div>
-
-                    <a href="#" class="btn btn-primary" onclick="showSection('contact', event)">
-                        <i class="fas fa-envelope"></i> Požiadať o cenovú ponuku
-                    </a>
-                </div>
-
-                <div class="service-detail-image">
-                    <img src="M21_Amerika_01.jpg" alt="Výroba rakiev detail">
                 </div>
             </div>
         </div>
+    </div>
+
+    <div class="service-detail-content">
+        <div class="service-detail-text">
+            <p>Ponúkame široký výber rakiev vyrobených z kvalitného dreva, ktoré spĺňajú najvyššie štandardy.
+                Každá rakva je vyrábaná s úctou a respektom k zosnulému.</p>
+
+            <h3>Používané materiály:</h3>
+            <ul class="service-features">
+                <li>Dub - trvanlivý a pevný materiál</li>
+                <li>Buk - jemná textúra a príjemný vzhľad</li>
+                <li>Borovica - ľahký a cenovo dostupný variant</li>
+                <li>Smrek - klasický výber s jemnou textúrou</li>
+            </ul>
+
+            <h3>Dostupné modely:</h3>
+            <ul class="service-features">
+                <li>M21 Amerika - luxusný model s jemnými detaily</li>
+                <li>M10 - klasický tvar s možnosťou personalizácie</li>
+                <li>M8+P - praktické riešenie s odnímateľným vekom</li>
+                <li>M3+P - jednoduchý a elegantný dizajn</li>
+            </ul>
+
+            <div class="gallery" id="gallery-coffins"></div>
+
+            <a href="#" class="btn btn-primary" onclick="showSection('contact', event)">
+                <i class="fas fa-envelope"></i> Požiadať o cenovú ponuku
+            </a>
+        </div>
+
+        <div class="service-detail-image">
+            <img src="M21_Amerika_01.jpg" alt="Výroba rakiev detail">
+        </div>
+    </div>
+    </div>
     </div>
 
     <div class="service-detail" id="furniture">

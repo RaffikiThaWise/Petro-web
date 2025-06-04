@@ -380,6 +380,8 @@
             min-height: 800px;
             display: flex;
             align-items: center;
+            justify-content: center;
+            /* Center content horizontally */
             position: relative;
             overflow: hidden;
             background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('hero-bg.jpg') no-repeat center center/cover;
@@ -393,7 +395,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3));
+            background: linear-gradient(to right, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.2));
             z-index: 1;
         }
 
@@ -401,6 +403,8 @@
             position: relative;
             z-index: 2;
             max-width: 800px;
+            text-align: center;
+            /* Center text and other inline elements */
         }
 
         .hero h1 {
@@ -415,6 +419,10 @@
             margin-bottom: 2.5rem;
             opacity: 0;
             animation: fadeInUp 1s ease 0.3s forwards;
+            max-width: 600px;
+            /* Constrain paragraph width */
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .hero-btns {
@@ -422,6 +430,8 @@
             gap: 1.5rem;
             opacity: 0;
             animation: fadeInUp 1s ease 0.6s forwards;
+            justify-content: center;
+            /* Center flex items (buttons) */
         }
 
         @keyframes fadeInUp {
@@ -561,8 +571,11 @@
 
         .service-detail-header {
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
+            /* Center the title */
             align-items: center;
+            position: relative;
+            /* New context for the back button */
             margin-bottom: calc(var(--spacing-unit) * 3);
         }
 
@@ -577,6 +590,10 @@
             font-weight: 600;
             cursor: pointer;
             transition: var(--transition);
+            position: absolute;
+            /* Take button out of flow */
+            left: 0;
+            /* Position to the far left */
         }
 
         .back-btn:hover {
@@ -1003,9 +1020,13 @@
                 flex-direction: column;
                 align-items: flex-start;
                 gap: 1.5rem;
+                position: static;
+                /* Revert for mobile */
             }
 
             .back-btn {
+                position: static;
+                /* Revert for mobile */
                 align-self: flex-start;
             }
         }
@@ -1165,10 +1186,10 @@
     <div class="service-detail" id="coffins">
         <div class="container">
             <div class="service-detail-header">
-                <h2>Výroba rakiev</h2>
                 <button class="back-btn" onclick="hideServiceDetail('coffins')">
                     <i class="fas fa-arrow-left"></i> Späť na služby
                 </button>
+                <h2>Výroba rakiev</h2>
             </div>
             <div class="service-detail-content">
                 <div class="service-detail-text">
@@ -1204,10 +1225,10 @@
     <div class="service-detail" id="furniture">
         <div class="container">
             <div class="service-detail-header">
-                <h2>Drevený nábytok</h2>
                 <button class="back-btn" onclick="hideServiceDetail('furniture')">
                     <i class="fas fa-arrow-left"></i> Späť na služby
                 </button>
+                <h2>Drevený nábytok</h2>
             </div>
             <div class="service-detail-content">
                 <div class="service-detail-text">
@@ -1245,10 +1266,10 @@
     <div class="service-detail" id="briquettes">
         <div class="container">
             <div class="service-detail-header">
-                <h2>EKO brikety</h2>
                 <button class="back-btn" onclick="hideServiceDetail('briquettes')">
                     <i class="fas fa-arrow-left"></i> Späť na služby
                 </button>
+                <h2>EKO brikety</h2>
             </div>
             <div class="service-detail-content">
                 <div class="service-detail-text">

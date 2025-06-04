@@ -678,42 +678,76 @@
         /* ============================================= */
         /* 10. Gallery */
         /* ============================================= */
-        .gallery {
+        .
+
+        /* ============================================= */
+        /* 10. Gallery - Updated for service detail */
+        /* ============================================= */
+        .service-detail .gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-            gap: 1rem;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
             margin-top: 3rem;
             padding-top: 3rem;
             border-top: 1px solid var(--color-border);
         }
 
-        body.dark-mode .gallery {
+        body.dark-mode .service-detail .gallery {
             border-top-color: var(--color-dark-border);
         }
 
-        .gallery-item {
+        .service-detail .gallery-item {
             position: relative;
             border-radius: var(--border-radius);
             overflow: hidden;
             aspect-ratio: 1 / 1;
             cursor: pointer;
             transition: var(--transition);
+            display: flex;
+            flex-direction: column;
         }
 
-        .gallery-item:hover {
-            transform: scale(1.05);
+        .service-detail .gallery-item:hover {
+            transform: scale(1.03);
             box-shadow: var(--shadow-md);
         }
 
-        .gallery-item img {
+        .service-detail .gallery-item img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             transition: var(--transition);
+            flex: 1;
         }
 
-        .gallery-item:hover img {
-            transform: scale(1.1);
+        .service-detail .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .service-detail .gallery-caption {
+            padding: 1rem 0;
+            text-align: center;
+            font-weight: 500;
+            color: var(--color-primary-dark);
+            font-family: var(--font-secondary);
+        }
+
+        body.dark-mode .service-detail .gallery-caption {
+            color: var(--color-accent);
+        }
+
+        @media (max-width: 768px) {
+            .service-detail .gallery {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                gap: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .service-detail .gallery {
+                grid-template-columns: 1fr 1fr;
+                gap: 1rem;
+            }
         }
 
         /* ============================================= */
@@ -1648,7 +1682,10 @@
                     galleryData[galleryId].forEach((item, index) => {
                         const galleryItem = document.createElement('div');
                         galleryItem.className = 'gallery-item';
-                        galleryItem.innerHTML = `<img src="${item.src}" alt="${item.caption}">`;
+                        galleryItem.innerHTML = `
+                <img src="${item.src}" alt="${item.caption}">
+                <div class="gallery-caption">${item.caption}</div>
+            `;
                         galleryItem.addEventListener('click', () => openLightbox(galleryId, index));
                         galleryContainer.appendChild(galleryItem);
                     });

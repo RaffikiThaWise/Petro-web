@@ -4,59 +4,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stolárstvo Petro | Prémiová Drevovýroba</title>
+    <title>Stolárstvo Petro | Luxusná Drevovýroba</title>
+    <meta name="description"
+        content="Prémiové stolárske výrobky a remeselné riešenia z kvalitného dreva. Rodinná tradícia od roku 1990.">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
         rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+
     <style>
-        /* ----------------------------------- */
-        /* 1. ZÁKLADNÉ NASTAVENIA & PREMENNÉ (NOVÝ DIZAJN) */
-        /* ----------------------------------- */
+        /* ============================================= */
+        /* 1. CSS Variables & Base Styles */
+        /* ============================================= */
         :root {
-            /* Modernizovaná farebná paleta */
-            --color-primary: #795548;
-            /* Sofistikovaná hnedá */
-            --color-primary-dark: #4E342E;
-            /* Hlboká tmavohnedá */
-            --color-primary-light: #A1887F;
-            /* Svetlá, tlmená hnedá */
-            --color-accent: #FFAB91;
-            /* Jemný broskyňový akcent */
-            --color-background-light: #F9F6F4;
-            /* Teplá off-white */
+            /* Color Palette */
+            --color-primary: #8B5F4C;
+            --color-primary-dark: #5A3A2C;
+            --color-primary-light: #C0A89C;
+            --color-accent: #E8D8C8;
+            --color-background: #F9F6F2;
+            --color-text: #2C2C2C;
             --color-text-light: #FFFFFF;
-            --color-text-dark: #3E2723;
-            /* Mäkká tmavohnedá */
-            --color-border: rgba(62, 39, 35, 0.1);
-            /* Jemný okraj */
+            --color-border: rgba(0, 0, 0, 0.08);
 
-            /* Premenné pre Dark Mode */
-            --color-background-dark: #1C1A19;
-            --color-surface-dark: #282422;
-            --color-text-dark-theme: #EAE0D9;
-            --color-border-dark: rgba(234, 224, 217, 0.15);
+            /* Dark Mode Colors */
+            --color-dark-bg: #121212;
+            --color-dark-surface: #1E1E1E;
+            --color-dark-text: #F0F0F0;
+            --color-dark-border: rgba(255, 255, 255, 0.12);
 
-            /* Ostatné premenné */
-            --font-family: 'Poppins', sans-serif;
-            --font-weight-light: 300;
-            --font-weight-regular: 400;
-            --font-weight-medium: 500;
-            --font-weight-semibold: 600;
-            --font-weight-bold: 700;
-            --font-weight-extrabold: 800;
+            /* Typography */
+            --font-primary: 'Montserrat', sans-serif;
+            --font-secondary: 'Playfair Display', serif;
 
-            --border-radius: 12px;
-            /* Mierne zmenšený pre elegantnejší vzhľad */
-            --shadow: 0 10px 35px rgba(0, 0, 0, 0.07);
-            --shadow-strong: 0 15px 45px rgba(0, 0, 0, 0.1);
-            --transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+            /* Spacing & Sizing */
             --spacing-unit: 1rem;
-            /* Základná jednotka medzier (16px) */
+            --border-radius: 12px;
+            --border-radius-lg: 24px;
+            --max-width: 1440px;
+
+            /* Effects */
+            --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.15);
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         *,
@@ -70,264 +70,166 @@
         html {
             scroll-behavior: smooth;
             font-size: 100%;
-            /* 16px */
         }
 
         body {
-            font-family: var(--font-family);
-            background-color: var(--color-background-light);
-            color: var(--color-text-dark);
+            font-family: var(--font-primary);
+            background-color: var(--color-background);
+            color: var(--color-text);
             line-height: 1.7;
-            /* Vylepšená čitateľnosť */
+            /* Increased for better readability */
+            overflow-x: hidden;
             transition: background-color var(--transition), color var(--transition);
+            /* Added color transition */
             min-height: 100vh;
             display: flex;
             flex-direction: column;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
         }
 
-        /* ----------------------------------- */
-        /* 2. DARK MODE (NOVÝ DIZAJN) */
-        /* ----------------------------------- */
+        main {
+            flex-grow: 1;
+            padding-top: 90px;
+            /* Height of fixed header, adjust if needed */
+        }
+
+
         body.dark-mode {
-            background-color: var(--color-background-dark);
-            color: var(--color-text-dark-theme);
+            background-color: var(--color-dark-bg);
+            color: var(--color-dark-text);
         }
 
-        body.dark-mode .content-card,
-        /* Zmena z glass-card na content-card */
-        body.dark-mode .service-card,
-        body.dark-mode .contact-info-box,
-        /* Nový názov */
-        body.dark-mode .contact-form-box,
-        /* Nový názov */
-        body.dark-mode .service-detail .content-card {
-            background-color: var(--color-surface-dark);
-            border-color: var(--color-border-dark);
-        }
-
-        body.dark-mode header {
-            background-color: rgba(28, 26, 25, 0.85);
-            /* Tmavšie pre dark mode */
-            border-bottom-color: var(--color-border-dark);
-        }
-
-        body.dark-mode .logo h1,
-        body.dark-mode nav a,
-        body.dark-mode .contact-info-item p,
-        body.dark-mode .form-group label {
-            color: var(--color-text-dark-theme);
-        }
-
-        body.dark-mode h1,
-        body.dark-mode h2,
-        body.dark-mode h3,
-        body.dark-mode h4 {
-            color: var(--color-primary-light);
-            /* Svetlejšie nadpisy v dark mode */
-        }
-
-        body.dark-mode .hero-subtitle {
-            color: var(--color-text-dark-theme);
-        }
-
-        body.dark-mode .form-group input,
-        body.dark-mode .form-group textarea {
-            background-color: var(--color-background-dark);
-            /* Tmavší vstup */
-            color: var(--color-text-dark-theme);
-            border-color: var(--color-border-dark);
-            /* Svetlejší okraj pre kontrast */
-        }
-
-        body.dark-mode .form-group input::placeholder,
-        body.dark-mode .form-group textarea::placeholder {
-            color: rgba(234, 224, 217, 0.6);
-        }
-
-
-        body.dark-mode footer {
-            background-color: #121212;
-            /* Ešte tmavší footer */
-            border-top: 1px solid var(--color-border-dark);
-        }
-
-        body.dark-mode .social-icons a {
-            background-color: rgba(255, 255, 255, 0.1);
-            color: var(--color-text-dark-theme);
-        }
-
-        body.dark-mode .btn {
-            background-color: var(--color-primary-light);
-            color: var(--color-background-dark);
-            /* Text na tlačidle tmavý pre kontrast */
-            border-color: var(--color-primary-light);
-        }
-
-        body.dark-mode .btn:hover {
-            background-color: var(--color-accent);
-        }
-
-
-        body.dark-mode .btn-outline {
-            color: var(--color-primary-light);
-            border-color: var(--color-primary-light);
-        }
-
-        body.dark-mode .btn-outline:hover {
-            background-color: var(--color-primary-light);
-            color: var(--color-background-dark);
-        }
-
-        body.dark-mode .back-button {
-            border-color: var(--color-border-dark);
-            color: var(--color-primary-light);
-            background-color: var(--color-surface-dark);
-            /* Lepší kontrast */
-        }
-
-        body.dark-mode .back-button:hover {
-            background-color: rgba(255, 255, 255, 0.1);
-        }
-
-        body.dark-mode .gallery {
-            border-top-color: var(--color-border-dark);
-        }
-
-        body.dark-mode .contact-info {
-            border-right-color: var(--color-border-dark);
-        }
-
-        body.dark-mode .about-image-wrapper {
-            background-color: var(--color-surface-dark);
-        }
-
-
-        /* ----------------------------------- */
-        /* 3. GLOBÁLNE KOMPONENTY (NOVÝ DIZAJN) */
-        /* ----------------------------------- */
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            /* Konzistentná šírka */
-            margin: 0 auto;
-            padding: 0 var(--spacing-unit);
-        }
-
+        /* ============================================= */
+        /* 2. Typography */
+        /* ============================================= */
         h1,
         h2,
         h3,
-        h4,
-        h5,
-        h6 {
-            font-weight: var(--font-weight-semibold);
+        h4 {
+            font-family: var(--font-secondary);
+            font-weight: 600;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
             color: var(--color-primary-dark);
-            /* Konzistentná farba pre nadpisy */
+            /* Base color for headings */
         }
 
         h1 {
-            font-size: clamp(2.5rem, 5vw, 3.8rem);
-            /* Responzívny font size */
-            font-weight: var(--font-weight-bold);
-            line-height: 1.2;
-            margin-bottom: calc(1.5 * var(--spacing-unit));
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            letter-spacing: -0.05em;
         }
 
         h2 {
-            font-size: clamp(2rem, 4vw, 2.8rem);
-            /* Responzívny font size */
-            margin-bottom: calc(2.5 * var(--spacing-unit));
-            text-align: center;
+            font-size: clamp(2rem, 4vw, 3rem);
             position: relative;
-            padding-bottom: var(--spacing-unit);
+            display: inline-block;
+            /* For ::after to be positioned correctly */
         }
 
         h2::after {
-            /* Subtílnejší oddeľovač */
             content: '';
             position: absolute;
-            left: 50%;
-            bottom: 0;
-            transform: translateX(-50%);
-            width: 70px;
-            height: 3px;
-            background-color: var(--color-accent);
-            /* Akcentová farba */
-            border-radius: 3px;
+            bottom: -0.75rem;
+            left: 0;
+            width: 60%;
+            height: 4px;
+            background-color: var(--color-primary);
+            border-radius: 2px;
         }
 
         h3 {
-            font-size: clamp(1.3rem, 3vw, 1.75rem);
-            margin-bottom: var(--spacing-unit);
-            font-weight: var(--font-weight-semibold);
-            color: var(--color-primary);
+            font-size: clamp(1.5rem, 3vw, 2rem);
         }
-
-        h4 {
-            font-size: clamp(1.1rem, 2.5vw, 1.25rem);
-            margin-bottom: calc(0.5 * var(--spacing-unit));
-            font-weight: var(--font-weight-medium);
-        }
-
 
         p {
-            margin-bottom: calc(1.25 * var(--spacing-unit));
-            font-size: 1rem;
-            /* Základná veľkosť textu */
-            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+            /* Slightly increased paragraph font size */
+            line-height: 1.8;
+            /* Increased for better readability */
         }
 
-        strong {
-            font-weight: var(--font-weight-semibold);
-        }
-
-
-        .content-card {
-            /* Nový názov pre hlavné obsahové karty */
-            background-color: var(--color-text-light);
-            border: 1px solid var(--color-border);
-            border-radius: var(--border-radius);
-            padding: calc(2.5 * var(--spacing-unit));
-            /* Trochu viac paddingu */
-            box-shadow: var(--shadow);
-            margin-bottom: calc(2.5 * var(--spacing-unit));
+        a {
+            text-decoration: none;
+            color: inherit;
             transition: var(--transition);
+        }
+
+        /* ============================================= */
+        /* 3. Utility Classes */
+        /* ============================================= */
+        .container {
+            width: 100%;
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 calc(var(--spacing-unit) * 1.5);
+            /* Adjusted padding */
+        }
+
+        .section {
+            padding: calc(var(--spacing-unit) * 5) 0;
+            /* Adjusted padding */
+            position: relative;
+            display: none;
+            /* Sections hidden by default, JS will show them */
+        }
+
+        .section.active {
+            display: block;
+            animation: fadeIn 0.8s ease forwards;
+        }
+
+        /* Hero section is displayed by default, no .active needed initially */
+        .hero {
+            display: flex;
+            /* Keep flex for hero alignment */
+        }
+
+
+        .section-title {
+            text-align: center;
+            margin-bottom: calc(var(--spacing-unit) * 3);
+            /* Adjusted margin */
+        }
+
+        .section-title h2::after {
+            left: 50%;
+            transform: translateX(-50%);
         }
 
         .btn {
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             gap: 0.75rem;
-            /* Väčší gap */
-            background-color: var(--color-primary);
-            color: var(--color-text-light);
-            padding: 0.9rem 2.2rem;
-            /* Väčšie tlačidlá */
-            border-radius: 50px;
-            /* Plne zaoblené */
-            text-decoration: none;
-            font-weight: var(--font-weight-medium);
-            border: 2px solid transparent;
-            /* Priehľadný okraj pre konzistentnosť */
+            padding: 0.9rem 1.8rem;
+            /* Adjusted padding */
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-size: 0.85rem;
+            /* Adjusted font size */
             transition: var(--transition);
-            font-size: 0.95rem;
             cursor: pointer;
-            letter-spacing: 0.5px;
+            border: 2px solid transparent;
         }
 
-        .btn:hover {
+        .btn-primary {
+            background-color: var(--color-primary);
+            color: var(--color-text-light);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .btn-primary:hover {
             background-color: var(--color-primary-dark);
-            border-color: var(--color-primary-dark);
-            transform: translateY(-4px);
-            /* Subtílnejší hover efekt */
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
         }
 
         .btn-outline {
             background-color: transparent;
-            color: var(--color-primary);
             border-color: var(--color-primary);
+            color: var(--color-primary);
         }
 
         .btn-outline:hover {
@@ -335,56 +237,112 @@
             color: var(--color-text-light);
         }
 
-        .btn i {
-            /* Ikony v tlačidlách */
-            font-size: 1.1em;
+        .text-center {
+            text-align: center;
+        }
+
+        /* Animation observer classes (if needed, otherwise use general fadeIn) */
+        .hidden-anim {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .visible-anim {
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        /* ============================================= */
+        /* 4. Dark Mode Styles */
+        /* ============================================= */
+        body.dark-mode .card,
+        /* Assuming .card is a general class you might use */
+        body.dark-mode .service-card,
+        body.dark-mode .contact-info,
+        body.dark-mode .contact-form,
+        body.dark-mode .about-content-wrapper,
+        /* Added based on previous structures */
+        body.dark-mode .service-detail .content-card {
+            /* Added based on previous */
+            background-color: var(--color-dark-surface);
+            border-color: var(--color-dark-border);
+        }
+
+        body.dark-mode .about-image-wrapper {
+            /* From previous dark mode adjustments */
+            background-color: var(--color-dark-surface);
         }
 
 
-        section {
-            padding: calc(5 * var(--spacing-unit)) 0;
-            /* Väčšie medzery medzi sekciami */
-            display: none;
-            animation: fadeIn 0.7s ease-out forwards;
+        body.dark-mode h1,
+        body.dark-mode h2,
+        body.dark-mode h3,
+        body.dark-mode h4 {
+            /* Added H4 */
+            color: var(--color-accent);
         }
 
-        section.active {
-            display: block;
+        body.dark-mode .hero h1,
+        body.dark-mode .hero p {
+            /* Hero text stays light on dark bg */
+            color: var(--color-text-light);
         }
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(25px);
-            }
 
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        body.dark-mode .btn-outline {
+            border-color: var(--color-accent);
+            color: var(--color-accent);
         }
 
-        main {
-            flex-grow: 1;
+        body.dark-mode .btn-outline:hover {
+            background-color: var(--color-accent);
+            color: var(--color-dark-bg);
         }
 
-        /* ----------------------------------- */
-        /* 4. HEADER (NOVÝ DIZAJN) */
-        /* ----------------------------------- */
+        body.dark-mode .form-control {
+            background-color: var(--color-dark-surface);
+            color: var(--color-dark-text);
+            border-color: var(--color-dark-border);
+        }
+
+        body.dark-mode .form-control::placeholder {
+            color: rgba(240, 240, 240, 0.6);
+        }
+
+
+        /* ============================================= */
+        /* 5. Header & Navigation */
+        /* ============================================= */
         header {
-            position: sticky;
+            position: fixed;
             top: 0;
+            left: 0;
+            width: 100%;
             z-index: 1000;
-            padding: calc(1.25 * var(--spacing-unit)) 0;
-            background-color: rgba(249, 246, 244, 0.85);
-            /* Svetlejšie s blur */
+            padding: calc(var(--spacing-unit) * 1.25) 0;
+            /* Adjusted padding */
+            background-color: rgba(249, 246, 242, 0.9);
+            /* Slightly less opaque */
             backdrop-filter: blur(10px);
+            /* Adjusted blur */
             border-bottom: 1px solid var(--color-border);
-            transition: background-color var(--transition), border-color var(--transition);
-            box-shadow: 0 1px 10px rgba(0, 0, 0, 0.03);
+            transition: background-color var(--transition), border-color var(--transition), padding var(--transition);
         }
 
-        .header-content {
+        header.scrolled {
+            /* Optional: for shrinking header on scroll */
+            padding: calc(var(--spacing-unit) * 0.75) 0;
+            box-shadow: var(--shadow-sm);
+        }
+
+
+        body.dark-mode header {
+            background-color: rgba(30, 30, 30, 0.9);
+            border-bottom-color: var(--color-dark-border);
+        }
+
+        .header-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -393,84 +351,112 @@
         .logo {
             display: flex;
             align-items: center;
-            gap: 0.8rem;
-            /* Mierne väčší gap */
-            text-decoration: none;
+            gap: 0.75rem;
+            /* Adjusted gap */
         }
 
-        .logo-image {
-            width: 45px;
-            /* Mierne menšie pre sofistikovanejší vzhľad */
-            height: 45px;
+        .logo-img {
+            width: 50px;
+            /* Adjusted size */
+            height: 50px;
             object-fit: contain;
             border-radius: 50%;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
         }
 
-        .logo h1 {
-            font-size: 1.6rem;
-            /* Mierne menší text loga */
-            font-weight: var(--font-weight-bold);
+        .logo-text {
+            font-family: var(--font-secondary);
+            font-size: 1.4rem;
+            /* Adjusted size */
+            font-weight: 700;
             color: var(--color-primary-dark);
-            letter-spacing: -0.5px;
-            /* Jemné upravenie medzier */
         }
 
-        nav {
+        body.dark-mode .logo-text {
+            color: var(--color-accent);
+        }
+
+        .nav-links {
             display: flex;
             align-items: center;
-            gap: calc(2 * var(--spacing-unit));
-            /* Väčšie medzery v nav */
+            gap: calc(var(--spacing-unit) * 1.8);
+            /* Adjusted gap */
         }
 
-        nav a {
-            color: var(--color-text-dark);
-            text-decoration: none;
-            font-weight: var(--font-weight-medium);
-            font-size: 1rem;
-            /* Mierne menší font pre eleganciu */
+        .nav-link {
             position: relative;
-            padding: 0.4rem 0;
-            transition: color 0.3s;
+            font-weight: 500;
+            padding: 0.5rem 0;
+            color: var(--color-text);
+            font-size: 0.95rem;
+            /* Adjusted size */
         }
 
-        nav a::after {
-            /* Modernejší hover efekt */
+        body.dark-mode .nav-link {
+            color: var(--color-dark-text);
+        }
+
+        body.dark-mode .nav-link:hover {
+            color: var(--color-primary-light);
+        }
+
+        body.dark-mode .nav-link.active {
+            color: var(--color-primary-light);
+        }
+
+        body.dark-mode .nav-link.active::after {
+            background-color: var(--color-primary-light);
+        }
+
+
+        .nav-link::after {
             content: '';
             position: absolute;
-            bottom: -5px;
-            /* Mierne nižšie */
-            left: 50%;
-            transform: translateX(-50%);
+            bottom: 0;
+            left: 0;
             width: 0;
-            height: 2.5px;
-            /* Tenšia linka */
+            height: 2px;
             background-color: var(--color-primary);
-            border-radius: 2px;
-            transition: width 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            transition: var(--transition);
         }
 
-        nav a:hover,
-        nav a.active {
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            /* Added .active state color */
             color: var(--color-primary);
         }
 
-        nav a:hover::after,
-        nav a.active::after {
-            width: 60%;
-            /* Linka sa neroztiahne na 100% */
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--color-primary);
+            cursor: pointer;
+            z-index: 1001;
+            /* Ensure it's above nav-links when closed */
         }
 
-        .dark-mode-btn {
-            background: transparent;
-            border: 1px solid var(--color-border);
-            color: var(--color-primary-dark);
-            font-size: 1.1rem;
-            /* Mierne menšia ikona */
+        body.dark-mode .mobile-menu-btn {
+            color: var(--color-accent);
+        }
+
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            /* Adjusted size */
+            color: var(--color-primary);
             cursor: pointer;
-            width: 44px;
-            /* Konzistentná veľkosť */
-            height: 44px;
+            width: 40px;
+            /* Adjusted size */
+            height: 40px;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -478,362 +464,436 @@
             transition: var(--transition);
         }
 
-        body.dark-mode .dark-mode-btn {
-            color: var(--color-primary-light);
-            border-color: var(--color-border-dark);
+        .theme-toggle:hover {
+            background-color: rgba(139, 95, 76, 0.1);
         }
 
-        .dark-mode-btn:hover {
-            background-color: var(--color-primary-light);
-            border-color: var(--color-primary-light);
-            transform: scale(1.05) rotate(15deg);
+        body.dark-mode .theme-toggle {
+            color: var(--color-accent);
         }
 
-        body.dark-mode .dark-mode-btn:hover {
-            background-color: var(--color-surface-dark);
-            border-color: var(--color-surface-dark);
+        body.dark-mode .theme-toggle:hover {
+            background-color: rgba(232, 216, 200, 0.1);
+        }
+
+        /* ============================================= */
+        /* 6. Hero Section */
+        /* ============================================= */
+        .hero {
+            /* This is a .section, already has display: none; JS makes it active */
+            height: 90vh;
+            /* Adjusted height */
+            min-height: 700px;
+            /* Adjusted min-height */
+            display: flex;
+            /* This will be overridden by .section, but good for clarity */
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
+                /* Softer gradient */
+                url('hero-bg.jpg') no-repeat center center/cover;
+            color: var(--color-text-light);
+        }
+
+        .hero::before {
+            /* Darkening overlay */
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(var(--color-primary-dark-rgb, 90, 58, 44), 0.6), rgba(var(--color-primary-dark-rgb, 90, 58, 44), 0.2));
+            /* Used a variable for rgb components if you want to define --color-primary-dark-rgb: 90, 58, 44; in :root */
+            z-index: 1;
         }
 
 
-        /* ----------------------------------- */
-        /* 5. SEKCIE (NOVÝ DIZAJN) */
-        /* ----------------------------------- */
-
-        /* --- HERO SEKCIA (Pre O NÁS) --- */
-        #onas .hero-section {
-            text-align: center;
-            padding: calc(4 * var(--spacing-unit)) 0;
-            background-color: transparent;
-            /* Hero splynie s pozadím sekcie */
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 750px;
+            /* Adjusted width */
         }
 
-        #onas .hero-subtitle {
-            font-size: clamp(1rem, 2.5vw, 1.2rem);
-            color: var(--color-text-dark);
-            /* Farba pre dark mode sa riesi samostatne */
-            margin-bottom: calc(2.5 * var(--spacing-unit));
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-            font-weight: var(--font-weight-regular);
+        .hero h1 {
+            font-size: clamp(2.8rem, 6vw, 4.5rem);
+            /* Adjusted size */
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            animation: fadeInUp 0.8s ease forwards;
+            /* Adjusted timing */
+            color: var(--color-text-light);
+            /* Ensure color override for hero */
         }
 
-        #onas .hero-section .btn {
-            margin-top: var(--spacing-unit);
+        .hero p {
+            font-size: clamp(1.05rem, 2vw, 1.3rem);
+            /* Adjusted size */
+            margin-bottom: 2.5rem;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease 0.2s forwards;
+            /* Adjusted timing */
+            color: var(--color-text-light);
+            /* Ensure color override for hero */
+            max-width: 600px;
         }
 
-        /* --- O NÁS --- */
-        .about-content-wrapper {
+        .hero .btn-primary {
+            /* Specific hover for hero buttons if needed */
+            background-color: var(--color-accent);
+            color: var(--color-primary-dark);
+            border-color: var(--color-accent);
+        }
+
+        .hero .btn-primary:hover {
             background-color: var(--color-text-light);
-            border: 1px solid var(--color-border);
-            border-radius: var(--border-radius);
-            padding: calc(3 * var(--spacing-unit));
-            box-shadow: var(--shadow);
+            color: var(--color-primary-dark);
+            border-color: var(--color-text-light);
         }
 
-        body.dark-mode .about-content-wrapper {
-            background-color: var(--color-surface-dark);
-            border-color: var(--color-border-dark);
+        .hero .btn-outline {
+            border-color: var(--color-text-light);
+            color: var(--color-text-light);
         }
+
+        .hero .btn-outline:hover {
+            background-color: var(--color-text-light);
+            color: var(--color-primary-dark);
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 1.5rem;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease 0.4s forwards;
+            /* Adjusted timing */
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ============================================= */
+        /* 7. About Section */
+        /* ============================================= */
+        .about {
+            background-color: var(--color-background);
+            /* Already set on body, but can be specific */
+        }
+
+        body.dark-mode .about {
+            background-color: var(--color-dark-bg);
+        }
+
 
         .about-content {
             display: grid;
-            grid-template-columns: 1fr 1.1fr;
-            /* Mierny posun pomeru */
-            gap: calc(3.5 * var(--spacing-unit));
-            /* Väčší gap */
+            grid-template-columns: 1fr 1.2fr;
+            /* Give more space to text */
+            gap: calc(var(--spacing-unit) * 4);
             align-items: center;
         }
 
-        .about-image-wrapper {
-            background-color: var(--color-background-light);
-            /* Jemné pozadie pre obrázok */
-            border-radius: var(--border-radius);
-            padding: var(--spacing-unit);
-            box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.02);
+        .about-image {
+            position: relative;
+            border-radius: var(--border-radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            aspect-ratio: 4 / 5;
+            /* Tallish image ratio */
+        }
+
+        .about-image img {
+            width: 100%;
             height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .about-image-wrapper img {
-            max-width: 100%;
-            height: auto;
-            border-radius: calc(var(--border-radius) - 4px);
-            /* Vnútorné zaoblenie */
             object-fit: cover;
-            box-shadow: var(--shadow-strong);
+            transition: transform 0.6s var(--transition);
+            /* Added transform to transition */
         }
 
-        .about-text h2 {
-            /* H2 špecifické pre "O nás" text */
-            text-align: left;
-            font-size: clamp(1.8rem, 3.5vw, 2.5rem);
-            margin-bottom: calc(1.5 * var(--spacing-unit));
+        .about-image:hover img {
+            transform: scale(1.05);
         }
 
-        .about-text h2::after {
-            left: 0;
-            transform: translateX(0);
-            width: 60px;
+        .about-text {
+            padding: 1rem 0;
+            /* Adjusted padding */
+        }
+
+        .about-text h3 {
+            color: var(--color-primary);
+            /* Consistent with primary color for subtitles */
         }
 
         .about-text p {
-            font-size: 1rem;
-            margin-bottom: calc(1.5 * var(--spacing-unit));
+            margin-bottom: 1.5rem;
         }
 
-        .about-text .btn {
-            margin-top: var(--spacing-unit);
+        /* ============================================= */
+        /* 8. Services Section */
+        /* ============================================= */
+        .services {
+            background-color: var(--color-accent);
         }
 
-        /* --- SLUŽBY --- */
-        .service-grid {
+        body.dark-mode .services {
+            background-color: var(--color-dark-surface);
+            /* Darker accent for services bg in dark mode */
+        }
+
+
+        .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            /* Flexibilnejšie karty */
-            gap: calc(2.5 * var(--spacing-unit));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            /* Slightly larger minmax */
+            gap: calc(var(--spacing-unit) * 2.5);
+            /* Adjusted gap */
         }
 
         .service-card {
             background-color: var(--color-text-light);
-            border: 1px solid var(--color-border);
             border-radius: var(--border-radius);
-            box-shadow: var(--shadow);
+            /* Standard radius for cards */
             overflow: hidden;
+            box-shadow: var(--shadow-md);
             transition: var(--transition);
+            cursor: pointer;
             display: flex;
             flex-direction: column;
-            cursor: pointer;
         }
 
         .service-card:hover {
-            transform: translateY(-10px);
-            /* Jemnejší posun */
-            box-shadow: var(--shadow-strong);
+            transform: translateY(-8px);
+            /* Adjusted hover effect */
+            box-shadow: var(--shadow-lg);
         }
 
-        .service-card-image-wrapper {
+        .service-card-img {
             width: 100%;
             height: 220px;
-            /* Konzistentná výška obrázku */
+            /* Adjusted height */
             overflow: hidden;
         }
 
-        .service-card img {
+        .service-card-img img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+            transition: transform 0.5s var(--transition);
+            /* Added transform */
         }
 
-        .service-card:hover img {
-            transform: scale(1.07);
-            /* Jemnejší zoom */
+        .service-card:hover .service-card-img img {
+            transform: scale(1.08);
+            /* Adjusted scale */
         }
 
         .service-card-content {
-            padding: calc(1.8 * var(--spacing-unit));
+            padding: calc(var(--spacing-unit) * 1.5);
+            /* Adjusted padding */
             flex-grow: 1;
+            /* Allow content to grow */
             display: flex;
             flex-direction: column;
         }
 
-        .service-card-content h3 {
-            font-size: 1.35rem;
-        }
-
-        .service-card-content p {
-            margin-bottom: calc(1.25 * var(--spacing-unit));
-            flex-grow: 1;
-            font-size: 0.9rem;
-            /* Menší text pre popis služby na karte */
-            color: #555;
-            /* Mierne svetlejší text pre popis */
-        }
-
-        body.dark-mode .service-card-content p {
-            color: var(--color-primary-light);
-            opacity: 0.8;
-        }
-
-
         .service-card-content .btn {
             margin-top: auto;
-            /* Tlačidlo na spodku karty */
+            /* Push button to bottom */
             align-self: flex-start;
-            padding: 0.7rem 1.5rem;
-            /* Menšie tlačidlo na karte */
-            font-size: 0.85rem;
         }
 
-        /* --- DETAIL SLUŽBY --- */
+
+        .service-card h3 {
+            margin-bottom: 0.75rem;
+            /* Adjusted margin */
+            color: var(--color-primary-dark);
+            font-size: 1.4rem;
+            /* Specific font size for service card titles */
+        }
+
+        body.dark-mode .service-card h3 {
+            color: var(--color-accent);
+        }
+
+        .service-card p {
+            margin-bottom: 1.25rem;
+            /* Adjusted margin */
+            font-size: 0.95rem;
+            /* Slightly smaller text in card */
+            flex-grow: 1;
+            /* Allow paragraph to take space before button */
+        }
+
+        /* ============================================= */
+        /* 9. Service Detail Section */
+        /* ============================================= */
         .service-detail {
-            /* Už existuje, len drobné úpravy */
-            display: none;
-            padding: calc(3 * var(--spacing-unit)) 0;
-            /* Mierne menší padding */
-            animation: fadeIn 0.7s ease-out forwards;
-        }
-
-        .service-detail.active {
-            display: block;
+            /* Already a .section, display handled by .active */
+            padding-top: calc(var(--spacing-unit) * 3);
+            /* Less top padding as it's below header */
+            padding-bottom: calc(var(--spacing-unit) * 5);
         }
 
         .service-detail-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: calc(2.5 * var(--spacing-unit));
+            margin-bottom: calc(var(--spacing-unit) * 2.5);
+            /* Adjusted margin */
             flex-wrap: wrap;
-            gap: var(--spacing-unit);
+            /* Allow wrapping for back button */
+            gap: 1rem;
         }
 
         .service-detail-header h2 {
             margin-bottom: 0;
-            text-align: left;
-            padding-bottom: 0;
-            /* Odstrániť padding, ak je ::after */
-        }
-
-        .service-detail-header h2::after {
-            /* Prispôsobenie pre detail */
-            left: 0;
-            transform: translateX(0);
-            bottom: -10px;
-            /* Mierne nižšie */
+            /* Remove default h2 margin as it's in a flex container */
         }
 
 
-        .back-button {
+        .back-btn {
             display: inline-flex;
             align-items: center;
-            gap: 0.6rem;
-            /* Menší gap */
-            cursor: pointer;
-            font-weight: var(--font-weight-medium);
-            color: var(--color-primary);
-            text-decoration: none;
-            padding: 0.8rem 1.8rem;
-            /* Upravený padding */
-            border-radius: 50px;
+            gap: 0.5rem;
+            padding: 0.7rem 1.4rem;
+            /* Adjusted padding */
+            border-radius: var(--border-radius);
             background-color: transparent;
             border: 2px solid var(--color-border);
-            transition: var(--transition);
+            font-weight: 500;
+            /* Adjusted weight */
             font-size: 0.9rem;
+            cursor: pointer;
+            transition: var(--transition);
         }
 
-        .back-button:hover {
-            background-color: var(--color-primary-light);
-            border-color: var(--color-primary-light);
-            color: var(--color-primary-dark);
-            transform: translateY(-3px);
+        .back-btn:hover {
+            background-color: var(--color-accent);
+            border-color: var(--color-accent);
         }
 
-        .back-button i {
-            font-size: 1.1em;
+        body.dark-mode .back-btn {
+            border-color: var(--color-dark-border);
+            color: var(--color-dark-text);
         }
 
-        .service-detail-grid {
-            display: grid;
-            grid-template-columns: 1.2fr 1fr;
-            /* Pomer pre text a obrázok */
-            gap: calc(3.5 * var(--spacing-unit));
-            align-items: flex-start;
-            /* Zarovnanie na vrch */
+        body.dark-mode .back-btn:hover {
+            background-color: var(--color-dark-surface);
+            border-color: var(--color-dark-surface);
         }
 
-        .service-detail-text-content h3 {
-            /* Podnadpis v detaile */
-            margin-top: calc(1.5 * var(--spacing-unit));
-            margin-bottom: calc(0.75 * var(--spacing-unit));
-            font-size: 1.25rem;
-            color: var(--color-primary-dark);
+        .service-detail-content-wrapper {
+            /* New wrapper for content card styling */
+            background-color: var(--color-text-light);
+            padding: calc(var(--spacing-unit) * 2.5);
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-md);
         }
 
-        body.dark-mode .service-detail-text-content h3 {
-            color: var(--color-accent);
+        body.dark-mode .service-detail-content-wrapper {
+            background-color: var(--color-dark-surface);
+            border: 1px solid var(--color-dark-border);
         }
 
-        .service-detail p {
-            margin-bottom: var(--spacing-unit);
-            font-size: 1rem;
+
+        .service-detail-text p {
+            margin-bottom: 1.25rem;
+            /* Adjusted margin */
         }
 
-        .service-detail ul {
+        .service-detail-text h4 {
+            /* For subheadings like "Používané materiály" */
+            font-family: var(--font-primary);
+            /* Use primary font for less formal headings */
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-top: 2rem;
+            margin-bottom: 0.75rem;
+            color: var(--color-primary);
+        }
+
+        body.dark-mode .service-detail-text h4 {
+            color: var(--color-primary-light);
+        }
+
+
+        .service-features {
             list-style: none;
-            margin: var(--spacing-unit) 0 calc(1.5 * var(--spacing-unit)) 0;
+            margin: 1.5rem 0;
+            /* Adjusted margin */
             padding-left: 0;
+            /* Remove default padding */
         }
 
-        .service-detail ul li {
+        .service-features li {
             position: relative;
             padding-left: 2rem;
-            /* Viac miesta pre ikonu */
-            margin-bottom: 0.8rem;
-            font-size: 0.95rem;
-            /* Mierne menší text v zozname */
+            margin-bottom: 0.75rem;
+            /* Adjusted margin */
+            font-size: 1rem;
         }
 
-        .service-detail ul li::before {
+        .service-features li::before {
             content: '\f00c';
-            /* Font Awesome check icon */
             font-family: 'Font Awesome 6 Free';
             font-weight: 900;
-            color: var(--color-accent);
-            /* Akcentová farba pre check */
+            color: var(--color-primary);
             position: absolute;
             left: 0;
-            top: 0.15rem;
-            /* Jemné doladenie pozície */
-            font-size: 1rem;
-            /* Veľkosť ikony */
+            top: 0.15em;
+            /* Relative to font size */
         }
 
-        .service-detail-image-wrapper {
-            position: sticky;
-            /* Aby obrázok ostal viditeľný pri skrolovaní dlhšieho textu */
-            top: calc(2 * var(--spacing-unit) + 80px);
-            /* 80px je cca výška headeru */
-            border-radius: var(--border-radius);
-            overflow: hidden;
+        body.dark-mode .service-features li::before {
+            color: var(--color-accent);
         }
 
-        .service-detail-image-wrapper img {
-            width: 100%;
-            height: auto;
-            max-height: 500px;
-            object-fit: cover;
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow-strong);
-        }
+        /* .service-detail-image class not used for main image as it's removed */
 
+        /* ============================================= */
+        /* 10. Gallery */
+        /* ============================================= */
         .gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-            /* Menšie náhľady pre viac obrázkov */
-            gap: var(--spacing-unit);
-            margin-top: calc(2.5 * var(--spacing-unit));
-            padding-top: calc(1.5 * var(--spacing-unit));
+            grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+            /* Adjusted minmax */
+            gap: 1rem;
+            margin-top: 2.5rem;
+            /* Adjusted margin */
+            padding-top: 1.5rem;
+            /* Adjusted padding */
             border-top: 1px solid var(--color-border);
+        }
+
+        body.dark-mode .gallery {
+            border-top-color: var(--color-dark-border);
         }
 
         .gallery-item {
             position: relative;
+            border-radius: var(--border-radius);
             overflow: hidden;
-            border-radius: calc(var(--border-radius) - 4px);
-            /* Mierne menšie zaoblenie */
-            cursor: pointer;
             aspect-ratio: 1 / 1;
-            /* Štvorcové náhľady */
-            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
+            cursor: pointer;
             transition: var(--transition);
+            box-shadow: var(--shadow-sm);
         }
 
         .gallery-item:hover {
             transform: scale(1.03);
-            box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
+            /* Adjusted scale */
+            box-shadow: var(--shadow-md);
         }
 
         .gallery-item img {
@@ -841,16 +901,15 @@
             height: 100%;
             object-fit: cover;
             transition: transform 0.4s ease;
-            /* Pomalší prechod pre obrázok */
+            /* Smoother transition */
         }
 
         .gallery-item:hover img {
-            transform: scale(1.12);
-            /* Výraznejší zoom na obrázku */
+            transform: scale(1.1);
         }
 
         .gallery-item::after {
-            /* Overlay pre ikonu lupy */
+            /* Overlay for zoom icon */
             content: '\f00e';
             /* Font Awesome search icon */
             font-family: 'Font Awesome 6 Free';
@@ -858,412 +917,424 @@
             position: absolute;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
+            right: 0;
+            bottom: 0;
             display: flex;
             align-items: center;
             justify-content: center;
+            background-color: rgba(0, 0, 0, 0.5);
             color: white;
             font-size: 2rem;
-            /* Menšia ikona lupy */
-            background-color: rgba(0, 0, 0, 0.5);
-            /* Jemnejší overlay */
             opacity: 0;
-            transform: scale(0.9);
-            transition: var(--transition);
+            transition: opacity 0.3s ease;
         }
 
         .gallery-item:hover::after {
             opacity: 1;
-            transform: scale(1);
         }
 
 
-        /* --- KONTAKT --- */
-        .contact-grid {
+        /* ============================================= */
+        /* 11. Contact Section */
+        /* ============================================= */
+        .contact {
+            background-color: var(--color-accent);
+            /* Match services section background */
+        }
+
+        body.dark-mode .contact {
+            background-color: var(--color-dark-surface);
+        }
+
+        .contact-container {
             display: grid;
             grid-template-columns: 1fr 1.3fr;
-            /* Mierny posun pomeru */
-            gap: calc(3 * var(--spacing-unit));
+            /* Adjusted ratio */
+            gap: calc(var(--spacing-unit) * 3);
+            /* Adjusted gap */
         }
 
-        .contact-info-box {
-            /* Premenované pre jasnosť */
-            padding: calc(2 * var(--spacing-unit));
-            border-right: 1px solid var(--color-border);
-            /* Vertikálna linka */
+        .contact-info,
+        .contact-form {
+            /* Common styling for both boxes */
+            background-color: var(--color-text-light);
+            padding: calc(var(--spacing-unit) * 2.5);
+            /* Adjusted padding */
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-md);
         }
 
-        .contact-info-box h3,
-        .contact-form-box h3 {
-            /* Spoločné štýlovanie pre nadpisy v kontakte */
-            font-size: 1.5rem;
-            margin-bottom: calc(1.5 * var(--spacing-unit));
+
+        .contact-info h3,
+        .contact-form h3 {
+            margin-bottom: 2rem;
             color: var(--color-primary-dark);
         }
 
-        body.dark-mode .contact-info-box h3,
-        body.dark-mode .contact-form-box h3 {
+        body.dark-mode .contact-info h3,
+        body.dark-mode .contact-form h3 {
+            color: var(--color-accent);
+        }
+
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.25rem;
+            /* Adjusted gap */
+            margin-bottom: 1.8rem;
+            /* Adjusted margin */
+        }
+
+        .contact-icon {
+            width: 48px;
+            /* Adjusted size */
+            height: 48px;
+            background-color: var(--color-accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            /* Adjusted size */
+            color: var(--color-primary);
+            flex-shrink: 0;
+        }
+
+        body.dark-mode .contact-icon {
+            background-color: var(--color-primary-light);
+            color: var(--color-primary-dark);
+        }
+
+        .contact-text h4 {
+            font-family: var(--font-primary);
+            font-size: 1.05rem;
+            /* Adjusted size */
+            font-weight: 600;
+            /* More prominent */
+            margin-bottom: 0.3rem;
+            /* Adjusted margin */
+            color: var(--color-primary-dark);
+        }
+
+        body.dark-mode .contact-text h4 {
             color: var(--color-primary-light);
         }
 
 
-        .contact-info-item {
-            display: flex;
-            align-items: flex-start;
-            /* Zarovnanie ikon a textu */
-            gap: calc(1.25 * var(--spacing-unit));
-            margin-bottom: calc(1.8 * var(--spacing-unit));
-        }
-
-        .contact-info-item i {
-            /* Ikony v kontaktných informáciách */
-            font-size: 1.2rem;
-            /* Menšie ikony pre eleganciu */
-            color: var(--color-primary);
-            width: 50px;
-            height: 50px;
-            flex-shrink: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: var(--color-accent);
-            /* Akcentová farba pre pozadie ikon */
-            border-radius: 50%;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
-            color: var(--color-text-light);
-        }
-
-        body.dark-mode .contact-info-item i {
-            background-color: var(--color-primary-light);
-            color: var(--color-surface-dark);
-            /* Tmavá ikona na svetlom pozadí */
-            box-shadow: none;
-        }
-
-        .contact-info-item div h4 {
-            /* Názov položky (Adresa, Telefón) */
-            font-size: 1.1rem;
-            font-weight: var(--font-weight-semibold);
-            margin-bottom: 0.25rem;
-        }
-
-        .contact-info-item p {
-            font-size: 0.9rem;
-            /* Menší text pre detaily */
+        .contact-text p {
+            margin-bottom: 0;
+            font-size: 0.95rem;
+            /* Adjusted size */
             line-height: 1.6;
-            margin-bottom: 0.25rem;
-            /* Menší odstup medzi riadkami v p */
-            color: #555;
         }
 
-        body.dark-mode .contact-info-item p {
-            color: var(--color-text-dark-theme);
-            opacity: 0.85;
-        }
-
-        .contact-form-box {
-            /* Premenované pre jasnosť */
-            padding-left: calc(2 * var(--spacing-unit));
-            /* Aby sa formulár nelepil na čiaru */
-        }
 
         .form-group {
-            margin-bottom: calc(1.8 * var(--spacing-unit));
-            /* Väčší odstup */
+            margin-bottom: 1.5rem;
         }
 
         .form-group label {
             display: block;
-            margin-bottom: 0.6rem;
-            /* Menší odstup labelu */
-            font-weight: var(--font-weight-medium);
+            margin-bottom: 0.5rem;
+            font-weight: 500;
             font-size: 0.9rem;
-            /* Menší label */
+            /* Label font size */
         }
 
-        .form-group input,
-        .form-group textarea {
+        .form-control {
             width: 100%;
-            padding: 0.9rem 1.1rem;
-            /* Upravený padding */
-            border-radius: 8px;
-            /* Menšie zaoblenie pre polia */
+            padding: 0.9rem 1rem;
+            /* Adjusted padding */
             border: 1px solid var(--color-border);
-            background-color: var(--color-background-light);
-            font-family: var(--font-family);
-            font-size: 0.95rem;
+            border-radius: var(--border-radius);
+            font-family: var(--font-primary);
+            font-size: 1rem;
             transition: var(--transition);
-            color: var(--color-text-dark);
+            background-color: var(--color-text-light);
+            /* Ensure bg for light mode */
         }
 
-        .form-group input::placeholder,
-        .form-group textarea::placeholder {
+        .form-control::placeholder {
             color: #aaa;
-            transition: color var(--transition);
         }
 
 
-        .form-group input:focus,
-        .form-group textarea:focus {
+        .form-control:focus {
             outline: none;
             border-color: var(--color-primary);
-            /* Zvýraznenie pri focuse */
-            box-shadow: 0 0 0 3px rgba(121, 85, 72, 0.15);
-            /* Jemný focus ring */
-            background-color: var(--color-text-light);
-            /* Svetlejšie pozadie pri focuse */
+            box-shadow: 0 0 0 3px rgba(139, 95, 76, 0.2);
         }
 
-        .form-group input:focus::placeholder,
-        .form-group textarea:focus::placeholder {
-            color: #888;
-        }
-
-
-        .form-group textarea {
+        textarea.form-control {
+            min-height: 140px;
+            /* Adjusted height */
             resize: vertical;
-            min-height: 160px;
-            /* Mierne menšia min-height */
         }
 
-        /* ----------------------------------- */
-        /* 6. FOOTER (NOVÝ DIZAJN) */
-        /* ----------------------------------- */
+        /* ============================================= */
+        /* 12. Footer */
+        /* ============================================= */
         footer {
             background-color: var(--color-primary-dark);
-            /* Tmavohnedý footer */
-            color: var(--color-primary-light);
-            /* Svetlejší text vo footeri */
-            text-align: center;
-            padding: calc(3 * var(--spacing-unit)) calc(1.5 * var(--spacing-unit));
-            margin-top: calc(4 * var(--spacing-unit));
-            /* Mierne menší odstup hore */
-            border-top: none;
-            /* Odstránený vrchný okraj, farba pozadia je dostatočný oddeľovač */
+            color: var(--color-text-light);
+            padding: calc(var(--spacing-unit) * 3.5) 0;
+            /* Adjusted padding */
         }
 
-        .social-icons {
+        .footer-content {
             display: flex;
-            justify-content: center;
-            gap: calc(1.25 * var(--spacing-unit));
-            /* Menší gap medzi ikonami */
-            margin-bottom: calc(1.25 * var(--spacing-unit));
+            flex-direction: column;
+            align-items: center;
+            gap: 1.8rem;
+            /* Adjusted gap */
         }
 
-        .social-icons a {
+        .footer-logo {
+            font-family: var(--font-secondary);
+            font-size: 1.6rem;
+            /* Adjusted size */
+            font-weight: 700;
+            color: var(--color-text-light);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.25rem;
+            /* Adjusted gap */
+        }
+
+        .social-link {
             width: 44px;
-            /* Konzistentná veľkosť s dark mode prepínačom */
+            /* Adjusted size */
             height: 44px;
             border-radius: 50%;
-            background-color: rgba(255, 255, 255, 0.08);
-            /* Jemnejšie pozadie */
-            color: var(--color-text-light);
+            background-color: rgba(255, 255, 255, 0.1);
             display: flex;
             align-items: center;
             justify-content: center;
-            text-decoration: none;
             font-size: 1.1rem;
-            /* Menšie ikony */
+            /* Adjusted size */
             transition: var(--transition);
+            color: var(--color-text-light);
+            /* Ensure icon color */
         }
 
-        .social-icons a:hover {
+        .social-link:hover {
             background-color: var(--color-accent);
-            /* Akcentová farba pri hover */
             color: var(--color-primary-dark);
-            /* Tmavý text na akcentovej farbe */
-            transform: translateY(-5px) scale(1.08);
-            /* Jemnejší hover efekt */
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            transform: translateY(-4px);
+            /* Adjusted effect */
         }
 
-        footer p {
+        .copyright {
             font-size: 0.85rem;
-            /* Menší text vo footeri */
+            /* Adjusted size */
             opacity: 0.8;
-            /* Mierne priehľadnejší text */
-            margin-bottom: 0;
         }
 
-        /* ----------------------------------- */
-        /* 7. LIGHTBOX GALÉRIA (VYLEPŠENÉ - NOVÝ DIZAJN) */
-        /* ----------------------------------- */
+        /* ============================================= */
+        /* 13. Lightbox */
+        /* ============================================= */
         .lightbox {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(28, 26, 25, 0.95);
-            /* Tmavšie a viac neprehľadné pozadie */
+            background-color: rgba(18, 18, 18, 0.96);
+            /* Darker, more opaque */
             z-index: 2000;
             display: flex;
             align-items: center;
             justify-content: center;
             opacity: 0;
             visibility: hidden;
-            transition: opacity 0.3s ease, visibility 0s linear 0.3s;
-            /* Rýchlejší prechod */
+            transition: opacity 0.35s ease, visibility 0s linear 0.35s;
+            /* Smoother transition */
         }
 
         .lightbox.active {
             opacity: 1;
             visibility: visible;
-            transition: opacity 0.3s ease, visibility 0s linear 0s;
+            transition-delay: 0s;
         }
 
         .lightbox-content {
             position: relative;
+            width: auto;
+            /* Allow image to define width up to max */
             max-width: 90vw;
-            /* Mierne menšie pre viac priestoru okolo */
             max-height: 90vh;
             display: flex;
+            /* For centering image if it's smaller than max */
             align-items: center;
             justify-content: center;
-            transform: scale(0.95);
-            /* Počiatočný stav pre animáciu */
-            transition: transform 0.3s ease;
+            transform: scale(0.9);
+            opacity: 0;
+            transition: transform 0.35s ease, opacity 0.35s ease;
         }
 
         .lightbox.active .lightbox-content {
             transform: scale(1);
+            opacity: 1;
         }
 
-        .lightbox-content img {
+
+        .lightbox-img {
+            display: block;
+            /* Remove extra space below image */
             max-width: 100%;
-            max-height: 85vh;
-            /* Mierne menšia max výška obrázku */
+            max-height: 80vh;
+            /* Slightly less to accommodate caption and controls */
             object-fit: contain;
-            border-radius: 8px;
-            /* Menšie zaoblenie pre obrázok */
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-lg);
         }
 
         .lightbox-caption {
             position: absolute;
-            bottom: -40px;
-            /* Pod obrázkom */
+            bottom: -2.5rem;
+            /* Adjusted position */
             left: 50%;
             transform: translateX(-50%);
-            color: var(--color-primary-light);
-            background: rgba(0, 0, 0, 0.0);
-            /* Transparentné pozadie pre popisok */
-            padding: 0.5rem 1rem;
-            border-radius: 6px;
-            font-size: 0.9rem;
-            max-width: 70%;
+            width: auto;
+            /* Fit content */
+            max-width: 80%;
             text-align: center;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            opacity: 0.8;
+            color: var(--color-text-light);
+            font-size: 1rem;
+            /* Adjusted size */
+            padding: 0.4rem 1rem;
+            background-color: rgba(0, 0, 0, 0.3);
+            border-radius: 6px;
         }
 
-        .lightbox-close,
-        .lightbox-prev,
-        .lightbox-next {
+        .lightbox-btn {
+            /* Common style for prev/next */
             position: absolute;
-            background: rgba(40, 40, 40, 0.6);
-            /* Jemnejšie pozadie tlačidiel */
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            /* Adjusted size */
+            height: 50px;
+            background-color: rgba(40, 40, 40, 0.6);
+            /* Slightly more transparent */
             color: white;
             border: none;
-            cursor: pointer;
-            font-size: 1.8rem;
-            /* Väčšie a škálovateľnejšie ikony (ak sú to font ikony) */
-            width: 52px;
-            /* Väčšie tlačidlá */
-            height: 52px;
             border-radius: 50%;
+            font-size: 1.4rem;
+            /* Adjusted size */
+            cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: var(--transition);
-            z-index: 2001;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            transition: background-color var(--transition), transform 0.2s ease;
+            z-index: 10;
+            /* Ensure above image */
         }
 
-        .lightbox-close:hover,
-        .lightbox-prev:hover,
-        .lightbox-next:hover {
-            background: var(--color-primary);
-            /* Akcentová farba pri hover */
-            transform: scale(1.08);
-            /* Jemný hover efekt */
-        }
-
-        .lightbox-close {
-            top: 25px;
-            /* Bližšie k rohu */
-            right: 25px;
-            font-size: 2rem;
-            /* Väčšie X */
+        .lightbox-btn:hover {
+            background-color: var(--color-primary);
+            transform: translateY(-50%) scale(1.05);
         }
 
         .lightbox-prev {
-            left: 25px;
-            top: 50%;
-            transform: translateY(-50%);
+            left: 1.5rem;
+            /* Adjusted position */
         }
 
         .lightbox-next {
-            right: 25px;
-            top: 50%;
-            transform: translateY(-50%);
+            right: 1.5rem;
+            /* Adjusted position */
         }
 
-        /* ----------------------------------- */
-        /* 8. RESPONZIVITA (NOVÝ DIZAJN) */
-        /* ----------------------------------- */
+        .lightbox-close {
+            position: absolute;
+            top: 1.5rem;
+            /* Adjusted position */
+            right: 1.5rem;
+            /* Adjusted position */
+            width: 44px;
+            /* Adjusted size */
+            height: 44px;
+            background-color: rgba(40, 40, 40, 0.6);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            font-size: 1.6rem;
+            /* Adjusted "times" symbol size */
+            line-height: 1;
+            /* Ensure proper centering of "times" */
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color var(--transition), transform 0.2s ease;
+            z-index: 15;
+            /* Highest */
+        }
+
+        .lightbox-close:hover {
+            background-color: var(--color-primary);
+            transform: scale(1.05) rotate(90deg);
+        }
+
+        /* ============================================= */
+        /* 14. Animations */
+        /* ============================================= */
+        @keyframes fadeIn {
+
+            /* General fade in for sections */
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+                /* Subtle movement */
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ============================================= */
+        /* 15. Responsive Design */
+        /* ============================================= */
         @media (max-width: 1024px) {
+            .section {
+                padding: calc(var(--spacing-unit) * 4) 0;
+            }
 
-            .about-content,
-            .contact-grid,
-            .service-detail-grid {
+            main {
+                padding-top: 80px;
+            }
+
+            /* Adjust for potentially smaller header */
+
+            .hero {
+                min-height: 650px;
+                /* Adjusted */
+            }
+
+            .about-content {
                 grid-template-columns: 1fr;
-                /* Jeden stĺpec pre menšie obrazovky */
+                /* Stack about content */
+                gap: calc(var(--spacing-unit) * 2.5);
             }
 
-            .service-detail-image-wrapper {
-                /* Obrázok v detaile hore */
-                grid-row: 1;
-                margin-bottom: calc(2.5 * var(--spacing-unit));
-                position: static;
-                /* Zrušenie sticky pre mobil */
-                max-height: 400px;
+            .about-image {
+                max-width: 450px;
+                /* Limit image size when stacked */
+                margin: 0 auto;
+                /* Center image */
+                aspect-ratio: 16/10;
+                /* Wider for stacked view */
             }
 
-            .service-detail-image-wrapper img {
-                max-height: 400px;
-            }
-
-
-            .contact-info-box {
-                border-right: none;
-                /* Odstrániť pravý okraj */
-                border-bottom: 1px solid var(--color-border);
-                /* Spodný okraj ako oddeľovač */
-                margin-bottom: calc(2 * var(--spacing-unit));
-                padding-bottom: calc(2 * var(--spacing-unit));
-                padding-right: 0;
-                /* Žiadny pravý padding */
-            }
-
-            .contact-form-box {
-                padding-left: 0;
-                /* Žiadny ľavý padding */
-            }
-
-            body.dark-mode .contact-info-box {
-                border-bottom-color: var(--color-border-dark);
-            }
-
-            h1 {
-                font-size: clamp(2.2rem, 4.5vw, 3.2rem);
-            }
-
-            h2 {
-                font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+            .contact-container {
+                grid-template-columns: 1fr;
+                /* Stack contact info and form */
             }
         }
 
@@ -1272,321 +1343,281 @@
                 font-size: 93.75%;
             }
 
-            /* 15px base */
-
-            h1 {
-                font-size: clamp(2rem, 5vw, 2.8rem);
+            /* 15px base for smaller screens */
+            main {
+                padding-top: 75px;
             }
 
-            h2 {
-                font-size: clamp(1.6rem, 4vw, 2.2rem);
-                margin-bottom: calc(2 * var(--spacing-unit));
+            .mobile-menu-btn {
+                display: flex;
+                /* Make it flex to center icon */
+                align-items: center;
+                justify-content: center;
             }
 
-            h2::after {
-                width: 50px;
-                height: 2.5px;
-            }
-
-            h3 {
-                font-size: clamp(1.2rem, 3.5vw, 1.6rem);
-            }
-
-
-            .container {
-                padding: 0 calc(1.5 * var(--spacing-unit));
-            }
-
-            section {
-                padding: calc(4 * var(--spacing-unit)) 0;
-            }
-
-            .content-card {
-                padding: calc(2 * var(--spacing-unit));
-            }
-
-
-            .header-content {
-                flex-direction: column;
-                /* Logo a nav pod sebou */
-                gap: calc(1.2 * var(--spacing-unit));
-                align-items: flex-start;
-                /* Zarovnanie doľava */
-            }
-
-            .header-content nav {
+            .nav-links {
+                position: fixed;
+                top: 0;
+                /* Align to top */
+                left: 0;
                 width: 100%;
-                justify-content: space-between;
-                /* Rozložiť linky a dark mode button */
-                gap: var(--spacing-unit);
+                height: 100vh;
+                /* Full viewport height */
+                background-color: var(--color-background);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                /* Center links vertically */
+                padding: 2rem 0;
+                gap: 2rem;
+                /* Increased gap for full screen menu */
+                transform: translateX(100%);
+                /* Slide in from right */
+                opacity: 1;
+                /* Keep opacity for transition */
+                visibility: visible;
+                /* Keep visible for transition */
+                transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+                z-index: 999;
+                box-shadow: none;
+                /* Remove shadow for full screen */
             }
 
-            nav a {
-                font-size: 0.95rem;
+            body.dark-mode .nav-links {
+                background-color: var(--color-dark-bg);
+                /* Use main dark bg */
             }
 
-            .logo h1 {
-                font-size: 1.5rem;
+            .nav-links.active {
+                transform: translateX(0);
+                /* Slide in */
             }
 
-
-            .about-content {
-                gap: calc(2.5 * var(--spacing-unit));
+            .nav-link {
+                font-size: 1.2rem;
             }
 
-            .about-text h2 {
-                font-size: clamp(1.6rem, 3vw, 2rem);
+            /* Larger links in mobile menu */
+            .nav-links .theme-toggle {
+                margin-top: 1rem;
             }
 
-            .service-card-image-wrapper {
-                height: 200px;
+            /* Space for theme toggle */
+
+
+            .hero {
+                min-height: 550px;
+                /* Adjusted */
+                text-align: center;
+                /* Center hero text on mobile */
             }
 
-            .service-card-content {
-                padding: calc(1.5 * var(--spacing-unit));
+            .hero-content {
+                padding: 0 1rem;
+                /* Add some padding */
             }
+
+            .hero-btns {
+                flex-direction: column;
+                gap: 1rem;
+                align-items: center;
+                /* Center buttons */
+            }
+
+            .hero-btns .btn {
+                width: 100%;
+                max-width: 300px;
+                /* Max width for buttons */
+            }
+
 
             .service-detail-header {
                 flex-direction: column;
                 align-items: flex-start;
-                gap: 1.2rem;
+                gap: 1.5rem;
             }
 
-            .service-detail-header h2 {
-                text-align: left;
-                /* Nadpis vľavo aj na mobile */
-                width: auto;
-                /* Nie 100% šírka */
-            }
-
-            .service-detail-header h2::after {
-                left: 0;
-                transform: translateX(0);
-            }
-
-            .contact-info-item {
-                /* Ponechať flex-start pre ikony, ale text môže byť centrovaný ak treba */
-                gap: var(--spacing-unit);
-            }
-
-            .contact-info-item i {
-                width: 44px;
-                height: 44px;
-                font-size: 1.1rem;
-            }
-
-
-            .lightbox-close,
-            .lightbox-prev,
-            .lightbox-next {
-                width: 48px;
-                height: 48px;
-                font-size: 1.6rem;
-            }
-
-            .lightbox-close {
-                font-size: 1.8rem;
-                top: 20px;
-                right: 20px;
+            .back-btn {
+                align-self: flex-start;
             }
 
             .lightbox-prev {
-                left: 15px;
+                left: 0.5rem;
             }
 
             .lightbox-next {
-                right: 15px;
+                right: 0.5rem;
             }
 
-            .lightbox-caption {
-                font-size: 0.8rem;
-                bottom: -30px;
+            .lightbox-close {
+                top: 0.5rem;
+                right: 0.5rem;
             }
         }
 
         @media (max-width: 480px) {
-            html {
-                font-size: 87.5%;
+            main {
+                padding-top: 70px;
             }
 
-            /* 14px base */
-
-            h1 {
-                font-size: clamp(1.8rem, 6vw, 2.4rem);
+            .section {
+                padding: calc(var(--spacing-unit) * 3) 0;
             }
 
-            h2 {
-                font-size: clamp(1.4rem, 5vw, 1.9rem);
+            .hero {
+                min-height: 480px;
+                /* Adjusted */
             }
 
-            h3 {
-                font-size: clamp(1.1rem, 4vw, 1.4rem);
+            .hero h1 {
+                font-size: clamp(2rem, 8vw, 3rem);
+            }
+
+            .hero p {
+                font-size: clamp(0.95rem, 4vw, 1.1rem);
             }
 
 
-            .content-card {
-                padding: calc(1.5 * var(--spacing-unit));
+            .container {
+                padding: 0 var(--spacing-unit);
             }
 
-            .logo h1 {
-                font-size: 1.3rem;
+            .logo-text {
+                font-size: 1.25rem;
             }
 
-            .logo-image {
+            .logo-img {
                 width: 40px;
                 height: 40px;
-            }
-
-            header nav {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-
-            nav a {
-                font-size: 0.9rem;
-                padding: 0.3rem;
-            }
-
-            nav a::after {
-                bottom: -3px;
             }
 
             .btn {
-                padding: 0.8rem 1.8rem;
-                font-size: 0.9rem;
-            }
-
-            .service-card-content .btn {
-                padding: 0.6rem 1.2rem;
+                padding: 0.8rem 1.5rem;
                 font-size: 0.8rem;
             }
 
-
-            .form-group input,
-            .form-group textarea {
-                padding: 0.8rem 1rem;
-                font-size: 0.9rem;
-            }
-
-            .form-group textarea {
-                min-height: 120px;
-            }
-
-
-            .social-icons a {
+            .lightbox-btn {
                 width: 40px;
+                /* Smaller controls */
                 height: 40px;
-                font-size: 1rem;
-            }
-
-            footer {
-                padding: calc(2.5 * var(--spacing-unit)) var(--spacing-unit);
-            }
-
-            footer p {
-                font-size: 0.8rem;
-            }
-
-            .lightbox-close,
-            .lightbox-prev,
-            .lightbox-next {
-                width: 40px;
-                height: 40px;
-                font-size: 1.4rem;
+                font-size: 1.1rem;
             }
 
             .lightbox-close {
-                font-size: 1.6rem;
-                top: 15px;
-                right: 15px;
+                width: 36px;
+                height: 36px;
+                font-size: 1.4rem;
             }
         }
     </style>
 </head>
 
 <body>
-    <header>
-        <div class="container header-content">
-            <a href="#" class="logo" onclick="showSection('onas', event)">
-                <img src="Logo_Petro.jpg" alt="Logo Stolárstvo Petro" class="logo-image">
-                <h1>Stolárstvo Petro</h1>
+    <header id="pageHeader">
+        <div class="container header-container">
+            <a href="#" class="logo" onclick="showSection('hero', event); closeMobileMenu();">
+                <img src="Logo_Petro.jpg" alt="Stolárstvo Petro" class="logo-img">
+                <span class="logo-text">Stolárstvo Petro</span>
             </a>
+
             <nav>
-                <a href="#" id="nav-onas" onclick="showSection('onas', event)">O nás</a>
-                <a href="#" id="nav-sluzby" onclick="showSection('sluzby', event)">Služby</a>
-                <a href="#" id="nav-kontakt" onclick="showSection('kontakt', event)">Kontakt</a>
-                <button id="darkModeToggle" class="dark-mode-btn" aria-label="Prepnúť tmavý režim">
-                    <i class="fas fa-moon"></i>
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Otvoriť menu" aria-expanded="false">
+                    <i class="fas fa-bars"></i>
                 </button>
+
+                <div class="nav-links" id="navLinks">
+                    <a href="#" class="nav-link" onclick="showSection('about', event); closeMobileMenu();">O nás</a>
+                    <a href="#" class="nav-link" onclick="showSection('services', event); closeMobileMenu();">Služby</a>
+                    <a href="#" class="nav-link" onclick="showSection('contact', event); closeMobileMenu();">Kontakt</a>
+                    <button class="theme-toggle" id="themeToggle" aria-label="Prepnúť tmavý režim">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
             </nav>
         </div>
     </header>
 
-    <main class="container">
-        <section id="onas">
-            <div class="hero-section">
-                <h1>Váš Partner Pre Kvalitnú Drevovýrobu</h1>
-                <p class="hero-subtitle">Objavte spojenie tradičného remesla, moderných technológií a vášne pre drevo,
-                    ktoré prinášame do každého projektu už viac ako tri desaťročia.</p>
-                <a href="#" class="btn" onclick="showSection('sluzby', event)"><i class="fas fa-tools"></i> Naše
-                    Služby</a>
-            </div>
-
-            <div class="about-content-wrapper">
-                <div class="about-content">
-                    <div class="about-image-wrapper">
-                        <img src="firma_logo_new.jpg" alt="Dielňa Stolárstva Petro">
-                    </div>
-                    <div class="about-text">
-                        <h2>Vitajte v Stolárstve Petro</h2>
-                        <p>Sme rodinný podnik s viac ako tromi desaťročiami skúseností a tradície v oblasti kvalitnej
-                            drevovýroby. S vášňou pre remeslo a zmyslom pre detail prinášame našim zákazníkom precízne
-                            spracované drevené produkty, ktoré spájajú funkčnosť, estetiku a poctivú ručnú prácu.</p>
-                        <p>Špecializujeme sa na výrobu širokého sortimentu – od tradičných drevených truhiel, cez
-                            certifikované EURO okná, až po lisované EKO brikety a palivové drevo. Za všetkým stojí tím
-                            skúsených stolárov, ktorí pretvárajú drevo na niečo výnimočné.</p>
-                        <a href="#" class="btn btn-outline" onclick="showSection('kontakt', event)"><i
-                                class="fas fa-envelope"></i>
-                            Kontaktujte nás</a>
+    <main>
+        <section class="hero section active" id="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Remeselná dokonalosť z dreva</h1>
+                    <p>Rodinná stolárska dielňa s viac ako 30-ročnou tradíciou. Vyrábame kvalitné drevené výrobky s
+                        láskou a precíznosťou.</p>
+                    <div class="hero-btns">
+                        <a href="#" class="btn btn-primary" onclick="showSection('services', event)">
+                            <i class="fas fa-hammer"></i> Naše služby
+                        </a>
+                        <a href="#" class="btn btn-outline" onclick="showSection('contact', event)">
+                            <i class="fas fa-phone-alt"></i> Kontaktujte nás
+                        </a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="sluzby">
-            <div class="content-card">
-                <h2>Naše Služby</h2>
-                <div class="service-grid">
-                    <div class="service-card" onclick="showServiceDetail('rakvy', event)">
-                        <div class="service-card-image-wrapper">
+        <section class="section about" id="about">
+            <div class="container">
+                <div class="section-title">
+                    <h2>O našej dielni</h2>
+                </div>
+
+                <div class="about-content">
+                    <div class="about-image">
+                        <img src="firma_logo_new.jpg" alt="Stolárska dielňa Petro">
+                    </div>
+
+                    <div class="about-text">
+                        <h3>Tradícia a kvalita od roku 1990</h3>
+                        <p>Sme rodinný podnik s dlhoročnou tradíciou v stolárskom remesle. Naša dielňa kombinuje moderné
+                            technológie s tradičnými postupmi, čo nám umožňuje vytvárať výnimočné drevené výrobky.</p>
+                        <p>Špecializujeme sa na výrobu kvalitných rakiev, dreveného nábytku na mieru, okien a dverí, ako
+                            aj na predaj ekologických brikiet. Každý výrobok je dôkladne premyslený a vyrobený s
+                            maximálnou starostlivosťou.</p>
+                        <a href="#" class="btn btn-primary" onclick="showSection('services', event)">
+                            <i class="fas fa-arrow-right"></i> Pozrite si naše služby
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section services" id="services">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Naše služby</h2>
+                </div>
+
+                <div class="services-grid">
+                    <div class="service-card" onclick="showSection('rakvy-detail', event)">
+                        <div class="service-card-img">
                             <img src="M21_Amerika_01.jpg" alt="Výroba rakiev">
                         </div>
                         <div class="service-card-content">
                             <h3>Výroba rakiev</h3>
-                            <p>Elegantné a dôstojné rakvy vyrobené z kvalitného dreva s precíznym spracovaním a citom
-                                pre detail.</p>
+                            <p>Elegantné a dôstojné rakvy vyrobené z kvalitného dreva s precíznym spracovaním.</p>
                             <span class="btn btn-outline"><i class="fas fa-arrow-right"></i> Zobraziť viac</span>
                         </div>
                     </div>
-                    <div class="service-card" onclick="showServiceDetail('okna', event)">
-                        <div class="service-card-image-wrapper">
+
+                    <div class="service-card" onclick="showSection('okna-detail', event)">
+                        <div class="service-card-img">
                             <img src="schody_tocive.jpg" alt="Výroba dreveného nábytku a okien">
                         </div>
                         <div class="service-card-content">
                             <h3>Nábytok, Dvere, Okná</h3>
-                            <p>Vyrábame kvalitný drevený nábytok, interiérové aj exteriérové dvere a EURO okná na mieru.
-                            </p>
+                            <p>Vyrábame kvalitný drevený nábytok, dvere a EURO okná na mieru s dôrazom na detail.</p>
                             <span class="btn btn-outline"><i class="fas fa-arrow-right"></i> Zobraziť viac</span>
                         </div>
                     </div>
-                    <div class="service-card" onclick="showServiceDetail('brikety', event)">
-                        <div class="service-card-image-wrapper">
+
+                    <div class="service-card" onclick="showSection('brikety-detail', event)">
+                        <div class="service-card-img">
                             <img src="briketa.jpg" alt="Predaj EKO brikiet">
                         </div>
                         <div class="service-card-content">
                             <h3>Predaj EKO brikiet</h3>
-                            <p>Ekologické drevené brikety z čistých pilín bez chemických prísad, s vysokou výhrevnosťou.
-                            </p>
+                            <p>Ekologické drevené brikety vyrábané z čistých pilín bez chemických prísad.</p>
                             <span class="btn btn-outline"><i class="fas fa-arrow-right"></i> Zobraziť viac</span>
                         </div>
                     </div>
@@ -1594,437 +1625,441 @@
             </div>
         </section>
 
-        <section id="kontakt">
-            <div class="content-card">
-                <h2>Spojte sa s nami</h2>
-                <div class="contact-grid">
-                    <div class="contact-info-box">
+        <section class="section service-detail" id="rakvy-detail">
+            <div class="container">
+                <div class="service-detail-header">
+                    <h2>Výroba rakiev</h2>
+                    <button class="btn back-btn" onclick="showSection('services', event)">
+                        <i class="fas fa-arrow-left"></i> Späť na služby
+                    </button>
+                </div>
+                <div class="service-detail-content-wrapper">
+                    <div class="service-detail-text">
+                        <p>Ponúkame široký sortiment rakiev vyrobených z kvalitného dreva. Všetky naše výrobky sa
+                            vyznačujú precíznym spracovaním a rešpektujú požiadavky našich zákazníkov. K dispozícii máme
+                            rôzne typy a veľkosti, s možnosťou prispôsobenia.</p>
+                        <h4>Používané materiály:</h4>
+                        <ul class="service-features">
+                            <li>Dubové drevo pre svoju pevnosť a krásnu textúru</li>
+                            <li>Bukové drevo, cenené pre svoju odolnosť</li>
+                            <li>Borovicové drevo s charakteristickou kresbou</li>
+                            <li>Smrekové drevo, tradičný materiál v stolárstve</li>
+                        </ul>
+                        <a href="#" class="btn btn-primary" style="margin-top: 1.5rem;"
+                            onclick="showSection('contact', event)">
+                            <i class="fas fa-tags"></i> Vyžiadať cenovú ponuku
+                        </a>
+                        <div class="gallery" id="gallery-rakvy">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section service-detail" id="okna-detail">
+            <div class="container">
+                <div class="service-detail-header">
+                    <h2>Nábytok, Dvere a Okná</h2>
+                    <button class="btn back-btn" onclick="showSection('services', event)">
+                        <i class="fas fa-arrow-left"></i> Späť na služby
+                    </button>
+                </div>
+                <div class="service-detail-content-wrapper">
+                    <div class="service-detail-text">
+                        <p>Vyrábame kvalitné drevené okná, dvere a nábytok podľa vašich predstáv. Naše výrobky spĺňajú
+                            najvyššie štandardy kvality a poskytujú vynikajúcu tepelnú a zvukovú izoláciu.</p>
+                        <h4>Výhody našich výrobkov:</h4>
+                        <ul class="service-features">
+                            <li>Dlhá životnosť a trvácnosť</li>
+                            <li>Vynikajúca tepelná a zvuková izolácia</li>
+                            <li>Ekologický a prírodný materiál</li>
+                            <li>Elegantný vzhľad na mieru</li>
+                        </ul>
+                        <a href="#" class="btn btn-primary" style="margin-top: 1.5rem;"
+                            onclick="showSection('contact', event)">
+                            <i class="fas fa-drafting-compass"></i> Navrhnúť riešenie
+                        </a>
+                        <div class="gallery" id="gallery-okna">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section service-detail" id="brikety-detail">
+            <div class="container">
+                <div class="service-detail-header">
+                    <h2>Predaj EKO brikiet</h2>
+                    <button class="btn back-btn" onclick="showSection('services', event)">
+                        <i class="fas fa-arrow-left"></i> Späť na služby
+                    </button>
+                </div>
+                <div class="service-detail-content-wrapper">
+                    <div class="service-detail-text">
+                        <p>V našej ponuke nájdete kvalitné drevené brikety, vyrobené z čistých pilín bez chemických
+                            prísad. Vznikajú lisovaním pri vysokom tlaku, čo im dodáva výnimočnú hustotu a vysokú
+                            výhrevnosť. K dispozícii sú aj podpaľovacie triesky.</p>
+                        <h4>Prednosti našich brikiet:</h4>
+                        <ul class="service-features">
+                            <li>Vysoká výhrevnosť a dlhá doba horenia</li>
+                            <li>Minimálne množstvo popola</li>
+                            <li>Ekologické palivo z obnoviteľných zdrojov</li>
+                            <li>Jednoduché skladovanie a manipulácia</li>
+                        </ul>
+                        <a href="#" class="btn btn-primary" style="margin-top: 1.5rem;"
+                            onclick="showSection('contact', event)">
+                            <i class="fas fa-truck"></i> Objednať brikety
+                        </a>
+                        <div class="gallery" id="gallery-brikety">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section contact" id="contact">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Spojte sa s nami</h2>
+                </div>
+                <div class="contact-container">
+                    <div class="contact-info">
                         <h3>Kontaktné informácie</h3>
-                        <p>Radi vám poradíme a nájdeme to najlepšie riešenie pre váš domov či projekt. Neváhajte nás
-                            kontaktovať.</p>
-                        <br>
-                        <div class="contact-info-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <div>
+                        <p>Radi vám poradíme a nájdeme to najlepšie riešenie pre váš domov či projekt.</p>
+
+                        <div class="contact-item">
+                            <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                            <div class="contact-text">
                                 <h4>Adresa</h4>
                                 <p>Radatice 219, 08242 Radatice</p>
                             </div>
                         </div>
-                        <div class="contact-info-item">
-                            <i class="fas fa-phone-alt"></i>
-                            <div>
+                        <div class="contact-item">
+                            <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
+                            <div class="contact-text">
                                 <h4>Telefón</h4>
-                                <p><strong>Stolárstvo:</strong> +421 905 609 059</p>
-                                <p><strong>Doprava:</strong> +421 905 213 426</p>
-                                <p><strong>Ekobrikety:</strong> +421 908 124 008</p>
+                                <p>Stolárstvo: +421 905 609 059</p>
+                                <p>Doprava: +421 905 213 426</p>
+                                <p>Ekobrikety: +421 908 124 008</p>
                             </div>
                         </div>
-                        <div class="contact-info-item">
-                            <i class="fas fa-envelope"></i>
-                            <div>
+                        <div class="contact-item">
+                            <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                            <div class="contact-text">
                                 <h4>Email</h4>
                                 <p>petrostolarstvo@gmail.com</p>
                             </div>
                         </div>
-                        <div class="contact-info-item">
-                            <i class="fas fa-clock"></i>
-                            <div>
+                        <div class="contact-item">
+                            <div class="contact-icon"><i class="fas fa-clock"></i></div>
+                            <div class="contact-text">
                                 <h4>Otváracie hodiny</h4>
                                 <p>Pondelok - Piatok: 8:00 - 18:00</p>
                                 <p>Sobota: Na objednávku</p>
                             </div>
                         </div>
                     </div>
-                    <div class="contact-form-box">
+                    <div class="contact-form">
                         <h3>Napíšte nám</h3>
                         <form action="https://formspree.io/f/xgvkeypd" method="POST">
                             <div class="form-group">
                                 <label for="name">Meno a priezvisko</label>
-                                <input type="text" id="name" name="name" required placeholder="Vaše meno">
+                                <input type="text" id="name" name="name" class="form-control" required
+                                    placeholder="Vaše meno">
                             </div>
                             <div class="form-group">
                                 <label for="email">Email</label>
-                                <input type="email" id="email" name="email" required placeholder="vas@email.com">
+                                <input type="email" id="email" name="email" class="form-control" required
+                                    placeholder="vas@email.com">
                             </div>
                             <div class="form-group">
                                 <label for="phone">Telefón (nepovinné)</label>
-                                <input type="tel" id="phone" name="phone" placeholder="+421 9xx xxx xxx">
+                                <input type="tel" id="phone" name="phone" class="form-control"
+                                    placeholder="+421 xxx xxx xxx">
                             </div>
                             <div class="form-group">
                                 <label for="message">Vaša správa</label>
-                                <textarea id="message" name="message" required
-                                    placeholder="Ako vám môžeme pomôcť?"></textarea>
+                                <textarea id="message" name="message" class="form-control" required
+                                    placeholder="Ako Vám môžeme pomôcť?"></textarea>
                             </div>
-                            <button type="submit" class="btn"><i class="fas fa-paper-plane"></i> Odoslať správu</button>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-paper-plane"></i> Odoslať správu
+                            </button>
                         </form>
                     </div>
                 </div>
             </div>
         </section>
-
-        <div id="rakvy" class="service-detail">
-            <div class="service-detail-header">
-                <h2>Výroba rakiev</h2>
-                <a class="back-button" onclick="hideServiceDetail('rakvy')"><i class="fas fa-arrow-left"></i> Späť na
-                    služby</a>
-            </div>
-            <div class="content-card">
-                <div class="service-detail-grid">
-                    <div class="service-detail-text-content">
-                        <p>Ponúkame široký sortiment rakiev vyrobených z kvalitného dreva. Všetky naše výrobky sa
-                            vyznačujú precíznym spracovaním, dôstojným dizajnom a rešpektujú požiadavky našich
-                            zákazníkov. K dispozícii máme
-                            rôzne typy a veľkosti, s možnosťou prispôsobenia povrchovej úpravy a detailov.</p>
-                        <h3>Používané materiály:</h3>
-                        <ul>
-                            <li>Dubové drevo pre svoju pevnosť a krásnu textúru</li>
-                            <li>Bukové drevo, cenené pre svoju odolnosť</li>
-                            <li>Borovicové drevo s charakteristickou kresbou</li>
-                            <li>Smrekové drevo, tradičný materiál v stolárstve</li>
-                        </ul>
-                        <a href="#" class="btn" style="margin-top: 2rem;" onclick="showSection('kontakt', event)"><i
-                                class="fas fa-tags"></i> Vyžiadať cenovú ponuku</a>
-
-                        <div class="gallery" id="gallery-rakvy">
-                        </div>
-                    </div>
-                    <div class="service-detail-image-wrapper">
-                        <img src="M21_Amerika_01.jpg" alt="Výroba rakiev detail">
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div id="okna" class="service-detail">
-            <div class="service-detail-header">
-                <h2>Nábytok, Dvere a Okná</h2>
-                <a class="back-button" onclick="hideServiceDetail('okna')"><i class="fas fa-arrow-left"></i> Späť na
-                    služby</a>
-            </div>
-            <div class="content-card">
-                <div class="service-detail-grid">
-                    <div class="service-detail-text-content">
-                        <p>Vyrábame kvalitné drevené eurookná, vchodové a interiérové dvere, schodiská a nábytok na
-                            mieru podľa vašich predstáv. Naše výrobky spĺňajú
-                            najvyššie štandardy kvality, estetiky a funkčnosti. Poskytujú vynikajúcu tepelnú a zvukovú
-                            izoláciu.</p>
-                        <h3>Výhody našich výrobkov:</h3>
-                        <ul>
-                            <li>Dlhá životnosť a trvácnosť masívneho dreva</li>
-                            <li>Vynikajúca tepelná a zvuková izolácia (najmä EURO okná)</li>
-                            <li>Ekologický a prírodný materiál s jedinečným vzhľadom</li>
-                            <li>Individuálny prístup a výroba na mieru vašim potrebám</li>
-                            <li>Široká škála povrchových úprav a dizajnov</li>
-                        </ul>
-                        <a href="#" class="btn" style="margin-top: 2rem;" onclick="showSection('kontakt', event)"><i
-                                class="fas fa-drafting-compass"></i> Navrhnúť riešenie</a>
-                        <div class="gallery" id="gallery-okna">
-                        </div>
-                    </div>
-                    <div class="service-detail-image-wrapper">
-                        <img src="schody_tocive.jpg" alt="Výroba dreveného nábytku a okien detail">
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div id="brikety" class="service-detail">
-            <div class="service-detail-header">
-                <h2>Predaj EKO brikiet</h2>
-                <a class="back-button" onclick="hideServiceDetail('brikety')"><i class="fas fa-arrow-left"></i> Späť na
-                    služby</a>
-            </div>
-            <div class="content-card">
-                <div class="service-detail-grid">
-                    <div class="service-detail-text-content">
-                        <p>V našej ponuke nájdete kvalitné drevené EKO brikety, vyrobené z čistých pilín bez akýchkoľvek
-                            chemických
-                            prísad a spojív. Vznikajú lisovaním pri vysokom tlaku, čo im dodáva výnimočnú hustotu a
-                            vysokú
-                            výhrevnosť. Sú ideálnym ekologickým palivom. K dispozícii sú aj podpaľovacie triesky.</p>
-                        <h3>Prednosti našich brikiet:</h3>
-                        <ul>
-                            <li>Vysoká výhrevnosť a dlhá doba stabilného horenia</li>
-                            <li>Minimálne množstvo popola (menej ako 1%)</li>
-                            <li>Ekologické palivo z obnoviteľných zdrojov</li>
-                            <li>Jednoduché skladovanie a čistá manipulácia</li>
-                            <li>Vhodné pre krby, kachle a kotly na tuhé palivo</li>
-                        </ul>
-                        <a href="#" class="btn" style="margin-top: 2rem;" onclick="showSection('kontakt', event)"><i
-                                class="fas fa-truck"></i> Objednať brikety</a>
-                        <div class="gallery" id="gallery-brikety">
-                        </div>
-                    </div>
-                    <div class="service-detail-image-wrapper">
-                        <img src="briketa.jpg" alt="Predaj EKO brikiet detail">
-                    </div>
-                </div>
-            </div>
-        </div>
     </main>
 
     <footer>
         <div class="container">
-            <div class="social-icons">
-                <a href="#" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><i
-                        class="fab fa-facebook-f"></i></a>
-                <a href="#" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><i
-                        class="fab fa-instagram"></i></a>
-                <a href="#" aria-label="YouTube" target="_blank" rel="noopener noreferrer"><i
-                        class="fab fa-youtube"></i></a>
+            <div class="footer-content">
+                <a href="#" class="footer-logo" onclick="showSection('hero', event)">Stolárstvo Petro</a>
+                <div class="social-links">
+                    <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+                <p class="copyright">&copy; <span id="currentYear"></span> Stolárstvo Petro. Všetky práva vyhradené.
+                    Dizajn: Miloš Gall.</p>
             </div>
-            <p>&copy; 2025 Stolárstvo Petro. Všetky práva vyhradené. Dizajn: Miloš Gall.</p>
         </div>
     </footer>
 
     <div class="lightbox" id="lightbox">
         <div class="lightbox-content">
-            <button class="lightbox-close" aria-label="Zavrieť lightbox">&times;</button>
-            <button class="lightbox-prev" aria-label="Predchádzajúci obrázok">&#10094;</button>
-            <button class="lightbox-next" aria-label="Nasledujúci obrázok">&#10095;</button>
-            <img src="" alt="" id="lightbox-img">
-            <div class="lightbox-caption" id="lightbox-caption"></div>
+            <img src="" alt="Lightbox Image" id="lightbox-img" class="lightbox-img">
+            <div id="lightbox-caption" class="lightbox-caption"></div>
         </div>
+        <button class="lightbox-btn lightbox-prev" id="lightboxPrev" aria-label="Predchádzajúci obrázok"><i
+                class="fas fa-chevron-left"></i></button>
+        <button class="lightbox-btn lightbox-next" id="lightboxNext" aria-label="Nasledujúci obrázok"><i
+                class="fas fa-chevron-right"></i></button>
+        <button class="lightbox-close" id="lightboxClose" aria-label="Zavrieť"><i class="fas fa-times"></i></button>
     </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
+            const body = document.body;
+            const pageHeader = document.getElementById('pageHeader');
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const navLinks = document.getElementById('navLinks');
+            const themeToggle = document.getElementById('themeToggle');
+            const currentYearSpan = document.getElementById('currentYear');
 
-            // -----------------------------------
-            //      1. DÁTA PRE GALÉRIE (Ponechané z pôvodného kódu)
-            // -----------------------------------
-            const galleryData = {
-                rakvy: [
-                    { src: 'M21_Amerika_01.jpg', caption: 'M21 Amerika 01' },
-                    { src: 'M21_Amerika_05.jpg', caption: 'M21 Amerika' },
-                    { src: 'M10_smrek_tmavá_s_popisom.jpg', caption: 'M10 Tmavá s popisom' },
-                    { src: 'M10+V_smrek_melír_vecera_s_popisom.jpg', caption: 'M10 Melír Večera' },
-                    { src: 'M10+P.jpg', caption: 'M10+P' },
-                    { src: 'M17.jpg', caption: 'M17' },
-                    { src: 'M10.jpg', caption: 'M10' },
-                    { src: 'M8+P.jpg', caption: 'M8+P' },
-                    { src: 'M21.jpg', caption: 'M21' },
-                    { src: 'M3+P.jpg', caption: 'M3+P' }
-                ],
-                okna: [
-                    { src: 'dvere_fra.jpg', caption: 'Drevené dvere' },
-                    { src: 'schody_tocive.jpg', caption: 'Točité schody' },
-                    { src: 'trojokno.jpg', caption: 'Trojité okno' },
-                    { src: 'd1.jpg', caption: 'Dvere D1' },
-                    { src: 'd2.jpg', caption: 'Dvere D2' },
-                    { src: 'd3.jpg', caption: 'Dvere D3' },
-                    { src: 'd4.jpg', caption: 'Dvere D4' },
-                    { src: 'd5.jpg', caption: 'Dvere D5' },
-                    { src: 'd6.jpg', caption: 'Dvere D6' },
-                    { src: 'd7.jpg', caption: 'Dvere D7' },
-                    { src: 'd8.jpg', caption: 'Dvere D8' },
-                    { src: 'balkon.jpg', caption: 'Balkón' },
-                    { src: 'okno.jpg', caption: 'Okno' },
-                    { src: 'okno2.jpg', caption: 'Okno 2' },
-                    { src: 'okno3.jpg', caption: 'Okno 3' },
-                    { src: 'schod.jpg', caption: 'Schodisko' },
-                    { src: 'schod2.jpg', caption: 'Detail schodiska' }
-                ],
-                brikety: [
-                    { src: 'briketa.jpg', caption: 'EKO Briketa' },
-                    { src: 'drevo_briketa.jpg', caption: 'Materiál na brikety' },
-                    { src: 'stroj_1.jpg', caption: 'Lis na brikety 1' },
-                    { src: 'stroj_2.jpg', caption: 'Lis na brikety 2' }
-                ]
-            };
-
-            // Funkcia na vygenerovanie galérie (Ponechaná)
-            function populateGallery(galleryId, data) {
-                const galleryContainer = document.getElementById(galleryId);
-                if (!galleryContainer) return;
-                galleryContainer.innerHTML = ''; // Clear existing items
-                if (data && data.length > 0) {
-                    data.forEach((item, index) => {
-                        const galleryItem = document.createElement('div');
-                        galleryItem.className = 'gallery-item';
-                        // Ensure item.src and item.caption are valid
-                        const imgSrc = item.src || 'https://via.placeholder.com/150?text=ChybaObrazok';
-                        const imgAlt = item.caption || 'Náhľad galérie';
-                        galleryItem.innerHTML = `<img src="${imgSrc}" alt="${imgAlt}">`;
-                        galleryItem.addEventListener('click', () => openLightbox(data, index));
-                        galleryContainer.appendChild(galleryItem);
-                    });
-                } else {
-                    // console.warn(`No data for gallery: ${galleryId}`); // Debug message
-                }
+            // Set current year in footer
+            if (currentYearSpan) {
+                currentYearSpan.textContent = new Date().getFullYear();
             }
 
-            // Naplnenie všetkých galérií (Ponechané)
-            populateGallery('gallery-rakvy', galleryData.rakvy);
-            populateGallery('gallery-okna', galleryData.okna);
-            populateGallery('gallery-brikety', galleryData.brikety);
+            // ----- Section Navigation -----
+            const sections = document.querySelectorAll('main > .section, main > .service-detail');
+            const navigationLinks = document.querySelectorAll('.nav-link, .logo, .footer-logo, .hero-btns a, .about-text a, .service-card, .btn.back-btn'); // Add all clickable elements that navigate
 
-            // -----------------------------------
-            //      2. NAVIGÁCIA MEDZI SEKCIAMI (Ponechaná)
-            // -----------------------------------
-            const sections = document.querySelectorAll('main > section, .service-detail');
-            const navLinks = document.querySelectorAll('nav a');
-            const mainContentElement = document.querySelector('main'); // Target main for scrolling
-
+            // Function to show a section
             window.showSection = (sectionId, event) => {
                 if (event) event.preventDefault();
 
-                sections.forEach(section => {
-                    section.classList.remove('active');
-                });
+                sections.forEach(s => s.classList.remove('active'));
+                navLinks.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+
 
                 const targetSection = document.getElementById(sectionId);
                 if (targetSection) {
                     targetSection.classList.add('active');
-                }
+                    // Update active state for main navigation links
+                    const mainNavLink = document.querySelector(`.nav-link[onclick*="'${sectionId.split('-')[0]}'"]`);
+                    if (mainNavLink) mainNavLink.classList.add('active');
 
-                navLinks.forEach(link => {
-                    link.classList.remove('active');
-                    if (link.id === `nav-${sectionId.split('-')[0]}`) { // Handles nav-onas, nav-sluzby etc.
-                        link.classList.add('active');
+                    // Special handling for service details to keep "Služby" active
+                    if (sectionId.includes('-detail')) {
+                        const servicesMainLink = document.querySelector(`.nav-link[onclick*="'services'"]`);
+                        if (servicesMainLink) servicesMainLink.classList.add('active');
                     }
-                });
-                if (mainContentElement) {
-                    mainContentElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                } else {
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+
+                    // Scroll to the top of the main content area or section
+                    const mainElement = document.querySelector('main');
+                    if (mainElement) {
+                        // Smooth scroll to the top of the main content area
+                        window.scrollTo({
+                            top: mainElement.offsetTop - (pageHeader ? pageHeader.offsetHeight : 0),
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+                if (navLinks.classList.contains('active')) { // Close mobile menu if open
+                    closeMobileMenu();
                 }
             };
 
-            window.showServiceDetail = (serviceId, event) => {
-                if (event) event.stopPropagation(); // Prevents card click from triggering other section shows
-
-                document.querySelectorAll('main > section').forEach(section => section.classList.remove('active'));
-                document.querySelectorAll('.service-detail').forEach(detail => detail.classList.remove('active'));
-
-                const service = document.getElementById(serviceId);
-                if (service) {
-                    service.classList.add('active');
-                    // Scroll to the top of the service detail section or main container
-                    const targetScrollElement = service.closest('main') || service;
-                    targetScrollElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-                // Ensure no main nav link is active when a detail is shown, unless intended
-                navLinks.forEach(link => link.classList.remove('active'));
-                const servicesNavLink = document.getElementById('nav-sluzby');
-                if (servicesNavLink) servicesNavLink.classList.add('active'); // Keep "Služby" active
-            };
-
-
-            window.hideServiceDetail = (serviceId) => {
-                const serviceDetailElement = document.getElementById(serviceId);
-                if (serviceDetailElement) {
-                    serviceDetailElement.classList.remove('active');
-                }
-                showSection('sluzby'); // Go back to services section
-            };
-
-            // Zobraziť 'O nás' pri načítaní (Ponechané)
-            showSection('onas');
-
-            // -----------------------------------
-            //      3. DARK MODE FUNKCIONALITA (Ponechaná)
-            // -----------------------------------
-            const darkModeToggle = document.getElementById('darkModeToggle');
-            const body = document.body;
-            const sunIcon = '<i class="fas fa-sun"></i>';
-            const moonIcon = '<i class="fas fa-moon"></i>';
-
-            // Initialize dark mode based on localStorage
-            if (localStorage.getItem('darkMode') === 'enabled') {
-                body.classList.add('dark-mode');
-                darkModeToggle.innerHTML = sunIcon;
+            // Initial section display (Hero is active by default via class in HTML)
+            // Ensure correct nav link is active if hero is default
+            const initialActiveNavLink = document.querySelector(`.nav-link[onclick*="'hero'"]`);
+            if (initialActiveNavLink && document.getElementById('hero')?.classList.contains('active')) {
+                // No explicit active class for Hero in nav, usually logo click.
+            } else if (document.getElementById('hero')?.classList.contains('active')) {
+                // If hero is active, no specific nav link needs to be highlighted unless designed so
             } else {
-                // Ensure default is moon icon if not enabled or not set
-                body.classList.remove('dark-mode'); // Explicitly remove if disabled
-                darkModeToggle.innerHTML = moonIcon;
+                // If no section is active by default via HTML class (besides hero), show hero.
+                // This logic might be redundant if hero always has .active class.
+                const firstSection = document.querySelector('main > .section');
+                if (firstSection && !document.querySelector('main > .section.active')) {
+                    showSection(firstSection.id);
+                }
             }
 
-            darkModeToggle.addEventListener('click', () => {
-                body.classList.toggle('dark-mode');
-                if (body.classList.contains('dark-mode')) {
-                    localStorage.setItem('darkMode', 'enabled');
-                    darkModeToggle.innerHTML = sunIcon;
-                } else {
-                    localStorage.setItem('darkMode', 'disabled');
-                    darkModeToggle.innerHTML = moonIcon;
+
+            // ----- Mobile Menu -----
+            if (mobileMenuBtn && navLinks) {
+                mobileMenuBtn.addEventListener('click', () => {
+                    navLinks.classList.toggle('active');
+                    mobileMenuBtn.classList.toggle('active'); // For icon change if needed
+                    const isExpanded = navLinks.classList.contains('active');
+                    mobileMenuBtn.setAttribute('aria-expanded', isExpanded);
+                    mobileMenuBtn.innerHTML = isExpanded ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+                    body.style.overflow = isExpanded ? 'hidden' : ''; // Prevent scrolling when mobile menu is open
+                });
+            }
+            window.closeMobileMenu = () => {
+                if (navLinks && navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                    mobileMenuBtn.classList.remove('active');
+                    mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                    body.style.overflow = '';
                 }
-            });
+            };
 
-            // -----------------------------------
-            //      4. LIGHTBOX GALÉRIA (JS - Ponechané)
-            // -----------------------------------
-            const lightbox = document.getElementById('lightbox');
-            const lightboxImg = document.getElementById('lightbox-img');
-            const lightboxCaption = document.getElementById('lightbox-caption');
-            const lightboxClose = document.querySelector('.lightbox-close');
-            const lightboxPrev = document.querySelector('.lightbox-prev');
-            const lightboxNext = document.querySelector('.lightbox-next');
+            // ----- Theme Toggle -----
+            if (themeToggle) {
+                const sunIcon = '<i class="fas fa-sun"></i>';
+                const moonIcon = '<i class="fas fa-moon"></i>';
 
-            let currentImageIndex;
-            let currentGallery;
+                // Initialize theme
+                if (localStorage.getItem('theme') === 'dark') {
+                    body.classList.add('dark-mode');
+                    themeToggle.innerHTML = sunIcon;
+                } else {
+                    body.classList.remove('dark-mode');
+                    themeToggle.innerHTML = moonIcon;
+                }
+
+                themeToggle.addEventListener('click', () => {
+                    body.classList.toggle('dark-mode');
+                    if (body.classList.contains('dark-mode')) {
+                        localStorage.setItem('theme', 'dark');
+                        themeToggle.innerHTML = sunIcon;
+                    } else {
+                        localStorage.setItem('theme', 'light');
+                        themeToggle.innerHTML = moonIcon;
+                    }
+                });
+            }
+
+            // ----- Sticky Header / Scrolled effect (Optional) -----
+            if (pageHeader) {
+                window.addEventListener('scroll', () => {
+                    if (window.scrollY > 50) {
+                        pageHeader.classList.add('scrolled');
+                    } else {
+                        pageHeader.classList.remove('scrolled');
+                    }
+                });
+            }
+
+            // ----- Gallery Data & Lightbox -----
+            const galleryData = {
+                rakvy: [
+                    { src: 'M21_Amerika_01.jpg', caption: 'M21 Amerika 01' }, { src: 'M21_Amerika_05.jpg', caption: 'M21 Amerika' },
+                    { src: 'M10_smrek_tmavá_s_popisom.jpg', caption: 'M10 Tmavá s popisom' }, { src: 'M10+V_smrek_melír_vecera_s_popisom.jpg', caption: 'M10 Melír Večera' },
+                    { src: 'M10+P.jpg', caption: 'M10+P' }, { src: 'M17.jpg', caption: 'M17' }, { src: 'M10.jpg', caption: 'M10' },
+                    { src: 'M8+P.jpg', caption: 'M8+P' }, { src: 'M21.jpg', caption: 'M21' }, { src: 'M3+P.jpg', caption: 'M3+P' }
+                ],
+                okna: [
+                    { src: 'dvere_fra.jpg', caption: 'Drevené dvere' }, { src: 'schody_tocive.jpg', caption: 'Točité schody' },
+                    { src: 'trojokno.jpg', caption: 'Trojité okno' }, { src: 'd1.jpg', caption: 'Dvere D1' }, { src: 'd2.jpg', caption: 'Dvere D2' },
+                    { src: 'd3.jpg', caption: 'Dvere D3' }, { src: 'd4.jpg', caption: 'Dvere D4' }, { src: 'd5.jpg', caption: 'Dvere D5' },
+                    { src: 'd6.jpg', caption: 'Dvere D6' }, { src: 'd7.jpg', caption: 'Dvere D7' }, { src: 'd8.jpg', caption: 'Dvere D8' },
+                    { src: 'balkon.jpg', caption: 'Balkón' }, { src: 'okno.jpg', caption: 'Okno' }, { src: 'okno2.jpg', caption: 'Okno 2' },
+                    { src: 'okno3.jpg', caption: 'Okno 3' }, { src: 'schod.jpg', caption: 'Schodisko' }, { src: 'schod2.jpg', caption: 'Detail schodiska' }
+                ],
+                brikety: [
+                    { src: 'briketa.jpg', caption: 'EKO Briketa' }, { src: 'drevo_briketa.jpg', caption: 'Materiál na brikety' },
+                    { src: 'stroj_1.jpg', caption: 'Lis na brikety 1' }, { src: 'stroj_2.jpg', caption: 'Lis na brikety 2' }
+                ]
+            };
+
+            function populateGallery(galleryId, data) {
+                const galleryContainer = document.getElementById(galleryId);
+                if (!galleryContainer || !data) return;
+                galleryContainer.innerHTML = '';
+                data.forEach((item, index) => {
+                    const galleryItem = document.createElement('div');
+                    galleryItem.className = 'gallery-item';
+                    galleryItem.innerHTML = `<img src="${item.src}" alt="${item.caption}">`;
+                    galleryItem.addEventListener('click', () => openLightbox(data, index));
+                    galleryContainer.appendChild(galleryItem);
+                });
+            }
+
+            populateGallery('gallery-rakvy', galleryData.rakvy);
+            populateGallery('gallery-okna', galleryData.okna);
+            populateGallery('gallery-brikety', galleryData.brikety);
+
+            const lightboxEl = document.getElementById('lightbox');
+            const lightboxImgEl = document.getElementById('lightbox-img');
+            const lightboxCaptionEl = document.getElementById('lightbox-caption');
+            const lightboxCloseBtn = document.getElementById('lightboxClose');
+            const lightboxPrevBtn = document.getElementById('lightboxPrev');
+            const lightboxNextBtn = document.getElementById('lightboxNext');
+            let currentGalleryData = [];
+            let currentImageIdx = 0;
 
             function openLightbox(gallery, index) {
-                currentGallery = gallery;
-                currentImageIndex = index;
+                currentGalleryData = gallery;
+                currentImageIdx = index;
                 updateLightboxImage();
-                lightbox.classList.add('active');
-                document.body.style.overflow = 'hidden';
-                document.addEventListener('keydown', handleKeyPress);
+                lightboxEl.classList.add('active');
+                document.body.style.overflow = 'hidden'; // Prevent background scroll
+                document.addEventListener('keydown', handleLightboxKeyPress);
             }
 
             function closeLightbox() {
-                lightbox.classList.remove('active');
-                document.body.style.overflow = '';
-                document.removeEventListener('keydown', handleKeyPress);
+                lightboxEl.classList.remove('active');
+                document.body.style.overflow = ''; // Restore scroll
+                document.removeEventListener('keydown', handleLightboxKeyPress);
             }
 
             function updateLightboxImage() {
-                if (currentGallery && currentGallery.length > 0 && currentImageIndex >= 0 && currentImageIndex < currentGallery.length) {
-                    const image = currentGallery[currentImageIndex];
-                    // Ensure image object and its properties are valid
-                    lightboxImg.src = image.src || 'https://via.placeholder.com/800x600?text=ErrorLoadingImage';
-                    lightboxImg.alt = image.caption || 'Lightbox image';
-                    lightboxCaption.textContent = image.caption || '';
-                } else {
-                    // console.error("Error updating lightbox: Invalid gallery or index.", currentGallery, currentImageIndex); // Debug
-                    // Optionally close lightbox or show error
-                    // closeLightbox();
+                if (currentGalleryData.length > 0) {
+                    const item = currentGalleryData[currentImageIdx];
+                    lightboxImgEl.src = item.src;
+                    lightboxImgEl.alt = item.caption;
+                    lightboxCaptionEl.textContent = item.caption;
                 }
             }
 
-
             function showPrevImage() {
-                if (currentGallery && currentGallery.length > 0) { // Check if gallery is valid
-                    currentImageIndex = (currentImageIndex - 1 + currentGallery.length) % currentGallery.length;
-                    updateLightboxImage();
-                }
+                currentImageIdx = (currentImageIdx - 1 + currentGalleryData.length) % currentGalleryData.length;
+                updateLightboxImage();
             }
 
             function showNextImage() {
-                if (currentGallery && currentGallery.length > 0) { // Check
-                    currentImageIndex = (currentImageIndex + 1) % currentGallery.length;
-                    updateLightboxImage();
-                }
+                currentImageIdx = (currentImageIdx + 1) % currentGalleryData.length;
+                updateLightboxImage();
             }
 
-            function handleKeyPress(e) {
-                if (!lightbox.classList.contains('active')) return; // Only act if lightbox is active
+            function handleLightboxKeyPress(e) {
                 if (e.key === 'Escape') closeLightbox();
                 if (e.key === 'ArrowLeft') showPrevImage();
                 if (e.key === 'ArrowRight') showNextImage();
             }
 
-            if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
-            if (lightboxPrev) lightboxPrev.addEventListener('click', showPrevImage);
-            if (lightboxNext) lightboxNext.addEventListener('click', showNextImage);
-            if (lightbox) {
-                lightbox.addEventListener('click', (e) => {
-                    if (e.target === lightbox) { // Click on backdrop
-                        closeLightbox();
-                    }
+            if (lightboxCloseBtn) lightboxCloseBtn.addEventListener('click', closeLightbox);
+            if (lightboxPrevBtn) lightboxPrevBtn.addEventListener('click', showPrevImage);
+            if (lightboxNextBtn) lightboxNextBtn.addEventListener('click', showNextImage);
+            if (lightboxEl) { // Click on backdrop to close
+                lightboxEl.addEventListener('click', (e) => {
+                    if (e.target === lightboxEl) closeLightbox();
                 });
             }
+
+            // ----- Intersection Observer for animations (optional) -----
+            const animatedElements = document.querySelectorAll('.hidden-anim');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible-anim');
+                        entry.target.classList.remove('hidden-anim');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            animatedElements.forEach(el => observer.observe(el));
+
         });
     </script>
 </body>

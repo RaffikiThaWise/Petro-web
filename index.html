@@ -4,59 +4,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stolárstvo Petro | Luxusná Drevovýroba</title>
-    <meta name="description"
-        content="Prémiové stolárske výrobky a remeselné riešenia z kvalitného dreva. Rodinná tradícia od roku 1990.">
+    <title>Stolárstvo Petro | Prémiová Drevovýroba</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-
     <style>
-        /* ============================================= */
-        /* 1. CSS Variables & Base Styles */
-        /* ============================================= */
+        /* ----------------------------------- */
+        /* 1. ZÁKLADNÉ NASTAVENIA & PREMENNÉ (NOVÝ DIZAJN) */
+        /* ----------------------------------- */
         :root {
-            /* Color Palette */
-            --color-primary: #8B5F4C;
-            --color-primary-dark: #5A3A2C;
-            --color-primary-light: #C0A89C;
-            --color-accent: #E8D8C8;
-            --color-background: #F9F6F2;
-            --color-text: #2C2C2C;
+            /* Modernizovaná farebná paleta */
+            --color-primary: #795548;
+            /* Sofistikovaná hnedá */
+            --color-primary-dark: #4E342E;
+            /* Hlboká tmavohnedá */
+            --color-primary-light: #A1887F;
+            /* Svetlá, tlmená hnedá */
+            --color-accent: #FFAB91;
+            /* Jemný broskyňový akcent */
+            --color-background-light: #F9F6F4;
+            /* Teplá off-white */
             --color-text-light: #FFFFFF;
-            --color-border: rgba(0, 0, 0, 0.08);
+            --color-text-dark: #3E2723;
+            /* Mäkká tmavohnedá */
+            --color-border: rgba(62, 39, 35, 0.1);
+            /* Jemný okraj */
 
-            /* Dark Mode Colors */
-            --color-dark-bg: #121212;
-            --color-dark-surface: #1E1E1E;
-            --color-dark-text: #F0F0F0;
-            --color-dark-border: rgba(255, 255, 255, 0.12);
+            /* Premenné pre Dark Mode */
+            --color-background-dark: #1C1A19;
+            --color-surface-dark: #282422;
+            --color-text-dark-theme: #EAE0D9;
+            --color-border-dark: rgba(234, 224, 217, 0.15);
 
-            /* Typography */
-            --font-primary: 'Montserrat', sans-serif;
-            --font-secondary: 'Playfair Display', serif;
+            /* Ostatné premenné */
+            --font-family: 'Poppins', sans-serif;
+            --font-weight-light: 300;
+            --font-weight-regular: 400;
+            --font-weight-medium: 500;
+            --font-weight-semibold: 600;
+            --font-weight-bold: 700;
+            --font-weight-extrabold: 800;
 
-            /* Spacing & Sizing */
-            --spacing-unit: 1rem;
             --border-radius: 12px;
-            --border-radius-lg: 24px;
-            --max-width: 1440px;
-
-            /* Effects */
-            --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.05);
-            --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.1);
-            --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.15);
-            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            --shadow: 0 10px 35px rgba(0, 0, 0, 0.07);
+            --shadow-strong: 0 15px 45px rgba(0, 0, 0, 0.1);
+            --transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --spacing-unit: 1rem;
+            --container-padding: calc(var(--spacing-unit) * 0.75);
+            /* ZMENA: Zmenšený padding pre kontajner */
         }
 
         *,
@@ -73,163 +73,239 @@
         }
 
         body {
-            font-family: var(--font-primary);
-            background-color: var(--color-background);
-            color: var(--color-text);
+            font-family: var(--font-family);
+            background-color: var(--color-background-light);
+            color: var(--color-text-dark);
             line-height: 1.7;
-            /* Increased for better readability */
-            overflow-x: hidden;
             transition: background-color var(--transition), color var(--transition);
-            /* Added color transition */
             min-height: 100vh;
             display: flex;
             flex-direction: column;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
-        main {
-            flex-grow: 1;
-            padding-top: 90px;
-            /* Height of fixed header, adjust if needed */
-        }
-
-
+        /* ----------------------------------- */
+        /* 2. DARK MODE (NOVÝ DIZAJN) */
+        /* ----------------------------------- */
         body.dark-mode {
-            background-color: var(--color-dark-bg);
-            color: var(--color-dark-text);
+            background-color: var(--color-background-dark);
+            color: var(--color-text-dark-theme);
         }
 
-        /* ============================================= */
-        /* 2. Typography */
-        /* ============================================= */
+        body.dark-mode .content-card,
+        body.dark-mode .service-card,
+        body.dark-mode .contact-info-box,
+        body.dark-mode .contact-form-box,
+        body.dark-mode .service-detail .content-card {
+            background-color: var(--color-surface-dark);
+            border-color: var(--color-border-dark);
+        }
+
+        body.dark-mode header {
+            background-color: rgba(28, 26, 25, 0.85);
+            border-bottom-color: var(--color-border-dark);
+        }
+
+        body.dark-mode .logo h1,
+        body.dark-mode nav a,
+        body.dark-mode .contact-info-item p,
+        body.dark-mode .form-group label {
+            color: var(--color-text-dark-theme);
+        }
+
+        body.dark-mode h1,
+        body.dark-mode h2,
+        body.dark-mode h3,
+        body.dark-mode h4 {
+            color: var(--color-primary-light);
+        }
+
+        body.dark-mode .hero-subtitle {
+            color: var(--color-text-dark-theme);
+        }
+
+        body.dark-mode .form-group input,
+        body.dark-mode .form-group textarea {
+            background-color: var(--color-background-dark);
+            color: var(--color-text-dark-theme);
+            border-color: var(--color-border-dark);
+        }
+
+        body.dark-mode .form-group input::placeholder,
+        body.dark-mode .form-group textarea::placeholder {
+            color: rgba(234, 224, 217, 0.6);
+        }
+
+
+        body.dark-mode footer {
+            background-color: #121212;
+            border-top: 1px solid var(--color-border-dark);
+        }
+
+        body.dark-mode .social-icons a {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--color-text-dark-theme);
+        }
+
+        body.dark-mode .btn {
+            background-color: var(--color-primary-light);
+            color: var(--color-background-dark);
+            border-color: var(--color-primary-light);
+        }
+
+        body.dark-mode .btn:hover {
+            background-color: var(--color-accent);
+        }
+
+
+        body.dark-mode .btn-outline {
+            color: var(--color-primary-light);
+            border-color: var(--color-primary-light);
+        }
+
+        body.dark-mode .btn-outline:hover {
+            background-color: var(--color-primary-light);
+            color: var(--color-background-dark);
+        }
+
+        body.dark-mode .back-button {
+            border-color: var(--color-border-dark);
+            color: var(--color-primary-light);
+            background-color: var(--color-surface-dark);
+        }
+
+        body.dark-mode .back-button:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        body.dark-mode .gallery {
+            border-top-color: var(--color-border-dark);
+        }
+
+        body.dark-mode .contact-info {
+            border-right-color: var(--color-border-dark);
+        }
+
+        body.dark-mode .about-image-wrapper {
+            background-color: var(--color-surface-dark);
+        }
+
+
+        /* ----------------------------------- */
+        /* 3. GLOBÁLNE KOMPONENTY (NOVÝ DIZAJN) */
+        /* ----------------------------------- */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--container-padding);
+            /* ZMENA: Použitie novej premennej pre padding */
+        }
+
         h1,
         h2,
         h3,
-        h4 {
-            font-family: var(--font-secondary);
-            font-weight: 600;
-            line-height: 1.2;
-            margin-bottom: 1.5rem;
+        h4,
+        h5,
+        h6 {
+            font-weight: var(--font-weight-semibold);
             color: var(--color-primary-dark);
-            /* Base color for headings */
         }
 
         h1 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            letter-spacing: -0.05em;
+            /* ZMENA: Zmenšená veľkosť H1 */
+            font-size: clamp(2.2rem, 4.5vw, 3.2rem);
+            font-weight: var(--font-weight-bold);
+            line-height: 1.25;
+            /* Mierna úprava riadkovania */
+            margin-bottom: calc(1.25 * var(--spacing-unit));
+            /* Mierna úprava odstupu */
         }
 
         h2 {
-            font-size: clamp(2rem, 4vw, 3rem);
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            margin-bottom: calc(2.5 * var(--spacing-unit));
+            text-align: center;
             position: relative;
-            display: inline-block;
-            /* For ::after to be positioned correctly */
+            padding-bottom: var(--spacing-unit);
         }
 
         h2::after {
             content: '';
             position: absolute;
-            bottom: -0.75rem;
-            left: 0;
-            width: 60%;
-            height: 4px;
-            background-color: var(--color-primary);
-            border-radius: 2px;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            width: 70px;
+            height: 3px;
+            background-color: var(--color-accent);
+            border-radius: 3px;
         }
 
         h3 {
-            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-size: clamp(1.3rem, 3vw, 1.75rem);
+            margin-bottom: var(--spacing-unit);
+            font-weight: var(--font-weight-semibold);
+            color: var(--color-primary);
         }
+
+        h4 {
+            font-size: clamp(1.1rem, 2.5vw, 1.25rem);
+            margin-bottom: calc(0.5 * var(--spacing-unit));
+            font-weight: var(--font-weight-medium);
+        }
+
 
         p {
-            margin-bottom: 1.5rem;
-            font-size: 1.05rem;
-            /* Slightly increased paragraph font size */
-            line-height: 1.8;
-            /* Increased for better readability */
+            margin-bottom: calc(1.25 * var(--spacing-unit));
+            font-size: 1rem;
+            line-height: 1.7;
         }
 
-        a {
-            text-decoration: none;
-            color: inherit;
+        strong {
+            font-weight: var(--font-weight-semibold);
+        }
+
+
+        .content-card {
+            background-color: var(--color-text-light);
+            border: 1px solid var(--color-border);
+            border-radius: var(--border-radius);
+            padding: calc(2.5 * var(--spacing-unit));
+            box-shadow: var(--shadow);
+            margin-bottom: calc(2.5 * var(--spacing-unit));
             transition: var(--transition);
-        }
-
-        /* ============================================= */
-        /* 3. Utility Classes */
-        /* ============================================= */
-        .container {
-            width: 100%;
-            max-width: var(--max-width);
-            margin: 0 auto;
-            padding: 0 calc(var(--spacing-unit) * 1.5);
-            /* Adjusted padding */
-        }
-
-        .section {
-            padding: calc(var(--spacing-unit) * 5) 0;
-            /* Adjusted padding */
-            position: relative;
-            display: none;
-            /* Sections hidden by default, JS will show them */
-        }
-
-        .section.active {
-            display: block;
-            animation: fadeIn 0.8s ease forwards;
-        }
-
-        /* Hero section is displayed by default, no .active needed initially */
-        .hero {
-            display: flex;
-            /* Keep flex for hero alignment */
-        }
-
-
-        .section-title {
-            text-align: center;
-            margin-bottom: calc(var(--spacing-unit) * 3);
-            /* Adjusted margin */
-        }
-
-        .section-title h2::after {
-            left: 50%;
-            transform: translateX(-50%);
         }
 
         .btn {
             display: inline-flex;
             align-items: center;
-            justify-content: center;
             gap: 0.75rem;
-            padding: 0.9rem 1.8rem;
-            /* Adjusted padding */
-            border-radius: var(--border-radius);
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            font-size: 0.85rem;
-            /* Adjusted font size */
-            transition: var(--transition);
-            cursor: pointer;
-            border: 2px solid transparent;
-        }
-
-        .btn-primary {
             background-color: var(--color-primary);
             color: var(--color-text-light);
-            box-shadow: var(--shadow-sm);
+            padding: 0.9rem 2.2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: var(--font-weight-medium);
+            border: 2px solid transparent;
+            transition: var(--transition);
+            font-size: 0.95rem;
+            cursor: pointer;
+            letter-spacing: 0.5px;
         }
 
-        .btn-primary:hover {
+        .btn:hover {
             background-color: var(--color-primary-dark);
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-md);
+            border-color: var(--color-primary-dark);
+            transform: translateY(-4px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
         }
 
         .btn-outline {
             background-color: transparent;
-            border-color: var(--color-primary);
             color: var(--color-primary);
+            border-color: var(--color-primary);
         }
 
         .btn-outline:hover {
@@ -237,112 +313,54 @@
             color: var(--color-text-light);
         }
 
-        .text-center {
-            text-align: center;
-        }
-
-        /* Animation observer classes (if needed, otherwise use general fadeIn) */
-        .hidden-anim {
-            opacity: 0;
-            transform: translateY(20px);
-        }
-
-        .visible-anim {
-            opacity: 1;
-            transform: translateY(0);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        }
-
-        /* ============================================= */
-        /* 4. Dark Mode Styles */
-        /* ============================================= */
-        body.dark-mode .card,
-        /* Assuming .card is a general class you might use */
-        body.dark-mode .service-card,
-        body.dark-mode .contact-info,
-        body.dark-mode .contact-form,
-        body.dark-mode .about-content-wrapper,
-        /* Added based on previous structures */
-        body.dark-mode .service-detail .content-card {
-            /* Added based on previous */
-            background-color: var(--color-dark-surface);
-            border-color: var(--color-dark-border);
-        }
-
-        body.dark-mode .about-image-wrapper {
-            /* From previous dark mode adjustments */
-            background-color: var(--color-dark-surface);
+        .btn i {
+            font-size: 1.1em;
         }
 
 
-        body.dark-mode h1,
-        body.dark-mode h2,
-        body.dark-mode h3,
-        body.dark-mode h4 {
-            /* Added H4 */
-            color: var(--color-accent);
+        section {
+            padding: calc(5 * var(--spacing-unit)) 0;
+            display: none;
+            animation: fadeIn 0.7s ease-out forwards;
         }
 
-        body.dark-mode .hero h1,
-        body.dark-mode .hero p {
-            /* Hero text stays light on dark bg */
-            color: var(--color-text-light);
+        section.active {
+            display: block;
         }
 
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
 
-        body.dark-mode .btn-outline {
-            border-color: var(--color-accent);
-            color: var(--color-accent);
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        body.dark-mode .btn-outline:hover {
-            background-color: var(--color-accent);
-            color: var(--color-dark-bg);
+        main {
+            flex-grow: 1;
         }
 
-        body.dark-mode .form-control {
-            background-color: var(--color-dark-surface);
-            color: var(--color-dark-text);
-            border-color: var(--color-dark-border);
-        }
-
-        body.dark-mode .form-control::placeholder {
-            color: rgba(240, 240, 240, 0.6);
-        }
-
-
-        /* ============================================= */
-        /* 5. Header & Navigation */
-        /* ============================================= */
+        /* ----------------------------------- */
+        /* 4. HEADER (NOVÝ DIZAJN) */
+        /* ----------------------------------- */
         header {
-            position: fixed;
+            position: sticky;
             top: 0;
-            left: 0;
-            width: 100%;
             z-index: 1000;
-            padding: calc(var(--spacing-unit) * 1.25) 0;
-            /* Adjusted padding */
-            background-color: rgba(249, 246, 242, 0.9);
-            /* Slightly less opaque */
+            padding: calc(1.25 * var(--spacing-unit)) 0;
+            background-color: rgba(249, 246, 244, 0.85);
             backdrop-filter: blur(10px);
-            /* Adjusted blur */
             border-bottom: 1px solid var(--color-border);
-            transition: background-color var(--transition), border-color var(--transition), padding var(--transition);
+            transition: background-color var(--transition), border-color var(--transition);
+            box-shadow: 0 1px 10px rgba(0, 0, 0, 0.03);
         }
 
-        header.scrolled {
-            /* Optional: for shrinking header on scroll */
-            padding: calc(var(--spacing-unit) * 0.75) 0;
-            box-shadow: var(--shadow-sm);
-        }
-
-
-        body.dark-mode header {
-            background-color: rgba(30, 30, 30, 0.9);
-            border-bottom-color: var(--color-dark-border);
-        }
-
-        .header-container {
+        .header-content {
+            /* .container v headeri už má upravený padding cez --container-padding */
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -351,112 +369,72 @@
         .logo {
             display: flex;
             align-items: center;
-            gap: 0.75rem;
-            /* Adjusted gap */
+            gap: 0.8rem;
+            text-decoration: none;
         }
 
-        .logo-img {
-            width: 50px;
-            /* Adjusted size */
-            height: 50px;
+        .logo-image {
+            width: 45px;
+            height: 45px;
             object-fit: contain;
             border-radius: 50%;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
         }
 
-        .logo-text {
-            font-family: var(--font-secondary);
-            font-size: 1.4rem;
-            /* Adjusted size */
-            font-weight: 700;
+        .logo h1 {
+            font-size: 1.6rem;
+            font-weight: var(--font-weight-bold);
             color: var(--color-primary-dark);
+            letter-spacing: -0.5px;
         }
 
-        body.dark-mode .logo-text {
-            color: var(--color-accent);
-        }
-
-        .nav-links {
+        nav {
             display: flex;
             align-items: center;
-            gap: calc(var(--spacing-unit) * 1.8);
-            /* Adjusted gap */
+            gap: calc(2 * var(--spacing-unit));
         }
 
-        .nav-link {
+        nav a {
+            color: var(--color-text-dark);
+            text-decoration: none;
+            font-weight: var(--font-weight-medium);
+            font-size: 1rem;
             position: relative;
-            font-weight: 500;
-            padding: 0.5rem 0;
-            color: var(--color-text);
-            font-size: 0.95rem;
-            /* Adjusted size */
+            padding: 0.4rem 0;
+            transition: color 0.3s;
         }
 
-        body.dark-mode .nav-link {
-            color: var(--color-dark-text);
-        }
-
-        body.dark-mode .nav-link:hover {
-            color: var(--color-primary-light);
-        }
-
-        body.dark-mode .nav-link.active {
-            color: var(--color-primary-light);
-        }
-
-        body.dark-mode .nav-link.active::after {
-            background-color: var(--color-primary-light);
-        }
-
-
-        .nav-link::after {
+        nav a::after {
             content: '';
             position: absolute;
-            bottom: 0;
-            left: 0;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
             width: 0;
-            height: 2px;
+            height: 2.5px;
             background-color: var(--color-primary);
-            transition: var(--transition);
+            border-radius: 2px;
+            transition: width 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
 
-        .nav-link:hover::after,
-        .nav-link.active::after {
-            width: 100%;
-        }
-
-        .nav-link:hover,
-        .nav-link.active {
-            /* Added .active state color */
+        nav a:hover,
+        nav a.active {
             color: var(--color-primary);
         }
 
+        nav a:hover::after,
+        nav a.active::after {
+            width: 60%;
+        }
 
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            color: var(--color-primary);
+        .dark-mode-btn {
+            background: transparent;
+            border: 1px solid var(--color-border);
+            color: var(--color-primary-dark);
+            font-size: 1.1rem;
             cursor: pointer;
-            z-index: 1001;
-            /* Ensure it's above nav-links when closed */
-        }
-
-        body.dark-mode .mobile-menu-btn {
-            color: var(--color-accent);
-        }
-
-
-        .theme-toggle {
-            background: none;
-            border: none;
-            font-size: 1.2rem;
-            /* Adjusted size */
-            color: var(--color-primary);
-            cursor: pointer;
-            width: 40px;
-            /* Adjusted size */
-            height: 40px;
+            width: 44px;
+            height: 44px;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -464,436 +442,317 @@
             transition: var(--transition);
         }
 
-        .theme-toggle:hover {
-            background-color: rgba(139, 95, 76, 0.1);
+        body.dark-mode .dark-mode-btn {
+            color: var(--color-primary-light);
+            border-color: var(--color-border-dark);
         }
 
-        body.dark-mode .theme-toggle {
-            color: var(--color-accent);
+        .dark-mode-btn:hover {
+            background-color: var(--color-primary-light);
+            border-color: var(--color-primary-light);
+            transform: scale(1.05) rotate(15deg);
         }
 
-        body.dark-mode .theme-toggle:hover {
-            background-color: rgba(232, 216, 200, 0.1);
-        }
-
-        /* ============================================= */
-        /* 6. Hero Section */
-        /* ============================================= */
-        .hero {
-            /* This is a .section, already has display: none; JS makes it active */
-            height: 90vh;
-            /* Adjusted height */
-            min-height: 700px;
-            /* Adjusted min-height */
-            display: flex;
-            /* This will be overridden by .section, but good for clarity */
-            align-items: center;
-            position: relative;
-            overflow: hidden;
-            background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
-                /* Softer gradient */
-                url('hero-bg.jpg') no-repeat center center/cover;
-            color: var(--color-text-light);
-        }
-
-        .hero::before {
-            /* Darkening overlay */
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to right, rgba(var(--color-primary-dark-rgb, 90, 58, 44), 0.6), rgba(var(--color-primary-dark-rgb, 90, 58, 44), 0.2));
-            /* Used a variable for rgb components if you want to define --color-primary-dark-rgb: 90, 58, 44; in :root */
-            z-index: 1;
+        body.dark-mode .dark-mode-btn:hover {
+            background-color: var(--color-surface-dark);
+            border-color: var(--color-surface-dark);
         }
 
 
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 750px;
-            /* Adjusted width */
+        /* ----------------------------------- */
+        /* 5. SEKCIE (NOVÝ DIZAJN) */
+        /* ----------------------------------- */
+
+        /* --- HERO SEKCIA (Pre O NÁS) --- */
+        #onas .hero-section {
+            text-align: center;
+            padding: calc(4 * var(--spacing-unit)) 0;
+            background-color: transparent;
         }
 
-        .hero h1 {
-            font-size: clamp(2.8rem, 6vw, 4.5rem);
-            /* Adjusted size */
-            margin-bottom: 1.5rem;
-            line-height: 1.1;
-            animation: fadeInUp 0.8s ease forwards;
-            /* Adjusted timing */
-            color: var(--color-text-light);
-            /* Ensure color override for hero */
+        #onas .hero-subtitle {
+            /* ZMENA: Zmenšená veľkosť podnadpisu */
+            font-size: clamp(0.9rem, 2.2vw, 1.1rem);
+            color: var(--color-text-dark);
+            margin-bottom: calc(2.5 * var(--spacing-unit));
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            font-weight: var(--font-weight-regular);
         }
 
-        .hero p {
-            font-size: clamp(1.05rem, 2vw, 1.3rem);
-            /* Adjusted size */
-            margin-bottom: 2.5rem;
-            opacity: 0;
-            animation: fadeInUp 0.8s ease 0.2s forwards;
-            /* Adjusted timing */
-            color: var(--color-text-light);
-            /* Ensure color override for hero */
-            max-width: 600px;
+        #onas .hero-section .btn {
+            margin-top: var(--spacing-unit);
         }
 
-        .hero .btn-primary {
-            /* Specific hover for hero buttons if needed */
-            background-color: var(--color-accent);
-            color: var(--color-primary-dark);
-            border-color: var(--color-accent);
-        }
-
-        .hero .btn-primary:hover {
+        /* --- O NÁS --- */
+        .about-content-wrapper {
             background-color: var(--color-text-light);
-            color: var(--color-primary-dark);
-            border-color: var(--color-text-light);
+            border: 1px solid var(--color-border);
+            border-radius: var(--border-radius);
+            padding: calc(3 * var(--spacing-unit));
+            box-shadow: var(--shadow);
         }
 
-        .hero .btn-outline {
-            border-color: var(--color-text-light);
-            color: var(--color-text-light);
+        body.dark-mode .about-content-wrapper {
+            background-color: var(--color-surface-dark);
+            border-color: var(--color-border-dark);
         }
-
-        .hero .btn-outline:hover {
-            background-color: var(--color-text-light);
-            color: var(--color-primary-dark);
-        }
-
-        .hero-btns {
-            display: flex;
-            gap: 1.5rem;
-            opacity: 0;
-            animation: fadeInUp 0.8s ease 0.4s forwards;
-            /* Adjusted timing */
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* ============================================= */
-        /* 7. About Section */
-        /* ============================================= */
-        .about {
-            background-color: var(--color-background);
-            /* Already set on body, but can be specific */
-        }
-
-        body.dark-mode .about {
-            background-color: var(--color-dark-bg);
-        }
-
 
         .about-content {
             display: grid;
-            grid-template-columns: 1fr 1.2fr;
-            /* Give more space to text */
-            gap: calc(var(--spacing-unit) * 4);
+            grid-template-columns: 1fr 1.1fr;
+            gap: calc(3.5 * var(--spacing-unit));
             align-items: center;
         }
 
-        .about-image {
-            position: relative;
-            border-radius: var(--border-radius-lg);
-            overflow: hidden;
-            box-shadow: var(--shadow-lg);
-            aspect-ratio: 4 / 5;
-            /* Tallish image ratio */
-        }
-
-        .about-image img {
-            width: 100%;
+        .about-image-wrapper {
+            background-color: var(--color-background-light);
+            border-radius: var(--border-radius);
+            padding: var(--spacing-unit);
+            box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.02);
             height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .about-image-wrapper img {
+            max-width: 100%;
+            height: auto;
+            border-radius: calc(var(--border-radius) - 4px);
             object-fit: cover;
-            transition: transform 0.6s var(--transition);
-            /* Added transform to transition */
+            box-shadow: var(--shadow-strong);
         }
 
-        .about-image:hover img {
-            transform: scale(1.05);
+        .about-text h2 {
+            text-align: left;
+            font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+            margin-bottom: calc(1.5 * var(--spacing-unit));
         }
 
-        .about-text {
-            padding: 1rem 0;
-            /* Adjusted padding */
-        }
-
-        .about-text h3 {
-            color: var(--color-primary);
-            /* Consistent with primary color for subtitles */
+        .about-text h2::after {
+            left: 0;
+            transform: translateX(0);
+            width: 60px;
         }
 
         .about-text p {
-            margin-bottom: 1.5rem;
+            font-size: 1rem;
+            margin-bottom: calc(1.5 * var(--spacing-unit));
         }
 
-        /* ============================================= */
-        /* 8. Services Section */
-        /* ============================================= */
-        .services {
-            background-color: var(--color-accent);
+        .about-text .btn {
+            margin-top: var(--spacing-unit);
         }
 
-        body.dark-mode .services {
-            background-color: var(--color-dark-surface);
-            /* Darker accent for services bg in dark mode */
-        }
-
-
-        .services-grid {
+        /* --- SLUŽBY --- */
+        .service-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            /* Slightly larger minmax */
-            gap: calc(var(--spacing-unit) * 2.5);
-            /* Adjusted gap */
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: calc(2.5 * var(--spacing-unit));
         }
 
         .service-card {
             background-color: var(--color-text-light);
+            border: 1px solid var(--color-border);
             border-radius: var(--border-radius);
-            /* Standard radius for cards */
+            box-shadow: var(--shadow);
             overflow: hidden;
-            box-shadow: var(--shadow-md);
             transition: var(--transition);
-            cursor: pointer;
             display: flex;
             flex-direction: column;
+            cursor: pointer;
         }
 
         .service-card:hover {
-            transform: translateY(-8px);
-            /* Adjusted hover effect */
-            box-shadow: var(--shadow-lg);
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-strong);
         }
 
-        .service-card-img {
+        .service-card-image-wrapper {
             width: 100%;
             height: 220px;
-            /* Adjusted height */
             overflow: hidden;
         }
 
-        .service-card-img img {
+        .service-card img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.5s var(--transition);
-            /* Added transform */
+            transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
 
-        .service-card:hover .service-card-img img {
-            transform: scale(1.08);
-            /* Adjusted scale */
+        .service-card:hover img {
+            transform: scale(1.07);
         }
 
         .service-card-content {
-            padding: calc(var(--spacing-unit) * 1.5);
-            /* Adjusted padding */
+            padding: calc(1.8 * var(--spacing-unit));
             flex-grow: 1;
-            /* Allow content to grow */
             display: flex;
             flex-direction: column;
         }
 
+        .service-card-content h3 {
+            font-size: 1.35rem;
+        }
+
+        .service-card-content p {
+            margin-bottom: calc(1.25 * var(--spacing-unit));
+            flex-grow: 1;
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        body.dark-mode .service-card-content p {
+            color: var(--color-primary-light);
+            opacity: 0.8;
+        }
+
+
         .service-card-content .btn {
             margin-top: auto;
-            /* Push button to bottom */
             align-self: flex-start;
+            padding: 0.7rem 1.5rem;
+            font-size: 0.85rem;
         }
 
-
-        .service-card h3 {
-            margin-bottom: 0.75rem;
-            /* Adjusted margin */
-            color: var(--color-primary-dark);
-            font-size: 1.4rem;
-            /* Specific font size for service card titles */
-        }
-
-        body.dark-mode .service-card h3 {
-            color: var(--color-accent);
-        }
-
-        .service-card p {
-            margin-bottom: 1.25rem;
-            /* Adjusted margin */
-            font-size: 0.95rem;
-            /* Slightly smaller text in card */
-            flex-grow: 1;
-            /* Allow paragraph to take space before button */
-        }
-
-        /* ============================================= */
-        /* 9. Service Detail Section */
-        /* ============================================= */
+        /* --- DETAIL SLUŽBY --- */
         .service-detail {
-            /* Already a .section, display handled by .active */
-            padding-top: calc(var(--spacing-unit) * 3);
-            /* Less top padding as it's below header */
-            padding-bottom: calc(var(--spacing-unit) * 5);
+            display: none;
+            padding: calc(3 * var(--spacing-unit)) 0;
+            animation: fadeIn 0.7s ease-out forwards;
+        }
+
+        .service-detail.active {
+            display: block;
         }
 
         .service-detail-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: calc(var(--spacing-unit) * 2.5);
-            /* Adjusted margin */
+            margin-bottom: calc(2.5 * var(--spacing-unit));
             flex-wrap: wrap;
-            /* Allow wrapping for back button */
-            gap: 1rem;
+            gap: var(--spacing-unit);
         }
 
         .service-detail-header h2 {
             margin-bottom: 0;
-            /* Remove default h2 margin as it's in a flex container */
+            text-align: left;
+            padding-bottom: 0;
+        }
+
+        .service-detail-header h2::after {
+            left: 0;
+            transform: translateX(0);
+            bottom: -10px;
         }
 
 
-        .back-btn {
+        .back-button {
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
-            padding: 0.7rem 1.4rem;
-            /* Adjusted padding */
-            border-radius: var(--border-radius);
+            gap: 0.6rem;
+            cursor: pointer;
+            font-weight: var(--font-weight-medium);
+            color: var(--color-primary);
+            text-decoration: none;
+            padding: 0.8rem 1.8rem;
+            border-radius: 50px;
             background-color: transparent;
             border: 2px solid var(--color-border);
-            font-weight: 500;
-            /* Adjusted weight */
-            font-size: 0.9rem;
-            cursor: pointer;
             transition: var(--transition);
+            font-size: 0.9rem;
         }
 
-        .back-btn:hover {
-            background-color: var(--color-accent);
-            border-color: var(--color-accent);
+        .back-button:hover {
+            background-color: var(--color-primary-light);
+            border-color: var(--color-primary-light);
+            color: var(--color-primary-dark);
+            transform: translateY(-3px);
         }
 
-        body.dark-mode .back-btn {
-            border-color: var(--color-dark-border);
-            color: var(--color-dark-text);
+        .back-button i {
+            font-size: 1.1em;
         }
 
-        body.dark-mode .back-btn:hover {
-            background-color: var(--color-dark-surface);
-            border-color: var(--color-dark-surface);
+        .service-detail-grid {
+            /* ZMENA: Layout pre detail služby - jednástĺpcový */
+            display: grid;
+            grid-template-columns: 1fr;
+            /* Iba jeden stĺpec pre textový obsah a galériu */
+            gap: calc(2 * var(--spacing-unit));
+            /* Upravený gap */
+            align-items: flex-start;
         }
 
-        .service-detail-content-wrapper {
-            /* New wrapper for content card styling */
-            background-color: var(--color-text-light);
-            padding: calc(var(--spacing-unit) * 2.5);
-            border-radius: var(--border-radius-lg);
-            box-shadow: var(--shadow-md);
+        .service-detail-text-content h3 {
+            margin-top: calc(1.5 * var(--spacing-unit));
+            margin-bottom: calc(0.75 * var(--spacing-unit));
+            font-size: 1.25rem;
+            color: var(--color-primary-dark);
         }
 
-        body.dark-mode .service-detail-content-wrapper {
-            background-color: var(--color-dark-surface);
-            border: 1px solid var(--color-dark-border);
-        }
-
-
-        .service-detail-text p {
-            margin-bottom: 1.25rem;
-            /* Adjusted margin */
-        }
-
-        .service-detail-text h4 {
-            /* For subheadings like "Používané materiály" */
-            font-family: var(--font-primary);
-            /* Use primary font for less formal headings */
-            font-weight: 600;
-            font-size: 1.1rem;
-            margin-top: 2rem;
-            margin-bottom: 0.75rem;
-            color: var(--color-primary);
-        }
-
-        body.dark-mode .service-detail-text h4 {
-            color: var(--color-primary-light);
-        }
-
-
-        .service-features {
-            list-style: none;
-            margin: 1.5rem 0;
-            /* Adjusted margin */
-            padding-left: 0;
-            /* Remove default padding */
-        }
-
-        .service-features li {
-            position: relative;
-            padding-left: 2rem;
-            margin-bottom: 0.75rem;
-            /* Adjusted margin */
-            font-size: 1rem;
-        }
-
-        .service-features li::before {
-            content: '\f00c';
-            font-family: 'Font Awesome 6 Free';
-            font-weight: 900;
-            color: var(--color-primary);
-            position: absolute;
-            left: 0;
-            top: 0.15em;
-            /* Relative to font size */
-        }
-
-        body.dark-mode .service-features li::before {
+        body.dark-mode .service-detail-text-content h3 {
             color: var(--color-accent);
         }
 
-        /* .service-detail-image class not used for main image as it's removed */
-
-        /* ============================================= */
-        /* 10. Gallery */
-        /* ============================================= */
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
-            /* Adjusted minmax */
-            gap: 1rem;
-            margin-top: 2.5rem;
-            /* Adjusted margin */
-            padding-top: 1.5rem;
-            /* Adjusted padding */
-            border-top: 1px solid var(--color-border);
+        .service-detail p {
+            margin-bottom: var(--spacing-unit);
+            font-size: 1rem;
         }
 
-        body.dark-mode .gallery {
-            border-top-color: var(--color-dark-border);
+        .service-detail ul {
+            list-style: none;
+            margin: var(--spacing-unit) 0 calc(1.5 * var(--spacing-unit)) 0;
+            padding-left: 0;
+        }
+
+        .service-detail ul li {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 0.8rem;
+            font-size: 0.95rem;
+        }
+
+        .service-detail ul li::before {
+            content: '\f00c';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            color: var(--color-accent);
+            position: absolute;
+            left: 0;
+            top: 0.15rem;
+            font-size: 1rem;
+        }
+
+        /* .service-detail-image-wrapper { ZMENA: Odstránené, keďže hlavný obrázok sa už nezobrazuje } */
+
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: var(--spacing-unit);
+            margin-top: calc(2.5 * var(--spacing-unit));
+            padding-top: calc(1.5 * var(--spacing-unit));
+            border-top: 1px solid var(--color-border);
         }
 
         .gallery-item {
             position: relative;
-            border-radius: var(--border-radius);
             overflow: hidden;
-            aspect-ratio: 1 / 1;
+            border-radius: calc(var(--border-radius) - 4px);
             cursor: pointer;
+            aspect-ratio: 1 / 1;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
             transition: var(--transition);
-            box-shadow: var(--shadow-sm);
         }
 
         .gallery-item:hover {
             transform: scale(1.03);
-            /* Adjusted scale */
-            box-shadow: var(--shadow-md);
+            box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
         }
 
         .gallery-item img {
@@ -901,440 +760,356 @@
             height: 100%;
             object-fit: cover;
             transition: transform 0.4s ease;
-            /* Smoother transition */
         }
 
         .gallery-item:hover img {
-            transform: scale(1.1);
+            transform: scale(1.12);
         }
 
         .gallery-item::after {
-            /* Overlay for zoom icon */
             content: '\f00e';
-            /* Font Awesome search icon */
             font-family: 'Font Awesome 6 Free';
             font-weight: 900;
             position: absolute;
             top: 0;
             left: 0;
-            right: 0;
-            bottom: 0;
+            width: 100%;
+            height: 100%;
             display: flex;
             align-items: center;
             justify-content: center;
-            background-color: rgba(0, 0, 0, 0.5);
             color: white;
             font-size: 2rem;
+            background-color: rgba(0, 0, 0, 0.5);
             opacity: 0;
-            transition: opacity 0.3s ease;
+            transform: scale(0.9);
+            transition: var(--transition);
         }
 
         .gallery-item:hover::after {
             opacity: 1;
+            transform: scale(1);
         }
 
 
-        /* ============================================= */
-        /* 11. Contact Section */
-        /* ============================================= */
-        .contact {
-            background-color: var(--color-accent);
-            /* Match services section background */
-        }
-
-        body.dark-mode .contact {
-            background-color: var(--color-dark-surface);
-        }
-
-        .contact-container {
+        /* --- KONTAKT --- */
+        .contact-grid {
             display: grid;
             grid-template-columns: 1fr 1.3fr;
-            /* Adjusted ratio */
-            gap: calc(var(--spacing-unit) * 3);
-            /* Adjusted gap */
+            gap: calc(3 * var(--spacing-unit));
         }
 
-        .contact-info,
-        .contact-form {
-            /* Common styling for both boxes */
-            background-color: var(--color-text-light);
-            padding: calc(var(--spacing-unit) * 2.5);
-            /* Adjusted padding */
-            border-radius: var(--border-radius-lg);
-            box-shadow: var(--shadow-md);
+        .contact-info-box {
+            padding: calc(2 * var(--spacing-unit));
+            border-right: 1px solid var(--color-border);
         }
 
-
-        .contact-info h3,
-        .contact-form h3 {
-            margin-bottom: 2rem;
+        .contact-info-box h3,
+        .contact-form-box h3 {
+            font-size: 1.5rem;
+            margin-bottom: calc(1.5 * var(--spacing-unit));
             color: var(--color-primary-dark);
         }
 
-        body.dark-mode .contact-info h3,
-        body.dark-mode .contact-form h3 {
-            color: var(--color-accent);
-        }
-
-
-        .contact-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 1.25rem;
-            /* Adjusted gap */
-            margin-bottom: 1.8rem;
-            /* Adjusted margin */
-        }
-
-        .contact-icon {
-            width: 48px;
-            /* Adjusted size */
-            height: 48px;
-            background-color: var(--color-accent);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            /* Adjusted size */
-            color: var(--color-primary);
-            flex-shrink: 0;
-        }
-
-        body.dark-mode .contact-icon {
-            background-color: var(--color-primary-light);
-            color: var(--color-primary-dark);
-        }
-
-        .contact-text h4 {
-            font-family: var(--font-primary);
-            font-size: 1.05rem;
-            /* Adjusted size */
-            font-weight: 600;
-            /* More prominent */
-            margin-bottom: 0.3rem;
-            /* Adjusted margin */
-            color: var(--color-primary-dark);
-        }
-
-        body.dark-mode .contact-text h4 {
+        body.dark-mode .contact-info-box h3,
+        body.dark-mode .contact-form-box h3 {
             color: var(--color-primary-light);
         }
 
 
-        .contact-text p {
-            margin-bottom: 0;
-            font-size: 0.95rem;
-            /* Adjusted size */
-            line-height: 1.6;
+        .contact-info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: calc(1.25 * var(--spacing-unit));
+            margin-bottom: calc(1.8 * var(--spacing-unit));
         }
 
+        .contact-info-item i {
+            font-size: 1.2rem;
+            color: var(--color-primary);
+            width: 50px;
+            height: 50px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--color-accent);
+            border-radius: 50%;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+            color: var(--color-text-light);
+        }
+
+        body.dark-mode .contact-info-item i {
+            background-color: var(--color-primary-light);
+            color: var(--color-surface-dark);
+            box-shadow: none;
+        }
+
+        .contact-info-item div h4 {
+            font-size: 1.1rem;
+            font-weight: var(--font-weight-semibold);
+            margin-bottom: 0.25rem;
+        }
+
+        .contact-info-item p {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 0.25rem;
+            color: #555;
+        }
+
+        body.dark-mode .contact-info-item p {
+            color: var(--color-text-dark-theme);
+            opacity: 0.85;
+        }
+
+        .contact-form-box {
+            padding-left: calc(2 * var(--spacing-unit));
+        }
 
         .form-group {
-            margin-bottom: 1.5rem;
+            margin-bottom: calc(1.8 * var(--spacing-unit));
         }
 
         .form-group label {
             display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
+            margin-bottom: 0.6rem;
+            font-weight: var(--font-weight-medium);
             font-size: 0.9rem;
-            /* Label font size */
         }
 
-        .form-control {
+        .form-group input,
+        .form-group textarea {
             width: 100%;
-            padding: 0.9rem 1rem;
-            /* Adjusted padding */
+            padding: 0.9rem 1.1rem;
+            border-radius: 8px;
             border: 1px solid var(--color-border);
-            border-radius: var(--border-radius);
-            font-family: var(--font-primary);
-            font-size: 1rem;
+            background-color: var(--color-background-light);
+            font-family: var(--font-family);
+            font-size: 0.95rem;
             transition: var(--transition);
-            background-color: var(--color-text-light);
-            /* Ensure bg for light mode */
+            color: var(--color-text-dark);
         }
 
-        .form-control::placeholder {
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
             color: #aaa;
+            transition: color var(--transition);
         }
 
 
-        .form-control:focus {
+        .form-group input:focus,
+        .form-group textarea:focus {
             outline: none;
             border-color: var(--color-primary);
-            box-shadow: 0 0 0 3px rgba(139, 95, 76, 0.2);
+            box-shadow: 0 0 0 3px rgba(121, 85, 72, 0.15);
+            background-color: var(--color-text-light);
         }
 
-        textarea.form-control {
-            min-height: 140px;
-            /* Adjusted height */
+        .form-group input:focus::placeholder,
+        .form-group textarea:focus::placeholder {
+            color: #888;
+        }
+
+
+        .form-group textarea {
             resize: vertical;
+            min-height: 160px;
         }
 
-        /* ============================================= */
-        /* 12. Footer */
-        /* ============================================= */
+        /* ----------------------------------- */
+        /* 6. FOOTER (NOVÝ DIZAJN) */
+        /* ----------------------------------- */
         footer {
             background-color: var(--color-primary-dark);
-            color: var(--color-text-light);
-            padding: calc(var(--spacing-unit) * 3.5) 0;
-            /* Adjusted padding */
+            color: var(--color-primary-light);
+            text-align: center;
+            padding: calc(3 * var(--spacing-unit)) calc(1.5 * var(--spacing-unit));
+            margin-top: calc(4 * var(--spacing-unit));
+            border-top: none;
         }
 
-        .footer-content {
+        .social-icons {
             display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1.8rem;
-            /* Adjusted gap */
+            justify-content: center;
+            gap: calc(1.25 * var(--spacing-unit));
+            margin-bottom: calc(1.25 * var(--spacing-unit));
         }
 
-        .footer-logo {
-            font-family: var(--font-secondary);
-            font-size: 1.6rem;
-            /* Adjusted size */
-            font-weight: 700;
-            color: var(--color-text-light);
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1.25rem;
-            /* Adjusted gap */
-        }
-
-        .social-link {
+        .social-icons a {
             width: 44px;
-            /* Adjusted size */
             height: 44px;
             border-radius: 50%;
-            background-color: rgba(255, 255, 255, 0.1);
+            background-color: rgba(255, 255, 255, 0.08);
+            color: var(--color-text-light);
             display: flex;
             align-items: center;
             justify-content: center;
+            text-decoration: none;
             font-size: 1.1rem;
-            /* Adjusted size */
             transition: var(--transition);
-            color: var(--color-text-light);
-            /* Ensure icon color */
         }
 
-        .social-link:hover {
+        .social-icons a:hover {
             background-color: var(--color-accent);
             color: var(--color-primary-dark);
-            transform: translateY(-4px);
-            /* Adjusted effect */
+            transform: translateY(-5px) scale(1.08);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
         }
 
-        .copyright {
+        footer p {
             font-size: 0.85rem;
-            /* Adjusted size */
             opacity: 0.8;
+            margin-bottom: 0;
         }
 
-        /* ============================================= */
-        /* 13. Lightbox */
-        /* ============================================= */
+        /* ----------------------------------- */
+        /* 7. LIGHTBOX GALÉRIA (VYLEPŠENÉ - NOVÝ DIZAJN) */
+        /* ----------------------------------- */
         .lightbox {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(18, 18, 18, 0.96);
-            /* Darker, more opaque */
+            background-color: rgba(28, 26, 25, 0.95);
             z-index: 2000;
             display: flex;
             align-items: center;
             justify-content: center;
             opacity: 0;
             visibility: hidden;
-            transition: opacity 0.35s ease, visibility 0s linear 0.35s;
-            /* Smoother transition */
+            transition: opacity 0.3s ease, visibility 0s linear 0.3s;
         }
 
         .lightbox.active {
             opacity: 1;
             visibility: visible;
-            transition-delay: 0s;
+            transition: opacity 0.3s ease, visibility 0s linear 0s;
         }
 
         .lightbox-content {
             position: relative;
-            width: auto;
-            /* Allow image to define width up to max */
             max-width: 90vw;
             max-height: 90vh;
             display: flex;
-            /* For centering image if it's smaller than max */
             align-items: center;
             justify-content: center;
-            transform: scale(0.9);
-            opacity: 0;
-            transition: transform 0.35s ease, opacity 0.35s ease;
+            transform: scale(0.95);
+            transition: transform 0.3s ease;
         }
 
         .lightbox.active .lightbox-content {
             transform: scale(1);
-            opacity: 1;
         }
 
-
-        .lightbox-img {
-            display: block;
-            /* Remove extra space below image */
+        .lightbox-content img {
             max-width: 100%;
-            max-height: 80vh;
-            /* Slightly less to accommodate caption and controls */
+            max-height: 85vh;
             object-fit: contain;
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow-lg);
+            border-radius: 8px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
         }
 
         .lightbox-caption {
             position: absolute;
-            bottom: -2.5rem;
-            /* Adjusted position */
+            bottom: -40px;
             left: 50%;
             transform: translateX(-50%);
-            width: auto;
-            /* Fit content */
-            max-width: 80%;
-            text-align: center;
-            color: var(--color-text-light);
-            font-size: 1rem;
-            /* Adjusted size */
-            padding: 0.4rem 1rem;
-            background-color: rgba(0, 0, 0, 0.3);
+            color: var(--color-primary-light);
+            background: rgba(0, 0, 0, 0.0);
+            padding: 0.5rem 1rem;
             border-radius: 6px;
+            font-size: 0.9rem;
+            max-width: 70%;
+            text-align: center;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            opacity: 0.8;
         }
 
-        .lightbox-btn {
-            /* Common style for prev/next */
+        .lightbox-close,
+        .lightbox-prev,
+        .lightbox-next {
             position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 50px;
-            /* Adjusted size */
-            height: 50px;
-            background-color: rgba(40, 40, 40, 0.6);
-            /* Slightly more transparent */
+            background: rgba(40, 40, 40, 0.6);
             color: white;
             border: none;
-            border-radius: 50%;
-            font-size: 1.4rem;
-            /* Adjusted size */
             cursor: pointer;
+            font-size: 1.8rem;
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: background-color var(--transition), transform 0.2s ease;
-            z-index: 10;
-            /* Ensure above image */
+            transition: var(--transition);
+            z-index: 2001;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
         }
 
-        .lightbox-btn:hover {
-            background-color: var(--color-primary);
-            transform: translateY(-50%) scale(1.05);
-        }
-
-        .lightbox-prev {
-            left: 1.5rem;
-            /* Adjusted position */
-        }
-
-        .lightbox-next {
-            right: 1.5rem;
-            /* Adjusted position */
+        .lightbox-close:hover,
+        .lightbox-prev:hover,
+        .lightbox-next:hover {
+            background: var(--color-primary);
+            transform: scale(1.08);
         }
 
         .lightbox-close {
-            position: absolute;
-            top: 1.5rem;
-            /* Adjusted position */
-            right: 1.5rem;
-            /* Adjusted position */
-            width: 44px;
-            /* Adjusted size */
-            height: 44px;
-            background-color: rgba(40, 40, 40, 0.6);
-            color: white;
-            border: none;
-            border-radius: 50%;
-            font-size: 1.6rem;
-            /* Adjusted "times" symbol size */
-            line-height: 1;
-            /* Ensure proper centering of "times" */
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: background-color var(--transition), transform 0.2s ease;
-            z-index: 15;
-            /* Highest */
+            top: 25px;
+            right: 25px;
+            font-size: 2rem;
         }
 
-        .lightbox-close:hover {
-            background-color: var(--color-primary);
-            transform: scale(1.05) rotate(90deg);
+        .lightbox-prev {
+            left: 25px;
+            top: 50%;
+            transform: translateY(-50%);
         }
 
-        /* ============================================= */
-        /* 14. Animations */
-        /* ============================================= */
-        @keyframes fadeIn {
-
-            /* General fade in for sections */
-            from {
-                opacity: 0;
-                transform: translateY(15px);
-                /* Subtle movement */
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .lightbox-next {
+            right: 25px;
+            top: 50%;
+            transform: translateY(-50%);
         }
 
-        /* ============================================= */
-        /* 15. Responsive Design */
-        /* ============================================= */
+        /* ----------------------------------- */
+        /* 8. RESPONZIVITA (NOVÝ DIZAJN) */
+        /* ----------------------------------- */
         @media (max-width: 1024px) {
-            .section {
-                padding: calc(var(--spacing-unit) * 4) 0;
-            }
 
-            main {
-                padding-top: 80px;
-            }
-
-            /* Adjust for potentially smaller header */
-
-            .hero {
-                min-height: 650px;
-                /* Adjusted */
-            }
-
-            .about-content {
+            .about-content,
+            .contact-grid {
+                /* .service-detail-grid už je 1fr defaultne */
                 grid-template-columns: 1fr;
-                /* Stack about content */
-                gap: calc(var(--spacing-unit) * 2.5);
             }
 
-            .about-image {
-                max-width: 450px;
-                /* Limit image size when stacked */
-                margin: 0 auto;
-                /* Center image */
-                aspect-ratio: 16/10;
-                /* Wider for stacked view */
+            /* .service-detail-image-wrapper už nie je relevantný pre layout gridu */
+
+            .contact-info-box {
+                border-right: none;
+                border-bottom: 1px solid var(--color-border);
+                margin-bottom: calc(2 * var(--spacing-unit));
+                padding-bottom: calc(2 * var(--spacing-unit));
+                padding-right: 0;
             }
 
-            .contact-container {
-                grid-template-columns: 1fr;
-                /* Stack contact info and form */
+            .contact-form-box {
+                padding-left: 0;
+            }
+
+            body.dark-mode .contact-info-box {
+                border-bottom-color: var(--color-border-dark);
+            }
+
+            h1 {
+                font-size: clamp(2rem, 4vw, 2.8rem);
+            }
+
+            /* Zmenšené H1 pre tablety */
+            h2 {
+                font-size: clamp(1.8rem, 3.5vw, 2.5rem);
             }
         }
 
@@ -1343,281 +1118,319 @@
                 font-size: 93.75%;
             }
 
-            /* 15px base for smaller screens */
-            main {
-                padding-top: 75px;
+            h1 {
+                font-size: clamp(1.8rem, 4.5vw, 2.5rem);
             }
 
-            .mobile-menu-btn {
-                display: flex;
-                /* Make it flex to center icon */
-                align-items: center;
-                justify-content: center;
+            /* Ešte menšie H1 pre mobily */
+            h2 {
+                font-size: clamp(1.6rem, 4vw, 2.2rem);
+                margin-bottom: calc(2 * var(--spacing-unit));
             }
 
-            .nav-links {
-                position: fixed;
-                top: 0;
-                /* Align to top */
-                left: 0;
-                width: 100%;
-                height: 100vh;
-                /* Full viewport height */
-                background-color: var(--color-background);
+            h2::after {
+                width: 50px;
+                height: 2.5px;
+            }
+
+            h3 {
+                font-size: clamp(1.2rem, 3.5vw, 1.6rem);
+            }
+
+
+            .container {
+                padding: 0 calc(var(--container-padding) * 1.25);
+            }
+
+            /* Mierne upravený padding pre lepšie využitie priestoru */
+            section {
+                padding: calc(4 * var(--spacing-unit)) 0;
+            }
+
+            .content-card {
+                padding: calc(2 * var(--spacing-unit));
+            }
+
+
+            .header-content {
                 flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                /* Center links vertically */
-                padding: 2rem 0;
-                gap: 2rem;
-                /* Increased gap for full screen menu */
-                transform: translateX(100%);
-                /* Slide in from right */
-                opacity: 1;
-                /* Keep opacity for transition */
-                visibility: visible;
-                /* Keep visible for transition */
-                transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-                z-index: 999;
-                box-shadow: none;
-                /* Remove shadow for full screen */
+                gap: calc(1.2 * var(--spacing-unit));
+                align-items: flex-start;
             }
 
-            body.dark-mode .nav-links {
-                background-color: var(--color-dark-bg);
-                /* Use main dark bg */
-            }
-
-            .nav-links.active {
-                transform: translateX(0);
-                /* Slide in */
-            }
-
-            .nav-link {
-                font-size: 1.2rem;
-            }
-
-            /* Larger links in mobile menu */
-            .nav-links .theme-toggle {
-                margin-top: 1rem;
-            }
-
-            /* Space for theme toggle */
-
-
-            .hero {
-                min-height: 550px;
-                /* Adjusted */
-                text-align: center;
-                /* Center hero text on mobile */
-            }
-
-            .hero-content {
-                padding: 0 1rem;
-                /* Add some padding */
-            }
-
-            .hero-btns {
-                flex-direction: column;
-                gap: 1rem;
-                align-items: center;
-                /* Center buttons */
-            }
-
-            .hero-btns .btn {
+            .header-content nav {
                 width: 100%;
-                max-width: 300px;
-                /* Max width for buttons */
+                justify-content: space-between;
+                gap: var(--spacing-unit);
             }
 
+            nav a {
+                font-size: 0.95rem;
+            }
+
+            .logo h1 {
+                font-size: 1.5rem;
+            }
+
+
+            .about-content {
+                gap: calc(2.5 * var(--spacing-unit));
+            }
+
+            .about-text h2 {
+                font-size: clamp(1.6rem, 3vw, 2rem);
+            }
+
+            .service-card-image-wrapper {
+                height: 200px;
+            }
+
+            .service-card-content {
+                padding: calc(1.5 * var(--spacing-unit));
+            }
 
             .service-detail-header {
                 flex-direction: column;
                 align-items: flex-start;
-                gap: 1.5rem;
+                gap: 1.2rem;
             }
 
-            .back-btn {
-                align-self: flex-start;
+            .service-detail-header h2 {
+                text-align: left;
+                width: auto;
             }
 
-            .lightbox-prev {
-                left: 0.5rem;
+            .service-detail-header h2::after {
+                left: 0;
+                transform: translateX(0);
             }
 
+            .contact-info-item {
+                gap: var(--spacing-unit);
+            }
+
+            .contact-info-item i {
+                width: 44px;
+                height: 44px;
+                font-size: 1.1rem;
+            }
+
+
+            .lightbox-close,
+            .lightbox-prev,
             .lightbox-next {
-                right: 0.5rem;
+                width: 48px;
+                height: 48px;
+                font-size: 1.6rem;
             }
 
             .lightbox-close {
-                top: 0.5rem;
-                right: 0.5rem;
+                font-size: 1.8rem;
+                top: 20px;
+                right: 20px;
+            }
+
+            .lightbox-prev {
+                left: 15px;
+            }
+
+            .lightbox-next {
+                right: 15px;
+            }
+
+            .lightbox-caption {
+                font-size: 0.8rem;
+                bottom: -30px;
             }
         }
 
         @media (max-width: 480px) {
-            main {
-                padding-top: 70px;
+            html {
+                font-size: 87.5%;
             }
 
-            .section {
-                padding: calc(var(--spacing-unit) * 3) 0;
+            h1 {
+                font-size: clamp(1.6rem, 5.5vw, 2.2rem);
             }
 
-            .hero {
-                min-height: 480px;
-                /* Adjusted */
+            /* Najmenšie H1 */
+            h2 {
+                font-size: clamp(1.4rem, 5vw, 1.9rem);
             }
 
-            .hero h1 {
-                font-size: clamp(2rem, 8vw, 3rem);
+            h3 {
+                font-size: clamp(1.1rem, 4vw, 1.4rem);
             }
-
-            .hero p {
-                font-size: clamp(0.95rem, 4vw, 1.1rem);
-            }
-
 
             .container {
                 padding: 0 var(--spacing-unit);
             }
 
-            .logo-text {
-                font-size: 1.25rem;
+            /* Plný spacing unit pre najmenšie obrazovky */
+
+            .content-card {
+                padding: calc(1.5 * var(--spacing-unit));
             }
 
-            .logo-img {
+            .logo h1 {
+                font-size: 1.3rem;
+            }
+
+            .logo-image {
                 width: 40px;
                 height: 40px;
+            }
+
+            header nav {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            nav a {
+                font-size: 0.9rem;
+                padding: 0.3rem;
+            }
+
+            nav a::after {
+                bottom: -3px;
             }
 
             .btn {
-                padding: 0.8rem 1.5rem;
+                padding: 0.8rem 1.8rem;
+                font-size: 0.9rem;
+            }
+
+            .service-card-content .btn {
+                padding: 0.6rem 1.2rem;
                 font-size: 0.8rem;
             }
 
-            .lightbox-btn {
+
+            .form-group input,
+            .form-group textarea {
+                padding: 0.8rem 1rem;
+                font-size: 0.9rem;
+            }
+
+            .form-group textarea {
+                min-height: 120px;
+            }
+
+
+            .social-icons a {
                 width: 40px;
-                /* Smaller controls */
                 height: 40px;
-                font-size: 1.1rem;
+                font-size: 1rem;
+            }
+
+            footer {
+                padding: calc(2.5 * var(--spacing-unit)) var(--spacing-unit);
+            }
+
+            footer p {
+                font-size: 0.8rem;
+            }
+
+            .lightbox-close,
+            .lightbox-prev,
+            .lightbox-next {
+                width: 40px;
+                height: 40px;
+                font-size: 1.4rem;
             }
 
             .lightbox-close {
-                width: 36px;
-                height: 36px;
-                font-size: 1.4rem;
+                font-size: 1.6rem;
+                top: 15px;
+                right: 15px;
             }
         }
     </style>
 </head>
 
 <body>
-    <header id="pageHeader">
-        <div class="container header-container">
-            <a href="#" class="logo" onclick="showSection('hero', event); closeMobileMenu();">
-                <img src="Logo_Petro.jpg" alt="Stolárstvo Petro" class="logo-img">
-                <span class="logo-text">Stolárstvo Petro</span>
+    <header>
+        <div class="container header-content">
+            <a href="#" class="logo" onclick="showSection('onas', event)">
+                <img src="Logo_Petro.jpg" alt="Logo Stolárstvo Petro" class="logo-image">
+                <h1>Stolárstvo Petro</h1>
             </a>
-
             <nav>
-                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Otvoriť menu" aria-expanded="false">
-                    <i class="fas fa-bars"></i>
+                <a href="#" id="nav-onas" onclick="showSection('onas', event)">O nás</a>
+                <a href="#" id="nav-sluzby" onclick="showSection('sluzby', event)">Služby</a>
+                <a href="#" id="nav-kontakt" onclick="showSection('kontakt', event)">Kontakt</a>
+                <button id="darkModeToggle" class="dark-mode-btn" aria-label="Prepnúť tmavý režim">
+                    <i class="fas fa-moon"></i>
                 </button>
-
-                <div class="nav-links" id="navLinks">
-                    <a href="#" class="nav-link" onclick="showSection('about', event); closeMobileMenu();">O nás</a>
-                    <a href="#" class="nav-link" onclick="showSection('services', event); closeMobileMenu();">Služby</a>
-                    <a href="#" class="nav-link" onclick="showSection('contact', event); closeMobileMenu();">Kontakt</a>
-                    <button class="theme-toggle" id="themeToggle" aria-label="Prepnúť tmavý režim">
-                        <i class="fas fa-moon"></i>
-                    </button>
-                </div>
             </nav>
         </div>
     </header>
 
-    <main>
-        <section class="hero section active" id="hero">
-            <div class="container">
-                <div class="hero-content">
-                    <h1>Remeselná dokonalosť z dreva</h1>
-                    <p>Rodinná stolárska dielňa s viac ako 30-ročnou tradíciou. Vyrábame kvalitné drevené výrobky s
-                        láskou a precíznosťou.</p>
-                    <div class="hero-btns">
-                        <a href="#" class="btn btn-primary" onclick="showSection('services', event)">
-                            <i class="fas fa-hammer"></i> Naše služby
-                        </a>
-                        <a href="#" class="btn btn-outline" onclick="showSection('contact', event)">
-                            <i class="fas fa-phone-alt"></i> Kontaktujte nás
-                        </a>
-                    </div>
-                </div>
+    <main class="container">
+        <section id="onas">
+            <div class="hero-section">
+                <h1>Váš Partner Pre Kvalitnú Drevovýrobu</h1>
+                <p class="hero-subtitle">Objavte spojenie tradičného remesla, moderných technológií a vášne pre drevo,
+                    ktoré prinášame do každého projektu už viac ako tri desaťročia.</p>
+                <a href="#" class="btn" onclick="showSection('sluzby', event)"><i class="fas fa-tools"></i> Naše
+                    Služby</a>
             </div>
-        </section>
 
-        <section class="section about" id="about">
-            <div class="container">
-                <div class="section-title">
-                    <h2>O našej dielni</h2>
-                </div>
-
+            <div class="about-content-wrapper">
                 <div class="about-content">
-                    <div class="about-image">
-                        <img src="firma_logo_new.jpg" alt="Stolárska dielňa Petro">
+                    <div class="about-image-wrapper">
+                        <img src="firma_logo_new.jpg" alt="Dielňa Stolárstva Petro">
                     </div>
-
                     <div class="about-text">
-                        <h3>Tradícia a kvalita od roku 1990</h3>
-                        <p>Sme rodinný podnik s dlhoročnou tradíciou v stolárskom remesle. Naša dielňa kombinuje moderné
-                            technológie s tradičnými postupmi, čo nám umožňuje vytvárať výnimočné drevené výrobky.</p>
-                        <p>Špecializujeme sa na výrobu kvalitných rakiev, dreveného nábytku na mieru, okien a dverí, ako
-                            aj na predaj ekologických brikiet. Každý výrobok je dôkladne premyslený a vyrobený s
-                            maximálnou starostlivosťou.</p>
-                        <a href="#" class="btn btn-primary" onclick="showSection('services', event)">
-                            <i class="fas fa-arrow-right"></i> Pozrite si naše služby
-                        </a>
+                        <h2>Vitajte v Stolárstve Petro</h2>
+                        <p>Sme rodinný podnik s viac ako tromi desaťročiami skúseností a tradície v oblasti kvalitnej
+                            drevovýroby. S vášňou pre remeslo a zmyslom pre detail prinášame našim zákazníkom precízne
+                            spracované drevené produkty, ktoré spájajú funkčnosť, estetiku a poctivú ručnú prácu.</p>
+                        <p>Špecializujeme sa na výrobu širokého sortimentu – od tradičných drevených truhiel, cez
+                            certifikované EURO okná, až po lisované EKO brikety a palivové drevo. Za všetkým stojí tím
+                            skúsených stolárov, ktorí pretvárajú drevo na niečo výnimočné.</p>
+                        <a href="#" class="btn btn-outline" onclick="showSection('kontakt', event)"><i
+                                class="fas fa-envelope"></i>
+                            Kontaktujte nás</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="section services" id="services">
-            <div class="container">
-                <div class="section-title">
-                    <h2>Naše služby</h2>
-                </div>
-
-                <div class="services-grid">
-                    <div class="service-card" onclick="showSection('rakvy-detail', event)">
-                        <div class="service-card-img">
+        <section id="sluzby">
+            <div class="content-card">
+                <h2>Naše Služby</h2>
+                <div class="service-grid">
+                    <div class="service-card" onclick="showServiceDetail('rakvy', event)">
+                        <div class="service-card-image-wrapper">
                             <img src="M21_Amerika_01.jpg" alt="Výroba rakiev">
                         </div>
                         <div class="service-card-content">
                             <h3>Výroba rakiev</h3>
-                            <p>Elegantné a dôstojné rakvy vyrobené z kvalitného dreva s precíznym spracovaním.</p>
+                            <p>Elegantné a dôstojné rakvy vyrobené z kvalitného dreva s precíznym spracovaním a citom
+                                pre detail.</p>
                             <span class="btn btn-outline"><i class="fas fa-arrow-right"></i> Zobraziť viac</span>
                         </div>
                     </div>
-
-                    <div class="service-card" onclick="showSection('okna-detail', event)">
-                        <div class="service-card-img">
+                    <div class="service-card" onclick="showServiceDetail('okna', event)">
+                        <div class="service-card-image-wrapper">
                             <img src="schody_tocive.jpg" alt="Výroba dreveného nábytku a okien">
                         </div>
                         <div class="service-card-content">
                             <h3>Nábytok, Dvere, Okná</h3>
-                            <p>Vyrábame kvalitný drevený nábytok, dvere a EURO okná na mieru s dôrazom na detail.</p>
+                            <p>Vyrábame kvalitný drevený nábytok, interiérové aj exteriérové dvere a EURO okná na mieru.
+                            </p>
                             <span class="btn btn-outline"><i class="fas fa-arrow-right"></i> Zobraziť viac</span>
                         </div>
                     </div>
-
-                    <div class="service-card" onclick="showSection('brikety-detail', event)">
-                        <div class="service-card-img">
+                    <div class="service-card" onclick="showServiceDetail('brikety', event)">
+                        <div class="service-card-image-wrapper">
                             <img src="briketa.jpg" alt="Predaj EKO brikiet">
                         </div>
                         <div class="service-card-content">
                             <h3>Predaj EKO brikiet</h3>
-                            <p>Ekologické drevené brikety vyrábané z čistých pilín bez chemických prísad.</p>
+                            <p>Ekologické drevené brikety z čistých pilín bez chemických prísad, s vysokou výhrevnosťou.
+                            </p>
                             <span class="btn btn-outline"><i class="fas fa-arrow-right"></i> Zobraziť viac</span>
                         </div>
                     </div>
@@ -1625,441 +1438,418 @@
             </div>
         </section>
 
-        <section class="section service-detail" id="rakvy-detail">
-            <div class="container">
-                <div class="service-detail-header">
-                    <h2>Výroba rakiev</h2>
-                    <button class="btn back-btn" onclick="showSection('services', event)">
-                        <i class="fas fa-arrow-left"></i> Späť na služby
-                    </button>
-                </div>
-                <div class="service-detail-content-wrapper">
-                    <div class="service-detail-text">
-                        <p>Ponúkame široký sortiment rakiev vyrobených z kvalitného dreva. Všetky naše výrobky sa
-                            vyznačujú precíznym spracovaním a rešpektujú požiadavky našich zákazníkov. K dispozícii máme
-                            rôzne typy a veľkosti, s možnosťou prispôsobenia.</p>
-                        <h4>Používané materiály:</h4>
-                        <ul class="service-features">
-                            <li>Dubové drevo pre svoju pevnosť a krásnu textúru</li>
-                            <li>Bukové drevo, cenené pre svoju odolnosť</li>
-                            <li>Borovicové drevo s charakteristickou kresbou</li>
-                            <li>Smrekové drevo, tradičný materiál v stolárstve</li>
-                        </ul>
-                        <a href="#" class="btn btn-primary" style="margin-top: 1.5rem;"
-                            onclick="showSection('contact', event)">
-                            <i class="fas fa-tags"></i> Vyžiadať cenovú ponuku
-                        </a>
-                        <div class="gallery" id="gallery-rakvy">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section service-detail" id="okna-detail">
-            <div class="container">
-                <div class="service-detail-header">
-                    <h2>Nábytok, Dvere a Okná</h2>
-                    <button class="btn back-btn" onclick="showSection('services', event)">
-                        <i class="fas fa-arrow-left"></i> Späť na služby
-                    </button>
-                </div>
-                <div class="service-detail-content-wrapper">
-                    <div class="service-detail-text">
-                        <p>Vyrábame kvalitné drevené okná, dvere a nábytok podľa vašich predstáv. Naše výrobky spĺňajú
-                            najvyššie štandardy kvality a poskytujú vynikajúcu tepelnú a zvukovú izoláciu.</p>
-                        <h4>Výhody našich výrobkov:</h4>
-                        <ul class="service-features">
-                            <li>Dlhá životnosť a trvácnosť</li>
-                            <li>Vynikajúca tepelná a zvuková izolácia</li>
-                            <li>Ekologický a prírodný materiál</li>
-                            <li>Elegantný vzhľad na mieru</li>
-                        </ul>
-                        <a href="#" class="btn btn-primary" style="margin-top: 1.5rem;"
-                            onclick="showSection('contact', event)">
-                            <i class="fas fa-drafting-compass"></i> Navrhnúť riešenie
-                        </a>
-                        <div class="gallery" id="gallery-okna">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section service-detail" id="brikety-detail">
-            <div class="container">
-                <div class="service-detail-header">
-                    <h2>Predaj EKO brikiet</h2>
-                    <button class="btn back-btn" onclick="showSection('services', event)">
-                        <i class="fas fa-arrow-left"></i> Späť na služby
-                    </button>
-                </div>
-                <div class="service-detail-content-wrapper">
-                    <div class="service-detail-text">
-                        <p>V našej ponuke nájdete kvalitné drevené brikety, vyrobené z čistých pilín bez chemických
-                            prísad. Vznikajú lisovaním pri vysokom tlaku, čo im dodáva výnimočnú hustotu a vysokú
-                            výhrevnosť. K dispozícii sú aj podpaľovacie triesky.</p>
-                        <h4>Prednosti našich brikiet:</h4>
-                        <ul class="service-features">
-                            <li>Vysoká výhrevnosť a dlhá doba horenia</li>
-                            <li>Minimálne množstvo popola</li>
-                            <li>Ekologické palivo z obnoviteľných zdrojov</li>
-                            <li>Jednoduché skladovanie a manipulácia</li>
-                        </ul>
-                        <a href="#" class="btn btn-primary" style="margin-top: 1.5rem;"
-                            onclick="showSection('contact', event)">
-                            <i class="fas fa-truck"></i> Objednať brikety
-                        </a>
-                        <div class="gallery" id="gallery-brikety">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section contact" id="contact">
-            <div class="container">
-                <div class="section-title">
-                    <h2>Spojte sa s nami</h2>
-                </div>
-                <div class="contact-container">
-                    <div class="contact-info">
+        <section id="kontakt">
+            <div class="content-card">
+                <h2>Spojte sa s nami</h2>
+                <div class="contact-grid">
+                    <div class="contact-info-box">
                         <h3>Kontaktné informácie</h3>
-                        <p>Radi vám poradíme a nájdeme to najlepšie riešenie pre váš domov či projekt.</p>
-
-                        <div class="contact-item">
-                            <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
-                            <div class="contact-text">
+                        <p>Radi vám poradíme a nájdeme to najlepšie riešenie pre váš domov či projekt. Neváhajte nás
+                            kontaktovať.</p>
+                        <br>
+                        <div class="contact-info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
                                 <h4>Adresa</h4>
                                 <p>Radatice 219, 08242 Radatice</p>
                             </div>
                         </div>
-                        <div class="contact-item">
-                            <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
-                            <div class="contact-text">
+                        <div class="contact-info-item">
+                            <i class="fas fa-phone-alt"></i>
+                            <div>
                                 <h4>Telefón</h4>
-                                <p>Stolárstvo: +421 905 609 059</p>
-                                <p>Doprava: +421 905 213 426</p>
-                                <p>Ekobrikety: +421 908 124 008</p>
+                                <p><strong>Stolárstvo:</strong> +421 905 609 059</p>
+                                <p><strong>Doprava:</strong> +421 905 213 426</p>
+                                <p><strong>Ekobrikety:</strong> +421 908 124 008</p>
                             </div>
                         </div>
-                        <div class="contact-item">
-                            <div class="contact-icon"><i class="fas fa-envelope"></i></div>
-                            <div class="contact-text">
+                        <div class="contact-info-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
                                 <h4>Email</h4>
                                 <p>petrostolarstvo@gmail.com</p>
                             </div>
                         </div>
-                        <div class="contact-item">
-                            <div class="contact-icon"><i class="fas fa-clock"></i></div>
-                            <div class="contact-text">
+                        <div class="contact-info-item">
+                            <i class="fas fa-clock"></i>
+                            <div>
                                 <h4>Otváracie hodiny</h4>
                                 <p>Pondelok - Piatok: 8:00 - 18:00</p>
                                 <p>Sobota: Na objednávku</p>
                             </div>
                         </div>
                     </div>
-                    <div class="contact-form">
+                    <div class="contact-form-box">
                         <h3>Napíšte nám</h3>
                         <form action="https://formspree.io/f/xgvkeypd" method="POST">
                             <div class="form-group">
                                 <label for="name">Meno a priezvisko</label>
-                                <input type="text" id="name" name="name" class="form-control" required
-                                    placeholder="Vaše meno">
+                                <input type="text" id="name" name="name" required placeholder="Vaše meno">
                             </div>
                             <div class="form-group">
                                 <label for="email">Email</label>
-                                <input type="email" id="email" name="email" class="form-control" required
-                                    placeholder="vas@email.com">
+                                <input type="email" id="email" name="email" required placeholder="vas@email.com">
                             </div>
                             <div class="form-group">
                                 <label for="phone">Telefón (nepovinné)</label>
-                                <input type="tel" id="phone" name="phone" class="form-control"
-                                    placeholder="+421 xxx xxx xxx">
+                                <input type="tel" id="phone" name="phone" placeholder="+421 9xx xxx xxx">
                             </div>
                             <div class="form-group">
                                 <label for="message">Vaša správa</label>
-                                <textarea id="message" name="message" class="form-control" required
-                                    placeholder="Ako Vám môžeme pomôcť?"></textarea>
+                                <textarea id="message" name="message" required
+                                    placeholder="Ako vám môžeme pomôcť?"></textarea>
                             </div>
-                            <button type="submit" class="btn btn-primary">
-                                <i class="fas fa-paper-plane"></i> Odoslať správu
-                            </button>
+                            <button type="submit" class="btn"><i class="fas fa-paper-plane"></i> Odoslať správu</button>
                         </form>
                     </div>
                 </div>
             </div>
         </section>
+
+        <div id="rakvy" class="service-detail">
+            <div class="service-detail-header">
+                <h2>Výroba rakiev</h2>
+                <a class="back-button" onclick="hideServiceDetail('rakvy')"><i class="fas fa-arrow-left"></i> Späť na
+                    služby</a>
+            </div>
+            <div class="content-card">
+                <div class="service-detail-grid">
+                    <div class="service-detail-text-content">
+                        <p>Ponúkame široký sortiment rakiev vyrobených z kvalitného dreva. Všetky naše výrobky sa
+                            vyznačujú precíznym spracovaním, dôstojným dizajnom a rešpektujú požiadavky našich
+                            zákazníkov. K dispozícii máme
+                            rôzne typy a veľkosti, s možnosťou prispôsobenia povrchovej úpravy a detailov.</p>
+                        <h3>Používané materiály:</h3>
+                        <ul>
+                            <li>Dubové drevo pre svoju pevnosť a krásnu textúru</li>
+                            <li>Bukové drevo, cenené pre svoju odolnosť</li>
+                            <li>Borovicové drevo s charakteristickou kresbou</li>
+                            <li>Smrekové drevo, tradičný materiál v stolárstve</li>
+                        </ul>
+                        <a href="#" class="btn" style="margin-top: 2rem;" onclick="showSection('kontakt', event)"><i
+                                class="fas fa-tags"></i> Vyžiadať cenovú ponuku</a>
+
+                        <div class="gallery" id="gallery-rakvy">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="okna" class="service-detail">
+            <div class="service-detail-header">
+                <h2>Nábytok, Dvere a Okná</h2>
+                <a class="back-button" onclick="hideServiceDetail('okna')"><i class="fas fa-arrow-left"></i> Späť na
+                    služby</a>
+            </div>
+            <div class="content-card">
+                <div class="service-detail-grid">
+                    <div class="service-detail-text-content">
+                        <p>Vyrábame kvalitné drevené eurookná, vchodové a interiérové dvere, schodiská a nábytok na
+                            mieru podľa vašich predstáv. Naše výrobky spĺňajú
+                            najvyššie štandardy kvality, estetiky a funkčnosti. Poskytujú vynikajúcu tepelnú a zvukovú
+                            izoláciu.</p>
+                        <h3>Výhody našich výrobkov:</h3>
+                        <ul>
+                            <li>Dlhá životnosť a trvácnosť masívneho dreva</li>
+                            <li>Vynikajúca tepelná a zvuková izolácia (najmä EURO okná)</li>
+                            <li>Ekologický a prírodný materiál s jedinečným vzhľadom</li>
+                            <li>Individuálny prístup a výroba na mieru vašim potrebám</li>
+                            <li>Široká škála povrchových úprav a dizajnov</li>
+                        </ul>
+                        <a href="#" class="btn" style="margin-top: 2rem;" onclick="showSection('kontakt', event)"><i
+                                class="fas fa-drafting-compass"></i> Navrhnúť riešenie</a>
+                        <div class="gallery" id="gallery-okna">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="brikety" class="service-detail">
+            <div class="service-detail-header">
+                <h2>Predaj EKO brikiet</h2>
+                <a class="back-button" onclick="hideServiceDetail('brikety')"><i class="fas fa-arrow-left"></i> Späť na
+                    služby</a>
+            </div>
+            <div class="content-card">
+                <div class="service-detail-grid">
+                    <div class="service-detail-text-content">
+                        <p>V našej ponuke nájdete kvalitné drevené EKO brikety, vyrobené z čistých pilín bez akýchkoľvek
+                            chemických
+                            prísad a spojív. Vznikajú lisovaním pri vysokom tlaku, čo im dodáva výnimočnú hustotu a
+                            vysokú
+                            výhrevnosť. Sú ideálnym ekologickým palivom. K dispozícii sú aj podpaľovacie triesky.</p>
+                        <h3>Prednosti našich brikiet:</h3>
+                        <ul>
+                            <li>Vysoká výhrevnosť a dlhá doba stabilného horenia</li>
+                            <li>Minimálne množstvo popola (menej ako 1%)</li>
+                            <li>Ekologické palivo z obnoviteľných zdrojov</li>
+                            <li>Jednoduché skladovanie a čistá manipulácia</li>
+                            <li>Vhodné pre krby, kachle a kotly na tuhé palivo</li>
+                        </ul>
+                        <a href="#" class="btn" style="margin-top: 2rem;" onclick="showSection('kontakt', event)"><i
+                                class="fas fa-truck"></i> Objednať brikety</a>
+                        <div class="gallery" id="gallery-brikety">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
 
     <footer>
         <div class="container">
-            <div class="footer-content">
-                <a href="#" class="footer-logo" onclick="showSection('hero', event)">Stolárstvo Petro</a>
-                <div class="social-links">
-                    <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="social-link" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-                </div>
-                <p class="copyright">&copy; <span id="currentYear"></span> Stolárstvo Petro. Všetky práva vyhradené.
-                    Dizajn: Miloš Gall.</p>
+            <div class="social-icons">
+                <a href="#" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><i
+                        class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><i
+                        class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="YouTube" target="_blank" rel="noopener noreferrer"><i
+                        class="fab fa-youtube"></i></a>
             </div>
+            <p>&copy; 2025 Stolárstvo Petro. Všetky práva vyhradené. Dizajn: Miloš Gall.</p>
         </div>
     </footer>
 
     <div class="lightbox" id="lightbox">
         <div class="lightbox-content">
-            <img src="" alt="Lightbox Image" id="lightbox-img" class="lightbox-img">
-            <div id="lightbox-caption" class="lightbox-caption"></div>
+            <button class="lightbox-close" aria-label="Zavrieť lightbox">&times;</button>
+            <button class="lightbox-prev" aria-label="Predchádzajúci obrázok">&#10094;</button>
+            <button class="lightbox-next" aria-label="Nasledujúci obrázok">&#10095;</button>
+            <img src="" alt="" id="lightbox-img">
+            <div class="lightbox-caption" id="lightbox-caption"></div>
         </div>
-        <button class="lightbox-btn lightbox-prev" id="lightboxPrev" aria-label="Predchádzajúci obrázok"><i
-                class="fas fa-chevron-left"></i></button>
-        <button class="lightbox-btn lightbox-next" id="lightboxNext" aria-label="Nasledujúci obrázok"><i
-                class="fas fa-chevron-right"></i></button>
-        <button class="lightbox-close" id="lightboxClose" aria-label="Zavrieť"><i class="fas fa-times"></i></button>
     </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            const body = document.body;
-            const pageHeader = document.getElementById('pageHeader');
-            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-            const navLinks = document.getElementById('navLinks');
-            const themeToggle = document.getElementById('themeToggle');
-            const currentYearSpan = document.getElementById('currentYear');
 
-            // Set current year in footer
-            if (currentYearSpan) {
-                currentYearSpan.textContent = new Date().getFullYear();
-            }
-
-            // ----- Section Navigation -----
-            const sections = document.querySelectorAll('main > .section, main > .service-detail');
-            const navigationLinks = document.querySelectorAll('.nav-link, .logo, .footer-logo, .hero-btns a, .about-text a, .service-card, .btn.back-btn'); // Add all clickable elements that navigate
-
-            // Function to show a section
-            window.showSection = (sectionId, event) => {
-                if (event) event.preventDefault();
-
-                sections.forEach(s => s.classList.remove('active'));
-                navLinks.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
-
-
-                const targetSection = document.getElementById(sectionId);
-                if (targetSection) {
-                    targetSection.classList.add('active');
-                    // Update active state for main navigation links
-                    const mainNavLink = document.querySelector(`.nav-link[onclick*="'${sectionId.split('-')[0]}'"]`);
-                    if (mainNavLink) mainNavLink.classList.add('active');
-
-                    // Special handling for service details to keep "Služby" active
-                    if (sectionId.includes('-detail')) {
-                        const servicesMainLink = document.querySelector(`.nav-link[onclick*="'services'"]`);
-                        if (servicesMainLink) servicesMainLink.classList.add('active');
-                    }
-
-
-                    // Scroll to the top of the main content area or section
-                    const mainElement = document.querySelector('main');
-                    if (mainElement) {
-                        // Smooth scroll to the top of the main content area
-                        window.scrollTo({
-                            top: mainElement.offsetTop - (pageHeader ? pageHeader.offsetHeight : 0),
-                            behavior: 'smooth'
-                        });
-                    }
-                }
-                if (navLinks.classList.contains('active')) { // Close mobile menu if open
-                    closeMobileMenu();
-                }
-            };
-
-            // Initial section display (Hero is active by default via class in HTML)
-            // Ensure correct nav link is active if hero is default
-            const initialActiveNavLink = document.querySelector(`.nav-link[onclick*="'hero'"]`);
-            if (initialActiveNavLink && document.getElementById('hero')?.classList.contains('active')) {
-                // No explicit active class for Hero in nav, usually logo click.
-            } else if (document.getElementById('hero')?.classList.contains('active')) {
-                // If hero is active, no specific nav link needs to be highlighted unless designed so
-            } else {
-                // If no section is active by default via HTML class (besides hero), show hero.
-                // This logic might be redundant if hero always has .active class.
-                const firstSection = document.querySelector('main > .section');
-                if (firstSection && !document.querySelector('main > .section.active')) {
-                    showSection(firstSection.id);
-                }
-            }
-
-
-            // ----- Mobile Menu -----
-            if (mobileMenuBtn && navLinks) {
-                mobileMenuBtn.addEventListener('click', () => {
-                    navLinks.classList.toggle('active');
-                    mobileMenuBtn.classList.toggle('active'); // For icon change if needed
-                    const isExpanded = navLinks.classList.contains('active');
-                    mobileMenuBtn.setAttribute('aria-expanded', isExpanded);
-                    mobileMenuBtn.innerHTML = isExpanded ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
-                    body.style.overflow = isExpanded ? 'hidden' : ''; // Prevent scrolling when mobile menu is open
-                });
-            }
-            window.closeMobileMenu = () => {
-                if (navLinks && navLinks.classList.contains('active')) {
-                    navLinks.classList.remove('active');
-                    mobileMenuBtn.classList.remove('active');
-                    mobileMenuBtn.setAttribute('aria-expanded', 'false');
-                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-                    body.style.overflow = '';
-                }
-            };
-
-            // ----- Theme Toggle -----
-            if (themeToggle) {
-                const sunIcon = '<i class="fas fa-sun"></i>';
-                const moonIcon = '<i class="fas fa-moon"></i>';
-
-                // Initialize theme
-                if (localStorage.getItem('theme') === 'dark') {
-                    body.classList.add('dark-mode');
-                    themeToggle.innerHTML = sunIcon;
-                } else {
-                    body.classList.remove('dark-mode');
-                    themeToggle.innerHTML = moonIcon;
-                }
-
-                themeToggle.addEventListener('click', () => {
-                    body.classList.toggle('dark-mode');
-                    if (body.classList.contains('dark-mode')) {
-                        localStorage.setItem('theme', 'dark');
-                        themeToggle.innerHTML = sunIcon;
-                    } else {
-                        localStorage.setItem('theme', 'light');
-                        themeToggle.innerHTML = moonIcon;
-                    }
-                });
-            }
-
-            // ----- Sticky Header / Scrolled effect (Optional) -----
-            if (pageHeader) {
-                window.addEventListener('scroll', () => {
-                    if (window.scrollY > 50) {
-                        pageHeader.classList.add('scrolled');
-                    } else {
-                        pageHeader.classList.remove('scrolled');
-                    }
-                });
-            }
-
-            // ----- Gallery Data & Lightbox -----
+            // -----------------------------------
+            //      1. DÁTA PRE GALÉRIE (Ponechané z pôvodného kódu)
+            // -----------------------------------
             const galleryData = {
                 rakvy: [
-                    { src: 'M21_Amerika_01.jpg', caption: 'M21 Amerika 01' }, { src: 'M21_Amerika_05.jpg', caption: 'M21 Amerika' },
-                    { src: 'M10_smrek_tmavá_s_popisom.jpg', caption: 'M10 Tmavá s popisom' }, { src: 'M10+V_smrek_melír_vecera_s_popisom.jpg', caption: 'M10 Melír Večera' },
-                    { src: 'M10+P.jpg', caption: 'M10+P' }, { src: 'M17.jpg', caption: 'M17' }, { src: 'M10.jpg', caption: 'M10' },
-                    { src: 'M8+P.jpg', caption: 'M8+P' }, { src: 'M21.jpg', caption: 'M21' }, { src: 'M3+P.jpg', caption: 'M3+P' }
+                    { src: 'M21_Amerika_01.jpg', caption: 'M21 Amerika 01' },
+                    { src: 'M21_Amerika_05.jpg', caption: 'M21 Amerika' },
+                    { src: 'M10_smrek_tmavá_s_popisom.jpg', caption: 'M10 Tmavá s popisom' },
+                    { src: 'M10+V_smrek_melír_vecera_s_popisom.jpg', caption: 'M10 Melír Večera' },
+                    { src: 'M10+P.jpg', caption: 'M10+P' },
+                    { src: 'M17.jpg', caption: 'M17' },
+                    { src: 'M10.jpg', caption: 'M10' },
+                    { src: 'M8+P.jpg', caption: 'M8+P' },
+                    { src: 'M21.jpg', caption: 'M21' },
+                    { src: 'M3+P.jpg', caption: 'M3+P' }
                 ],
                 okna: [
-                    { src: 'dvere_fra.jpg', caption: 'Drevené dvere' }, { src: 'schody_tocive.jpg', caption: 'Točité schody' },
-                    { src: 'trojokno.jpg', caption: 'Trojité okno' }, { src: 'd1.jpg', caption: 'Dvere D1' }, { src: 'd2.jpg', caption: 'Dvere D2' },
-                    { src: 'd3.jpg', caption: 'Dvere D3' }, { src: 'd4.jpg', caption: 'Dvere D4' }, { src: 'd5.jpg', caption: 'Dvere D5' },
-                    { src: 'd6.jpg', caption: 'Dvere D6' }, { src: 'd7.jpg', caption: 'Dvere D7' }, { src: 'd8.jpg', caption: 'Dvere D8' },
-                    { src: 'balkon.jpg', caption: 'Balkón' }, { src: 'okno.jpg', caption: 'Okno' }, { src: 'okno2.jpg', caption: 'Okno 2' },
-                    { src: 'okno3.jpg', caption: 'Okno 3' }, { src: 'schod.jpg', caption: 'Schodisko' }, { src: 'schod2.jpg', caption: 'Detail schodiska' }
+                    { src: 'dvere_fra.jpg', caption: 'Drevené dvere' },
+                    { src: 'schody_tocive.jpg', caption: 'Točité schody' },
+                    { src: 'trojokno.jpg', caption: 'Trojité okno' },
+                    { src: 'd1.jpg', caption: 'Dvere D1' },
+                    { src: 'd2.jpg', caption: 'Dvere D2' },
+                    { src: 'd3.jpg', caption: 'Dvere D3' },
+                    { src: 'd4.jpg', caption: 'Dvere D4' },
+                    { src: 'd5.jpg', caption: 'Dvere D5' },
+                    { src: 'd6.jpg', caption: 'Dvere D6' },
+                    { src: 'd7.jpg', caption: 'Dvere D7' },
+                    { src: 'd8.jpg', caption: 'Dvere D8' },
+                    { src: 'balkon.jpg', caption: 'Balkón' },
+                    { src: 'okno.jpg', caption: 'Okno' },
+                    { src: 'okno2.jpg', caption: 'Okno 2' },
+                    { src: 'okno3.jpg', caption: 'Okno 3' },
+                    { src: 'schod.jpg', caption: 'Schodisko' },
+                    { src: 'schod2.jpg', caption: 'Detail schodiska' }
                 ],
                 brikety: [
-                    { src: 'briketa.jpg', caption: 'EKO Briketa' }, { src: 'drevo_briketa.jpg', caption: 'Materiál na brikety' },
-                    { src: 'stroj_1.jpg', caption: 'Lis na brikety 1' }, { src: 'stroj_2.jpg', caption: 'Lis na brikety 2' }
+                    { src: 'briketa.jpg', caption: 'EKO Briketa' },
+                    { src: 'drevo_briketa.jpg', caption: 'Materiál na brikety' },
+                    { src: 'stroj_1.jpg', caption: 'Lis na brikety 1' },
+                    { src: 'stroj_2.jpg', caption: 'Lis na brikety 2' }
                 ]
             };
 
+            // Funkcia na vygenerovanie galérie (Ponechaná)
             function populateGallery(galleryId, data) {
                 const galleryContainer = document.getElementById(galleryId);
-                if (!galleryContainer || !data) return;
+                if (!galleryContainer) return;
                 galleryContainer.innerHTML = '';
-                data.forEach((item, index) => {
-                    const galleryItem = document.createElement('div');
-                    galleryItem.className = 'gallery-item';
-                    galleryItem.innerHTML = `<img src="${item.src}" alt="${item.caption}">`;
-                    galleryItem.addEventListener('click', () => openLightbox(data, index));
-                    galleryContainer.appendChild(galleryItem);
-                });
+                if (data && data.length > 0) {
+                    data.forEach((item, index) => {
+                        const galleryItem = document.createElement('div');
+                        galleryItem.className = 'gallery-item';
+                        const imgSrc = item.src || 'https://via.placeholder.com/150?text=ChybaObrazok';
+                        const imgAlt = item.caption || 'Náhľad galérie';
+                        galleryItem.innerHTML = `<img src="${imgSrc}" alt="${imgAlt}">`;
+                        galleryItem.addEventListener('click', () => openLightbox(data, index));
+                        galleryContainer.appendChild(galleryItem);
+                    });
+                } else {
+                    // console.warn(`No data for gallery: ${galleryId}`); 
+                }
             }
 
             populateGallery('gallery-rakvy', galleryData.rakvy);
             populateGallery('gallery-okna', galleryData.okna);
             populateGallery('gallery-brikety', galleryData.brikety);
 
-            const lightboxEl = document.getElementById('lightbox');
-            const lightboxImgEl = document.getElementById('lightbox-img');
-            const lightboxCaptionEl = document.getElementById('lightbox-caption');
-            const lightboxCloseBtn = document.getElementById('lightboxClose');
-            const lightboxPrevBtn = document.getElementById('lightboxPrev');
-            const lightboxNextBtn = document.getElementById('lightboxNext');
-            let currentGalleryData = [];
-            let currentImageIdx = 0;
+            // -----------------------------------
+            //      2. NAVIGÁCIA MEDZI SEKCIAMI (Ponechaná)
+            // -----------------------------------
+            const sections = document.querySelectorAll('main > section, .service-detail');
+            const navLinks = document.querySelectorAll('nav a');
+            const mainContentElement = document.querySelector('main');
+
+            window.showSection = (sectionId, event) => {
+                if (event) event.preventDefault();
+
+                sections.forEach(section => {
+                    section.classList.remove('active');
+                });
+
+                const targetSection = document.getElementById(sectionId);
+                if (targetSection) {
+                    targetSection.classList.add('active');
+                }
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.id === `nav-${sectionId.split('-')[0]}`) {
+                        link.classList.add('active');
+                    }
+                });
+                if (mainContentElement) {
+                    mainContentElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                } else {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+            };
+
+            window.showServiceDetail = (serviceId, event) => {
+                if (event) event.stopPropagation();
+
+                document.querySelectorAll('main > section').forEach(section => section.classList.remove('active'));
+                document.querySelectorAll('.service-detail').forEach(detail => detail.classList.remove('active'));
+
+                const service = document.getElementById(serviceId);
+                if (service) {
+                    service.classList.add('active');
+                    const targetScrollElement = service.closest('main') || service;
+                    targetScrollElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+                navLinks.forEach(link => link.classList.remove('active'));
+                const servicesNavLink = document.getElementById('nav-sluzby');
+                if (servicesNavLink) servicesNavLink.classList.add('active');
+            };
+
+
+            window.hideServiceDetail = (serviceId) => {
+                const serviceDetailElement = document.getElementById(serviceId);
+                if (serviceDetailElement) {
+                    serviceDetailElement.classList.remove('active');
+                }
+                showSection('sluzby');
+            };
+
+            showSection('onas');
+
+            // -----------------------------------
+            //      3. DARK MODE FUNKCIONALITA (Ponechaná)
+            // -----------------------------------
+            const darkModeToggle = document.getElementById('darkModeToggle');
+            const body = document.body;
+            const sunIcon = '<i class="fas fa-sun"></i>';
+            const moonIcon = '<i class="fas fa-moon"></i>';
+
+            if (localStorage.getItem('darkMode') === 'enabled') {
+                body.classList.add('dark-mode');
+                darkModeToggle.innerHTML = sunIcon;
+            } else {
+                body.classList.remove('dark-mode');
+                darkModeToggle.innerHTML = moonIcon;
+            }
+
+            darkModeToggle.addEventListener('click', () => {
+                body.classList.toggle('dark-mode');
+                if (body.classList.contains('dark-mode')) {
+                    localStorage.setItem('darkMode', 'enabled');
+                    darkModeToggle.innerHTML = sunIcon;
+                } else {
+                    localStorage.setItem('darkMode', 'disabled');
+                    darkModeToggle.innerHTML = moonIcon;
+                }
+            });
+
+            // -----------------------------------
+            //      4. LIGHTBOX GALÉRIA (JS - Ponechané)
+            // -----------------------------------
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            const lightboxCaption = document.getElementById('lightbox-caption');
+            const lightboxClose = document.querySelector('.lightbox-close');
+            const lightboxPrev = document.querySelector('.lightbox-prev');
+            const lightboxNext = document.querySelector('.lightbox-next');
+
+            let currentImageIndex;
+            let currentGallery;
 
             function openLightbox(gallery, index) {
-                currentGalleryData = gallery;
-                currentImageIdx = index;
+                currentGallery = gallery;
+                currentImageIndex = index;
                 updateLightboxImage();
-                lightboxEl.classList.add('active');
-                document.body.style.overflow = 'hidden'; // Prevent background scroll
-                document.addEventListener('keydown', handleLightboxKeyPress);
+                lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden';
+                document.addEventListener('keydown', handleKeyPress);
             }
 
             function closeLightbox() {
-                lightboxEl.classList.remove('active');
-                document.body.style.overflow = ''; // Restore scroll
-                document.removeEventListener('keydown', handleLightboxKeyPress);
+                lightbox.classList.remove('active');
+                document.body.style.overflow = '';
+                document.removeEventListener('keydown', handleKeyPress);
             }
 
             function updateLightboxImage() {
-                if (currentGalleryData.length > 0) {
-                    const item = currentGalleryData[currentImageIdx];
-                    lightboxImgEl.src = item.src;
-                    lightboxImgEl.alt = item.caption;
-                    lightboxCaptionEl.textContent = item.caption;
+                if (currentGallery && currentGallery.length > 0 && currentImageIndex >= 0 && currentImageIndex < currentGallery.length) {
+                    const image = currentGallery[currentImageIndex];
+                    lightboxImg.src = image.src || 'https://via.placeholder.com/800x600?text=ErrorLoadingImage';
+                    lightboxImg.alt = image.caption || 'Lightbox image';
+                    lightboxCaption.textContent = image.caption || '';
+                } else {
+                    // console.error("Error updating lightbox: Invalid gallery or index.", currentGallery, currentImageIndex); 
                 }
             }
 
+
             function showPrevImage() {
-                currentImageIdx = (currentImageIdx - 1 + currentGalleryData.length) % currentGalleryData.length;
-                updateLightboxImage();
+                if (currentGallery && currentGallery.length > 0) {
+                    currentImageIndex = (currentImageIndex - 1 + currentGallery.length) % currentGallery.length;
+                    updateLightboxImage();
+                }
             }
 
             function showNextImage() {
-                currentImageIdx = (currentImageIdx + 1) % currentGalleryData.length;
-                updateLightboxImage();
+                if (currentGallery && currentGallery.length > 0) {
+                    currentImageIndex = (currentImageIndex + 1) % currentGallery.length;
+                    updateLightboxImage();
+                }
             }
 
-            function handleLightboxKeyPress(e) {
+            function handleKeyPress(e) {
+                if (!lightbox.classList.contains('active')) return;
                 if (e.key === 'Escape') closeLightbox();
                 if (e.key === 'ArrowLeft') showPrevImage();
                 if (e.key === 'ArrowRight') showNextImage();
             }
 
-            if (lightboxCloseBtn) lightboxCloseBtn.addEventListener('click', closeLightbox);
-            if (lightboxPrevBtn) lightboxPrevBtn.addEventListener('click', showPrevImage);
-            if (lightboxNextBtn) lightboxNextBtn.addEventListener('click', showNextImage);
-            if (lightboxEl) { // Click on backdrop to close
-                lightboxEl.addEventListener('click', (e) => {
-                    if (e.target === lightboxEl) closeLightbox();
-                });
-            }
-
-            // ----- Intersection Observer for animations (optional) -----
-            const animatedElements = document.querySelectorAll('.hidden-anim');
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible-anim');
-                        entry.target.classList.remove('hidden-anim');
-                        observer.unobserve(entry.target);
+            if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
+            if (lightboxPrev) lightboxPrev.addEventListener('click', showPrevImage);
+            if (lightboxNext) lightboxNext.addEventListener('click', showNextImage);
+            if (lightbox) {
+                lightbox.addEventListener('click', (e) => {
+                    if (e.target === lightbox) {
+                        closeLightbox();
                     }
                 });
-            }, { threshold: 0.1 });
-
-            animatedElements.forEach(el => observer.observe(el));
-
+            }
         });
     </script>
 </body>

@@ -26,7 +26,6 @@
         /* 1. CSS Variables & Base Styles */
         /* ============================================= */
         :root {
-            /* Color Palette */
             --color-primary: #8B5F4C;
             --color-primary-dark: #5A3A2C;
             --color-primary-light: #C0A89C;
@@ -35,24 +34,16 @@
             --color-text: #2C2C2C;
             --color-text-light: #FFFFFF;
             --color-border: rgba(0, 0, 0, 0.08);
-
-            /* Dark Mode Colors */
             --color-dark-bg: #121212;
             --color-dark-surface: #1E1E1E;
             --color-dark-text: #F0F0F0;
             --color-dark-border: rgba(255, 255, 255, 0.12);
-
-            /* Typography */
             --font-primary: 'Montserrat', sans-serif;
             --font-secondary: 'Playfair Display', serif;
-
-            /* Spacing & Sizing */
             --spacing-unit: 1rem;
             --border-radius: 12px;
             --border-radius-lg: 24px;
             --max-width: 1440px;
-
-            /* Effects */
             --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.05);
             --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.1);
             --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.15);
@@ -101,7 +92,6 @@
 
         h1 {
             font-size: clamp(2.5rem, 5vw, 4rem);
-            /* Adjusted from original user request for hero, generic h1 */
             letter-spacing: -0.05em;
         }
 
@@ -205,17 +195,6 @@
             text-align: center;
         }
 
-        .hidden {
-            opacity: 0;
-            transform: translateY(20px);
-        }
-
-        .visible {
-            opacity: 1;
-            transform: translateY(0);
-            transition: var(--transition);
-        }
-
         /* ============================================= */
         /* 4. Dark Mode Styles */
         /* ============================================= */
@@ -258,7 +237,8 @@
             left: 0;
             width: 100%;
             z-index: 1000;
-            padding: calc(var(--spacing-unit) * 1.5) 0;
+            padding: var(--spacing-unit) 0;
+            /* MODIFIED: Reduced padding */
             background-color: rgba(249, 246, 242, 0.95);
             backdrop-filter: blur(12px);
             border-bottom: 1px solid var(--color-border);
@@ -301,7 +281,6 @@
         }
 
         nav {
-            /* Added for robust flex behavior */
             display: flex;
             align-items: center;
         }
@@ -392,6 +371,7 @@
             overflow: hidden;
             background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('hero-bg.jpg') no-repeat center center/cover;
             color: var(--color-text-light);
+            /* Base color for hero text */
         }
 
         .hero::before {
@@ -408,31 +388,35 @@
         .hero-content {
             position: relative;
             z-index: 2;
-            max-width: 860px;
-            /* MODIFIED: Slightly wider */
+            max-width: 950px;
+            /* MODIFIED: Increased max-width for longer title */
             text-align: center;
             padding-left: var(--spacing-unit);
-            /* MODIFIED: Added padding */
             padding-right: var(--spacing-unit);
-            /* MODIFIED: Added padding */
+            padding-top: calc(var(--spacing-unit) * 2);
+            /* MODIFIED: Added top padding for "odskok" */
         }
 
         .hero h1 {
-            /* This targets the H1 specifically in the hero section */
             font-size: clamp(2.5rem, 5.5vw, 4.8rem);
-            /* MODIFIED: Slightly adjusted clamp */
             letter-spacing: -0.05em;
-            /* from general h1 */
             font-family: var(--font-secondary);
-            /* from general h1 */
             font-weight: 600;
-            /* from general h1 */
-            line-height: 1.25;
-            /* MODIFIED: Adjusted line height */
+            line-height: 1.3;
+            /* MODIFIED: Slightly increased line height */
             margin-bottom: 2rem;
-            /* MODIFIED: Adjusted margin */
             animation: fadeInUp 1s ease forwards;
+            color: var(--color-text-light);
+            /* MODIFIED: Explicitly set color */
+            text-align: center;
+            /* Ensure multi-line text is centered */
         }
+
+        /* If specific color for dark mode hero h1 is needed and different from general dark mode h1 */
+        /* body.dark-mode .hero h1 {
+            color: var(--color-accent); /* Or var(--color-text-light) if it should always be white
+        } */
+
 
         .hero p {
             font-size: clamp(1rem, 2vw, 1.25rem);
@@ -589,18 +573,14 @@
 
         .service-detail-header {
             display: flex;
-            /* MODIFIED */
             justify-content: space-between;
-            /* MODIFIED */
             align-items: center;
-            /* MODIFIED */
             position: relative;
             margin-bottom: calc(var(--spacing-unit) * 3);
         }
 
         .back-btn {
             position: static;
-            /* MODIFIED: No longer absolute for desktop */
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
@@ -611,8 +591,6 @@
             font-weight: 600;
             cursor: pointer;
             transition: var(--transition);
-            /* Original absolute positioning removed:
-            left: 20px; */
         }
 
         .back-btn:hover {
@@ -628,19 +606,15 @@
         }
 
         .service-detail-header h2 {
-            /* MODIFIED: Specific styling for h2 in service detail header */
             flex-grow: 1;
             text-align: center;
             margin: 0;
-            /* Inherits general h2 styles like font-family, font-weight, font-size, position: relative */
         }
 
         .service-detail-header h2::after {
-            /* MODIFIED: Ensure underline is centered */
             left: 50%;
             transform: translateX(-50%);
         }
-
 
         .service-detail-content {
             display: grid;
@@ -650,9 +624,7 @@
 
         .service-detail-text {
             text-align: left;
-            /* MODIFIED: from center */
             padding: 0 1rem;
-            /* Original padding, can be adjusted if needed */
         }
 
         .service-detail-text p {
@@ -662,12 +634,9 @@
         .service-features {
             list-style: none;
             margin: 2rem 0;
-            /* MODIFIED: from auto to remove block centering */
             max-width: 800px;
             padding-left: 0;
-            /* Keep as is, li has its own padding for icon */
             text-align: left;
-            /* MODIFIED: Ensure left alignment */
         }
 
         .service-features li {
@@ -676,7 +645,6 @@
             margin-bottom: 1rem;
             list-style-type: none;
             text-align: left;
-            /* MODIFIED: Explicitly set */
         }
 
         .service-features li::before {
@@ -1037,7 +1005,8 @@
 
             .nav-links {
                 position: fixed;
-                top: 90px;
+                top: 77px;
+                /* MODIFIED: Adjusted based on new header height (approx 60px logo + 16px padding + 1px border) */
                 left: 0;
                 width: 100%;
                 background-color: var(--color-background);
@@ -1073,41 +1042,28 @@
             }
 
             .service-detail-header {
-                /* Original mobile styles already made it column */
                 flex-direction: column;
                 align-items: flex-start;
                 gap: 1.5rem;
                 position: static;
-                /* Already there */
             }
 
             .back-btn {
-                /* MODIFIED: margin-left for mobile */
-                position: static;
-                /* Already set from desktop */
                 align-self: flex-start;
-                /* Original for mobile */
                 margin-left: 0;
-                /* MODIFIED: from 20px */
             }
 
             .service-detail-header h2 {
-                /* MODIFIED: Ensure centering on mobile if desired */
                 width: 100%;
                 text-align: center;
             }
 
-            /* .service-detail-header h2::after will be centered due to h2 text-align:center */
-
-
             .service-detail-text {
                 padding: 0;
-                /* Original for mobile */
             }
 
             .service-features {
                 padding-left: 1rem;
-                /* Original for mobile */
             }
         }
 
@@ -1127,6 +1083,13 @@
             .logo-text {
                 font-size: 1.25rem;
             }
+
+            .nav-links {
+                /* Ensure top is consistent if header height changes slightly with smaller logo text */
+                top: 70px;
+                /* Adjusted slightly for smaller logo text in this breakpoint if it affects header height */
+            }
+
 
             .lightbox-btn {
                 width: 50px;
@@ -1516,14 +1479,26 @@
             // =============================================
             const mobileMenuBtn = document.getElementById('mobileMenuBtn');
             const navLinks = document.getElementById('navLinks');
+            const headerElement = document.querySelector('header'); // Store header element for height calculation
 
             mobileMenuBtn.addEventListener('click', function () {
                 navLinks.classList.toggle('active');
+                // Adjust top of navLinks based on actual header height when menu opens
+                if (navLinks.classList.contains('active')) {
+                    navLinks.style.top = headerElement.offsetHeight + 'px';
+                }
                 mobileMenuBtn.innerHTML = navLinks.classList.contains('active') ?
                     '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
             });
 
-            // Close mobile menu when clicking on a link
+            // Update navLinks top on window resize if mobile menu is active
+            window.addEventListener('resize', function () {
+                if (navLinks.classList.contains('active')) {
+                    navLinks.style.top = headerElement.offsetHeight + 'px';
+                }
+            });
+
+
             document.querySelectorAll('.nav-link').forEach(link => {
                 link.addEventListener('click', function () {
                     if (navLinks.classList.contains('active')) {
@@ -1539,7 +1514,6 @@
             const themeToggle = document.getElementById('themeToggle');
             const body = document.body;
 
-            // Check for saved theme preference
             if (localStorage.getItem('darkMode') === 'enabled') {
                 body.classList.add('dark-mode');
                 themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
@@ -1547,7 +1521,6 @@
 
             themeToggle.addEventListener('click', function () {
                 body.classList.toggle('dark-mode');
-
                 if (body.classList.contains('dark-mode')) {
                     localStorage.setItem('darkMode', 'enabled');
                     themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
@@ -1568,16 +1541,15 @@
                 });
             }
 
-            function showContent(contentId) { // MODIFIED JAVASCRIPT FUNCTION
+            function showContent(contentId) {
                 hideAllContent();
                 const contentToShow = document.getElementById(contentId);
                 if (contentToShow) {
                     contentToShow.style.display = 'block';
                     if (contentId !== 'hero') {
-                        const header = document.querySelector('header');
-                        const headerHeight = header ? header.offsetHeight : 90; // Získa aktuálnu výšku hlavičky
+                        const headerHeight = headerElement ? headerElement.offsetHeight : 90;
                         window.scrollTo({
-                            top: contentToShow.offsetTop - (headerHeight + 15), // Nová hodnota offsetu
+                            top: contentToShow.offsetTop - (headerHeight + 10), // MODIFIED: Offset with 10px gap
                             behavior: 'smooth'
                         });
                     } else {
@@ -1588,18 +1560,13 @@
 
             window.showSection = function (sectionId, event) {
                 if (event) event.preventDefault();
-
                 showContent(sectionId);
-
                 document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
                 const activeLink = document.querySelector(`.nav-link[onclick*="'${sectionId}'"]`);
                 if (activeLink) activeLink.classList.add('active');
             };
 
-            // Initial load
             showContent('hero');
-            const initialLink = document.querySelector(`.nav-link[onclick*="hero"]`);
-            // if (initialLink) initialLink.classList.add('active'); // This was for hero, but hero is not a nav-link initially.
 
             // =============================================
             // 4. Service Details
@@ -1615,7 +1582,6 @@
             window.hideServiceDetail = function (serviceId) {
                 showContent('services');
             };
-
 
             // =============================================
             // 5. Gallery & Lightbox
@@ -1664,9 +1630,7 @@
                 for (const galleryId in galleryData) {
                     const galleryContainer = document.getElementById(`gallery-${galleryId}`);
                     if (!galleryContainer) continue;
-
                     galleryContainer.innerHTML = '';
-
                     galleryData[galleryId].forEach((item, index) => {
                         const galleryItem = document.createElement('div');
                         galleryItem.className = 'gallery-item';
@@ -1676,7 +1640,6 @@
                     });
                 }
             }
-
             populateGalleries();
 
             const lightbox = document.getElementById('lightbox');
@@ -1685,7 +1648,6 @@
             const lightboxClose = document.querySelector('.lightbox-close');
             const lightboxPrev = document.querySelector('.lightbox-prev');
             const lightboxNext = document.querySelector('.lightbox-next');
-
             let currentGallery = '';
             let currentIndex = 0;
 
@@ -1735,13 +1697,6 @@
                     closeLightbox();
                 }
             });
-
-            // =============================================
-            // 6. Scroll Animations (simplified)
-            // =============================================
-            // The previous logic was tied to a class-based show/hide system.
-            // A more robust implementation would use Intersection Observer, but this is a simple fix.
-            // Since content visibility is now handled by JS, we will trigger animations manually.
         });
     </script>
 </body>

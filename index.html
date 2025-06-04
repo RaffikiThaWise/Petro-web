@@ -215,6 +215,24 @@
             transition: var(--transition);
         }
 
+        .service-detail-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .about-image {
+            margin-bottom: 2rem;
+        }
+
+        .about-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
         /* ============================================= */
         /* 4. Dark Mode Styles */
         /* ============================================= */
@@ -617,8 +635,8 @@
 
         .service-features {
             list-style: none;
-            margin: 2rem auto;
-            max-width: 800px;
+            margin: 0 auto 2rem auto;
+            max-width: 600px;
             padding-left: 0;
             text-align: left;
         }
@@ -627,17 +645,14 @@
             position: relative;
             padding-left: 2rem;
             margin-bottom: 1rem;
-            list-style-type: none;
         }
 
         .service-features li::before {
-            content: '\f00c';
-            font-family: 'Font Awesome 6 Free';
-            font-weight: 900;
-            color: var(--color-primary);
+            content: '•';
             position: absolute;
             left: 0;
-            top: 0.2rem;
+            color: var(--color-primary);
+            font-size: 1.5rem;
         }
 
         .service-detail-image {
@@ -653,9 +668,10 @@
         }
 
         .service-detail .btn-primary {
-            margin-top: 2.5rem;
-            margin-bottom: 1rem;
-            display: inline-block;
+            align-self: flex-start;
+            margin-left: 40px;
+            /* Align with text */
+            margin-top: 2rem;
         }
 
         /* ============================================= */
@@ -1037,7 +1053,10 @@
             }
 
             .service-detail-text {
-                padding: 0;
+                text-align: left;
+                margin-left: 40px;
+                /* 40px from left */
+                max-width: 800px;
             }
 
             .service-features {

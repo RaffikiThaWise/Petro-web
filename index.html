@@ -149,6 +149,8 @@
         .section {
             padding: calc(var(--spacing-unit) * 6) 0;
             position: relative;
+            scroll-margin-top: 100px;
+            /* MODIFIED */
         }
 
         .section-title {
@@ -218,8 +220,9 @@
         .service-detail-content {
             display: flex;
             flex-direction: column;
-            align-items: center;
-            text-align: center;
+            align-items: flex-start;
+            /* MODIFIED */
+            /* text-align: center; -- REMOVED */
         }
 
         .about-image {
@@ -421,6 +424,10 @@
             z-index: 2;
             max-width: 800px;
             text-align: center;
+            padding-top: 4rem;
+            /* MODIFIED */
+            padding-bottom: 4rem;
+            /* MODIFIED */
         }
 
         .hero h1 {
@@ -502,6 +509,8 @@
 
         .about-text {
             padding: 2rem 0;
+            padding-left: 1rem;
+            /* MODIFIED */
         }
 
         .about-text p {
@@ -625,8 +634,11 @@
         }
 
         .service-detail-text {
-            text-align: center;
+            text-align: left;
+            /* MODIFIED */
             padding: 0 1rem;
+            padding-left: 2rem;
+            /* MODIFIED */
         }
 
         .service-detail-text p {
@@ -669,7 +681,8 @@
 
         .service-detail .btn-primary {
             align-self: flex-start;
-            margin-left: 40px;
+            margin-left: 0;
+            /* MODIFIED */
             /* Align with text */
             margin-top: 2rem;
         }
@@ -1054,13 +1067,22 @@
 
             .service-detail-text {
                 text-align: left;
-                margin-left: 40px;
-                /* 40px from left */
+                margin-left: 0;
+                /* MODIFIED */
                 max-width: 800px;
             }
 
             .service-features {
                 padding-left: 1rem;
+            }
+
+            .about-content {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                /* MODIFIED */
+                text-align: left;
+                /* MODIFIED */
             }
         }
 
@@ -1335,367 +1357,367 @@
                 </div>
             </div>
         </div>
-    </div>
+        </section>
 
-    <section class="section contact" id="contact">
-        <div class="container">
-            <div class="section-title">
-                <h2>Kontaktujte nás</h2>
-            </div>
-
-            <div class="contact-container">
-                <div class="contact-info">
-                    <h3>Kde nás nájdete</h3>
-
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <div class="contact-text">
-                            <h4>Adresa</h4>
-                            <p>Radatice 219, 08242 Radatice</p>
-                        </div>
-                    </div>
-
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-phone-alt"></i>
-                        </div>
-                        <div class="contact-text">
-                            <h4>Telefón</h4>
-                            <p>+421 905 609 059 (Stolárstvo)</p>
-                            <p>+421 905 213 426 (Doprava)</p>
-                            <p>+421 908 124 008 (Ekobrikety)</p>
-                        </div>
-                    </div>
-
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <div class="contact-text">
-                            <h4>Email</h4>
-                            <p>petrostolarstvo@gmail.com</p>
-                        </div>
-                    </div>
-
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-clock"></i>
-                        </div>
-                        <div class="contact-text">
-                            <h4>Otváracie hodiny</h4>
-                            <p>Pondelok - Piatok: 8:00 - 18:00</p>
-                            <p>Sobota: Na objednávku</p>
-                        </div>
-                    </div>
+        <section class="section contact" id="contact">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Kontaktujte nás</h2>
                 </div>
 
-                <div class="contact-form">
-                    <h3>Napíšte nám</h3>
+                <div class="contact-container">
+                    <div class="contact-info">
+                        <h3>Kde nás nájdete</h3>
 
-                    <form action="https://formspree.io/f/xgvkeypd" method="POST">
-                        <div class="form-group">
-                            <label for="name">Meno a priezvisko</label>
-                            <input type="text" id="name" name="name" class="form-control" required>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Adresa</h4>
+                                <p>Radatice 219, 08242 Radatice</p>
+                            </div>
                         </div>
 
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" class="form-control" required>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Telefón</h4>
+                                <p>+421 905 609 059 (Stolárstvo)</p>
+                                <p>+421 905 213 426 (Doprava)</p>
+                                <p>+421 908 124 008 (Ekobrikety)</p>
+                            </div>
                         </div>
 
-                        <div class="form-group">
-                            <label for="phone">Telefón</label>
-                            <input type="tel" id="phone" name="phone" class="form-control">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Email</h4>
+                                <p>petrostolarstvo@gmail.com</p>
+                            </div>
                         </div>
 
-                        <div class="form-group">
-                            <label for="message">Vaša správa</label>
-                            <textarea id="message" name="message" class="form-control" required></textarea>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Otváracie hodiny</h4>
+                                <p>Pondelok - Piatok: 8:00 - 18:00</p>
+                                <p>Sobota: Na objednávku</p>
+                            </div>
                         </div>
+                    </div>
 
-                        <button type="submit" class="btn btn-primary">
-                            <i class="fas fa-paper-plane"></i> Odoslať správu
-                        </button>
-                    </form>
+                    <div class="contact-form">
+                        <h3>Napíšte nám</h3>
+
+                        <form action="https://formspree.io/f/xgvkeypd" method="POST">
+                            <div class="form-group">
+                                <label for="name">Meno a priezvisko</label>
+                                <input type="text" id="name" name="name" class="form-control" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" class="form-control" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="phone">Telefón</label>
+                                <input type="tel" id="phone" name="phone" class="form-control">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="message">Vaša správa</label>
+                                <textarea id="message" name="message" class="form-control" required></textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-paper-plane"></i> Odoslať správu
+                            </button>
+                        </form>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">Stolárstvo Petro</div>
+        <footer>
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-logo">Stolárstvo Petro</div>
 
-                <div class="social-links">
-                    <a href="#" class="social-link" aria-label="Facebook">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                    <a href="#" class="social-link" aria-label="Instagram">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a href="#" class="social-link" aria-label="YouTube">
-                        <i class="fab fa-youtube"></i>
-                    </a>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="YouTube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+
+                    <p class="copyright">&copy; 2025 Stolárstvo Petro. Všetky práva vyhradené.</p>
                 </div>
+            </div>
+        </footer>
 
-                <p class="copyright">&copy; 2025 Stolárstvo Petro. Všetky práva vyhradené.</p>
+        <div class="lightbox" id="lightbox">
+            <div class="lightbox-content">
+                <button class="lightbox-close" aria-label="Zavrieť">
+                    <i class="fas fa-times"></i>
+                </button>
+                <button class="lightbox-btn lightbox-prev" aria-label="Predchádzajúci obrázok">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="lightbox-btn lightbox-next" aria-label="Nasledujúci obrázok">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                <img src="" alt="" class="lightbox-img" id="lightbox-img">
+                <div class="lightbox-caption" id="lightbox-caption"></div>
             </div>
         </div>
-    </footer>
 
-    <div class="lightbox" id="lightbox">
-        <div class="lightbox-content">
-            <button class="lightbox-close" aria-label="Zavrieť">
-                <i class="fas fa-times"></i>
-            </button>
-            <button class="lightbox-btn lightbox-prev" aria-label="Predchádzajúci obrázok">
-                <i class="fas fa-chevron-left"></i>
-            </button>
-            <button class="lightbox-btn lightbox-next" aria-label="Nasledujúci obrázok">
-                <i class="fas fa-chevron-right"></i>
-            </button>
-            <img src="" alt="" class="lightbox-img" id="lightbox-img">
-            <div class="lightbox-caption" id="lightbox-caption"></div>
-        </div>
-    </div>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                // =============================================
+                // 1. Mobile Navigation
+                // =============================================
+                const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+                const navLinks = document.getElementById('navLinks');
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            // =============================================
-            // 1. Mobile Navigation
-            // =============================================
-            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-            const navLinks = document.getElementById('navLinks');
-
-            mobileMenuBtn.addEventListener('click', function () {
-                navLinks.classList.toggle('active');
-                mobileMenuBtn.innerHTML = navLinks.classList.contains('active') ?
-                    '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
-            });
-
-            // Close mobile menu when clicking on a link
-            document.querySelectorAll('.nav-link').forEach(link => {
-                link.addEventListener('click', function () {
-                    if (navLinks.classList.contains('active')) {
-                        navLinks.classList.remove('active');
-                        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-                    }
+                mobileMenuBtn.addEventListener('click', function () {
+                    navLinks.classList.toggle('active');
+                    mobileMenuBtn.innerHTML = navLinks.classList.contains('active') ?
+                        '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
                 });
-            });
 
-            // =============================================
-            // 2. Dark Mode Toggle
-            // =============================================
-            const themeToggle = document.getElementById('themeToggle');
-            const body = document.body;
+                // Close mobile menu when clicking on a link
+                document.querySelectorAll('.nav-link').forEach(link => {
+                    link.addEventListener('click', function () {
+                        if (navLinks.classList.contains('active')) {
+                            navLinks.classList.remove('active');
+                            mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                        }
+                    });
+                });
 
-            // Check for saved theme preference
-            if (localStorage.getItem('darkMode') === 'enabled') {
-                body.classList.add('dark-mode');
-                themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
-            }
+                // =============================================
+                // 2. Dark Mode Toggle
+                // =============================================
+                const themeToggle = document.getElementById('themeToggle');
+                const body = document.body;
 
-            themeToggle.addEventListener('click', function () {
-                body.classList.toggle('dark-mode');
-
-                if (body.classList.contains('dark-mode')) {
-                    localStorage.setItem('darkMode', 'enabled');
+                // Check for saved theme preference
+                if (localStorage.getItem('darkMode') === 'enabled') {
+                    body.classList.add('dark-mode');
                     themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
-                } else {
-                    localStorage.setItem('darkMode', 'disabled');
-                    themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
                 }
-            });
 
-            // =============================================
-            // 3. Section Navigation & Visibility
-            // =============================================
-            const allContent = document.querySelectorAll('section, .service-detail');
+                themeToggle.addEventListener('click', function () {
+                    body.classList.toggle('dark-mode');
 
-            function hideAllContent() {
-                allContent.forEach(content => {
-                    content.style.display = 'none';
-                });
-            }
-
-            function showContent(contentId) {
-                hideAllContent();
-                const contentToShow = document.getElementById(contentId);
-                if (contentToShow) {
-                    contentToShow.style.display = 'block';
-                    if (contentId !== 'hero') {
-                        window.scrollTo({
-                            top: contentToShow.offsetTop - 90, // Header height offset
-                            behavior: 'smooth'
-                        });
+                    if (body.classList.contains('dark-mode')) {
+                        localStorage.setItem('darkMode', 'enabled');
+                        themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
                     } else {
-                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                        localStorage.setItem('darkMode', 'disabled');
+                        themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
                     }
-                }
-            }
+                });
 
-            window.showSection = function (sectionId, event) {
-                if (event) event.preventDefault();
+                // =============================================
+                // 3. Section Navigation & Visibility
+                // =============================================
+                const allContent = document.querySelectorAll('section, .service-detail');
 
-                showContent(sectionId);
-
-                document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
-                const activeLink = document.querySelector(`.nav-link[onclick*="'${sectionId}'"]`);
-                if (activeLink) activeLink.classList.add('active');
-            };
-
-            // Initial load
-            showContent('hero');
-            const initialLink = document.querySelector(`.nav-link[onclick*="hero"]`);
-            if (initialLink) initialLink.classList.add('active');
-
-
-            // =============================================
-            // 4. Service Details
-            // =============================================
-            window.showServiceDetail = function (serviceId, event) {
-                if (event) {
-                    event.preventDefault();
-                    event.stopPropagation();
-                }
-                showContent(serviceId);
-            };
-
-            window.hideServiceDetail = function (serviceId) {
-                showContent('services');
-            };
-
-
-            // =============================================
-            // 5. Gallery & Lightbox
-            // =============================================
-            const galleryData = {
-                coffins: [
-                    { src: 'M21_Amerika_01.jpg', caption: 'Model M21 Amerika' },
-                    { src: 'M21_Amerika_05.jpg', caption: 'Detail M21 Amerika' },
-                    { src: 'M10_smrek_tmavá_s_popisom.jpg', caption: 'Model M10 smrek tmavý' },
-                    { src: 'M10+V_smrek_melír_vecera_s_popisom.jpg', caption: 'Model M10+V smrek melír' },
-                    { src: 'M10+P.jpg', caption: 'Model M10+P' },
-                    { src: 'M17.jpg', caption: 'Model M17' },
-                    { src: 'M10.jpg', caption: 'Model M10' },
-                    { src: 'M8+P.jpg', caption: 'Model M8+P' },
-                    { src: 'M21.jpg', caption: 'Model M21' },
-                    { src: 'M3+P.jpg', caption: 'Model M3+P' }
-                ],
-                furniture: [
-                    { src: 'dvere_fra.jpg', caption: 'Drevené dvere' },
-                    { src: 'schody_tocive.jpg', caption: 'Točité schody' },
-                    { src: 'trojokno.jpg', caption: 'Trojité okno' },
-                    { src: 'd1.jpg', caption: 'Drevené dvere model D1' },
-                    { src: 'd2.jpg', caption: 'Drevené dvere model D2' },
-                    { src: 'd3.jpg', caption: 'Drevené dvere model D3' },
-                    { src: 'd4.jpg', caption: 'Drevené dvere model D4' },
-                    { src: 'd5.jpg', caption: 'Drevené dvere model D5' },
-                    { src: 'd6.jpg', caption: 'Drevené dvere model D6' },
-                    { src: 'd7.jpg', caption: 'Drevené dvere model D7' },
-                    { src: 'd8.jpg', caption: 'Drevené dvere model D8' },
-                    { src: 'balkon.jpg', caption: 'Balkónové zábradlie' },
-                    { src: 'okno.jpg', caption: 'Drevené okno' },
-                    { src: 'okno2.jpg', caption: 'Drevené okno detail' },
-                    { src: 'okno3.jpg', caption: 'Drevené okno v interiéri' },
-                    { src: 'schod.jpg', caption: 'Drevené schodisko' },
-                    { src: 'schod2.jpg', caption: 'Detail schodiska' }
-                ],
-                briquettes: [
-                    { src: 'briketa.jpg', caption: 'EKO drevené brikety' },
-                    { src: 'drevo_briketa.jpg', caption: 'Materiál na výrobu brikiet' },
-                    { src: 'stroj_1.jpg', caption: 'Lis na brikety' },
-                    { src: 'stroj_2.jpg', caption: 'Výroba brikiet' }
-                ]
-            };
-
-            function populateGalleries() {
-                for (const galleryId in galleryData) {
-                    const galleryContainer = document.getElementById(`gallery-${galleryId}`);
-                    if (!galleryContainer) continue;
-
-                    galleryContainer.innerHTML = '';
-
-                    galleryData[galleryId].forEach((item, index) => {
-                        const galleryItem = document.createElement('div');
-                        galleryItem.className = 'gallery-item';
-                        galleryItem.innerHTML = `<img src="${item.src}" alt="${item.caption}">`;
-                        galleryItem.addEventListener('click', () => openLightbox(galleryId, index));
-                        galleryContainer.appendChild(galleryItem);
+                function hideAllContent() {
+                    allContent.forEach(content => {
+                        content.style.display = 'none';
                     });
                 }
-            }
 
-            populateGalleries();
-
-            const lightbox = document.getElementById('lightbox');
-            const lightboxImg = document.getElementById('lightbox-img');
-            const lightboxCaption = document.getElementById('lightbox-caption');
-            const lightboxClose = document.querySelector('.lightbox-close');
-            const lightboxPrev = document.querySelector('.lightbox-prev');
-            const lightboxNext = document.querySelector('.lightbox-next');
-
-            let currentGallery = '';
-            let currentIndex = 0;
-
-            function openLightbox(galleryId, index) {
-                currentGallery = galleryId;
-                currentIndex = index;
-                updateLightboxImage();
-                lightbox.classList.add('active');
-                document.body.style.overflow = 'hidden';
-                document.addEventListener('keydown', handleKeyPress);
-            }
-
-            function closeLightbox() {
-                lightbox.classList.remove('active');
-                document.body.style.overflow = '';
-                document.removeEventListener('keydown', handleKeyPress);
-            }
-
-            function updateLightboxImage() {
-                const image = galleryData[currentGallery][currentIndex];
-                lightboxImg.src = image.src;
-                lightboxImg.alt = image.caption;
-                lightboxCaption.textContent = image.caption;
-            }
-
-            function showPrevImage() {
-                currentIndex = (currentIndex - 1 + galleryData[currentGallery].length) % galleryData[currentGallery].length;
-                updateLightboxImage();
-            }
-
-            function showNextImage() {
-                currentIndex = (currentIndex + 1) % galleryData[currentGallery].length;
-                updateLightboxImage();
-            }
-
-            function handleKeyPress(e) {
-                if (e.key === 'Escape') closeLightbox();
-                if (e.key === 'ArrowLeft') showPrevImage();
-                if (e.key === 'ArrowRight') showNextImage();
-            }
-
-            lightboxClose.addEventListener('click', closeLightbox);
-            lightboxPrev.addEventListener('click', showPrevImage);
-            lightboxNext.addEventListener('click', showNextImage);
-            lightbox.addEventListener('click', function (e) {
-                if (e.target === lightbox) {
-                    closeLightbox();
+                function showContent(contentId) {
+                    hideAllContent();
+                    const contentToShow = document.getElementById(contentId);
+                    if (contentToShow) {
+                        contentToShow.style.display = 'block';
+                        if (contentId !== 'hero') {
+                            window.scrollTo({
+                                top: contentToShow.offsetTop - 90, // Header height offset
+                                behavior: 'smooth'
+                            });
+                        } else {
+                            window.scrollTo({ top: 0, behavior: 'smooth' });
+                        }
+                    }
                 }
-            });
 
-            // =============================================
-            // 6. Scroll Animations (simplified)
-            // =============================================
-            // The previous logic was tied to a class-based show/hide system.
-            // A more robust implementation would use Intersection Observer, but this is a simple fix.
-            // Since content visibility is now handled by JS, we will trigger animations manually.
-        });
-    </script>
+                window.showSection = function (sectionId, event) {
+                    if (event) event.preventDefault();
+
+                    showContent(sectionId);
+
+                    document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
+                    const activeLink = document.querySelector(`.nav-link[onclick*="'${sectionId}'"]`);
+                    if (activeLink) activeLink.classList.add('active');
+                };
+
+                // Initial load
+                showContent('hero');
+                const initialLink = document.querySelector(`.nav-link[onclick*="hero"]`);
+                if (initialLink) initialLink.classList.add('active');
+
+
+                // =============================================
+                // 4. Service Details
+                // =============================================
+                window.showServiceDetail = function (serviceId, event) {
+                    if (event) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    showContent(serviceId);
+                };
+
+                window.hideServiceDetail = function (serviceId) {
+                    showContent('services');
+                };
+
+
+                // =============================================
+                // 5. Gallery & Lightbox
+                // =============================================
+                const galleryData = {
+                    coffins: [
+                        { src: 'M21_Amerika_01.jpg', caption: 'Model M21 Amerika' },
+                        { src: 'M21_Amerika_05.jpg', caption: 'Detail M21 Amerika' },
+                        { src: 'M10_smrek_tmavá_s_popisom.jpg', caption: 'Model M10 smrek tmavý' },
+                        { src: 'M10+V_smrek_melír_vecera_s_popisom.jpg', caption: 'Model M10+V smrek melír' },
+                        { src: 'M10+P.jpg', caption: 'Model M10+P' },
+                        { src: 'M17.jpg', caption: 'Model M17' },
+                        { src: 'M10.jpg', caption: 'Model M10' },
+                        { src: 'M8+P.jpg', caption: 'Model M8+P' },
+                        { src: 'M21.jpg', caption: 'Model M21' },
+                        { src: 'M3+P.jpg', caption: 'Model M3+P' }
+                    ],
+                    furniture: [
+                        { src: 'dvere_fra.jpg', caption: 'Drevené dvere' },
+                        { src: 'schody_tocive.jpg', caption: 'Točité schody' },
+                        { src: 'trojokno.jpg', caption: 'Trojité okno' },
+                        { src: 'd1.jpg', caption: 'Drevené dvere model D1' },
+                        { src: 'd2.jpg', caption: 'Drevené dvere model D2' },
+                        { src: 'd3.jpg', caption: 'Drevené dvere model D3' },
+                        { src: 'd4.jpg', caption: 'Drevené dvere model D4' },
+                        { src: 'd5.jpg', caption: 'Drevené dvere model D5' },
+                        { src: 'd6.jpg', caption: 'Drevené dvere model D6' },
+                        { src: 'd7.jpg', caption: 'Drevené dvere model D7' },
+                        { src: 'd8.jpg', caption: 'Drevené dvere model D8' },
+                        { src: 'balkon.jpg', caption: 'Balkónové zábradlie' },
+                        { src: 'okno.jpg', caption: 'Drevené okno' },
+                        { src: 'okno2.jpg', caption: 'Drevené okno detail' },
+                        { src: 'okno3.jpg', caption: 'Drevené okno v interiéri' },
+                        { src: 'schod.jpg', caption: 'Drevené schodisko' },
+                        { src: 'schod2.jpg', caption: 'Detail schodiska' }
+                    ],
+                    briquettes: [
+                        { src: 'briketa.jpg', caption: 'EKO drevené brikety' },
+                        { src: 'drevo_briketa.jpg', caption: 'Materiál na výrobu brikiet' },
+                        { src: 'stroj_1.jpg', caption: 'Lis na brikety' },
+                        { src: 'stroj_2.jpg', caption: 'Výroba brikiet' }
+                    ]
+                };
+
+                function populateGalleries() {
+                    for (const galleryId in galleryData) {
+                        const galleryContainer = document.getElementById(`gallery-${galleryId}`);
+                        if (!galleryContainer) continue;
+
+                        galleryContainer.innerHTML = '';
+
+                        galleryData[galleryId].forEach((item, index) => {
+                            const galleryItem = document.createElement('div');
+                            galleryItem.className = 'gallery-item';
+                            galleryItem.innerHTML = `<img src="${item.src}" alt="${item.caption}">`;
+                            galleryItem.addEventListener('click', () => openLightbox(galleryId, index));
+                            galleryContainer.appendChild(galleryItem);
+                        });
+                    }
+                }
+
+                populateGalleries();
+
+                const lightbox = document.getElementById('lightbox');
+                const lightboxImg = document.getElementById('lightbox-img');
+                const lightboxCaption = document.getElementById('lightbox-caption');
+                const lightboxClose = document.querySelector('.lightbox-close');
+                const lightboxPrev = document.querySelector('.lightbox-prev');
+                const lightboxNext = document.querySelector('.lightbox-next');
+
+                let currentGallery = '';
+                let currentIndex = 0;
+
+                function openLightbox(galleryId, index) {
+                    currentGallery = galleryId;
+                    currentIndex = index;
+                    updateLightboxImage();
+                    lightbox.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                    document.addEventListener('keydown', handleKeyPress);
+                }
+
+                function closeLightbox() {
+                    lightbox.classList.remove('active');
+                    document.body.style.overflow = '';
+                    document.removeEventListener('keydown', handleKeyPress);
+                }
+
+                function updateLightboxImage() {
+                    const image = galleryData[currentGallery][currentIndex];
+                    lightboxImg.src = image.src;
+                    lightboxImg.alt = image.caption;
+                    lightboxCaption.textContent = image.caption;
+                }
+
+                function showPrevImage() {
+                    currentIndex = (currentIndex - 1 + galleryData[currentGallery].length) % galleryData[currentGallery].length;
+                    updateLightboxImage();
+                }
+
+                function showNextImage() {
+                    currentIndex = (currentIndex + 1) % galleryData[currentGallery].length;
+                    updateLightboxImage();
+                }
+
+                function handleKeyPress(e) {
+                    if (e.key === 'Escape') closeLightbox();
+                    if (e.key === 'ArrowLeft') showPrevImage();
+                    if (e.key === 'ArrowRight') showNextImage();
+                }
+
+                lightboxClose.addEventListener('click', closeLightbox);
+                lightboxPrev.addEventListener('click', showPrevImage);
+                lightboxNext.addEventListener('click', showNextImage);
+                lightbox.addEventListener('click', function (e) {
+                    if (e.target === lightbox) {
+                        closeLightbox();
+                    }
+                });
+
+                // =============================================
+                // 6. Scroll Animations (simplified)
+                // =============================================
+                // The previous logic was tied to a class-based show/hide system.
+                // A more robust implementation would use Intersection Observer, but this is a simple fix.
+                // Since content visibility is now handled by JS, we will trigger animations manually.
+            });
+        </script>
 </body>
 
 </html>

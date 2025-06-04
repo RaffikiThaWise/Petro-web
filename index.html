@@ -531,11 +531,9 @@
             transform: translateY(-3px);
         }
 
-        /* Upravený grid pre detaily služby po odstránení bočného obrázku */
         .service-detail-grid {
             display: grid;
-            grid-template-columns: 1fr;
-            /* len jeden stĺpec */
+            grid-template-columns: 1fr 1.2fr;
             gap: calc(3 * var(--spacing-unit));
             align-items: flex-start;
         }
@@ -571,11 +569,12 @@
             font-size: 1.1rem;
         }
 
-        /* Táto trieda už nebude použitá, ale ponechávam ju pre prípad, že by sa v budúcnosti pridával obrázok */
+
         .service-detail-image img {
             width: 100%;
             height: auto;
             max-height: 550px;
+            /* Väčší detail obrazok */
             object-fit: cover;
             border-radius: var(--border-radius);
             box-shadow: var(--shadow);
@@ -888,7 +887,10 @@
                 grid-template-columns: 1fr;
             }
 
-            /* Odstránené pravidlo pre service-detail-image, keďže táto sekcia už nebude mať bočný obrázok */
+            .service-detail-image {
+                grid-row: 1;
+                margin-bottom: calc(2 * var(--spacing-unit));
+            }
 
             .contact-info {
                 border-right: none;
@@ -1199,6 +1201,9 @@
                         <a href="#" class="btn" style="margin-top: 2rem;" onclick="showSection('kontakt', event)"><i
                                 class="fas fa-tags"></i> Vyžiadať cenovú ponuku</a>
                     </div>
+                    <div class="service-detail-image">
+                        <img src="M21_Amerika_01.jpg" alt="Výroba rakiev detail">
+                    </div>
                 </div>
             </div>
         </div>
@@ -1225,6 +1230,9 @@
                         </div>
                         <a href="#" class="btn" style="margin-top: 2rem;" onclick="showSection('kontakt', event)"><i
                                 class="fas fa-tags"></i> Vyžiadať cenovú ponuku</a>
+                    </div>
+                    <div class="service-detail-image">
+                        <img src="schody_tocive.jpg" alt="Výroba dreveného nábytku detail">
                     </div>
                 </div>
             </div>
@@ -1254,9 +1262,12 @@
                         <a href="#" class="btn" style="margin-top: 2rem;" onclick="showSection('kontakt', event)"><i
                                 class="fas fa-truck"></i> Objednať brikety</a>
                     </div>
+                    <div class="service-detail-image">
+                        <img src="briketa.jpg" alt="Predaj brikiet detail">
+                    </div>
                 </div>
             </div>
-            </section>
+        </div>
     </main>
 
     <footer>

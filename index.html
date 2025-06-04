@@ -364,6 +364,7 @@
         .hero {
             height: 100vh;
             min-height: 800px;
+            /* Môžeme zmeniť na 700px ak je to stále príliš veľké */
             display: flex;
             align-items: center;
             justify-content: center;
@@ -371,7 +372,6 @@
             overflow: hidden;
             background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('hero-bg.jpg') no-repeat center center/cover;
             color: var(--color-text-light);
-            /* Base color for hero text */
         }
 
         .hero::before {
@@ -389,12 +389,12 @@
             position: relative;
             z-index: 2;
             max-width: 950px;
-            /* MODIFIED: Increased max-width for longer title */
             text-align: center;
-            padding-left: var(--spacing-unit);
-            padding-right: var(--spacing-unit);
-            padding-top: calc(var(--spacing-unit) * 2);
-            /* MODIFIED: Added top padding for "odskok" */
+            padding: 0 var(--spacing-unit);
+            margin-top: 60px;
+            /* Pridané - posunie obsah nižšie */
+            padding-top: calc(var(--spacing-unit) * 4);
+            /* Zvýšené z *2 na *4 */
         }
 
         .hero h1 {

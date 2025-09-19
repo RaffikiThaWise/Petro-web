@@ -34,10 +34,13 @@
             --color-text: #2C2C2C;
             --color-text-light: #FFFFFF;
             --color-border: rgba(0, 0, 0, 0.08);
-            --color-dark-bg: #121212;
-            --color-dark-surface: #1E1E1E;
-            --color-dark-text: #F0F0F0;
-            --color-dark-border: rgba(255, 255, 255, 0.12);
+            --color-dark-bg: #0a0a0f;
+            --color-dark-surface: #151521;
+            --color-dark-surface-alt: #1c1c2d;
+            --color-dark-text: #E0E0E0;
+            --color-dark-text-light: #FFFFFF;
+            --color-dark-border: rgba(255, 255, 255, 0.15);
+            --color-dark-accent: #4a7bcc;
             --font-primary: 'Montserrat', sans-serif;
             --font-secondary: 'Playfair Display', serif;
             --spacing-unit: 1rem;
@@ -73,9 +76,6 @@
         }
 
         body.dark-mode {
-            --color-background: #121212;
-            --color-text: #E0E0E0;
-            --color-border: rgba(255, 255, 255, 0.12);
             background-color: var(--color-dark-bg);
             color: var(--color-dark-text);
         }
@@ -91,14 +91,6 @@
             font-weight: 600;
             line-height: 1.2;
             margin-bottom: 1.5rem;
-            color: var(--color-primary-dark);
-        }
-
-        body.dark-mode h1,
-        body.dark-mode h2,
-        body.dark-mode h3,
-        body.dark-mode h4 {
-            color: var(--color-accent);
         }
 
         h1 {
@@ -121,10 +113,6 @@
             height: 4px;
             background-color: var(--color-primary);
             border-radius: 2px;
-        }
-
-        body.dark-mode h2::after {
-            background-color: var(--color-accent);
         }
 
         h3 {
@@ -206,22 +194,53 @@
             color: var(--color-text-light);
         }
 
-        body.dark-mode .btn-outline {
-            border-color: var(--color-accent);
-            color: var(--color-accent);
-        }
-
-        body.dark-mode .btn-outline:hover {
-            background-color: var(--color-accent);
-            color: var(--color-dark-bg);
-        }
-
         .text-center {
             text-align: center;
         }
 
         /* ============================================= */
-        /* 4. Header & Navigation */
+        /* 4. Dark Mode Styles */
+        /* ============================================= */
+        body.dark-mode {
+            background-color: var(--color-dark-bg);
+            color: var(--color-dark-text);
+        }
+
+        body.dark-mode h1,
+        body.dark-mode h2,
+        body.dark-mode h3,
+        body.dark-mode h4 {
+            color: var(--color-dark-text-light);
+        }
+
+        body.dark-mode h2::after {
+            background-color: var(--color-dark-accent);
+        }
+
+        body.dark-mode .btn-primary {
+            background-color: var(--color-dark-surface-alt);
+            color: var(--color-dark-text-light);
+            border: 1px solid var(--color-dark-border);
+        }
+
+        body.dark-mode .btn-primary:hover {
+            background-color: var(--color-dark-accent);
+            transform: translateY(-3px);
+        }
+
+        body.dark-mode .btn-outline {
+            border-color: var(--color-dark-accent);
+            color: var(--color-dark-accent);
+            background-color: transparent;
+        }
+
+        body.dark-mode .btn-outline:hover {
+            background-color: var(--color-dark-accent);
+            color: var(--color-dark-text-light);
+        }
+
+        /* ============================================= */
+        /* 5. Header & Navigation */
         /* ============================================= */
         header {
             position: fixed;
@@ -237,7 +256,7 @@
         }
 
         body.dark-mode header {
-            background-color: rgba(30, 30, 30, 0.95);
+            background-color: rgba(10, 10, 15, 0.95);
             border-bottom-color: var(--color-dark-border);
         }
 
@@ -268,7 +287,7 @@
         }
 
         body.dark-mode .logo-text {
-            color: var(--color-accent);
+            color: var(--color-dark-text-light);
         }
 
         nav {
@@ -314,11 +333,11 @@
         }
 
         body.dark-mode .nav-link:hover {
-            color: var(--color-accent);
+            color: var(--color-dark-accent);
         }
 
         body.dark-mode .nav-link::after {
-            background-color: var(--color-accent);
+            background-color: var(--color-dark-accent);
         }
 
         .mobile-menu-btn {
@@ -331,7 +350,7 @@
         }
 
         body.dark-mode .mobile-menu-btn {
-            color: var(--color-accent);
+            color: var(--color-dark-text-light);
         }
 
         .theme-toggle {
@@ -354,15 +373,15 @@
         }
 
         body.dark-mode .theme-toggle {
-            color: var(--color-accent);
+            color: var(--color-dark-text-light);
         }
 
         body.dark-mode .theme-toggle:hover {
-            background-color: rgba(232, 216, 200, 0.1);
+            background-color: rgba(74, 123, 204, 0.2);
         }
 
         /* ============================================= */
-        /* 5. Hero Section */
+        /* 6. Hero Section */
         /* ============================================= */
         .hero {
             height: 100vh;
@@ -440,10 +459,14 @@
         }
 
         /* ============================================= */
-        /* 6. About Section */
+        /* 7. About Section */
         /* ============================================= */
         .about {
             background-color: var(--color-background);
+        }
+
+        body.dark-mode .about {
+            background-color: var(--color-dark-bg);
         }
 
         .about-content {
@@ -466,7 +489,8 @@
         }
 
         body.dark-mode .about-image {
-            background-color: var(--color-primary-dark);
+            background-color: var(--color-dark-surface-alt);
+            border: 1px solid var(--color-dark-border);
         }
 
         .about-image img {
@@ -492,14 +516,14 @@
         }
 
         /* ============================================= */
-        /* 7. Services Section */
+        /* 8. Services Section */
         /* ============================================= */
         .services {
             background-color: var(--color-accent);
         }
 
         body.dark-mode .services {
-            background-color: var(--color-primary-dark);
+            background-color: var(--color-dark-surface);
         }
 
         .services-grid {
@@ -518,7 +542,7 @@
         }
 
         body.dark-mode .service-card {
-            background-color: var(--color-dark-surface);
+            background-color: var(--color-dark-surface-alt);
             border: 1px solid var(--color-dark-border);
         }
 
@@ -554,7 +578,7 @@
         }
 
         body.dark-mode .service-card h3 {
-            color: var(--color-accent);
+            color: var(--color-dark-text-light);
         }
 
         .service-card p {
@@ -563,7 +587,7 @@
         }
 
         /* ============================================= */
-        /* 8. Service Detail Section */
+        /* 9. Service Detail Section */
         /* ============================================= */
         .service-detail {
             display: none;
@@ -613,8 +637,8 @@
         }
 
         body.dark-mode .back-btn:hover {
-            background-color: var(--color-primary-dark);
-            color: var(--color-accent);
+            background-color: var(--color-dark-surface-alt);
+            color: var(--color-dark-accent);
         }
 
         .service-detail-header h2 {
@@ -670,7 +694,7 @@
         }
 
         body.dark-mode .service-features li::before {
-            color: var(--color-accent);
+            color: var(--color-dark-accent);
         }
 
         .service-detail-image {
@@ -692,7 +716,7 @@
         }
 
         /* ============================================= */
-        /* 9. Gallery */
+        /* 10. Gallery */
         /* ============================================= */
         .service-detail .gallery {
             display: grid;
@@ -720,7 +744,8 @@
         }
 
         body.dark-mode .service-detail .gallery-item {
-            background-color: var(--color-primary-dark);
+            background-color: var(--color-dark-surface-alt);
+            border: 1px solid var(--color-dark-border);
         }
 
         .service-detail .gallery-item img {
@@ -733,7 +758,7 @@
         }
 
         body.dark-mode .service-detail .gallery-item img {
-            background-color: var(--color-primary-dark);
+            background-color: var(--color-dark-surface);
         }
 
         .service-detail .gallery-item:hover img {
@@ -752,15 +777,19 @@
         }
 
         body.dark-mode .service-detail .gallery-caption {
-            color: var(--color-accent);
-            background-color: var(--color-primary-dark);
+            color: var(--color-dark-text-light);
+            background-color: var(--color-dark-surface-alt);
         }
 
         /* ============================================= */
-        /* 10. Contact Section */
+        /* 11. Contact Section */
         /* ============================================= */
         .contact {
             background-color: var(--color-background);
+        }
+
+        body.dark-mode .contact {
+            background-color: var(--color-dark-bg);
         }
 
         .contact-container {
@@ -777,7 +806,7 @@
         }
 
         body.dark-mode .contact-info {
-            background-color: var(--color-dark-surface);
+            background-color: var(--color-dark-surface-alt);
             border: 1px solid var(--color-dark-border);
         }
 
@@ -787,7 +816,7 @@
         }
 
         body.dark-mode .contact-info h3 {
-            color: var(--color-accent);
+            color: var(--color-dark-text-light);
         }
 
         .contact-item {
@@ -811,8 +840,8 @@
         }
 
         body.dark-mode .contact-icon {
-            background-color: var(--color-primary-dark);
-            color: var(--color-accent);
+            background-color: var(--color-dark-surface);
+            color: var(--color-dark-accent);
         }
 
         .contact-text h4 {
@@ -823,7 +852,7 @@
         }
 
         body.dark-mode .contact-text h4 {
-            color: var(--color-accent);
+            color: var(--color-dark-text-light);
         }
 
         .contact-text p {
@@ -839,7 +868,7 @@
         }
 
         body.dark-mode .contact-form {
-            background-color: var(--color-dark-surface);
+            background-color: var(--color-dark-surface-alt);
             border: 1px solid var(--color-dark-border);
         }
 
@@ -849,7 +878,7 @@
         }
 
         body.dark-mode .contact-form h3 {
-            color: var(--color-accent);
+            color: var(--color-dark-text-light);
         }
 
         .form-group {
@@ -892,8 +921,8 @@
         }
 
         body.dark-mode .form-control:focus {
-            border-color: var(--color-accent);
-            box-shadow: 0 0 0 3px rgba(232, 216, 200, 0.2);
+            border-color: var(--color-dark-accent);
+            box-shadow: 0 0 0 3px rgba(74, 123, 204, 0.2);
         }
 
         textarea.form-control {
@@ -902,12 +931,16 @@
         }
 
         /* ============================================= */
-        /* 11. Footer */
+        /* 12. Footer */
         /* ============================================= */
         footer {
             background-color: var(--color-primary-dark);
             color: var(--color-text-light);
             padding: calc(var(--spacing-unit) * 4) 0;
+        }
+
+        body.dark-mode footer {
+            background-color: var(--color-dark-surface);
         }
 
         .footer-content {
@@ -947,13 +980,22 @@
             transform: translateY(-5px);
         }
 
+        body.dark-mode .social-link {
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+
+        body.dark-mode .social-link:hover {
+            background-color: var(--color-dark-accent);
+            color: var(--color-dark-text-light);
+        }
+
         .copyright {
             font-size: 0.9rem;
             opacity: 0.8;
         }
 
         /* ============================================= */
-        /* 12. Lightbox */
+        /* 13. Lightbox */
         /* ============================================= */
         .lightbox {
             position: fixed;
@@ -1056,7 +1098,7 @@
         }
 
         /* ============================================= */
-        /* 13. Animations */
+        /* 14. Animations */
         /* ============================================= */
         @keyframes fadeIn {
             from {
@@ -1071,7 +1113,7 @@
         }
 
         /* ============================================= */
-        /* 14. Responsive Design */
+        /* 15. Responsive Design */
         /* ============================================= */
         @media (max-width: 1024px) {
             .section {

@@ -386,14 +386,13 @@
         }
 
         /* ============================================= */
-        /* 6. Hero Section */
+        /* 6. Hero Section - UPRAVENÉ */
         /* ============================================= */
         .hero {
             height: 100vh;
             min-height: 800px;
             display: flex;
             align-items: center;
-            justify-content: center;
             position: relative;
             overflow: hidden;
             background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('hero-bg.jpg') no-repeat center center/cover;
@@ -414,11 +413,33 @@
         .hero-content {
             position: relative;
             z-index: 2;
-            max-width: 950px;
-            text-align: center;
+            max-width: var(--max-width);
+            text-align: left;
             padding: 0 var(--spacing-unit);
             margin-top: 60px;
             padding-top: calc(var(--spacing-unit) * 4);
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-text {
+            padding-right: 2rem;
+        }
+
+        .hero-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+            max-height: 500px;
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-lg);
         }
 
         .hero h1 {
@@ -430,7 +451,7 @@
             margin-bottom: 2rem;
             animation: fadeInUp 1s ease forwards;
             color: var(--color-text-light);
-            text-align: center;
+            text-align: left;
         }
 
         .hero p {
@@ -438,9 +459,9 @@
             margin-bottom: 2.5rem;
             opacity: 0;
             animation: fadeInUp 1s ease 0.3s forwards;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
+            max-width: none;
+            margin-left: 0;
+            margin-right: 0;
         }
 
         .hero-btns {
@@ -448,7 +469,7 @@
             gap: 1.5rem;
             opacity: 0;
             animation: fadeInUp 1s ease 0.6s forwards;
-            justify-content: center;
+            justify-content: flex-start;
         }
 
         @keyframes fadeInUp {
@@ -1174,9 +1195,19 @@
                 min-height: 600px;
             }
 
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text {
+                padding-right: 0;
+            }
+
             .hero-btns {
                 flex-direction: column;
                 gap: 1rem;
+                justify-content: center;
             }
 
             .service-detail-header {
@@ -1271,28 +1302,35 @@
     <section class="hero" id="hero">
         <div class="container">
             <div class="hero-content">
-                <h1>Remeselná dokonalosť z dreva</h1>
-                <p>Sme rodinná stolárska dielňa, kde sa remeslo dedí z generácie na generáciu. Viac než tridsať rokov
-                    spájame tradičné hodnoty s moderným prístupom, aby sme vytvárali poctivé a esteticky jedinečné
-                    výrobky z dreva.</p>
+                <div class="hero-text">
+                    <h1>Remeselná dokonalosť z dreva</h1>
+                    <p>Sme rodinná stolárska dielňa, kde sa remeslo dedí z generácie na generáciu. Viac než tridsať
+                        rokov
+                        spájame tradičné hodnoty s moderným prístupom, aby sme vytvárali poctivé a esteticky jedinečné
+                        výrobky z dreva.</p>
 
-                <p>Naša práca nie je len povolaním – je to životný štýl, vášeň a hrdosť. Každý kus, ktorý vyrobíme,
-                    nesie v sebe kúsok našej histórie, lásky k detailu a úcty k materiálu.</p>
+                    <p>Naša práca nie je len povolaním – je to životný štýl, vášeň a hrdosť. Každý kus, ktorý vyrobíme,
+                        nesie v sebe kúsok našej histórie, lásky k detailu a úcty k materiálu.</p>
 
-                <p>Nech už ide o rakvy, nábytok na mieru či ekologické brikety – pristupujeme k zákazníkovi ako k
-                    rodine, a presne tak aj pracujeme: precízne, srdcom a dôverou.</p>
-                <div class="hero-btns">
-                    <a href="#" class="btn btn-primary" onclick="showSection('services', event)">
-                        <i class="fas fa-hammer"></i> Naše služby
-                    </a>
-                    <a href="#" class="btn btn-outline" onclick="showSection('contact', event)">
-                        <i class="fas fa-phone-alt"></i> Kontaktujte nás
-                    </a>
+                    <p>Nech už ide o rakvy, nábytok na mieru či ekologické brikety – pristupujeme k zákazníkovi ako k
+                        rodine, a presne tak aj pracujeme: precízne, srdcom a dôverou.</p>
+                    <div class="hero-btns">
+                        <a href="#" class="btn btn-primary" onclick="showSection('services', event)">
+                            <i class="fas fa-hammer"></i> Naše služby
+                        </a>
+                        <a href="#" class="btn btn-outline" onclick="showSection('contact', event)">
+                            <i class="fas fa-phone-alt"></i> Kontaktujte nás
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="Titulka.jpg" alt="Ukážka našej práce">
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- ZBYTOK KÓDU OSTÁVA ÚPLNE ROVNAKÝ AKO V PÔVODNOM -->
     <section class="section about" id="about">
         <div class="container">
             <div class="section-title">

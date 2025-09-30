@@ -393,7 +393,6 @@
             min-height: 800px;
             display: flex;
             align-items: center;
-            justify-content: center;
             position: relative;
             overflow: hidden;
             background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('hero-bg.jpg') no-repeat center center/cover;
@@ -415,10 +414,31 @@
             position: relative;
             z-index: 2;
             max-width: 950px;
-            text-align: center;
+            text-align: left;
             padding: 0 var(--spacing-unit);
             margin-top: 60px;
             padding-top: calc(var(--spacing-unit) * 4);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .hero-text {
+            padding-right: 2rem;
+        }
+
+        .hero-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-lg);
         }
 
         .hero h1 {
@@ -430,7 +450,7 @@
             margin-bottom: 2rem;
             animation: fadeInUp 1s ease forwards;
             color: var(--color-text-light);
-            text-align: center;
+            text-align: left;
         }
 
         .hero p {
@@ -439,7 +459,7 @@
             opacity: 0;
             animation: fadeInUp 1s ease 0.3s forwards;
             max-width: 600px;
-            margin-left: auto;
+            margin-left: 0;
             margin-right: auto;
         }
 
@@ -448,7 +468,7 @@
             gap: 1.5rem;
             opacity: 0;
             animation: fadeInUp 1s ease 0.6s forwards;
-            justify-content: center;
+            justify-content: flex-start;
         }
 
         @keyframes fadeInUp {
@@ -489,12 +509,10 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: var(--color-accent);
             padding: 1rem;
         }
 
         body.dark-mode .about-image {
-            background-color: var(--color-dark-surface-alt);
             border: 1px solid var(--color-dark-border);
             backdrop-filter: var(--backdrop-blur);
         }
@@ -1174,9 +1192,19 @@
                 min-height: 600px;
             }
 
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text {
+                padding-right: 0;
+            }
+
             .hero-btns {
                 flex-direction: column;
                 gap: 1rem;
+                justify-content: center;
             }
 
             .service-detail-header {
@@ -1233,48 +1261,56 @@
             }
 
             .lightbox-prev {
-                left: -20px;
+                left: -25px;
             }
 
             .lightbox-next {
-                right: -20px;
+                right: -25px;
             }
         }
     </style>
 </head>
 
 <body>
+    <!-- Header -->
     <header>
         <div class="container header-container">
-            <a href="#" class="logo" onclick="showSection('hero', event)">
-                <img src="Logo_Petro.jpg" alt="Stolárstvo Petro" class="logo-img">
+            <div class="logo">
+                <img src="Logo_Petro.jpg" alt="Stolárstvo Petro Logo" class="logo-img">
                 <span class="logo-text">Stolárstvo Petro</span>
-            </a>
-
+            </div>
             <nav>
+                <div class="nav-links">
+                    <a href="#home" class="nav-link active">Domov</a>
+                    <a href="#about" class="nav-link">O nás</a>
+                    <a href="#services" class="nav-link">Služby</a>
+                    <a href="#contact" class="nav-link">Kontakt</a>
+                </div>
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
                 <button class="mobile-menu-btn" id="mobileMenuBtn">
                     <i class="fas fa-bars"></i>
                 </button>
-
-                <div class="nav-links" id="navLinks">
-                    <a href="#" class="nav-link" onclick="showSection('about', event)">O nás</a>
-                    <a href="#" class="nav-link" onclick="showSection('services', event)">Služby</a>
-                    <a href="#" class="nav-link" onclick="showSection('contact', event)">Kontakt</a>
-                    <button class="theme-toggle" id="themeToggle">
-                        <i class="fas fa-moon"></i>
-                    </button>
-                </div>
             </nav>
         </div>
     </header>
 
-    <section class="hero" id="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1>Remeselná dokonalosť z dreva</h1>
-                <p>Sme rodinná stolárska dielňa, kde sa remeslo dedí z generácie na generáciu. Viac než tridsať rokov
-                    spájame tradičné hodnoty s moderným prístupom, aby sme vytvárali poctivé a esteticky jedinečné
-                    výrobky z dreva.</p>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <h1>Poctivá remeselná výroba z dreva</h1>
+                <p>Sme rodinná stolárska dielňa, v ktorej sa drevo spracúva s úctou, remeselnou poctivosťou a citom,
+                    ktorý sa dedí z generácie na generáciu. Našou hlavnou prácou sú truhly – výrobky, pri ktorých
+                    spájame tradičné hodnoty s moderným prístupom, aby boli nielen dôstojné, ale aj esteticky jedinečné.
+
+                    Každý kus, ktorý vytvoríme, nesie v sebe kúsok našej histórie, lásky k detailu a úcty k materiálu.
+                    Okrem truhl sa venujeme aj nábytku na mieru či ekologickým briketám, no vždy s rovnakou precíznosťou
+                    a srdcom.
+
+                    Pre nás je stolárstvo viac než povolanie – je to spôsob života a záväzok k tým, ktorí nám zveria
+                    svoju dôveru.</p>
 
                 <p>Naša práca nie je len povolaním – je to životný štýl, vášeň a hrdosť. Každý kus, ktorý vyrobíme,
                     nesie v sebe kúsok našej histórie, lásky k detailu a úcty k materiálu.</p>
@@ -1282,17 +1318,21 @@
                 <p>Nech už ide o rakvy, nábytok na mieru či ekologické brikety – pristupujeme k zákazníkovi ako k
                     rodine, a presne tak aj pracujeme: precízne, srdcom a dôverou.</p>
                 <div class="hero-btns">
-                    <a href="#" class="btn btn-primary" onclick="showSection('services', event)">
+                    <a href="#services" class="btn btn-primary">
                         <i class="fas fa-hammer"></i> Naše služby
                     </a>
-                    <a href="#" class="btn btn-outline" onclick="showSection('contact', event)">
+                    <a href="#contact" class="btn btn-outline">
                         <i class="fas fa-phone-alt"></i> Kontaktujte nás
                     </a>
                 </div>
             </div>
+            <div class="hero-image">
+                <img src="Titulka.jpg" alt="Ukážka našej práce">
+            </div>
         </div>
     </section>
 
+    <!-- About Section -->
     <section class="section about" id="about">
         <div class="container">
             <div class="section-title">
@@ -1312,7 +1352,7 @@
                     <p>Špecializujeme sa na výrobu kvalitných rakiev, dreveného nábytku na mieru, okien a dverí, ako aj
                         na predaj ekologických brikiet. Každý výrobok je dôkladne premyslený a vyrobený s maximálnou
                         starostlivosťou.</p>
-                    <a href="#" class="btn btn-primary" onclick="showSection('services', event)">
+                    <a href="#services" class="btn btn-primary">
                         <i class="fas fa-arrow-right"></i> Pozrite si naše služby
                     </a>
                 </div>
@@ -1320,59 +1360,66 @@
         </div>
     </section>
 
+    <!-- Services Section -->
     <section class="section services" id="services">
         <div class="container">
             <div class="section-title">
                 <h2>Naše služby</h2>
             </div>
             <div class="services-grid">
-                <div class="service-card" onclick="showServiceDetail('coffins')">
+                <!-- Service Card 1 - Coffins -->
+                <div class="service-card" data-service="1">
                     <div class="service-card-img">
                         <img src="M21_Amerika_01.jpg" alt="Výroba rakiev">
                     </div>
                     <div class="service-card-content">
                         <h3>Výroba rakiev</h3>
                         <p>Kvalitné a dôstojné rakvy vyrobené z rôznych druhov dreva podľa vašich požiadaviek.</p>
-                        <button class="btn btn-outline" onclick="showServiceDetail('coffins', event)">
+                        <a href="#" class="btn btn-outline">
                             <i class="fas fa-arrow-right"></i> Zobraziť detail
-                        </button>
+                        </a>
                     </div>
                 </div>
 
-                <div class="service-card" onclick="showServiceDetail('furniture')">
+                <!-- Service Card 2 - Furniture -->
+                <div class="service-card" data-service="2">
                     <div class="service-card-img">
                         <img src="schody_tocive.jpg" alt="Drevený nábytok">
                     </div>
                     <div class="service-card-content">
                         <h3>Drevený nábytok</h3>
                         <p>Exkluzívny nábytok na mieru vyrobený z kvalitných materiálov podľa vášho návrhu.</p>
-                        <button class="btn btn-outline" onclick="showServiceDetail('furniture', event)">
+                        <a href="#" class="btn btn-outline">
                             <i class="fas fa-arrow-right"></i> Zobraziť detail
-                        </button>
+                        </a>
                     </div>
                 </div>
 
-                <div class="service-card" onclick="showServiceDetail('briquettes')">
+                <!-- Service Card 3 - Briquettes -->
+                <div class="service-card" data-service="3">
                     <div class="service-card-img">
                         <img src="briketa.jpg" alt="EKO brikety">
                     </div>
                     <div class="service-card-content">
                         <h3>EKO brikety</h3>
                         <p>Vysoko kvalitné drevené brikety vyrábané z čistých pilín bez chemických prísad.</p>
-                        <button class="btn btn-outline" onclick="showServiceDetail('briquettes', event)">
+                        <a href="#" class="btn btn-outline">
                             <i class="fas fa-arrow-right"></i> Zobraziť detail
-                        </button>
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <div class="service-detail" id="coffins">
+    <!-- Service Detail Sections -->
+    <!-- Service 1 Detail - Coffins -->
+    <section class="section service-detail" id="service-detail-1">
         <div class="container">
             <div class="service-detail-header">
-                <button class="back-btn" onclick="hideServiceDetail('coffins')">
-                    <i class="fas fa-arrow-left"></i> Späť na služby
+                <button class="back-btn" id="backBtn">
+                    <i class="fas fa-arrow-left"></i>
+                    Späť na služby
                 </button>
                 <h2>Výroba rakiev</h2>
             </div>
@@ -1389,21 +1436,35 @@
                         <li>Smrek - klasický výber s jemnou textúrou</li>
                     </ul>
 
-                    <div class="gallery" id="gallery-coffins"></div>
-
-                    <a href="#" class="btn btn-primary" onclick="showSection('contact', event)">
+                    <a href="#contact" class="btn btn-primary">
                         <i class="fas fa-envelope"></i> Požiadať o cenovú ponuku
                     </a>
                 </div>
             </div>
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="M21_Amerika_01.jpg" alt="Model M21 Amerika">
+                    <div class="gallery-caption">Model M21 Amerika</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="M21_Amerika_05.jpg" alt="Detail M21 Amerika">
+                    <div class="gallery-caption">Detail M21 Amerika</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="M10_smrek_tmavá_s_popisom.jpg" alt="Model M10 smrek tmavý">
+                    <div class="gallery-caption">Model M10 smrek tmavý</div>
+                </div>
+            </div>
         </div>
-    </div>
+    </section>
 
-    <div class="service-detail" id="furniture">
+    <!-- Service 2 Detail - Furniture -->
+    <section class="section service-detail" id="service-detail-2">
         <div class="container">
             <div class="service-detail-header">
-                <button class="back-btn" onclick="hideServiceDetail('furniture')">
-                    <i class="fas fa-arrow-left"></i> Späť na služby
+                <button class="back-btn" id="backBtn">
+                    <i class="fas fa-arrow-left"></i>
+                    Späť na služby
                 </button>
                 <h2>Drevený nábytok</h2>
             </div>
@@ -1428,21 +1489,35 @@
                         <li>Ekologické a zdravotne nezávadné spracovanie</li>
                     </ul>
 
-                    <div class="gallery" id="gallery-furniture"></div>
-
-                    <a href="#" class="btn btn-primary" onclick="showSection('contact', event)">
+                    <a href="#contact" class="btn btn-primary">
                         <i class="fas fa-envelope"></i> Konzultácia zdarma
                     </a>
                 </div>
             </div>
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="schody_tocive.jpg" alt="Schodiská">
+                    <div class="gallery-caption">Schodiská</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="dvere_fra.jpg" alt="Dvere">
+                    <div class="gallery-caption">Dvere</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="trojokno.jpg" alt="Okná">
+                    <div class="gallery-caption">Okná</div>
+                </div>
+            </div>
         </div>
-    </div>
+    </section>
 
-    <div class="service-detail" id="briquettes">
+    <!-- Service 3 Detail - Briquettes -->
+    <section class="section service-detail" id="service-detail-3">
         <div class="container">
             <div class="service-detail-header">
-                <button class="back-btn" onclick="hideServiceDetail('briquettes')">
-                    <i class="fas fa-arrow-left"></i> Späť na služby
+                <button class="back-btn" id="backBtn">
+                    <i class="fas fa-arrow-left"></i>
+                    Späť na služby
                 </button>
                 <h2>EKO brikety</h2>
             </div>
@@ -1455,8 +1530,8 @@
                     <ul class="service-features">
                         <li>Vysoká výhrevnosť – až 18,31 MJ/kg (porovnateľná s čiernym uhlím)</li>
                         <li>Nízka vlhkosť – iba 3,17 %</li>
-                        <li>OMinimálny obsah popola – len 1,45 %, vhodný ako hnojivo</li>
-                        <li>Rkologické palivo bez chemických prísad</li>
+                        <li>Minimálny obsah popola – len 1,45 %, vhodný ako hnojivo</li>
+                        <li>Ekologické palivo bez chemických prísad</li>
                     </ul>
 
                     <h3>Výhody:</h3>
@@ -1468,16 +1543,29 @@
                         <li>Vhodné pre všetky druhy krbov a kachlí</li>
                     </ul>
 
-                    <div class="gallery" id="gallery-briquettes"></div>
-
-                    <a href="#" class="btn btn-primary" onclick="showSection('contact', event)">
+                    <a href="#contact" class="btn btn-primary">
                         <i class="fas fa-shopping-cart"></i> Objednať brikety
                     </a>
                 </div>
             </div>
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="briketa.jpg" alt="Brikety">
+                    <div class="gallery-caption">Brikety</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="drevo_briketa.jpg" alt="Drevo na brikety">
+                    <div class="gallery-caption">Drevo na brikety</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="stroj_1.jpg" alt="Výroba brikiet">
+                    <div class="gallery-caption">Výroba brikiet</div>
+                </div>
+            </div>
         </div>
-    </div>
+    </section>
 
+    <!-- Contact Section -->
     <section class="section contact" id="contact">
         <div class="container">
             <div class="section-title">
@@ -1565,274 +1653,212 @@
         </div>
     </section>
 
+    <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">Stolárstvo Petro</div>
-
                 <p class="copyright">&copy; 2025 Stolárstvo Petro. Všetky práva vyhradené.</p>
             </div>
         </div>
     </footer>
 
+    <!-- Lightbox -->
     <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lightboxClose">
+            <i class="fas fa-times"></i>
+        </button>
+        <button class="lightbox-btn lightbox-prev" id="lightboxPrev">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="lightbox-btn lightbox-next" id="lightboxNext">
+            <i class="fas fa-chevron-right"></i>
+        </button>
         <div class="lightbox-content">
-            <button class="lightbox-close" aria-label="Zavrieť">
-                <i class="fas fa-times"></i>
-            </button>
-            <button class="lightbox-btn lightbox-prev" aria-label="Predchádzajúci obrázok">
-                <i class="fas fa-chevron-left"></i>
-            </button>
-            <button class="lightbox-btn lightbox-next" aria-label="Nasledujúci obrázok">
-                <i class="fas fa-chevron-right"></i>
-            </button>
-            <img src="" alt="" class="lightbox-img" id="lightbox-img">
-            <div class="lightbox-caption" id="lightbox-caption"></div>
+            <img src="" alt="" class="lightbox-img" id="lightboxImg">
+            <div class="lightbox-caption" id="lightboxCaption"></div>
         </div>
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            // =============================================
-            // 1. Mobile Navigation
-            // =============================================
-            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-            const navLinks = document.getElementById('navLinks');
-            const headerElement = document.querySelector('header'); // Store header element for height calculation
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.querySelector('.nav-links');
 
-            mobileMenuBtn.addEventListener('click', function () {
-                navLinks.classList.toggle('active');
-                // Adjust top of navLinks based on actual header height when menu opens
-                if (navLinks.classList.contains('active')) {
-                    navLinks.style.top = headerElement.offsetHeight + 'px';
-                }
-                mobileMenuBtn.innerHTML = navLinks.classList.contains('active') ?
-                    '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navLinks.classList.contains('active') ?
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+
+        // Theme Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+
+        // Check for saved theme preference or respect OS preference
+        const savedTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        if (savedTheme === 'dark') {
+            body.classList.add('dark-mode');
+            themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+        }
+
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            const isDarkMode = body.classList.contains('dark-mode');
+            localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+            themeToggle.innerHTML = isDarkMode ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+        });
+
+        // Service Cards Navigation
+        const serviceCards = document.querySelectorAll('.service-card');
+        const serviceDetails = document.querySelectorAll('.service-detail');
+        const backBtn = document.querySelectorAll('.back-btn');
+        const servicesSection = document.getElementById('services');
+
+        serviceCards.forEach(card => {
+            card.addEventListener('click', () => {
+                const serviceId = card.getAttribute('data-service');
+                // Hide services section
+                servicesSection.style.display = 'none';
+                // Show the corresponding service detail
+                document.getElementById(`service-detail-${serviceId}`).classList.add('active');
+                // Scroll to top of the detail section
+                window.scrollTo({ top: 0, behavior: 'smooth' });
             });
+        });
 
-            // Update navLinks top on window resize if mobile menu is active
-            window.addEventListener('resize', function () {
-                if (navLinks.classList.contains('active')) {
-                    navLinks.style.top = headerElement.offsetHeight + 'px';
-                }
-            });
-
-
-            document.querySelectorAll('.nav-link').forEach(link => {
-                link.addEventListener('click', function () {
-                    if (navLinks.classList.contains('active')) {
-                        navLinks.classList.remove('active');
-                        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-                    }
+        backBtn.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Hide all service details
+                serviceDetails.forEach(detail => {
+                    detail.classList.remove('active');
                 });
+                // Show services section again
+                servicesSection.style.display = 'block';
+                // Scroll back to services
+                servicesSection.scrollIntoView({ behavior: 'smooth' });
             });
+        });
 
-            // =============================================
-            // 2. Dark Mode Toggle
-            // =============================================
-            const themeToggle = document.getElementById('themeToggle');
-            const body = document.body;
+        // Smooth Scrolling for Navigation Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
 
-            if (localStorage.getItem('darkMode') === 'enabled') {
-                body.classList.add('dark-mode');
-                themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
-            }
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    // Close mobile menu if open
+                    navLinks.classList.remove('active');
+                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
 
-            themeToggle.addEventListener('click', function () {
-                body.classList.toggle('dark-mode');
-                if (body.classList.contains('dark-mode')) {
-                    localStorage.setItem('darkMode', 'enabled');
-                    themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
-                } else {
-                    localStorage.setItem('darkMode', 'disabled');
-                    themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
-                }
-            });
-
-            // =============================================
-            // 3. Section Navigation & Visibility
-            // =============================================
-            const allContent = document.querySelectorAll('section, .service-detail');
-
-            function hideAllContent() {
-                allContent.forEach(content => {
-                    content.style.display = 'none';
-                });
-            }
-
-            function showContent(contentId) {
-                hideAllContent();
-                const contentToShow = document.getElementById(contentId);
-                if (contentToShow) {
-                    contentToShow.style.display = 'block';
-                    if (contentId !== 'hero') {
-                        const headerHeight = headerElement ? headerElement.offsetHeight : 90;
-                        window.scrollTo({
-                            top: contentToShow.offsetTop - (headerHeight + 10), // MODIFIED: Offset with 10px gap
-                            behavior: 'smooth'
-                        });
-                    } else {
-                        window.scrollTo({ top: 0, behavior: 'smooth' });
-                    }
-                }
-            }
-
-            window.showSection = function (sectionId, event) {
-                if (event) event.preventDefault();
-                showContent(sectionId);
-                document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
-                const activeLink = document.querySelector(`.nav-link[onclick*="'${sectionId}'"]`);
-                if (activeLink) activeLink.classList.add('active');
-            };
-
-            showContent('hero');
-
-            // =============================================
-            // 4. Service Details
-            // =============================================
-            window.showServiceDetail = function (serviceId, event) {
-                if (event) {
-                    event.preventDefault();
-                    event.stopPropagation();
-                }
-                showContent(serviceId);
-            };
-
-            window.hideServiceDetail = function (serviceId) {
-                showContent('services');
-            };
-
-            // =============================================
-            // 5. Gallery & Lightbox
-            // =============================================
-            const galleryData = {
-                coffins: [
-                    { src: 'M21_Amerika_01.jpg', caption: 'Model M21 Amerika' },
-                    { src: 'M21_Amerika_05.jpg', caption: 'Detail M21 Amerika' },
-                    { src: 'M10_smrek_tmavá_s_popisom.jpg', caption: 'Model M10 smrek tmavý' },
-                    { src: 'M10+V_smrek_melír_vecera_s_popisom.jpg', caption: 'Model M10+V smrek melír' },
-                    { src: 'M9_P_smrek_03.jpg', caption: 'Model M9_P_smrek_03' },
-                    { src: 'M10_P_LUX_smrek_02.jpg', caption: 'M10 Lux Smrek' },
-                    { src: 'M6_LUX_smrek.jpg', caption: 'MM6 Lux Smrek' },
-                    { src: 'M9_kríž_cesta.jpg', caption: 'Model M9 Krížová cesta' },
-                    { src: 'M10_smrek_melír.jpg', caption: 'Model M10 Smrek melír' },
-                    { src: 'M10_Biela_smrek.jpg', caption: 'Model M0 Biela Smrek' },
-                    { src: 'M11_V_smrek_03.jpg', caption: 'Model M11 Smrek 03' },
-                    { src: 'M8_P_smrek_03.jpg', caption: 'Model M8 Smrek 02' },
-                    { src: 'M11_P_smrek_04.jpg', caption: 'Model M11 Smrek 04' },
-                    { src: 'M10_P_smrek_04.jpg', caption: 'Model M10 Smrek 04' },
-                    { src: 'M3_P_buk_01.jpg', caption: 'Model M3 Buk 01' },
-                    { src: 'M10 _P_smrek_05.jpg', caption: 'Model M10 Smrek 05' },
-                    { src: 'M10_P_smrek_03.jpg', caption: 'Model M10 Smrek 03' },
-                    { src: 'M11_P_smrek_02.jpg', caption: 'Model M11 Smrek 02' },
-                    { src: 'M11_P_smrek_01.jpg', caption: 'Model M11 Smrek 01' },
-                    { src: 'M10_V_smrek_03.jpg', caption: 'Model M10 Smrek 03' },
-                    { src: 'M10_smrek.jpg', caption: 'Model M10 Smrek' },
-                    { src: 'M10_P_smrek_01.jpg', caption: 'Model M10 Smrek 01' },
-                    { src: 'detail.jpg', caption: 'Model Detail' }
-
-                ],
-                furniture: [
-                    { src: 'dvere_fra.jpg', caption: '' },
-                    { src: 'schody_tocive.jpg', caption: '' },
-                    { src: 'trojokno.jpg', caption: '' },
-                    { src: 'd1.jpg', caption: '' },
-                    { src: 'd2.jpg', caption: '' },
-                    { src: 'd3.jpg', caption: '' },
-                    { src: 'd4.jpg', caption: '' },
-                    { src: 'd5.jpg', caption: '' },
-                    { src: 'd6.jpg', caption: '' },
-                    { src: 'd7.jpg', caption: '' },
-                    { src: 'd8.jpg', caption: '' },
-                    { src: 'balkon.jpg', caption: '' },
-                    { src: 'okno.jpg', caption: '' },
-                    { src: 'okno2.jpg', caption: '' },
-                    { src: 'okno3.jpg', caption: '' },
-                    { src: 'schod.jpg', caption: '' },
-                    { src: 'schod2.jpg', caption: '' }
-                ],
-                briquettes: [
-                    { src: 'briketa.jpg', caption: '' },
-                    { src: 'drevo_briketa.jpg', caption: '' },
-                    { src: 'stroj_1.jpg', caption: '' },
-                    { src: 'stroj_2.jpg', caption: '' }
-                ]
-            };
-
-            function populateGalleries() {
-                for (const galleryId in galleryData) {
-                    const galleryContainer = document.getElementById(`gallery-${galleryId}`);
-                    if (!galleryContainer) continue;
-                    galleryContainer.innerHTML = '';
-                    galleryData[galleryId].forEach((item, index) => {
-                        const galleryItem = document.createElement('div');
-                        galleryItem.className = 'gallery-item';
-                        galleryItem.innerHTML = `
-                <img src="${item.src}" alt="${item.caption}">
-                <div class="gallery-caption">${item.caption}</div>
-            `;
-                        galleryItem.addEventListener('click', () => openLightbox(galleryId, index));
-                        galleryContainer.appendChild(galleryItem);
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
                     });
                 }
-            }
-            populateGalleries();
+            });
+        });
 
-            const lightbox = document.getElementById('lightbox');
-            const lightboxImg = document.getElementById('lightbox-img');
-            const lightboxCaption = document.getElementById('lightbox-caption');
-            const lightboxClose = document.querySelector('.lightbox-close');
-            const lightboxPrev = document.querySelector('.lightbox-prev');
-            const lightboxNext = document.querySelector('.lightbox-next');
-            let currentGallery = '';
-            let currentIndex = 0;
+        // Active Navigation Link on Scroll
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
 
-            function openLightbox(galleryId, index) {
-                currentGallery = galleryId;
-                currentIndex = index;
-                updateLightboxImage();
-                lightbox.classList.add('active');
-                document.body.style.overflow = 'hidden';
-                document.addEventListener('keydown', handleKeyPress);
-            }
+            let currentSection = '';
 
-            function closeLightbox() {
-                lightbox.classList.remove('active');
-                document.body.style.overflow = '';
-                document.removeEventListener('keydown', handleKeyPress);
-            }
-
-            function updateLightboxImage() {
-                const image = galleryData[currentGallery][currentIndex];
-                lightboxImg.src = image.src;
-                lightboxImg.alt = image.caption;
-                lightboxCaption.textContent = image.caption;
-            }
-
-            function showPrevImage() {
-                currentIndex = (currentIndex - 1 + galleryData[currentGallery].length) % galleryData[currentGallery].length;
-                updateLightboxImage();
-            }
-
-            function showNextImage() {
-                currentIndex = (currentIndex + 1) % galleryData[currentGallery].length;
-                updateLightboxImage();
-            }
-
-            function handleKeyPress(e) {
-                if (e.key === 'Escape') closeLightbox();
-                if (e.key === 'ArrowLeft') showPrevImage();
-                if (e.key === 'ArrowRight') showNextImage();
-            }
-
-            lightboxClose.addEventListener('click', closeLightbox);
-            lightboxPrev.addEventListener('click', showPrevImage);
-            lightboxNext.addEventListener('click', showNextImage);
-            lightbox.addEventListener('click', function (e) {
-                if (e.target === lightbox) {
-                    closeLightbox();
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
+                    currentSection = section.getAttribute('id');
                 }
             });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${currentSection}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Lightbox Functionality
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightboxImg');
+        const lightboxCaption = document.getElementById('lightboxCaption');
+        const lightboxClose = document.getElementById('lightboxClose');
+        const lightboxPrev = document.getElementById('lightboxPrev');
+        const lightboxNext = document.getElementById('lightboxNext');
+
+        let currentImageIndex = 0;
+        let galleryImages = [];
+
+        // Initialize gallery for each service
+        function initGallery(serviceId) {
+            const galleryItems = document.querySelectorAll(`#service-detail-${serviceId} .gallery-item`);
+            galleryImages = Array.from(galleryItems).map(item => {
+                return {
+                    src: item.querySelector('img').getAttribute('src'),
+                    caption: item.querySelector('.gallery-caption').textContent
+                };
+            });
+        }
+
+        // Open lightbox
+        document.querySelectorAll('.gallery-item').forEach((item, index) => {
+            item.addEventListener('click', () => {
+                const serviceId = item.closest('.service-detail').id.split('-')[2];
+                initGallery(serviceId);
+                currentImageIndex = index;
+                updateLightbox();
+                lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        // Close lightbox
+        lightboxClose.addEventListener('click', () => {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+
+        // Navigate lightbox
+        lightboxPrev.addEventListener('click', () => {
+            currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
+            updateLightbox();
+        });
+
+        lightboxNext.addEventListener('click', () => {
+            currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
+            updateLightbox();
+        });
+
+        // Update lightbox content
+        function updateLightbox() {
+            lightboxImg.setAttribute('src', galleryImages[currentImageIndex].src);
+            lightboxCaption.textContent = galleryImages[currentImageIndex].caption;
+        }
+
+        // Close lightbox on outside click
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                lightbox.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.padding = '0.5rem 0';
+                header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.padding = '1rem 0';
+                header.style.boxShadow = 'none';
+            }
         });
     </script>
 </body>

@@ -419,10 +419,10 @@
         /* 6. Hero Section - UPRAVENÉ */
         /* ============================================= */
         .hero {
-            height: 85vh;
-            /* Zmenšené z 100vh */
-            min-height: 600px;
-            /* Zmenšené z 800px */
+            height: 75vh;
+            /* Upravené z 85vh */
+            min-height: 550px;
+            /* Upravené z 600px */
             display: flex;
             align-items: center;
             position: relative;
@@ -454,25 +454,24 @@
             max-width: var(--max-width);
             margin: 0 auto;
             padding: 0 20px;
-            margin-top: 40px;
-            /* Zmenšené z 60px */
-            padding-top: calc(var(--spacing-unit) * 2);
-            /* Zmenšené z *4 */
+            margin-top: 50px;
+            /* ZMENENÉ z 30px na 50px - o 20px viac */
+            padding-top: calc(var(--spacing-unit) * 1.5);
             display: grid;
             grid-template-columns: 1.2fr 0.8fr;
-            gap: 2rem;
-            /* Zmenšené z 4rem */
+            gap: 2.5rem;
             align-items: center;
         }
 
         .hero-text {
-            padding-right: 1.5rem;
+            padding-right: 1rem;
+            /* Zmenšené z 1.5rem */
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
             border-radius: var(--border-radius-lg);
-            padding: 2rem;
-            /* Zmenšené z 3rem */
+            padding: 2.25rem;
+            /* Optimalizované z 2rem */
             border: 1px solid rgba(255, 255, 255, 0.2);
             box-shadow: var(--shadow-lg);
         }
@@ -503,19 +502,22 @@
 
         .hero p {
             font-size: clamp(1rem, 2vw, 1.25rem);
-            margin-bottom: 2.5rem;
+            margin-bottom: 1.75rem;
+            /* Zmenšené z 2.5rem */
             opacity: 0;
             animation: fadeInUp 1s ease 0.3s forwards;
             max-width: none;
             margin-left: 0;
             margin-right: 0;
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-            line-height: 1.7;
+            line-height: 1.6;
+            /* Zmenšené z 1.7 */
         }
 
         .hero-btns {
             display: flex;
-            gap: 1.5rem;
+            gap: 1.25rem;
+            /* Zmenšené z 1.5rem */
             opacity: 0;
             animation: fadeInUp 1s ease 0.6s forwards;
             justify-content: flex-start;

@@ -2257,6 +2257,44 @@
                     closeLightbox();
                 }
             });
+
+            // =============================================
+            // 6. RESET SCROLL POSITION - NOVÁ FUNKCIA
+            // =============================================
+            function resetScrollPosition() {
+                // Resetovať scroll na vrch stránky
+                window.scrollTo(0, 0);
+
+                // Resetovať scroll vnútorných kontajnerov
+                document.querySelectorAll('.service-detail-content, .gallery, .contact-container').forEach(container => {
+                    container.scrollTop = 0;
+                });
+            }
+
+            // Override funkcie na zobrazenie sekcií
+            const originalShowSection = window.showSection;
+            window.showSection = function (sectionId, event) {
+                if (event) event.preventDefault();
+                originalShowSection(sectionId, event);
+                resetScrollPosition();
+            };
+
+            // Override funkcie pre service details
+            const originalShowServiceDetail = window.showServiceDetail;
+            window.showServiceDetail = function (serviceId, event) {
+                if (event) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+                originalShowServiceDetail(serviceId, event);
+                resetScrollPosition();
+            };
+
+            const originalHideServiceDetail = window.hideServiceDetail;
+            window.hideServiceDetail = function (serviceId) {
+                originalHideServiceDetail(serviceId);
+                resetScrollPosition();
+            };
         });
     </script>
 </body>

@@ -1568,31 +1568,24 @@
         /* ============================================= */
         /* SILNÁ OPRAVA TEXTOV - FORCÉ */
         /* ============================================= */
-        .about-text {
-            position: relative !important;
-            top: -50px !important;
-            transform: none !important;
-            margin-top: -50px !important;
-            padding-top: 0 !important;
+        .section-title {
+            margin-bottom: 2rem !important;
         }
 
-        .service-card-content {
-            position: relative !important;
-            top: -40px !important;
-            transform: none !important;
-            margin-top: -40px !important;
-            padding-top: 0.5rem !important;
+        .section-title h2 {
+            margin-bottom: 1rem !important;
         }
 
+        .about-text h3,
         .service-card h3 {
             margin-top: -20px !important;
-            margin-bottom: 0.5rem !important;
+            margin-bottom: 1rem !important;
         }
 
+        .about-text p,
         .service-card p {
-            margin-top: -15px !important;
-            margin-bottom: 0.3rem !important;
-            min-height: 50px !important;
+            margin-top: 0 !important;
+            margin-bottom: 1rem !important;
         }
     </style>
 </head>
@@ -2236,59 +2229,28 @@
         // SILNÁ OPRAVA TEXTOV - FORCÉ POSUNUTIE
         // =============================================
         function forceTextPosition() {
-            // About section - EXTRA SILNÉ
-            const aboutText = document.querySelector('.about-text');
-            if (aboutText) {
-                aboutText.style.position = 'relative';
-                aboutText.style.top = '-60px';
-                aboutText.style.marginTop = '-60px';
-                aboutText.style.paddingTop = '0';
-                aboutText.style.transform = 'none';
-                aboutText.style.zIndex = '10';
+            // LEN NADPISY HORE
+            const aboutTitle = document.querySelector('.about-text h3');
+            if (aboutTitle) {
+                aboutTitle.style.marginTop = '-25px';
             }
-
-            // Services section - EXTRA SILNÉ
-            const serviceCards = document.querySelectorAll('.service-card-content');
-            serviceCards.forEach(card => {
-                card.style.position = 'relative';
-                card.style.top = '-50px';
-                card.style.marginTop = '-50px';
-                card.style.paddingTop = '0.2rem';
-                card.style.transform = 'none';
-                card.style.zIndex = '10';
-            });
 
             const serviceTitles = document.querySelectorAll('.service-card h3');
             serviceTitles.forEach(title => {
                 title.style.marginTop = '-25px';
-                title.style.marginBottom = '0.2rem';
+            });
+
+            // TEXTY NA MIESTE - NIČ NEMENIŤ
+            const aboutTexts = document.querySelectorAll('.about-text p');
+            aboutTexts.forEach(text => {
+                text.style.marginTop = '0';
             });
 
             const serviceTexts = document.querySelectorAll('.service-card p');
             serviceTexts.forEach(text => {
-                text.style.marginTop = '-20px';
-                text.style.marginBottom = '0.1rem';
-                text.style.minHeight = '40px';
+                text.style.marginTop = '0';
             });
         }
-
-        // SPUSTI OKAMŽITE A VIACKRÁT PRE ISTOTU
-        document.addEventListener('DOMContentLoaded', function () {
-            forceTextPosition();
-            setTimeout(forceTextPosition, 10);
-            setTimeout(forceTextPosition, 50);
-            setTimeout(forceTextPosition, 100);
-            setTimeout(forceTextPosition, 500);
-        });
-
-        // KEĎ SA PREPNE SEK CIA
-        document.querySelectorAll('a[onclick*="about"], a[onclick*="services"]').forEach(link => {
-            link.addEventListener('click', function () {
-                setTimeout(forceTextPosition, 10);
-                setTimeout(forceTextPosition, 100);
-                setTimeout(forceTextPosition, 500);
-            });
-        });
     </script>
 </body>
 

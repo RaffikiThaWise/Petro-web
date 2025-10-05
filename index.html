@@ -1566,47 +1566,27 @@
         }
 
         /* ============================================= */
-        /* RÝCHLA OPRAVA TEXTOV PRÍLIŠ DOLE - EŠTE VYŠŠIE */
+        /* SILNÁ OPRAVA TEXTOV - FORCÉ */
         /* ============================================= */
         .about-text {
+            transform: translateY(-30px) !important;
+            margin-top: -30px !important;
             padding-top: 0 !important;
-            margin-top: -35px !important;
-            /* Zvýšené z -15px na -35px */
-        }
-
-        .about-text h3 {
-            margin-bottom: 0.8rem !important;
-            /* Ešte menšia medzera */
-        }
-
-        .about-text p {
-            margin-bottom: 0.8rem !important;
-            /* Ešte menšia medzera */
         }
 
         .service-card-content {
-            padding: 1rem !important;
-            /* Ešte menšie padding */
-            padding-top: 0.8rem !important;
-            /* Ešte menšie padding hore */
+            transform: translateY(-25px) !important;
+            padding-top: 0.5rem !important;
         }
 
         .service-card h3 {
+            margin-top: -10px !important;
             margin-bottom: 0.5rem !important;
-            /* Ešte menšia medzera */
-            margin-top: -5px !important;
-            /* Pridané - posunie nadpis vyššie */
         }
 
         .service-card p {
-            margin-bottom: 0.3rem !important;
-            /* Ešte menšia medzera */
-            min-height: 50px;
-            /* Menšia min výška */
-            display: flex;
-            align-items: center;
             margin-top: -5px !important;
-            /* Pridané - posunie text vyššie */
+            margin-bottom: 0.3rem !important;
         }
     </style>
 </head>
@@ -2243,6 +2223,53 @@
         document.querySelectorAll('a[onclick*="contact"]').forEach(link => {
             link.addEventListener('click', function () {
                 setTimeout(finalPositionAdjustment, 150);
+            });
+        });
+
+        // =============================================
+        // SILNÁ OPRAVA TEXTOV - FORCÉ POSUNUTIE
+        // =============================================
+        function forceTextPosition() {
+            // About section
+            const aboutText = document.querySelector('.about-text');
+            if (aboutText) {
+                aboutText.style.transform = 'translateY(-35px)';
+                aboutText.style.marginTop = '-35px';
+                aboutText.style.paddingTop = '0';
+            }
+
+            // Services section
+            const serviceCards = document.querySelectorAll('.service-card-content');
+            serviceCards.forEach(card => {
+                card.style.transform = 'translateY(-30px)';
+                card.style.paddingTop = '0.3rem';
+            });
+
+            const serviceTitles = document.querySelectorAll('.service-card h3');
+            serviceTitles.forEach(title => {
+                title.style.marginTop = '-15px';
+                title.style.marginBottom = '0.3rem';
+            });
+
+            const serviceTexts = document.querySelectorAll('.service-card p');
+            serviceTexts.forEach(text => {
+                text.style.marginTop = '-10px';
+                text.style.marginBottom = '0.2rem';
+            });
+        }
+
+        // Spusti okamžite a opakuj pre istotu
+        document.addEventListener('DOMContentLoaded', function () {
+            forceTextPosition();
+            setTimeout(forceTextPosition, 50);
+            setTimeout(forceTextPosition, 200);
+        });
+
+        // Aj keď sa prepne sekcia
+        document.querySelectorAll('a[onclick*="about"], a[onclick*="services"]').forEach(link => {
+            link.addEventListener('click', function () {
+                setTimeout(forceTextPosition, 100);
+                setTimeout(forceTextPosition, 300);
             });
         });
     </script>

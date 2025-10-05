@@ -998,10 +998,11 @@
         /* ============================================= */
         /* 12. Footer */
         /* ============================================= */
-        footer {
+        ffooter {
             background-color: var(--color-primary-dark);
             color: var(--color-text-light);
-            padding: 20px 0;
+            padding: 30px 0 20px;
+            /* Zmenšené z 20px 0 */
         }
 
         body.dark-mode footer {
@@ -1014,28 +1015,24 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 2rem;
+            gap: 1rem;
+            /* Zmenšené z 2rem */
         }
 
         .footer-logo {
             font-family: var(--font-secondary);
-            font-size: 1.75rem;
+            font-size: 1.5rem;
+            /* Zmenšené z 1.75rem */
             font-weight: 700;
             color: var(--color-text-light);
         }
 
-        body.dark-mode .social-link {
-            background-color: rgba(255, 255, 255, 0.05);
-        }
-
-        body.dark-mode .social-link:hover {
-            background-color: rgba(255, 255, 255, 0.15);
-            color: var(--color-dark-text-light);
-        }
-
         .copyright {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
+            /* Zmenšené z 0.9rem */
             opacity: 0.8;
+            margin: 0;
+            /* Pridané */
         }
 
         /* ============================================= */
@@ -1408,14 +1405,12 @@
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
-                    <h1>Poctivá remeselná výroba rakiev a drevených výrobkov</h1>
-                    <p>Sme rodinná stolárska dielňa, kde je hlavným poslaním výroba drevených rakiev. Každý kus vzniká s
-                        úctou, poctivým remeslom a citom, ktorý sa u nás dedí z generácie na generáciu. Naše rakvy
-                        spájajú tradičné hodnoty s moderným prístupom – aby boli dôstojné, kvalitné a esteticky
+                    <p>Sme rodinná stolárska dielňa, ktorej hlavným poslaním je výroba drevených rakiev. Každý kus
+                        vzniká s úctou, poctivým remeslom a citom, ktorý sa u nás dedí z generácie na generáciu. Naše
+                        rakvy spájajú tradičné hodnoty s moderným prístupom – aby boli dôstojné, kvalitné a esteticky
                         jedinečné.</p>
-                    <p>Popri výrobe rakiev sa venujeme aj ďalšej stolárskej práci – vyrábame dvere, schody, nábytok na
-                        mieru či iné drevené prvky do interiéru aj exteriéru. Všetko robíme s rovnakou precíznosťou,
-                        úctou k materiálu a láskou k detailu.</p>
+                    <p>Okrem rakiev vyrábame aj dvere, schody, nábytok na mieru či iné drevené prvky do interiéru aj
+                        exteriéru. Každý výrobok vzniká s precíznosťou, úctou k materiálu a láskou k detailu.</p>
                     <div class="hero-btns">
                         <a href="#" class="btn btn-primary" onclick="showSection('services', event)">
                             <i class="fas fa-hammer"></i> Naše služby

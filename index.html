@@ -886,7 +886,6 @@
         .contact {
             background-color: var(--color-background);
             padding: calc(var(--spacing-unit) * 3) 0;
-            /* ZMENENÉ z *6 na *3 */
         }
 
         body.dark-mode .contact {
@@ -896,42 +895,42 @@
         .contact-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: calc(var(--spacing-unit) * 3);
-            /* Zmenšené z *4 */
+            gap: calc(var(--spacing-unit) * 2);
+            /* Zmenšený gap medzi kartami */
         }
 
         .contact-info {
             background-color: var(--color-text-light);
             padding: 1.5rem;
-            /* ZMENENÉ z calc(var(--spacing-unit) * 3) */
             border-radius: var(--border-radius-lg);
             box-shadow: var(--shadow-sm);
+            height: fit-content;
+            /* Pridané - karta sa prispôsobí obsahu */
+            min-height: auto;
+            /* Pridané - žiadna minimálna výška */
         }
 
         .contact-form {
             background-color: var(--color-text-light);
             padding: 1.5rem;
-            /* ZMENENÉ z calc(var(--spacing-unit) * 3) */
             border-radius: var(--border-radius-lg);
             box-shadow: var(--shadow-sm);
+            height: fit-content;
+            /* Pridané - karta sa prispôsobí obsahu */
+            min-height: auto;
+            /* Pridané - žiadna minimálna výška */
         }
 
-        .contact-form {
-            background-color: var(--color-text-light);
-            padding: calc(var(--spacing-unit) * 2.5);
-            /* Zmenšené z *3 */
-            border-radius: var(--border-radius-lg);
-            box-shadow: var(--shadow-sm);
-        }
-
-        body.dark-mode .contact-info {
+        body.dark-mode .contact-info,
+        body.dark-mode .contact-form {
             background-color: var(--color-dark-surface);
             border: 1px solid var(--color-dark-border);
             backdrop-filter: var(--backdrop-blur);
         }
 
         .contact-info h3 {
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
+            /* Zmenšené z 2rem */
             color: var(--color-primary-dark);
         }
 
@@ -943,24 +942,18 @@
             display: flex;
             align-items: flex-start;
             gap: 1rem;
-            /* ZMENENÉ z 1.5rem */
             margin-bottom: 1rem;
-            /* ZMENENÉ z 2rem */
         }
-
 
         .contact-icon {
             width: 40px;
-            /* ZMENENÉ z 50px */
             height: 40px;
-            /* ZMENENÉ z 50px */
             background-color: var(--color-accent);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 1rem;
-            /* ZMENENÉ z 1.25rem */
             color: var(--color-primary);
             flex-shrink: 0;
         }
@@ -973,50 +966,23 @@
         .contact-text h4 {
             font-family: var(--font-primary);
             font-size: 0.95rem;
-            /* ZMENENÉ z 1.1rem */
             margin-bottom: 0.3rem;
-            /* ZMENENÉ z 0.5rem */
             color: var(--color-primary-dark);
         }
 
         .contact-text p {
             margin-bottom: 0;
             font-size: 0.9rem;
-            /* ZMENENÉ z 1rem */
             line-height: 1.4;
-            /* Pridané pre kompaktnosť */
-        }
-
-        .contact-text p {
-            margin-bottom: 0;
-            font-size: 0.95rem;
-            /* Zmenšené z 1rem */
         }
 
         body.dark-mode .contact-text h4 {
             color: var(--color-dark-text-light);
         }
 
-        .contact-text p {
-            margin-bottom: 0;
-            font-size: 1rem;
-        }
-
-        .contact-form {
-            background-color: var(--color-text-light);
-            padding: calc(var(--spacing-unit) * 3);
-            border-radius: var(--border-radius-lg);
-            box-shadow: var(--shadow-sm);
-        }
-
-        body.dark-mode .contact-form {
-            background-color: var(--color-dark-surface);
-            border: 1px solid var(--color-dark-border);
-            backdrop-filter: var(--backdrop-blur);
-        }
-
         .contact-form h3 {
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
+            /* Zmenšené z 2rem */
             color: var(--color-primary-dark);
         }
 
@@ -1069,7 +1035,8 @@
         }
 
         textarea.form-control {
-            min-height: 150px;
+            min-height: 120px;
+            /* Zmenšené z 150px */
             resize: vertical;
         }
 
@@ -1528,6 +1495,26 @@
         footer {
             margin-top: auto;
             flex-shrink: 0;
+        }
+
+        /* ============================================= */
+        /* 19. Scroll Bar Fix */
+        /* ============================================= */
+        body {
+            overflow-x: hidden;
+        }
+
+        /* Responzívne úpravy pre kontakt */
+        @media (max-width: 768px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: calc(var(--spacing-unit) * 1.5);
+            }
+
+            .contact-info,
+            .contact-form {
+                padding: 1.25rem;
+            }
         }
     </style>
 </head>

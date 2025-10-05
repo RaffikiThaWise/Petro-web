@@ -409,7 +409,7 @@
         }
 
         /* ============================================= */
-        /* 6. Hero Section */
+        /* 6. Hero Section - OPRAVENÉ PRE PÁTU */
         /* ============================================= */
         .hero {
             height: 100vh;
@@ -520,7 +520,7 @@
         }
 
         /* ============================================= */
-        /* 7. About Section - UPRAVENÉ */
+        /* 7. About Section - KOMPLETNE OPRAVENÉ PRE MOBIL */
         /* ============================================= */
         .about-content {
             display: grid;
@@ -542,8 +542,15 @@
             margin-bottom: 1rem;
         }
 
+        .about-image img {
+            width: 100%;
+            max-height: 400px;
+            object-fit: contain;
+            display: block;
+        }
+
         /* ============================================= */
-        /* 8. Services Section - UPRAVENÉ */
+        /* 8. Services Section */
         /* ============================================= */
         .services {
             background-color: var(--color-accent);
@@ -826,7 +833,7 @@
         }
 
         /* ============================================= */
-        /* 11. Contact Section - KOMPLETNE OPRAVENÉ */
+        /* 11. Contact Section */
         /* ============================================= */
         .contact {
             background-color: var(--color-background);
@@ -866,7 +873,6 @@
             margin-bottom: 20px;
             color: var(--color-primary-dark);
             font-size: 1.8rem;
-            /* ZVÝŠENÉ */
             font-family: var(--font-secondary);
             text-align: center;
         }
@@ -912,9 +918,7 @@
         .contact-text p {
             margin-bottom: 0;
             font-size: 1.05rem;
-            /* ZVÝŠENÉ */
             line-height: 1.5;
-            /* ZVÝŠENÉ */
             color: var(--color-text);
         }
 
@@ -993,7 +997,6 @@
 
         .section-title h2 {
             font-size: 2.8rem !important;
-            /* ZVÝŠENÉ */
             margin-bottom: 5px !important;
             padding-top: 0 !important;
             text-align: center;
@@ -1271,13 +1274,14 @@
                 grid-template-columns: 1fr;
                 text-align: center;
                 gap: 2rem;
-                padding: 0 var(--spacing-unit);
+                padding: 0 15px;
             }
 
             .hero-text {
                 padding: 2rem;
                 backdrop-filter: blur(10px);
                 -webkit-backdrop-filter: blur(10px);
+                margin: 0 10px;
             }
 
             .hero h1 {
@@ -1305,6 +1309,36 @@
                 width: 100%;
                 max-width: 280px;
                 margin: 0 auto;
+            }
+
+            /* DÔLEŽITÉ: Oprava About sekcie pre mobil */
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: calc(var(--spacing-unit) * 2);
+                text-align: center;
+                padding: 0 10px;
+            }
+
+            .about-image img {
+                max-height: 300px;
+                width: 100%;
+                margin: 0 auto;
+            }
+
+            .about-text {
+                padding: 0 10px;
+                text-align: center;
+            }
+
+            .about-text h3 {
+                font-size: 1.6rem;
+                margin-bottom: 1rem;
+            }
+
+            .about-text p {
+                font-size: 1rem;
+                line-height: 1.5;
+                text-align: left;
             }
 
             .service-detail-header {
@@ -1336,17 +1370,18 @@
             .contact-container {
                 grid-template-columns: 1fr;
                 gap: calc(var(--spacing-unit) * 1.5);
+                padding: 0 10px;
             }
 
             .contact-info,
             .contact-form {
                 padding: 1.25rem;
+                margin: 0 10px;
             }
 
             .contact-info h3,
             .contact-form h3 {
                 font-size: 1.6rem;
-                /* MENŠIE NA MOBILE */
             }
 
             .contact-text h4 {
@@ -1357,20 +1392,15 @@
                 font-size: 0.95rem;
             }
 
-            /* OPRAVA PRE MOBIL - ABOUT SECTION */
-            .about-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .about-text {
-                margin-top: 0;
-            }
-
             /* OPRAVA PRE MOBIL - SERVICES SECTION */
             .services-grid {
                 grid-template-columns: 1fr;
                 gap: calc(var(--spacing-unit) * 2);
+                padding: 0 10px;
+            }
+
+            .service-card {
+                margin: 0 10px;
             }
 
             .service-card h3 {
@@ -1379,11 +1409,15 @@
 
             /* DÔLEŽITÉ: Oprava pretekania na mobile */
             .container {
-                padding: 0 15px;
+                padding: 0 10px;
+                width: 100%;
+                max-width: 100%;
             }
 
             .section {
                 padding: calc(var(--spacing-unit) * 3) 0;
+                width: 100%;
+                overflow: hidden;
             }
         }
 
@@ -1397,7 +1431,7 @@
             }
 
             .container {
-                padding: 0 var(--spacing-unit);
+                padding: 0 10px;
             }
 
             .logo-text {
@@ -1424,6 +1458,7 @@
 
             .hero-text {
                 padding: 1.5rem;
+                margin: 0 5px;
             }
 
             .hero h1 {
@@ -1438,6 +1473,7 @@
             .contact-info,
             .contact-form {
                 padding: 1rem;
+                margin: 0 5px;
             }
 
             .contact-item {
@@ -1455,7 +1491,14 @@
 
             .section-title h2 {
                 font-size: 2.2rem !important;
-                /* MENŠIE NA VEĽMI MALÝCH DISPLEJOCH */
+            }
+
+            .about-content {
+                padding: 0 5px;
+            }
+
+            .about-text {
+                padding: 0 5px;
             }
         }
 
@@ -1570,19 +1613,16 @@
         /* ============================================= */
         .about .section-title {
             margin-top: -40px !important;
-            /* VIAC NAVYŠE */
             margin-bottom: 2rem !important;
         }
 
         .services .section-title {
             margin-top: -40px !important;
-            /* VIAC NAVYŠE */
             margin-bottom: 2rem !important;
         }
 
         .contact .section-title {
             margin-top: -20px !important;
-            /* TIEŽ NAVYŠE */
             margin-bottom: 2rem !important;
         }
 
@@ -1592,7 +1632,6 @@
         .contact-info h3,
         .contact-form h3 {
             font-size: 1.8rem !important;
-            /* ZVÝŠENÉ */
         }
 
         .contact-text p {
@@ -1602,6 +1641,22 @@
 
         .contact-item {
             margin-bottom: 20px !important;
+        }
+
+        /* ============================================= */
+        /* NOVÉ: OPRAVA HERO PRE PÁTU NA DESKTOPE */
+        /* ============================================= */
+        @media (min-width: 769px) {
+            .hero {
+                height: 100vh;
+                min-height: 800px;
+                padding-bottom: 0;
+            }
+
+            .hero-content {
+                align-items: center;
+                justify-content: center;
+            }
         }
     </style>
 </head>
@@ -2034,30 +2089,19 @@
                 if (contentToShow) {
                     contentToShow.style.display = 'block';
 
-                    // DÔLEŽITÉ: Reset scroll position
+                    // DÔLEŽITÉ: Vždy resetovať scroll na vrch
                     window.scrollTo(0, 0);
 
-                    if (contentId !== 'hero') {
-                        setTimeout(() => {
-                            const headerHeight = headerElement ? headerElement.offsetHeight : 90;
-                            const elementPosition = contentToShow.getBoundingClientRect().top + window.pageYOffset;
-                            const offsetPosition = elementPosition - headerHeight - 20;
-
-                            window.scrollTo({
-                                top: offsetPosition,
-                                behavior: 'smooth'
-                            });
-                        }, 100);
-                    }
+                    // Aktualizovať aktívnu navigáciu
+                    document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
+                    const activeLink = document.querySelector(`.nav-link[onclick*="'${contentId}'"]`);
+                    if (activeLink) activeLink.classList.add('active');
                 }
             }
 
             window.showSection = function (sectionId, event) {
                 if (event) event.preventDefault();
                 showContent(sectionId);
-                document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
-                const activeLink = document.querySelector(`.nav-link[onclick*="'${sectionId}'"]`);
-                if (activeLink) activeLink.classList.add('active');
             };
 
             // Zobraziť úvodnú stránku pri načítaní
@@ -2214,26 +2258,22 @@
         });
 
         // =============================================
-        // DÔLEŽITÉ: Oprava pre mobil - zabránenie pretekaniu
+        // DÔLEŽITÉ: Oprava pre mobil - zabránenie pretekania
         // =============================================
-        function fixMobileOverflow() {
-            const heroSection = document.getElementById('hero');
-            const heroBtns = document.querySelector('.hero-btns');
-
-            if (window.innerWidth <= 768 && heroBtns) {
-                // Kontrola či tlačidlá nie sú odrezané
-                const heroRect = heroSection.getBoundingClientRect();
-                const btnsRect = heroBtns.getBoundingClientRect();
-
-                if (btnsRect.bottom > heroRect.bottom - 20) {
-                    heroSection.style.paddingBottom = '100px';
-                }
+        function fixMobileLayout() {
+            if (window.innerWidth <= 768) {
+                // Zabezpečiť, že všetky sekcie majú správne paddingy
+                const sections = document.querySelectorAll('section');
+                sections.forEach(section => {
+                    section.style.paddingLeft = '10px';
+                    section.style.paddingRight = '10px';
+                });
             }
         }
 
         // Spustiť pri načítaní a zmene veľkosti okna
-        document.addEventListener('DOMContentLoaded', fixMobileOverflow);
-        window.addEventListener('resize', fixMobileOverflow);
+        document.addEventListener('DOMContentLoaded', fixMobileLayout);
+        window.addEventListener('resize', fixMobileLayout);
     </script>
 </body>
 

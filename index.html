@@ -1043,14 +1043,15 @@
         /* Section Title Fix - "Kontaktujte nás" EŠTE NIŽŠIE */
         /* ============================================= */
         .section-title {
-            padding-top: 60px !important;
-            /* Zvýšené z 40px na 60px */
-            margin-bottom: 5px !important;
+            padding-top: 65px !important;
+            /* Zvýšené z 60px na 65px */
+            margin-bottom: 0 !important;
         }
 
         .section-title h2 {
             font-size: 2.5rem !important;
-            margin-bottom: 10px !important;
+            margin-bottom: 5px !important;
+            /* Zmenšené z 10px */
             padding-top: 0 !important;
             text-align: center;
             color: var(--color-primary-dark) !important;
@@ -2203,15 +2204,15 @@
 
             if (contactSection && contactTitle && contactContainer) {
                 // Force styles
-                contactSection.style.paddingTop = '10px';
+                contactSection.style.paddingTop = '5px'; /* Zmenšené z 10px */
                 contactSection.style.paddingBottom = '50px';
-                contactTitle.style.marginTop = '20px';
+                contactTitle.style.marginTop = '25px'; /* Zvýšené z 20px */
                 contactContainer.style.marginTop = '25px';
 
                 // Scroll adjustment
                 const headerHeight = document.querySelector('header').offsetHeight;
                 window.scrollTo({
-                    top: contactSection.offsetTop - headerHeight - 10,
+                    top: contactSection.offsetTop - headerHeight - 15, /* Zvýšené z 10px */
                     behavior: 'smooth'
                 });
             }

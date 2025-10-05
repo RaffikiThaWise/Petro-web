@@ -1041,12 +1041,35 @@
         /* ============================================= */
         /* Section Title Fix - "Kontaktujte nás" VIDITEĽNÉ */
         /* ============================================= */
+        .section-title {
+            padding-top: 40px !important;
+            /* VYJEBANÉ HORE */
+            margin-bottom: 10px !important;
+        }
+
         .section-title h2 {
-            font-size: 2.2rem !important;
-            /* Väčšie a VIDITEĽNÉ */
-            margin-bottom: 25px;
-            padding-top: 10px;
+            font-size: 2.5rem !important;
+            /* EŠTE VÄČŠIE */
+            margin-bottom: 15px !important;
+            padding-top: 0 !important;
             text-align: center;
+            color: var(--color-primary-dark) !important;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        body.dark-mode .section-title h2 {
+            color: var(--color-dark-text-light) !important;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        /* ============================================= */
+        /* Contact Section - Už len finálne úpravy */
+        /* ============================================= */
+        .contact {
+            background-color: var(--color-background);
+            padding: 20px 0 40px 0 !important;
+            /* VRCH ZMENŠENÝ, SPODOK VÄČŠÍ */
+            min-height: auto;
         }
 
         /* ============================================= */

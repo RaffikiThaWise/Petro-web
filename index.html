@@ -1038,38 +1038,53 @@
             margin-top: 10px;
         }
 
+
         /* ============================================= */
-        /* Section Title Fix - "Kontaktujte nás" VIDITEĽNÉ */
+        /* Section Title Fix - "Kontaktujte nás" EŠTE NIŽŠIE */
         /* ============================================= */
         .section-title {
-            padding-top: 40px !important;
-            /* VYJEBANÉ HORE */
-            margin-bottom: 10px !important;
+            padding-top: 60px !important;
+            /* Zvýšené z 40px na 60px */
+            margin-bottom: 5px !important;
         }
 
         .section-title h2 {
             font-size: 2.5rem !important;
-            /* EŠTE VÄČŠIE */
-            margin-bottom: 15px !important;
+            margin-bottom: 10px !important;
             padding-top: 0 !important;
             text-align: center;
             color: var(--color-primary-dark) !important;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
         }
 
-        body.dark-mode .section-title h2 {
-            color: var(--color-dark-text-light) !important;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-        }
-
         /* ============================================= */
-        /* Contact Section - Už len finálne úpravy */
+        /* Contact Section - Karty nižšie */
         /* ============================================= */
         .contact {
             background-color: var(--color-background);
-            padding: 20px 0 40px 0 !important;
-            /* VRCH ZMENŠENÝ, SPODOK VÄČŠÍ */
+            padding: 10px 0 50px 0 !important;
+            /* VRCH ešte menší (10px), SPODOK väčší (50px) */
             min-height: auto;
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            align-items: stretch;
+            margin-top: 20px !important;
+            /* Pridané - posunie karty nižšie */
+        }
+
+        .contact-info,
+        .contact-form {
+            background-color: var(--color-text-light);
+            padding: 25px;
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-sm);
+            height: auto;
+            margin-top: 10px !important;
+            /* Pridané - každá karta ešte nižšie */
         }
 
         /* ============================================= */
@@ -2174,6 +2189,44 @@
                 if (e.target === lightbox) {
                     closeLightbox();
                 }
+            });
+        });
+
+
+        // =============================================
+        // FINÁLNE POSUNUTIE NADPISU A KARIET NIŽŠIE
+        // =============================================
+        function finalPositionAdjustment() {
+            const contactSection = document.getElementById('contact');
+            const contactTitle = document.querySelector('.section-title h2');
+            const contactContainer = document.querySelector('.contact-container');
+
+            if (contactSection && contactTitle && contactContainer) {
+                // Force styles
+                contactSection.style.paddingTop = '10px';
+                contactSection.style.paddingBottom = '50px';
+                contactTitle.style.marginTop = '20px';
+                contactContainer.style.marginTop = '25px';
+
+                // Scroll adjustment
+                const headerHeight = document.querySelector('header').offsetHeight;
+                window.scrollTo({
+                    top: contactSection.offsetTop - headerHeight - 10,
+                    behavior: 'smooth'
+                });
+            }
+        }
+
+        // Spusti hneď a s oneskorením pre istotu
+        document.addEventListener('DOMContentLoaded', function () {
+            finalPositionAdjustment();
+            setTimeout(finalPositionAdjustment, 100);
+        });
+
+        // Aj keď sa klikne na kontakt
+        document.querySelectorAll('a[onclick*="contact"]').forEach(link => {
+            link.addEventListener('click', function () {
+                setTimeout(finalPositionAdjustment, 150);
             });
         });
     </script>

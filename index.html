@@ -395,7 +395,10 @@
             align-items: center;
             position: relative;
             overflow: hidden;
-            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('hero-bg.jpg') no-repeat center center/cover;
+            background:
+                linear-gradient(rgba(0, 0, 0, 0.4),
+                    rgba(0, 0, 0, 0.2)),
+                url('Titulka.jpg') no-repeat center center/cover;
             color: var(--color-text-light);
         }
 
@@ -406,7 +409,10 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to right, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.2));
+            background: linear-gradient(135deg,
+                    rgba(0, 0, 0, 0.6) 0%,
+                    rgba(0, 0, 0, 0.3) 50%,
+                    rgba(0, 0, 0, 0.6) 100%);
             z-index: 1;
         }
 
@@ -414,8 +420,8 @@
             position: relative;
             z-index: 2;
             max-width: var(--max-width);
-            text-align: left;
-            padding: 0 var(--spacing-unit);
+            margin: 0 auto;
+            padding: 0 calc(var(--spacing-unit) * 2);
             margin-top: 60px;
             padding-top: calc(var(--spacing-unit) * 4);
             display: grid;
@@ -426,20 +432,24 @@
 
         .hero-text {
             padding-right: 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-radius: var(--border-radius-lg);
+            padding: 3rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: var(--shadow-lg);
+        }
+
+        body.dark-mode .hero-text {
+            background: rgba(10, 10, 10, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: var(--backdrop-blur);
         }
 
         .hero-image {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .hero-image img {
-            max-width: 130%;
-            height: auto;
-            max-height: 700px;
-            border-radius: var(--border-radius-lg);
-            box-shadow: var(--shadow-lg);
+            display: none;
+            /* Skryjeme pôvodný obrázok */
         }
 
         .hero h1 {
@@ -452,6 +462,7 @@
             animation: fadeInUp 1s ease forwards;
             color: var(--color-text-light);
             text-align: left;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
 
         .hero p {
@@ -462,6 +473,8 @@
             max-width: none;
             margin-left: 0;
             margin-right: 0;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            line-height: 1.7;
         }
 
         .hero-btns {
@@ -1279,13 +1292,30 @@
         /* ============================================= */
         /* 16. Oprava pre mobil - hero sekcia */
         /* ============================================= */
+        @media (max-width: 1024px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                text-align: center;
+            }
+
+            .hero-text {
+                padding-right: 0;
+                padding: 2.5rem;
+            }
+
+            .hero-btns {
+                justify-content: center;
+            }
+        }
+
         @media (max-width: 768px) {
-            #hero {
-                display: flex !important;
-                opacity: 1 !important;
-                visibility: visible !important;
-                min-height: 500px;
-                padding: 80px 0 40px;
+            .hero {
+                min-height: 600px;
+                background:
+                    linear-gradient(rgba(0, 0, 0, 0.5),
+                        rgba(0, 0, 0, 0.3)),
+                    url('Titulka.jpg') no-repeat center center/cover;
             }
 
             .hero-content {
@@ -1293,42 +1323,57 @@
                 opacity: 1 !important;
                 visibility: visible !important;
                 gap: 1rem;
-            }
-
-            .hero-image {
-                display: none;
-                /* Skryje obrázok na mobile */
+                padding: 0 var(--spacing-unit);
             }
 
             .hero-text {
-                order: 1;
+                padding: 2rem;
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+            }
+
+            .hero h1 {
+                font-size: 2.2rem !important;
+                line-height: 1.2;
+                margin-bottom: 1.5rem;
+                text-align: center;
+            }
+
+            .hero p {
+                font-size: 1.1rem !important;
+                margin-bottom: 1.5rem;
+                text-align: center;
+            }
+
+            .hero-btns {
+                flex-direction: column !important;
+                gap: 1rem;
+            }
+
+            .hero-btns .btn {
+                padding: 1rem 1.5rem;
+                font-size: 1rem;
+                width: 100%;
+                max-width: 280px;
+                margin: 0 auto;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                min-height: 500px;
+            }
+
+            .hero-text {
+                padding: 1.5rem;
             }
 
             .hero h1 {
                 font-size: 1.8rem !important;
-                /* Menšie písmo */
-                line-height: 1.2;
-                margin-bottom: 1rem;
             }
 
             .hero p {
-                font-size: 0.9rem !important;
-                /* Menšie písmo */
-                margin-bottom: 1rem;
-            }
-
-            .hero-btns {
-                flex-direction: row !important;
-                /* Tlačidlá vedľa seba */
-                justify-content: center;
-                gap: 0.5rem;
-                flex-wrap: wrap;
-            }
-
-            .hero-btns .btn {
-                padding: 0.8rem 1.2rem;
-                font-size: 0.8rem;
-                min-width: 140px;
+                font-size: 1rem !important;
             }
         }
     </style>
@@ -1380,6 +1425,7 @@
                         </a>
                     </div>
                 </div>
+                <!-- Pôvodný hero-image div je teraz prázdny, lebo obrázok je v pozadí -->
                 <div class="hero-image">
                     <img src="Titulka.jpg" alt="Ukážka našej práce">
                 </div>

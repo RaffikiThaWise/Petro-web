@@ -419,8 +419,10 @@
         /* 6. Hero Section - UPRAVENÉ */
         /* ============================================= */
         .hero {
-            height: 100vh;
-            min-height: 800px;
+            height: 85vh;
+            /* Zmenšené z 100vh */
+            min-height: 600px;
+            /* Zmenšené z 800px */
             display: flex;
             align-items: center;
             position: relative;
@@ -451,22 +453,26 @@
             z-index: 2;
             max-width: var(--max-width);
             margin: 0 auto;
-            padding: 0 calc(var(--spacing-unit) * 2);
-            margin-top: 60px;
-            padding-top: calc(var(--spacing-unit) * 4);
+            padding: 0 20px;
+            margin-top: 40px;
+            /* Zmenšené z 60px */
+            padding-top: calc(var(--spacing-unit) * 2);
+            /* Zmenšené z *4 */
             display: grid;
             grid-template-columns: 1.2fr 0.8fr;
-            gap: 4rem;
+            gap: 2rem;
+            /* Zmenšené z 4rem */
             align-items: center;
         }
 
         .hero-text {
-            padding-right: 2rem;
+            padding-right: 1.5rem;
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
             border-radius: var(--border-radius-lg);
-            padding: 3rem;
+            padding: 2rem;
+            /* Zmenšené z 3rem */
             border: 1px solid rgba(255, 255, 255, 0.2);
             box-shadow: var(--shadow-lg);
         }
@@ -670,7 +676,8 @@
         /* ============================================= */
         .service-detail {
             display: none;
-            padding: calc(var(--spacing-unit) * 6) 0;
+            padding: calc(var(--spacing-unit) * 4) 0;
+            /* Zmenšené z *6 */
             background-color: var(--color-background);
         }
 

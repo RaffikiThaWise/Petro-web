@@ -1006,26 +1006,19 @@
         /* Section Title Fix - "Kontaktujte nás" EŠTE NIŽŠIE */
         /* ============================================= */
         .section-title {
-            margin-bottom: 1.5rem !important;
-            padding-top: 20px !important;
-            /* POSUNUTÉ VYŠŠIE */
+            padding-top: 65px !important;
+            /* Zvýšené z 60px na 65px */
+            margin-bottom: 0 !important;
         }
 
         .section-title h2 {
-            margin-bottom: 0.5rem !important;
-        }
-
-        .about-text h3,
-        .service-card h3 {
-            margin-top: -30px !important;
-            /* EŠTE VYŠŠIE */
-            margin-bottom: 0.8rem !important;
-        }
-
-        .about-text p,
-        .service-card p {
-            margin-top: 0 !important;
-            margin-bottom: 1rem !important;
+            font-size: 2.5rem !important;
+            margin-bottom: 5px !important;
+            /* Zmenšené z 10px */
+            padding-top: 0 !important;
+            text-align: center;
+            color: var(--color-primary-dark) !important;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
         }
 
         /* ============================================= */
@@ -2236,21 +2229,26 @@
         // SILNÁ OPRAVA TEXTOV - FORCÉ POSUNUTIE
         // =============================================
         function forceTextPosition() {
-            // NADPISY VYJEBANÉ EŠTE VYŠŠIE
-            const sectionTitles = document.querySelectorAll('.section-title');
-            sectionTitles.forEach(title => {
-                title.style.paddingTop = '15px';
-                title.style.marginBottom = '1rem';
-            });
-
+            // LEN NADPISY HORE
             const aboutTitle = document.querySelector('.about-text h3');
             if (aboutTitle) {
-                aboutTitle.style.marginTop = '-35px';
+                aboutTitle.style.marginTop = '-25px';
             }
 
             const serviceTitles = document.querySelectorAll('.service-card h3');
             serviceTitles.forEach(title => {
-                title.style.marginTop = '-35px';
+                title.style.marginTop = '-25px';
+            });
+
+            // TEXTY NA MIESTE - NIČ NEMENIŤ
+            const aboutTexts = document.querySelectorAll('.about-text p');
+            aboutTexts.forEach(text => {
+                text.style.marginTop = '0';
+            });
+
+            const serviceTexts = document.querySelectorAll('.service-card p');
+            serviceTexts.forEach(text => {
+                text.style.marginTop = '0';
             });
         }
     </script>

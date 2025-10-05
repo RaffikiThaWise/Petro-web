@@ -530,67 +530,30 @@
         /* ============================================= */
         /* 7. About Section */
         /* ============================================= */
-        .about {
-            background-color: var(--color-background);
-        }
-
-        body.dark-mode .about {
-            background-color: transparent;
-        }
-
         .about-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: calc(var(--spacing-unit) * 4);
-            align-items: center;
-        }
-
-        .about-image {
-            position: relative;
-            border-radius: var(--border-radius-lg);
-            overflow: hidden;
-            box-shadow: var(--shadow-lg);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: var(--color-accent);
-            padding: 1rem;
-        }
-
-        body.dark-mode .about-image {
-            background-color: var(--color-dark-surface-alt);
-            border: 1px solid var(--color-dark-border);
-            backdrop-filter: var(--backdrop-blur);
-        }
-
-        .about-image img {
-            max-height: 400px;
-            width: auto;
-            max-width: 100%;
-            object-fit: contain;
-            transition: var(--transition);
-            display: block;
-            margin: 0 auto;
-        }
-
-        .about-image:hover img {
-            transform: scale(1.05);
+            gap: calc(var(--spacing-unit) * 3);
+            /* Zmenšené z *4 */
+            align-items: start;
+            /* Zmenené z center na start */
         }
 
         .about-text {
-            padding: 2rem 0;
+            padding: 1rem 0;
+            /* Zmenšené z 2rem 0 */
+            margin-top: -10px;
+            /* Pridané - posunie text vyššie */
         }
 
-        body.dark-mode .about-text {
-            background-color: var(--color-dark-surface);
-            padding: 2rem;
-            border-radius: var(--border-radius-lg);
-            backdrop-filter: var(--backdrop-blur);
-            border: 1px solid var(--color-dark-border);
+        .about-text h3 {
+            margin-bottom: 1rem;
+            /* Zmenšené z 1.5rem */
         }
 
         .about-text p {
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
+            /* Zmenšené z 1.5rem */
         }
 
         /* ============================================= */
@@ -1592,6 +1555,46 @@
             .contact-form {
                 padding: 1.25rem;
             }
+        }
+
+        /* ============================================= */
+        /* ODSTRÁNENIE BIELÉHO PÁSU V SLUŽBÁCH */
+        /* ============================================= */
+        .services {
+            background-color: transparent !important;
+            background: transparent !important;
+        }
+
+        /* ============================================= */
+        /* OPRAVA TEXTOV PRÍLIŠ DOLE */
+        /* ============================================= */
+        .about-text {
+            padding-top: 0 !important;
+            margin-top: -20px !important;
+        }
+
+        .about-text h3 {
+            margin-bottom: 1rem !important;
+        }
+
+        .about-text p {
+            margin-bottom: 1rem !important;
+        }
+
+        .service-card-content {
+            padding-top: 1rem !important;
+            padding-bottom: 1rem !important;
+        }
+
+        .service-card h3 {
+            margin-bottom: 0.75rem !important;
+        }
+
+        .service-card p {
+            margin-bottom: 0.5rem !important;
+            min-height: 60px;
+            display: flex;
+            align-items: center;
         }
     </style>
 </head>

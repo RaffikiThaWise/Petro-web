@@ -885,6 +885,8 @@
         /* ============================================= */
         .contact {
             background-color: var(--color-background);
+            padding: calc(var(--spacing-unit) * 3) 0;
+            /* ZMENENÉ z *6 na *3 */
         }
 
         body.dark-mode .contact {
@@ -900,8 +902,16 @@
 
         .contact-info {
             background-color: var(--color-text-light);
-            padding: calc(var(--spacing-unit) * 2.5);
-            /* Zmenšené z *3 */
+            padding: 1.5rem;
+            /* ZMENENÉ z calc(var(--spacing-unit) * 3) */
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .contact-form {
+            background-color: var(--color-text-light);
+            padding: 1.5rem;
+            /* ZMENENÉ z calc(var(--spacing-unit) * 3) */
             border-radius: var(--border-radius-lg);
             box-shadow: var(--shadow-sm);
         }
@@ -932,24 +942,25 @@
         .contact-item {
             display: flex;
             align-items: flex-start;
-            gap: 1.25rem;
-            /* Zmenšené z 1.5rem */
-            margin-bottom: 1.5rem;
-            /* Zmenšené z 2rem */
+            gap: 1rem;
+            /* ZMENENÉ z 1.5rem */
+            margin-bottom: 1rem;
+            /* ZMENENÉ z 2rem */
         }
 
+
         .contact-icon {
-            width: 45px;
-            /* Zmenšené z 50px */
-            height: 45px;
-            /* Zmenšené z 50px */
+            width: 40px;
+            /* ZMENENÉ z 50px */
+            height: 40px;
+            /* ZMENENÉ z 50px */
             background-color: var(--color-accent);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.1rem;
-            /* Zmenšené z 1.25rem */
+            font-size: 1rem;
+            /* ZMENENÉ z 1.25rem */
             color: var(--color-primary);
             flex-shrink: 0;
         }
@@ -961,11 +972,19 @@
 
         .contact-text h4 {
             font-family: var(--font-primary);
-            font-size: 1rem;
-            /* Zmenšené z 1.1rem */
-            margin-bottom: 0.4rem;
-            /* Zmenšené z 0.5rem */
+            font-size: 0.95rem;
+            /* ZMENENÉ z 1.1rem */
+            margin-bottom: 0.3rem;
+            /* ZMENENÉ z 0.5rem */
             color: var(--color-primary-dark);
+        }
+
+        .contact-text p {
+            margin-bottom: 0;
+            font-size: 0.9rem;
+            /* ZMENENÉ z 1rem */
+            line-height: 1.4;
+            /* Pridané pre kompaktnosť */
         }
 
         .contact-text p {

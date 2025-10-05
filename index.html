@@ -885,7 +885,8 @@
         /* ============================================= */
         .contact {
             background-color: var(--color-background);
-            padding: calc(var(--spacing-unit) * 3) 0;
+            padding: 40px 0;
+            min-height: auto;
         }
 
         body.dark-mode .contact {
@@ -894,26 +895,21 @@
 
         .contact-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: calc(var(--spacing-unit) * 2);
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            align-items: start;
         }
 
-        .contact-info {
-            background-color: var(--color-text-light);
-            padding: 1.5rem;
-            border-radius: var(--border-radius-lg);
-            box-shadow: var(--shadow-sm);
-            height: fit-content;
-            min-height: auto;
-        }
-
+        .contact-info,
         .contact-form {
             background-color: var(--color-text-light);
-            padding: 1.5rem;
+            padding: 20px;
             border-radius: var(--border-radius-lg);
             box-shadow: var(--shadow-sm);
-            height: fit-content;
-            min-height: auto;
+            height: auto;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
         }
 
         body.dark-mode .contact-info,
@@ -925,9 +921,11 @@
 
         .contact-info h3,
         .contact-form h3 {
-            margin-bottom: 1.5rem;
+            margin-bottom: 20px;
             color: var(--color-primary-dark);
             font-size: 1.3rem;
+            font-family: var(--font-secondary);
+            text-align: center;
         }
 
         body.dark-mode .contact-info h3,
@@ -935,11 +933,18 @@
             color: var(--color-dark-text-light);
         }
 
+        .contact-items {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
         .contact-item {
             display: flex;
             align-items: flex-start;
-            gap: 1rem;
-            margin-bottom: 1rem;
+            gap: 12px;
+            margin-bottom: 15px;
         }
 
         .contact-icon {
@@ -963,27 +968,40 @@
         .contact-text h4 {
             font-family: var(--font-primary);
             font-size: 0.95rem;
-            margin-bottom: 0.3rem;
+            margin-bottom: 5px;
             color: var(--color-primary-dark);
+            font-weight: 600;
         }
 
         .contact-text p {
             margin-bottom: 0;
             font-size: 0.9rem;
             line-height: 1.4;
+            color: var(--color-text);
         }
 
         body.dark-mode .contact-text h4 {
             color: var(--color-dark-text-light);
         }
 
+        body.dark-mode .contact-text p {
+            color: var(--color-dark-text);
+        }
+
+        /* Form styles */
+        .contact-form form {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
         .form-group {
-            margin-bottom: 1.2rem;
+            margin-bottom: 15px;
         }
 
         .form-group label {
             display: block;
-            margin-bottom: 0.5rem;
+            margin-bottom: 5px;
             font-weight: 500;
             color: var(--color-text);
             font-size: 0.9rem;
@@ -995,7 +1013,7 @@
 
         .form-control {
             width: 100%;
-            padding: 0.8rem;
+            padding: 10px;
             border: 1px solid var(--color-border);
             border-radius: var(--border-radius);
             font-family: var(--font-primary);
@@ -1014,17 +1032,60 @@
         .form-control:focus {
             outline: none;
             border-color: var(--color-primary);
-            box-shadow: 0 0 0 3px rgba(139, 95, 76, 0.2);
+            box-shadow: 0 0 0 2px rgba(139, 95, 76, 0.2);
         }
 
         body.dark-mode .form-control:focus {
             border-color: var(--color-dark-accent);
-            box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1);
         }
 
         textarea.form-control {
-            min-height: 100px;
+            min-height: 120px;
             resize: vertical;
+            flex: 1;
+        }
+
+        .contact-form .btn {
+            margin-top: auto;
+            padding: 12px 24px;
+            font-size: 0.9rem;
+        }
+
+        /* ============================================= */
+        /* Section Title Fix - "Kontaktujte nás" celé viditeľné */
+        /* ============================================= */
+        .section-title h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            padding-top: 10px;
+            text-align: center;
+        }
+
+        /* ============================================= */
+        /* Layout Fix - žiadny scroll */
+        /* ============================================= */
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        main {
+            flex: 1 0 auto;
+        }
+
+        footer {
+            flex-shrink: 0;
+            margin-top: auto;
         }
 
         /* ============================================= */

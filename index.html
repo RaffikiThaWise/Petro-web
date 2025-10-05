@@ -253,7 +253,6 @@
             width: 100%;
             z-index: 1000;
             padding: 8px 0;
-            /* Zmenšené z pôvodného */
             background-color: rgba(249, 246, 242, 0.95);
             backdrop-filter: blur(12px);
             border-bottom: 1px solid var(--color-border);
@@ -265,18 +264,13 @@
             justify-content: space-between;
             align-items: center;
             max-width: 1200px;
-            /* Pridané - obmedzenie šírky */
             margin: 0 auto;
-            /* Pridané - centrovanie */
             padding: 0 20px;
-            /* Pridané */
         }
 
         .logo-img {
             width: 45px;
-            /* Zmenšené z 60px */
             height: 45px;
-            /* Zmenšené z 60px */
             object-fit: contain;
             border-radius: 50%;
         }
@@ -284,7 +278,6 @@
         .logo-text {
             font-family: var(--font-secondary);
             font-size: 1.3rem;
-            /* Zmenšené z 1.5rem */
             font-weight: 700;
             color: var(--color-primary-dark);
         }
@@ -479,7 +472,6 @@
 
         .hero-image {
             display: none;
-            /* Skryjeme pôvodný obrázok */
         }
 
         .hero h1 {
@@ -528,36 +520,32 @@
         }
 
         /* ============================================= */
-        /* 7. About Section */
+        /* 7. About Section - UPRAVENÉ */
         /* ============================================= */
         .about-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: calc(var(--spacing-unit) * 3);
-            /* Zmenšené z *4 */
             align-items: start;
-            /* Zmenené z center na start */
         }
 
         .about-text {
             padding: 1rem 0;
-            /* Zmenšené z 2rem 0 */
             margin-top: -10px;
-            /* Pridané - posunie text vyššie */
         }
 
         .about-text h3 {
             margin-bottom: 1rem;
-            /* Zmenšené z 1.5rem */
+            font-size: 1.8rem;
+            /* Zmenšené z pôvodného */
         }
 
         .about-text p {
             margin-bottom: 1rem;
-            /* Zmenšené z 1.5rem */
         }
 
         /* ============================================= */
-        /* 8. Services Section */
+        /* 8. Services Section - UPRAVENÉ */
         /* ============================================= */
         .services {
             background-color: var(--color-accent);
@@ -596,7 +584,6 @@
         .service-card-img {
             width: 100%;
             height: 200px;
-            /* Ešte menšie */
             overflow: hidden;
         }
 
@@ -613,12 +600,13 @@
 
         .service-card-content {
             padding: calc(var(--spacing-unit) * 1.25);
-            /* Ešte menšie */
         }
 
         .service-card h3 {
             margin-bottom: 1rem;
             color: var(--color-primary-dark);
+            font-size: 1.5rem;
+            /* Zmenšené z pôvodného */
         }
 
         body.dark-mode .service-card h3 {
@@ -627,11 +615,8 @@
 
         .service-card p {
             margin-bottom: 0.75rem;
-            /* Ešte menšie */
             font-size: 0.95rem;
-            /* Trochu menšie písmo */
             line-height: 1.5;
-            /* Kompaktnejšie */
         }
 
         /* ============================================= */
@@ -861,7 +846,6 @@
             grid-template-columns: 1fr 1fr;
             gap: 25px;
             align-items: stretch;
-            /* Toto spraví karty rovnako vysoké */
         }
 
         .contact-info,
@@ -884,8 +868,8 @@
         .contact-form h3 {
             margin-bottom: 20px;
             color: var(--color-primary-dark);
-            font-size: 1.4rem;
-            /* Väčšie aby bolo vidno */
+            font-size: 1.6rem;
+            /* Zvýšené */
             font-family: var(--font-secondary);
             text-align: center;
         }
@@ -922,7 +906,8 @@
 
         .contact-text h4 {
             font-family: var(--font-primary);
-            font-size: 1rem;
+            font-size: 1.1rem;
+            /* Zvýšené */
             margin-bottom: 5px;
             color: var(--color-primary-dark);
             font-weight: 600;
@@ -930,7 +915,8 @@
 
         .contact-text p {
             margin-bottom: 0;
-            font-size: 0.95rem;
+            font-size: 1rem;
+            /* Zvýšené */
             line-height: 1.4;
             color: var(--color-text);
         }
@@ -994,27 +980,23 @@
             resize: vertical;
         }
 
-        /* MALÝ odoslať button */
         .contact-form .btn-primary {
             padding: 10px 20px;
             font-size: 0.9rem;
             margin-top: 10px;
         }
 
-
         /* ============================================= */
         /* Section Title Fix - "Kontaktujte nás" EŠTE NIŽŠIE */
         /* ============================================= */
         .section-title {
             padding-top: 65px !important;
-            /* Zvýšené z 60px na 65px */
             margin-bottom: 0 !important;
         }
 
         .section-title h2 {
             font-size: 2.5rem !important;
             margin-bottom: 5px !important;
-            /* Zmenšené z 10px */
             padding-top: 0 !important;
             text-align: center;
             color: var(--color-primary-dark) !important;
@@ -1027,7 +1009,6 @@
         .contact {
             background-color: var(--color-background);
             padding: 10px 0 50px 0 !important;
-            /* VRCH ešte menší (10px), SPODOK väčší (50px) */
             min-height: auto;
         }
 
@@ -1037,7 +1018,6 @@
             gap: 25px;
             align-items: stretch;
             margin-top: 20px !important;
-            /* Pridané - posunie karty nižšie */
         }
 
         .contact-info,
@@ -1048,7 +1028,6 @@
             box-shadow: var(--shadow-sm);
             height: auto;
             margin-top: 10px !important;
-            /* Pridané - každá karta ešte nižšie */
         }
 
         /* ============================================= */
@@ -1084,7 +1063,6 @@
             background-color: var(--color-primary-dark);
             color: var(--color-text-light);
             padding: 20px 0 15px;
-            /* Ešte menšie */
             margin-top: auto;
         }
 
@@ -1093,26 +1071,20 @@
             flex-direction: column;
             align-items: center;
             gap: 0.5rem;
-            /* Ešte menšie medzery */
             max-width: 1200px;
-            /* Pridané - obmedzenie šírky */
             margin: 0 auto;
-            /* Pridané - centrovanie */
             padding: 0 20px;
-            /* Pridané */
         }
 
         .footer-logo {
             font-family: var(--font-secondary);
             font-size: 1.2rem;
-            /* Ešte menšie */
             font-weight: 700;
             color: var(--color-text-light);
         }
 
         .copyright {
             font-size: 0.8rem;
-            /* Ešte menšie */
             opacity: 0.8;
             margin: 0;
         }
@@ -1242,7 +1214,7 @@
         }
 
         /* ============================================= */
-        /* 15. Responsive Design */
+        /* 15. Responsive Design - VÝRAZNE VYLEPŠENÉ */
         /* ============================================= */
         @media (max-width: 1024px) {
             .section {
@@ -1336,73 +1308,52 @@
             .service-features {
                 padding-left: 1rem;
             }
-        }
 
-        @media (max-width: 480px) {
-            .section {
-                padding: calc(var(--spacing-unit) * 3) 0;
-            }
-
-            .hero {
-                min-height: 500px;
-            }
-
-            .container {
-                padding: 0 var(--spacing-unit);
-            }
-
-            .logo-text {
-                font-size: 1.25rem;
-            }
-
-            .nav-links {
-                top: 70px;
-            }
-
-            .lightbox-btn {
-                width: 50px;
-                height: 50px;
-                font-size: 1.2rem;
-            }
-
-            .lightbox-prev {
-                left: -20px;
-            }
-
-            .lightbox-next {
-                right: -20px;
-            }
-        }
-
-        /* ============================================= */
-        /* 16. Oprava pre mobil - hero sekcia */
-        /* ============================================= */
-        @media (max-width: 1024px) {
-            .hero-content {
+            /* MOBILNÉ OPRAVY PRE KONTAKT */
+            .contact-container {
                 grid-template-columns: 1fr;
-                gap: 2rem;
+                gap: calc(var(--spacing-unit) * 1.5);
+            }
+
+            .contact-info,
+            .contact-form {
+                padding: 1.25rem;
+            }
+
+            .contact-info h3,
+            .contact-form h3 {
+                font-size: 1.4rem;
+            }
+
+            .contact-text h4 {
+                font-size: 1rem;
+            }
+
+            .contact-text p {
+                font-size: 0.95rem;
+            }
+
+            /* OPRAVA PRE MOBIL - ABOUT SECTION */
+            .about-content {
+                grid-template-columns: 1fr;
                 text-align: center;
             }
 
-            .hero-text {
-                padding-right: 0;
-                padding: 2.5rem;
+            .about-text {
+                margin-top: 0;
             }
 
-            .hero-btns {
-                justify-content: center;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .hero {
-                min-height: 600px;
-                background:
-                    linear-gradient(rgba(0, 0, 0, 0.5),
-                        rgba(0, 0, 0, 0.3)),
-                    url('Pozadie.png') no-repeat center center/cover;
+            /* OPRAVA PRE MOBIL - SERVICES SECTION */
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: calc(var(--spacing-unit) * 2);
             }
 
+            .service-card h3 {
+                font-size: 1.4rem;
+            }
+
+            /* OPRAVA PRE MOBIL - HERO SECTION */
             .hero-content {
                 display: grid !important;
                 opacity: 1 !important;
@@ -1445,8 +1396,38 @@
         }
 
         @media (max-width: 480px) {
+            .section {
+                padding: calc(var(--spacing-unit) * 3) 0;
+            }
+
             .hero {
                 min-height: 500px;
+            }
+
+            .container {
+                padding: 0 var(--spacing-unit);
+            }
+
+            .logo-text {
+                font-size: 1.25rem;
+            }
+
+            .nav-links {
+                top: 70px;
+            }
+
+            .lightbox-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+
+            .lightbox-prev {
+                left: -20px;
+            }
+
+            .lightbox-next {
+                right: -20px;
             }
 
             .hero-text {
@@ -1460,24 +1441,41 @@
             .hero p {
                 font-size: 1rem !important;
             }
+
+            /* EXTRA MALÉ ÚPRAVY PRE VEĽMI MALÉ DISPLEJE */
+            .contact-info,
+            .contact-form {
+                padding: 1rem;
+            }
+
+            .contact-item {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                gap: 8px;
+            }
+
+            .contact-icon {
+                width: 35px;
+                height: 35px;
+                font-size: 0.9rem;
+            }
         }
 
         /* ============================================= */
-        /* 17. Kompaktný Header & Footer - Responzívne */
+        /* 16. Kompaktný Header & Footer - Responzívne */
         /* ============================================= */
         @media (max-width: 1240px) {
 
             .header-container,
             .footer-content {
                 max-width: 95%;
-                /* Na menších obrazovkách trochu viac */
             }
         }
 
         @media (max-width: 768px) {
             header {
                 padding: 6px 0;
-                /* Ešte menšie na mobile */
             }
 
             .header-container {
@@ -1486,33 +1484,28 @@
 
             .logo-text {
                 font-size: 1.1rem;
-                /* Menšie na mobile */
             }
 
             .logo-img {
                 width: 40px;
-                /* Menšie na mobile */
                 height: 40px;
             }
 
             footer {
                 padding: 15px 0 10px;
-                /* Menšie na mobile */
             }
 
             .footer-logo {
                 font-size: 1.1rem;
-                /* Menšie na mobile */
             }
 
             .copyright {
                 font-size: 0.75rem;
-                /* Menšie na mobile */
             }
         }
 
         /* ============================================= */
-        /* 18. Layout Fix - Footer vždy dole */
+        /* 17. Layout Fix - Footer vždy dole */
         /* ============================================= */
         html,
         body {
@@ -1538,23 +1531,10 @@
         }
 
         /* ============================================= */
-        /* 19. Scroll Bar Fix */
+        /* 18. Scroll Bar Fix */
         /* ============================================= */
         body {
             overflow-x: hidden;
-        }
-
-        /* Responzívne úpravy pre kontakt */
-        @media (max-width: 768px) {
-            .contact-container {
-                grid-template-columns: 1fr;
-                gap: calc(var(--spacing-unit) * 1.5);
-            }
-
-            .contact-info,
-            .contact-form {
-                padding: 1.25rem;
-            }
         }
 
         /* ============================================= */
@@ -1586,6 +1566,64 @@
         .service-card p {
             margin-top: 0 !important;
             margin-bottom: 1rem !important;
+        }
+
+        /* ============================================= */
+        /* NOVÉ: POSUNUTIE SEKCIÍ PODĽA POŽIADAVKY */
+        /* ============================================= */
+        .about .section-title {
+            margin-top: -20px !important;
+            margin-bottom: 2rem !important;
+        }
+
+        .services .section-title {
+            margin-top: -20px !important;
+            margin-bottom: 2rem !important;
+        }
+
+        /* ============================================= */
+        /* NOVÉ: ZMENŠENIE ZAKRÚŽKOVANÝCH ČASTÍ */
+        /* ============================================= */
+        .service-card {
+            transform: scale(0.95);
+            transition: var(--transition);
+        }
+
+        .service-card:hover {
+            transform: scale(0.95) translateY(-10px);
+        }
+
+        /* ============================================= */
+        /* NOVÉ: ZVÄČŠENIE KONTAKTNÝCH ČASTÍ */
+        /* ============================================= */
+        .contact-info {
+            transform: scale(1.02);
+        }
+
+        .contact-text p {
+            font-size: 1.05rem !important;
+            line-height: 1.5 !important;
+        }
+
+        .contact-item {
+            margin-bottom: 20px !important;
+        }
+
+        /* ============================================= */
+        /* NOVÉ: MOBILNÉ ÚPRAVY PRE ZMENŠENÉ ČASTI */
+        /* ============================================= */
+        @media (max-width: 768px) {
+            .service-card {
+                transform: scale(1);
+            }
+
+            .service-card:hover {
+                transform: translateY(-10px);
+            }
+
+            .contact-info {
+                transform: scale(1);
+            }
         }
     </style>
 </head>
@@ -1634,7 +1672,6 @@
                         </a>
                     </div>
                 </div>
-                <!-- Pôvodný hero-image div je teraz prázdny, lebo obrázok je v pozadí -->
                 <div class="hero-image">
                     <img src="Pozadie.png" alt="Ukážka našej práce">
                 </div>
@@ -1642,7 +1679,6 @@
         </div>
     </section>
 
-    <!-- ZBYTOK KÓDU OSTÁVA ÚPLNE ROVNAKÝ AKO V PÔVODNOM -->
     <section class="section about" id="about">
         <div class="container">
             <div class="section-title">
@@ -1948,11 +1984,10 @@
             // =============================================
             const mobileMenuBtn = document.getElementById('mobileMenuBtn');
             const navLinks = document.getElementById('navLinks');
-            const headerElement = document.querySelector('header'); // Store header element for height calculation
+            const headerElement = document.querySelector('header');
 
             mobileMenuBtn.addEventListener('click', function () {
                 navLinks.classList.toggle('active');
-                // Adjust top of navLinks based on actual header height when menu opens
                 if (navLinks.classList.contains('active')) {
                     navLinks.style.top = headerElement.offsetHeight + 'px';
                 }
@@ -1960,13 +1995,11 @@
                     '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
             });
 
-            // Update navLinks top on window resize if mobile menu is active
             window.addEventListener('resize', function () {
                 if (navLinks.classList.contains('active')) {
                     navLinks.style.top = headerElement.offsetHeight + 'px';
                 }
             });
-
 
             document.querySelectorAll('.nav-link').forEach(link => {
                 link.addEventListener('click', function () {
@@ -2018,7 +2051,7 @@
                     if (contentId !== 'hero') {
                         const headerHeight = headerElement ? headerElement.offsetHeight : 90;
                         window.scrollTo({
-                            top: contentToShow.offsetTop - (headerHeight + 10), // MODIFIED: Offset with 10px gap
+                            top: contentToShow.offsetTop - (headerHeight + 10),
                             behavior: 'smooth'
                         });
                     } else {
@@ -2187,7 +2220,6 @@
             });
         });
 
-
         // =============================================
         // FINÁLNE POSUNUTIE NADPISU A KARIET NIŽŠIE
         // =============================================
@@ -2197,28 +2229,24 @@
             const contactContainer = document.querySelector('.contact-container');
 
             if (contactSection && contactTitle && contactContainer) {
-                // Force styles
-                contactSection.style.paddingTop = '5px'; /* Zmenšené z 10px */
+                contactSection.style.paddingTop = '5px';
                 contactSection.style.paddingBottom = '50px';
-                contactTitle.style.marginTop = '25px'; /* Zvýšené z 20px */
+                contactTitle.style.marginTop = '25px';
                 contactContainer.style.marginTop = '25px';
 
-                // Scroll adjustment
                 const headerHeight = document.querySelector('header').offsetHeight;
                 window.scrollTo({
-                    top: contactSection.offsetTop - headerHeight - 15, /* Zvýšené z 10px */
+                    top: contactSection.offsetTop - headerHeight - 15,
                     behavior: 'smooth'
                 });
             }
         }
 
-        // Spusti hneď a s oneskorením pre istotu
         document.addEventListener('DOMContentLoaded', function () {
             finalPositionAdjustment();
             setTimeout(finalPositionAdjustment, 100);
         });
 
-        // Aj keď sa klikne na kontakt
         document.querySelectorAll('a[onclick*="contact"]').forEach(link => {
             link.addEventListener('click', function () {
                 setTimeout(finalPositionAdjustment, 150);
@@ -2229,7 +2257,6 @@
         // SILNÁ OPRAVA TEXTOV - FORCÉ POSUNUTIE
         // =============================================
         function forceTextPosition() {
-            // LEN NADPISY HORE
             const aboutTitle = document.querySelector('.about-text h3');
             if (aboutTitle) {
                 aboutTitle.style.marginTop = '-25px';
@@ -2240,7 +2267,6 @@
                 title.style.marginTop = '-25px';
             });
 
-            // TEXTY NA MIESTE - NIČ NEMENIŤ
             const aboutTexts = document.querySelectorAll('.about-text p');
             aboutTexts.forEach(text => {
                 text.style.marginTop = '0';

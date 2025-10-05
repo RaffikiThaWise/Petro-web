@@ -409,7 +409,7 @@
         }
 
         /* ============================================= */
-        /* 6. Hero Section - OPRAVENÉ PRE PÁTU */
+        /* 6. Hero Section - OPRAVENÉ BEZ SCROLLU */
         /* ============================================= */
         .hero {
             height: 100vh;
@@ -520,7 +520,7 @@
         }
 
         /* ============================================= */
-        /* 7. About Section - KOMPLETNE OPRAVENÉ PRE MOBIL */
+        /* 7. About Section */
         /* ============================================= */
         .about-content {
             display: grid;
@@ -833,11 +833,11 @@
         }
 
         /* ============================================= */
-        /* 11. Contact Section */
+        /* 11. Contact Section - OPRAVENÉ VIDITEĽNÉ NADPISY */
         /* ============================================= */
         .contact {
             background-color: var(--color-background);
-            padding: 30px 0;
+            padding: 80px 0 50px 0 !important;
             min-height: auto;
         }
 
@@ -991,13 +991,13 @@
         /* Section Title Fix */
         /* ============================================= */
         .section-title {
-            padding-top: 65px !important;
-            margin-bottom: 0 !important;
+            padding-top: 80px !important;
+            margin-bottom: 2rem !important;
         }
 
         .section-title h2 {
             font-size: 2.8rem !important;
-            margin-bottom: 5px !important;
+            margin-bottom: 1rem !important;
             padding-top: 0 !important;
             text-align: center;
             color: var(--color-primary-dark) !important;
@@ -1007,12 +1007,6 @@
         /* ============================================= */
         /* Contact Section - Karty nižšie */
         /* ============================================= */
-        .contact {
-            background-color: var(--color-background);
-            padding: 10px 0 50px 0 !important;
-            min-height: auto;
-        }
-
         .contact-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -1215,7 +1209,7 @@
         }
 
         /* ============================================= */
-        /* 15. Responsive Design - KOMPLETNE OPRAVENÉ */
+        /* 15. Responsive Design */
         /* ============================================= */
         @media (max-width: 1024px) {
             .section {
@@ -1367,6 +1361,10 @@
             }
 
             /* MOBILNÉ OPRAVY PRE KONTAKT */
+            .contact {
+                padding: 100px 0 50px 0 !important;
+            }
+
             .contact-container {
                 grid-template-columns: 1fr;
                 gap: calc(var(--spacing-unit) * 1.5);
@@ -1418,6 +1416,10 @@
                 padding: calc(var(--spacing-unit) * 3) 0;
                 width: 100%;
                 overflow: hidden;
+            }
+
+            .section-title {
+                padding-top: 90px !important;
             }
         }
 
@@ -2089,7 +2091,7 @@
                 if (contentToShow) {
                     contentToShow.style.display = 'block';
 
-                    // DÔLEŽITÉ: Vždy resetovať scroll na vrch
+                    // DÔLEŽITÉ: VŽDY resetovať scroll na vrch
                     window.scrollTo(0, 0);
 
                     // Aktualizovať aktívnu navigáciu
@@ -2256,24 +2258,6 @@
                 }
             });
         });
-
-        // =============================================
-        // DÔLEŽITÉ: Oprava pre mobil - zabránenie pretekania
-        // =============================================
-        function fixMobileLayout() {
-            if (window.innerWidth <= 768) {
-                // Zabezpečiť, že všetky sekcie majú správne paddingy
-                const sections = document.querySelectorAll('section');
-                sections.forEach(section => {
-                    section.style.paddingLeft = '10px';
-                    section.style.paddingRight = '10px';
-                });
-            }
-        }
-
-        // Spustiť pri načítaní a zmene veľkosti okna
-        document.addEventListener('DOMContentLoaded', fixMobileLayout);
-        window.addEventListener('resize', fixMobileLayout);
     </script>
 </body>
 

@@ -894,12 +894,22 @@
         .contact-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: calc(var(--spacing-unit) * 4);
+            gap: calc(var(--spacing-unit) * 3);
+            /* Zmenšené z *4 */
         }
 
         .contact-info {
             background-color: var(--color-text-light);
-            padding: calc(var(--spacing-unit) * 3);
+            padding: calc(var(--spacing-unit) * 2.5);
+            /* Zmenšené z *3 */
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .contact-form {
+            background-color: var(--color-text-light);
+            padding: calc(var(--spacing-unit) * 2.5);
+            /* Zmenšené z *3 */
             border-radius: var(--border-radius-lg);
             box-shadow: var(--shadow-sm);
         }
@@ -922,19 +932,24 @@
         .contact-item {
             display: flex;
             align-items: flex-start;
-            gap: 1.5rem;
-            margin-bottom: 2rem;
+            gap: 1.25rem;
+            /* Zmenšené z 1.5rem */
+            margin-bottom: 1.5rem;
+            /* Zmenšené z 2rem */
         }
 
         .contact-icon {
-            width: 50px;
-            height: 50px;
+            width: 45px;
+            /* Zmenšené z 50px */
+            height: 45px;
+            /* Zmenšené z 50px */
             background-color: var(--color-accent);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.25rem;
+            font-size: 1.1rem;
+            /* Zmenšené z 1.25rem */
             color: var(--color-primary);
             flex-shrink: 0;
         }
@@ -946,9 +961,17 @@
 
         .contact-text h4 {
             font-family: var(--font-primary);
-            font-size: 1.1rem;
-            margin-bottom: 0.5rem;
+            font-size: 1rem;
+            /* Zmenšené z 1.1rem */
+            margin-bottom: 0.4rem;
+            /* Zmenšené z 0.5rem */
             color: var(--color-primary-dark);
+        }
+
+        .contact-text p {
+            margin-bottom: 0;
+            font-size: 0.95rem;
+            /* Zmenšené z 1rem */
         }
 
         body.dark-mode .contact-text h4 {

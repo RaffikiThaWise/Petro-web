@@ -844,7 +844,7 @@
         }
 
         /* ============================================= */
-        /* 11. Contact Section - KOMPLETNE OPRAVENÉ */
+        /* 11. Contact Section - ÚPRAVA (VIAC PRIESTORU) */
         /* ============================================= */
         .contact {
             background-color: var(--color-background);
@@ -867,7 +867,8 @@
         .contact-info,
         .contact-form {
             background-color: var(--color-text-light);
-            padding: 25px;
+            padding: 40px;
+            /* ZVÄČŠENÉ ODSADENIE */
             border-radius: var(--border-radius-lg);
             box-shadow: var(--shadow-sm);
             height: auto;
@@ -882,10 +883,11 @@
 
         .contact-info h3,
         .contact-form h3 {
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+            /* Zväčšená medzera */
             color: var(--color-primary-dark);
-            font-size: 1.4rem;
-            /* Väčšie aby bolo vidno */
+            font-size: 1.7rem;
+            /* ZVÄČŠENÉ PÍSMO */
             font-family: var(--font-secondary);
             text-align: center;
         }
@@ -898,19 +900,24 @@
         .contact-item {
             display: flex;
             align-items: flex-start;
-            gap: 12px;
-            margin-bottom: 18px;
+            gap: 1rem;
+            /* Zväčšená medzera */
+            margin-bottom: 1.5rem;
+            /* Zväčšená medzera */
         }
 
         .contact-icon {
-            width: 40px;
-            height: 40px;
+            width: 44px;
+            /* Zväčšené */
+            height: 44px;
+            /* Zväčšené */
             background-color: var(--color-accent);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1rem;
+            font-size: 1.2rem;
+            /* Zväčšené */
             color: var(--color-primary);
             flex-shrink: 0;
         }
@@ -930,8 +937,10 @@
 
         .contact-text p {
             margin-bottom: 0;
-            font-size: 0.95rem;
-            line-height: 1.4;
+            font-size: 1rem;
+            /* Zväčšené */
+            line-height: 1.5;
+            /* Zväčšené */
             color: var(--color-text);
         }
 
@@ -1003,12 +1012,13 @@
 
 
         /* ============================================= */
-        /* Section Title Fix - "Kontaktujte nás" EŠTE NIŽŠIE */
+        /* Section Title Fix - ÚPRAVA (NADPISY VYŠŠIE) */
         /* ============================================= */
         .section-title {
-            padding-top: 65px !important;
-            /* Zvýšené z 60px na 65px */
-            margin-bottom: 0 !important;
+            padding-top: 0 !important;
+            /* ZMENENÉ - aby nadpis nebol odtlačený */
+            margin-bottom: 3rem !important;
+            /* Zväčšená medzera pod nadpisom */
         }
 
         .section-title h2 {
@@ -1020,6 +1030,13 @@
             color: var(--color-primary-dark) !important;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
         }
+
+        /* Špeciálne pravidlo pre kontaktnú sekciu, aby si zachovala svoj štýl */
+        #contact .section-title {
+            padding-top: 65px !important;
+            margin-bottom: 0 !important;
+        }
+
 
         /* ============================================= */
         /* Contact Section - Karty nižšie */
@@ -1042,11 +1059,6 @@
 
         .contact-info,
         .contact-form {
-            background-color: var(--color-text-light);
-            padding: 25px;
-            border-radius: var(--border-radius-lg);
-            box-shadow: var(--shadow-sm);
-            height: auto;
             margin-top: 10px !important;
             /* Pridané - každá karta ešte nižšie */
         }
@@ -1551,7 +1563,8 @@
 
             .contact-info,
             .contact-form {
-                padding: 1.25rem;
+                padding: 1.5rem;
+                /* Zmenšené odsadenie pre mobil */
             }
         }
 
@@ -1659,305 +1672,310 @@
         </div>
     </header>
 
-    <section class="hero" id="hero">
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <p>Sme rodinná stolárska dielňa, ktorej hlavným poslaním je výroba drevených rakiev. Každý kus
-                        vzniká s úctou, poctivým remeslom a citom, ktorý sa u nás dedí z generácie na generáciu. Naše
-                        rakvy spájajú tradičné hodnoty s moderným prístupom – aby boli dôstojné, kvalitné a esteticky
-                        jedinečné.</p>
-                    <p>Okrem rakiev vyrábame aj dvere, schody, nábytok na mieru či iné drevené prvky do interiéru aj
-                        exteriéru.</p>
-                    <div class="hero-btns">
+    <main>
+        <section class="hero" id="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <p>Sme rodinná stolárska dielňa, ktorej hlavným poslaním je výroba drevených rakiev. Každý kus
+                            vzniká s úctou, poctivým remeslom a citom, ktorý sa u nás dedí z generácie na generáciu.
+                            Naše
+                            rakvy spájajú tradičné hodnoty s moderným prístupom – aby boli dôstojné, kvalitné a
+                            esteticky
+                            jedinečné.</p>
+                        <p>Okrem rakiev vyrábame aj dvere, schody, nábytok na mieru či iné drevené prvky do interiéru aj
+                            exteriéru.</p>
+                        <div class="hero-btns">
+                            <a href="#" class="btn btn-primary" onclick="showSection('services', event)">
+                                <i class="fas fa-hammer"></i> Naše služby
+                            </a>
+                            <a href="#" class="btn btn-outline" onclick="showSection('contact', event)">
+                                <i class="fas fa-phone-alt"></i> Kontaktujte nás
+                            </a>
+                        </div>
+                    </div>
+                    <div class="hero-image">
+                        <img src="Pozadie.png" alt="Ukážka našej práce">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section about" id="about">
+            <div class="container">
+                <div class="section-title">
+                    <h2>O našej dielni</h2>
+                </div>
+
+                <div class="about-content">
+                    <div class="about-image">
+                        <img src="firma_logo_new.jpg" alt="Stolárska dielňa Petro"
+                            style="max-height: 400px; object-fit: contain;">
+                    </div>
+
+                    <div class="about-text">
+                        <h3>Tradícia a kvalita od roku 1992</h3>
+                        <p>Sme rodinný podnik s dlhoročnou tradíciou v stolárskom remesle. Naša dielňa kombinuje moderné
+                            technológie s tradičnými postupmi, čo nám umožňuje vytvárať výnimočné drevené výrobky.</p>
+                        <p>Špecializujeme sa na výrobu kvalitných rakiev, okien, prístreškov, schodov a dverí, ako aj na
+                            predaj ekologických brikiet. Každý výrobok je starostlivo navrhnutý a vyrobený s dôrazom na
+                            detail a kvalitu.</p>
                         <a href="#" class="btn btn-primary" onclick="showSection('services', event)">
-                            <i class="fas fa-hammer"></i> Naše služby
-                        </a>
-                        <a href="#" class="btn btn-outline" onclick="showSection('contact', event)">
-                            <i class="fas fa-phone-alt"></i> Kontaktujte nás
+                            <i class="fas fa-arrow-right"></i> Pozrite si naše služby
                         </a>
                     </div>
                 </div>
-                <!-- Pôvodný hero-image div je teraz prázdny, lebo obrázok je v pozadí -->
-                <div class="hero-image">
-                    <img src="Pozadie.png" alt="Ukážka našej práce">
+            </div>
+        </section>
+
+        <section class="section services" id="services">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Naše služby</h2>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card" onclick="showServiceDetail('coffins')">
+                        <div class="service-card-img">
+                            <img src="M21_Amerika_01.jpg" alt="Výroba rakiev">
+                        </div>
+                        <div class="service-card-content">
+                            <h3>Výroba rakiev</h3>
+                            <p>Kvalitné a dôstojné rakvy vyrobené z rôznych druhov dreva podľa vašich požiadaviek.</p>
+                            <button class="btn btn-outline" onclick="showServiceDetail('coffins', event)">
+                                <i class="fas fa-arrow-right"></i> Zobraziť detail
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="service-card" onclick="showServiceDetail('furniture')">
+                        <div class="service-card-img">
+                            <img src="schody_tocive.jpg" alt="Drevený nábytok">
+                        </div>
+                        <div class="service-card-content">
+                            <h3>Drevené prvky pre váš domov aj exteriér</h3>
+                            <p>Exkluzívne drevené prvky na mieru, vyrobené z kvalitných materiálov podľa vášho návrhu.
+                            </p>
+                            <button class="btn btn-outline" onclick="showServiceDetail('furniture', event)">
+                                <i class="fas fa-arrow-right"></i> Zobraziť detail
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="service-card" onclick="showServiceDetail('briquettes')">
+                        <div class="service-card-img">
+                            <img src="briketa.jpg" alt="EKO brikety">
+                        </div>
+                        <div class="service-card-content">
+                            <h3>EKO brikety</h3>
+                            <p>Vysoko kvalitné drevené brikety vyrábané z čistých pilín bez chemických prísad.</p>
+                            <button class="btn btn-outline" onclick="showServiceDetail('briquettes', event)">
+                                <i class="fas fa-arrow-right"></i> Zobraziť detail
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="service-detail" id="coffins">
+            <div class="container">
+                <div class="service-detail-header">
+                    <button class="back-btn" onclick="hideServiceDetail('coffins')">
+                        <i class="fas fa-arrow-left"></i> Späť na služby
+                    </button>
+                    <h2>Výroba rakiev</h2>
+                </div>
+                <div class="service-detail-content">
+                    <div class="service-detail-text">
+                        <p>Ponúkame široký výber rakiev vyrobených z kvalitného dreva, ktoré spĺňajú najvyššie
+                            štandardy.
+                            Každá rakva je vyrábaná s úctou a respektom k zosnulému.</p>
+
+                        <h3>Používané materiály:</h3>
+                        <ul class="service-features">
+                            <li>Dub - trvanlivý a pevný materiál</li>
+                            <li>Buk - jemná textúra a príjemný vzhľad</li>
+                            <li>Borovica - ľahký a cenovo dostupný variant</li>
+                            <li>Smrek - klasický výber s jemnou textúrou</li>
+                        </ul>
+
+                        <div class="gallery" id="gallery-coffins"></div>
+
+                        <a href="#" class="btn btn-primary" onclick="showSection('contact', event)">
+                            <i class="fas fa-envelope"></i> Požiadať o cenovú ponuku
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
-    </section>
 
-    <!-- ZBYTOK KÓDU OSTÁVA ÚPLNE ROVNAKÝ AKO V PÔVODNOM -->
-    <section class="section about" id="about">
-        <div class="container">
-            <div class="section-title">
-                <h2>O našej dielni</h2>
-            </div>
-
-            <div class="about-content">
-                <div class="about-image">
-                    <img src="firma_logo_new.jpg" alt="Stolárska dielňa Petro"
-                        style="max-height: 400px; object-fit: contain;">
+        <div class="service-detail" id="furniture">
+            <div class="container">
+                <div class="service-detail-header">
+                    <button class="back-btn" onclick="hideServiceDetail('furniture')">
+                        <i class="fas fa-arrow-left"></i> Späť na služby
+                    </button>
+                    <h2>Drevené prvky pre váš domov aj exteriér</h2>
                 </div>
+                <div class="service-detail-content">
+                    <div class="service-detail-text">
+                        <p>Prinášame kvalitne spracované drevené riešenia – od dverí a okien cez schody až po
+                            prístrešky,
+                            ktoré spájajú funkčnosť s estetikou.</p>
 
-                <div class="about-text">
-                    <h3>Tradícia a kvalita od roku 1992</h3>
-                    <p>Sme rodinný podnik s dlhoročnou tradíciou v stolárskom remesle. Naša dielňa kombinuje moderné
-                        technológie s tradičnými postupmi, čo nám umožňuje vytvárať výnimočné drevené výrobky.</p>
-                    <p>Špecializujeme sa na výrobu kvalitných rakiev, okien, prístreškov, schodov a dverí, ako aj na
-                        predaj ekologických brikiet. Každý výrobok je starostlivo navrhnutý a vyrobený s dôrazom na
-                        detail a kvalitu.</p>
-                    <a href="#" class="btn btn-primary" onclick="showSection('services', event)">
-                        <i class="fas fa-arrow-right"></i> Pozrite si naše služby
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
+                        <h3>Naša ponuka:</h3>
+                        <ul class="service-features">
+                            <li>Schodiská a zábradlia</li>
+                            <li>Dvere na mieru</li>
+                            <li>Certifikované drevené Eeurookná</li>
+                            <li>Drevovýrobky do interiéru a exteriéru</li>
+                        </ul>
 
-    <section class="section services" id="services">
-        <div class="container">
-            <div class="section-title">
-                <h2>Naše služby</h2>
-            </div>
-            <div class="services-grid">
-                <div class="service-card" onclick="showServiceDetail('coffins')">
-                    <div class="service-card-img">
-                        <img src="M21_Amerika_01.jpg" alt="Výroba rakiev">
-                    </div>
-                    <div class="service-card-content">
-                        <h3>Výroba rakiev</h3>
-                        <p>Kvalitné a dôstojné rakvy vyrobené z rôznych druhov dreva podľa vašich požiadaviek.</p>
-                        <button class="btn btn-outline" onclick="showServiceDetail('coffins', event)">
-                            <i class="fas fa-arrow-right"></i> Zobraziť detail
-                        </button>
-                    </div>
-                </div>
+                        <h3>Výhody:</h3>
+                        <ul class="service-features">
+                            <li>Individuálny prístup ku každému projektu</li>
+                            <li>Používame iba kvalitné a certifikované materiály</li>
+                            <li>Dlhá životnosť a odolnosť výrobkov</li>
+                            <li>Ekologické a zdravotne nezávadné spracovanie</li>
+                        </ul>
 
-                <div class="service-card" onclick="showServiceDetail('furniture')">
-                    <div class="service-card-img">
-                        <img src="schody_tocive.jpg" alt="Drevený nábytok">
-                    </div>
-                    <div class="service-card-content">
-                        <h3>Drevené prvky pre váš domov aj exteriér</h3>
-                        <p>Exkluzívne drevené prvky na mieru, vyrobené z kvalitných materiálov podľa vášho návrhu.</p>
-                        <button class="btn btn-outline" onclick="showServiceDetail('furniture', event)">
-                            <i class="fas fa-arrow-right"></i> Zobraziť detail
-                        </button>
-                    </div>
-                </div>
+                        <div class="gallery" id="gallery-furniture"></div>
 
-                <div class="service-card" onclick="showServiceDetail('briquettes')">
-                    <div class="service-card-img">
-                        <img src="briketa.jpg" alt="EKO brikety">
-                    </div>
-                    <div class="service-card-content">
-                        <h3>EKO brikety</h3>
-                        <p>Vysoko kvalitné drevené brikety vyrábané z čistých pilín bez chemických prísad.</p>
-                        <button class="btn btn-outline" onclick="showServiceDetail('briquettes', event)">
-                            <i class="fas fa-arrow-right"></i> Zobraziť detail
-                        </button>
+                        <a href="#" class="btn btn-primary" onclick="showSection('contact', event)">
+                            <i class="fas fa-envelope"></i> Konzultácia zdarma
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
 
-    <div class="service-detail" id="coffins">
-        <div class="container">
-            <div class="service-detail-header">
-                <button class="back-btn" onclick="hideServiceDetail('coffins')">
-                    <i class="fas fa-arrow-left"></i> Späť na služby
-                </button>
-                <h2>Výroba rakiev</h2>
-            </div>
-            <div class="service-detail-content">
-                <div class="service-detail-text">
-                    <p>Ponúkame široký výber rakiev vyrobených z kvalitného dreva, ktoré spĺňajú najvyššie štandardy.
-                        Každá rakva je vyrábaná s úctou a respektom k zosnulému.</p>
+        <div class="service-detail" id="briquettes">
+            <div class="container">
+                <div class="service-detail-header">
+                    <button class="back-btn" onclick="hideServiceDetail('briquettes')">
+                        <i class="fas fa-arrow-left"></i> Späť na služby
+                    </button>
+                    <h2>EKO brikety</h2>
+                </div>
+                <div class="service-detail-content">
+                    <div class="service-detail-text">
+                        <p>Naše drevené brikety sú vyrábané z čistých pilín bez akýchkoľvek chemických prísad. Vznikajú
+                            lisovaním pri vysokom tlaku, čo im dodáva výnimočnú hustotu a vysokú výhrevnosť.</p>
 
-                    <h3>Používané materiály:</h3>
-                    <ul class="service-features">
-                        <li>Dub - trvanlivý a pevný materiál</li>
-                        <li>Buk - jemná textúra a príjemný vzhľad</li>
-                        <li>Borovica - ľahký a cenovo dostupný variant</li>
-                        <li>Smrek - klasický výber s jemnou textúrou</li>
-                    </ul>
+                        <h3>Vlastnosti našich brikiet:</h3>
+                        <ul class="service-features">
+                            <li>Vysoká výhrevnosť – až 18,31 MJ/kg (porovnateľná s čiernym uhlím)</li>
+                            <li>Nízka vlhkosť – iba 3,17 %</li>
+                            <li>OMinimálny obsah popola – len 1,45 %, vhodný ako hnojivo</li>
+                            <li>Rkologické palivo bez chemických prísad</li>
+                        </ul>
 
-                    <div class="gallery" id="gallery-coffins"></div>
+                        <h3>Výhody:</h3>
+                        <ul class="service-features">
+                            <li>Dlhý čas horenia – približne 90 minút</li>
+                            <li>Vhodné pre takmer všetky typy kotlov, krbov a piecok na pevné palivo</li>
+                            <li>Horenie s jasným plameňom a minimálnym dymom</li>
+                            <li>Príjemná vôňa prírodného dreva</li>
+                            <li>Vhodné pre všetky druhy krbov a kachlí</li>
+                        </ul>
 
-                    <a href="#" class="btn btn-primary" onclick="showSection('contact', event)">
-                        <i class="fas fa-envelope"></i> Požiadať o cenovú ponuku
-                    </a>
+                        <div class="gallery" id="gallery-briquettes"></div>
+
+                        <a href="#" class="btn btn-primary" onclick="showSection('contact', event)">
+                            <i class="fas fa-shopping-cart"></i> Objednať brikety
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <div class="service-detail" id="furniture">
-        <div class="container">
-            <div class="service-detail-header">
-                <button class="back-btn" onclick="hideServiceDetail('furniture')">
-                    <i class="fas fa-arrow-left"></i> Späť na služby
-                </button>
-                <h2>Drevené prvky pre váš domov aj exteriér</h2>
-            </div>
-            <div class="service-detail-content">
-                <div class="service-detail-text">
-                    <p>Prinášame kvalitne spracované drevené riešenia – od dverí a okien cez schody až po prístrešky,
-                        ktoré spájajú funkčnosť s estetikou.</p>
-
-                    <h3>Naša ponuka:</h3>
-                    <ul class="service-features">
-                        <li>Schodiská a zábradlia</li>
-                        <li>Dvere na mieru</li>
-                        <li>Certifikované drevené Eeurookná</li>
-                        <li>Drevovýrobky do interiéru a exteriéru</li>
-                    </ul>
-
-                    <h3>Výhody:</h3>
-                    <ul class="service-features">
-                        <li>Individuálny prístup ku každému projektu</li>
-                        <li>Používame iba kvalitné a certifikované materiály</li>
-                        <li>Dlhá životnosť a odolnosť výrobkov</li>
-                        <li>Ekologické a zdravotne nezávadné spracovanie</li>
-                    </ul>
-
-                    <div class="gallery" id="gallery-furniture"></div>
-
-                    <a href="#" class="btn btn-primary" onclick="showSection('contact', event)">
-                        <i class="fas fa-envelope"></i> Konzultácia zdarma
-                    </a>
+        <section class="section contact" id="contact">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Kontaktujte nás</h2>
                 </div>
-            </div>
-        </div>
-    </div>
 
-    <div class="service-detail" id="briquettes">
-        <div class="container">
-            <div class="service-detail-header">
-                <button class="back-btn" onclick="hideServiceDetail('briquettes')">
-                    <i class="fas fa-arrow-left"></i> Späť na služby
-                </button>
-                <h2>EKO brikety</h2>
-            </div>
-            <div class="service-detail-content">
-                <div class="service-detail-text">
-                    <p>Naše drevené brikety sú vyrábané z čistých pilín bez akýchkoľvek chemických prísad. Vznikajú
-                        lisovaním pri vysokom tlaku, čo im dodáva výnimočnú hustotu a vysokú výhrevnosť.</p>
+                <div class="contact-container">
+                    <div class="contact-info">
+                        <h3>Kde nás nájdete</h3>
 
-                    <h3>Vlastnosti našich brikiet:</h3>
-                    <ul class="service-features">
-                        <li>Vysoká výhrevnosť – až 18,31 MJ/kg (porovnateľná s čiernym uhlím)</li>
-                        <li>Nízka vlhkosť – iba 3,17 %</li>
-                        <li>OMinimálny obsah popola – len 1,45 %, vhodný ako hnojivo</li>
-                        <li>Rkologické palivo bez chemických prísad</li>
-                    </ul>
-
-                    <h3>Výhody:</h3>
-                    <ul class="service-features">
-                        <li>Dlhý čas horenia – približne 90 minút</li>
-                        <li>Vhodné pre takmer všetky typy kotlov, krbov a piecok na pevné palivo</li>
-                        <li>Horenie s jasným plameňom a minimálnym dymom</li>
-                        <li>Príjemná vôňa prírodného dreva</li>
-                        <li>Vhodné pre všetky druhy krbov a kachlí</li>
-                    </ul>
-
-                    <div class="gallery" id="gallery-briquettes"></div>
-
-                    <a href="#" class="btn btn-primary" onclick="showSection('contact', event)">
-                        <i class="fas fa-shopping-cart"></i> Objednať brikety
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <section class="section contact" id="contact">
-        <div class="container">
-            <div class="section-title">
-                <h2>Kontaktujte nás</h2>
-            </div>
-
-            <div class="contact-container">
-                <div class="contact-info">
-                    <h3>Kde nás nájdete</h3>
-
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-map-marker-alt"></i>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Adresa</h4>
+                                <p>Radatice 219, 08242 Radatice</p>
+                            </div>
                         </div>
-                        <div class="contact-text">
-                            <h4>Adresa</h4>
-                            <p>Radatice 219, 08242 Radatice</p>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Telefón</h4>
+                                <p>+421 905 609 059 (Stolárstvo)</p>
+                                <p>+421 905 213 426 (Doprava)</p>
+                                <p>+421 908 124 008 (Ekobrikety)</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Email</h4>
+                                <p>petrostolarstvo@gmail.com</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Otváracie hodiny</h4>
+                                <p>Pondelok - Piatok: 8:00 - 18:00</p>
+                                <p>Sobota: Na objednávku</p>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-phone-alt"></i>
-                        </div>
-                        <div class="contact-text">
-                            <h4>Telefón</h4>
-                            <p>+421 905 609 059 (Stolárstvo)</p>
-                            <p>+421 905 213 426 (Doprava)</p>
-                            <p>+421 908 124 008 (Ekobrikety)</p>
-                        </div>
+                    <div class="contact-form">
+                        <h3>Napíšte nám</h3>
+
+                        <form action="https://formspree.io/f/xgvkeypd" method="POST">
+                            <div class="form-group">
+                                <label for="name">Meno a priezvisko</label>
+                                <input type="text" id="name" name="name" class="form-control" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" class="form-control" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="phone">Telefón</label>
+                                <input type="tel" id="phone" name="phone" class="form-control">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="message">Vaša správa</label>
+                                <textarea id="message" name="message" class="form-control" required></textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-paper-plane"></i> Odoslať správu
+                            </button>
+                        </form>
                     </div>
-
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <div class="contact-text">
-                            <h4>Email</h4>
-                            <p>petrostolarstvo@gmail.com</p>
-                        </div>
-                    </div>
-
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-clock"></i>
-                        </div>
-                        <div class="contact-text">
-                            <h4>Otváracie hodiny</h4>
-                            <p>Pondelok - Piatok: 8:00 - 18:00</p>
-                            <p>Sobota: Na objednávku</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="contact-form">
-                    <h3>Napíšte nám</h3>
-
-                    <form action="https://formspree.io/f/xgvkeypd" method="POST">
-                        <div class="form-group">
-                            <label for="name">Meno a priezvisko</label>
-                            <input type="text" id="name" name="name" class="form-control" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" class="form-control" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="phone">Telefón</label>
-                            <input type="tel" id="phone" name="phone" class="form-control">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="message">Vaša správa</label>
-                            <textarea id="message" name="message" class="form-control" required></textarea>
-                        </div>
-
-                        <button type="submit" class="btn btn-primary">
-                            <i class="fas fa-paper-plane"></i> Odoslať správu
-                        </button>
-                    </form>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <footer>
         <div class="container">
@@ -2060,42 +2078,30 @@
                 if (contentToShow) {
                     contentToShow.style.display = 'block';
 
-                    if (window.innerWidth <= 768) {
-                        // --- IBA MOBILNÁ LOGIKA ---
-                        // KROK 1: Vynútený, OKAMŽITÝ skok na vrch stránky.
-                        // 'instant' správanie prepíše CSS 'smooth' scroll.
-                        window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+                    // --- JEDNOTNÁ LOGIKA PRE SCROLL ---
+                    // Táto logika sa spustí pre mobilné aj desktopové zobrazenie.
+                    // Timeout s 0ms zabezpečí, že sa scroll vykoná až po tom, čo prehliadač
+                    // "zaregistruje" zmenu `display: block`, čo umožní správny výpočet `offsetTop`.
 
-                        // KROK 2: S minimálnym oneskorením, aby prehliadač stihol zaregistrovať skok,
-                        // urobíme plynulý scroll na cieľovú sekciu.
-                        setTimeout(() => {
-                            let scrollPosition = 0;
-                            if (contentId !== 'hero') {
-                                const headerHeight = headerElement.offsetHeight;
-                                scrollPosition = contentToShow.getBoundingClientRect().top + window.scrollY - headerHeight - 15;
-                            }
-                            window.scrollTo({
-                                top: scrollPosition,
-                                behavior: 'smooth' // Tento scroll už bude plynulý
-                            });
-                        }, 50); // Mierne zvýšené oneskorenie pre istotu
+                    setTimeout(() => {
+                        let scrollPosition = 0;
+                        if (contentId !== 'hero') {
+                            const headerHeight = headerElement.offsetHeight;
+                            // `offsetTop` je spoľahlivejšia hodnota ako getBoundingClientRect
+                            // pre určenie pozície elementu v rámci celého dokumentu.
+                            scrollPosition = contentToShow.offsetTop - headerHeight - 15;
+                        }
 
-                    } else {
-                        // --- IBA DESKTOPOVÁ LOGIKA (PÔVODNÁ, FUNKČNÁ) ---
-                        setTimeout(() => {
-                            let scrollPosition = 0;
-                            if (contentId !== 'hero') {
-                                const headerHeight = headerElement.offsetHeight;
-                                scrollPosition = contentToShow.offsetTop - headerHeight - 10;
-                            }
-                            window.scrollTo({
-                                top: scrollPosition,
-                                behavior: 'smooth'
-                            });
-                        }, 0);
-                    }
+                        window.scrollTo({
+                            top: scrollPosition,
+                            // Desktop si zachová plynulé správanie
+                            // Na mobile sa toto správanie resetuje a funguje správne
+                            behavior: 'smooth'
+                        });
+                    }, 0);
                 }
             }
+
 
             window.showSection = function (sectionId, event) {
                 if (event) event.preventDefault();

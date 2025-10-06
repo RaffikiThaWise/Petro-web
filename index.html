@@ -1631,27 +1631,6 @@
                 margin-right: auto;
             }
         }
-
-        /* RESET SCROLL PRE ISTOTU */
-        html,
-        body {
-            scroll-behavior: auto !important;
-        }
-
-        @media (max-width: 768px) {
-
-            html,
-            body {
-                overflow-x: hidden;
-                position: relative;
-                height: 100%;
-            }
-
-            section,
-            .service-detail {
-                min-height: 100vh;
-            }
-        }
     </style>
 </head>
 
@@ -2065,74 +2044,68 @@
             });
 
             // =============================================
-            // 3. Section Navigation & Visibility - KOMPLETNÁ OPRAVA
+            // 3. Section Navigation & Visibility - FINÁLNA OPRAVA
             // =============================================
             const allContent = document.querySelectorAll('section, .service-detail');
 
             function hideAllContent() {
                 allContent.forEach(content => {
                     content.style.display = 'none';
-                    content.style.visibility = 'hidden';
-                    content.style.opacity = '0';
-                    content.style.position = 'absolute';
-                    content.style.left = '-9999px';
                 });
             }
 
             function showContent(contentId) {
-                // PRED NAČÍTANÍM NOVEJ SEKCIE - RESET SCROLL
-                window.scrollTo({ top: 0, behavior: 'instant' });
-
                 hideAllContent();
-
                 const contentToShow = document.getElementById(contentId);
                 if (contentToShow) {
                     contentToShow.style.display = 'block';
-                    contentToShow.style.visibility = 'visible';
-                    contentToShow.style.opacity = '1';
-                    contentToShow.style.position = 'static';
-                    contentToShow.style.left = 'auto';
 
-                    // FORCÉ POSUN NA VRCH
-                    setTimeout(() => {
-                        window.scrollTo({ top: 0, behavior: 'instant' });
+                    if (window.innerWidth <= 768) {
+                        // --- IBA MOBILNÁ LOGIKA ---
+                        // KROK 1: Vynútený, OKAMŽITÝ skok na vrch stránky.
+                        // 'instant' správanie prepíše CSS 'smooth' scroll.
+                        window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
 
-                        // Ak nie je hero sekcia, posun pod header
-                        if (contentId !== 'hero') {
-                            const headerHeight = headerElement.offsetHeight;
-                            const targetPosition = contentToShow.offsetTop - headerHeight;
-                            window.scrollTo({ top: targetPosition, behavior: 'instant' });
-                        }
-                    }, 10);
+                        // KROK 2: S minimálnym oneskorením, aby prehliadač stihol zaregistrovať skok,
+                        // urobíme plynulý scroll na cieľovú sekciu.
+                        setTimeout(() => {
+                            let scrollPosition = 0;
+                            if (contentId !== 'hero') {
+                                const headerHeight = headerElement.offsetHeight;
+                                scrollPosition = contentToShow.getBoundingClientRect().top + window.scrollY - headerHeight - 15;
+                            }
+                            window.scrollTo({
+                                top: scrollPosition,
+                                behavior: 'smooth' // Tento scroll už bude plynulý
+                            });
+                        }, 50); // Mierne zvýšené oneskorenie pre istotu
+
+                    } else {
+                        // --- IBA DESKTOPOVÁ LOGIKA (PÔVODNÁ, FUNKČNÁ) ---
+                        setTimeout(() => {
+                            let scrollPosition = 0;
+                            if (contentId !== 'hero') {
+                                const headerHeight = headerElement.offsetHeight;
+                                scrollPosition = contentToShow.offsetTop - headerHeight - 10;
+                            }
+                            window.scrollTo({
+                                top: scrollPosition,
+                                behavior: 'smooth'
+                            });
+                        }, 0);
+                    }
                 }
             }
 
             window.showSection = function (sectionId, event) {
                 if (event) event.preventDefault();
-
-                // RESET PRE ISTOTU
-                window.scrollTo({ top: 0, behavior: 'instant' });
-
                 showContent(sectionId);
                 document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
                 const activeLink = document.querySelector(`.nav-link[onclick*="'${sectionId}'"]`);
                 if (activeLink) activeLink.classList.add('active');
             };
 
-            // NAČÍTANIE STRÁNKY - ABSOLÚTNY RESET
-            window.addEventListener('load', function () {
-                setTimeout(() => {
-                    window.scrollTo(0, 0);
-                    document.documentElement.scrollTop = 0;
-                    document.body.scrollTop = 0;
-                    showContent('hero');
-                }, 100);
-            });
-
-            // RESET PRI KAŽDOM OTvORENÍ
-            document.addEventListener('DOMContentLoaded', function () {
-                window.scrollTo(0, 0);
-            });
+            showContent('hero');
 
             // =============================================
             // 4. Service Details (bez zmeny)

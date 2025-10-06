@@ -2044,7 +2044,7 @@
             });
 
             // =============================================
-            // 3. Section Navigation & Visibility - OPRAVENÉ
+            // 3. Section Navigation & Visibility - INTELIGENTNÁ OPRAVA
             // =============================================
             const allContent = document.querySelectorAll('section, .service-detail');
 
@@ -2060,24 +2060,44 @@
                 if (contentToShow) {
                     contentToShow.style.display = 'block';
 
-                    // Okamžité skrolovanie na vrch stránky pred animáciou
-                    window.scrollTo(0, 0);
+                    // Rozdelenie logiky podľa šírky okna
+                    // Breakpoint 768px je zhodný s CSS pre mobilné menu
+                    if (window.innerWidth <= 768) {
+                        // --- IBA MOBILNÁ LOGIKA ---
+                        // Okamžitý skok na vrch stránky, aby sa predišlo zlému výpočtu
+                        window.scrollTo(0, 0);
 
-                    setTimeout(() => {
-                        let scrollPosition = 0;
-                        // Pre všetky sekcie okrem 'hero', odpočítame výšku hlavičky
-                        if (contentId !== 'hero') {
-                            const headerHeight = headerElement.offsetHeight;
-                            scrollPosition = contentToShow.offsetTop - headerHeight - 10;
-                        }
+                        setTimeout(() => {
+                            let scrollPosition = 0;
+                            if (contentId !== 'hero') {
+                                const headerHeight = headerElement.offsetHeight;
+                                // Použijeme presnejší výpočet pre dynamické layouty na mobile
+                                scrollPosition = contentToShow.getBoundingClientRect().top + window.scrollY - headerHeight - 15;
+                            }
+                            window.scrollTo({
+                                top: scrollPosition,
+                                behavior: 'smooth'
+                            });
+                        }, 10);
 
-                        window.scrollTo({
-                            top: scrollPosition,
-                            behavior: 'smooth'
-                        });
-                    }, 0);
+                    } else {
+                        // --- IBA DESKTOPOVÁ LOGIKA (PÔVODNÁ, KTORÁ FUNGOVALA) ---
+                        setTimeout(() => {
+                            let scrollPosition = 0;
+                            if (contentId !== 'hero') {
+                                const headerHeight = headerElement.offsetHeight;
+                                // Pôvodný výpočet, ktorý fungoval dobre na desktope
+                                scrollPosition = contentToShow.offsetTop - headerHeight - 10;
+                            }
+                            window.scrollTo({
+                                top: scrollPosition,
+                                behavior: 'smooth'
+                            });
+                        }, 0);
+                    }
                 }
             }
+
 
             window.showSection = function (sectionId, event) {
                 if (event) event.preventDefault();
@@ -2087,6 +2107,7 @@
                 if (activeLink) activeLink.classList.add('active');
             };
 
+            // Zabezpečíme, že pri načítaní sa zobrazí úvodná sekcia
             showContent('hero');
 
             // =============================================
@@ -2105,7 +2126,7 @@
             };
 
             // =============================================
-            // 5. Gallery & Lightbox (a zvyšok skriptu)
+            // 5. Gallery & Lightbox (a zvyšok skriptu - bez zmeny)
             // =============================================
             const galleryData = {
                 coffins: [
@@ -2172,9 +2193,9 @@
                         const galleryItem = document.createElement('div');
                         galleryItem.className = 'gallery-item';
                         galleryItem.innerHTML = `
-            <img src="${item.src}" alt="${item.caption}">
-            <div class="gallery-caption">${item.caption}</div>
-        `;
+                        <img src="${item.src}" alt="${item.caption}">
+                        <div class="gallery-caption">${item.caption}</div>
+                    `;
                         galleryItem.addEventListener('click', () => openLightbox(galleryId, index));
                         galleryContainer.appendChild(galleryItem);
                     });
@@ -2217,8 +2238,6 @@
                 currentIndex = (currentIndex - 1 + galleryData[currentGallery].length) % galleryData[currentGallery].length;
                 updateLightboxImage();
             }
-
-
 
             function showNextImage() {
                 currentIndex = (currentIndex + 1) % galleryData[currentGallery].length;

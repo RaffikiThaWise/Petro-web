@@ -1259,9 +1259,7 @@
                 display: block;
             }
 
-            #hero {
-                display: flex !important;
-            }
+
 
             .nav-links {
                 position: fixed;
@@ -2007,23 +2005,19 @@
                 });
             }
 
-            // --- ZAČIATOK KĽÚČOVEJ OPRAVY ---
             function showContent(contentId) {
                 hideAllContent();
                 const contentToShow = document.getElementById(contentId);
                 if (contentToShow) {
                     contentToShow.style.display = 'block';
 
-                    // Použijeme krátke oneskorenie (timeout 0ms). Týmto sa výpočet posunu
-                    // odloží na nasledujúci "krok" prehliadača. To zaručí, že rozloženie
-                    // stránky je už aktualizované po zmene 'display' z 'none' na 'block'
-                    // a hodnota 'offsetTop' bude presná.
                     setTimeout(() => {
-                        const headerHeight = headerElement.offsetHeight;
-                        // Vypočítame cieľovú pozíciu posunu.
-                        // Je to pozícia vrchu sekcie mínus výška fixného záhlavia.
-                        // Odpočítame ešte 10 pixelov pre lepšie vizuálne oddelenie.
-                        const scrollPosition = contentToShow.offsetTop - headerHeight - 10;
+                        let scrollPosition = 0;
+                        // Pre všetky sekcie okrem 'hero', odpočítame výšku hlavičky
+                        if (contentId !== 'hero') {
+                            const headerHeight = headerElement.offsetHeight;
+                            scrollPosition = contentToShow.offsetTop - headerHeight - 10;
+                        }
 
                         window.scrollTo({
                             top: scrollPosition,
@@ -2032,7 +2026,6 @@
                     }, 0);
                 }
             }
-            // --- KONIEC KĽÚČOVEJ OPRAVY ---
 
             window.showSection = function (sectionId, event) {
                 if (event) event.preventDefault();
@@ -2042,9 +2035,7 @@
                 if (activeLink) activeLink.classList.add('active');
             };
 
-            // Na začiatku zobraziť 'hero' sekciu
             showContent('hero');
-
 
             // =============================================
             // 4. Service Details
@@ -2062,7 +2053,7 @@
             };
 
             // =============================================
-            // 5. Gallery & Lightbox (Zostáva nezmenené)
+            // 5. Gallery & Lightbox (a zvyšok skriptu)
             // =============================================
             const galleryData = {
                 coffins: [
@@ -2129,9 +2120,9 @@
                         const galleryItem = document.createElement('div');
                         galleryItem.className = 'gallery-item';
                         galleryItem.innerHTML = `
-                    <img src="${item.src}" alt="${item.caption}">
-                    <div class="gallery-caption">${item.caption}</div>
-                `;
+            <img src="${item.src}" alt="${item.caption}">
+            <div class="gallery-caption">${item.caption}</div>
+        `;
                         galleryItem.addEventListener('click', () => openLightbox(galleryId, index));
                         galleryContainer.appendChild(galleryItem);
                     });
@@ -2175,6 +2166,8 @@
                 updateLightboxImage();
             }
 
+
+
             function showNextImage() {
                 currentIndex = (currentIndex + 1) % galleryData[currentGallery].length;
                 updateLightboxImage();
@@ -2194,58 +2187,6 @@
                     closeLightbox();
                 }
             });
-
-            // =============================================
-            // Zbytočné posúvanie v tejto funkcii som odstránil,
-            // pretože to už rieši nová funkcia showContent
-            // =============================================
-            function finalPositionAdjustment() {
-                const contactSection = document.getElementById('contact');
-                const contactTitle = document.querySelector('.section-title h2');
-                const contactContainer = document.querySelector('.contact-container');
-
-                if (contactSection && contactTitle && contactContainer) {
-                    contactSection.style.paddingTop = '5px';
-                    contactSection.style.paddingBottom = '30px';
-                    contactTitle.style.marginTop = '25px';
-                    contactContainer.style.marginTop = '25px';
-
-                    // PÔVODNÝ KÓD PRE SCROLLOVANIE BOL ODSTRÁNENÝ, ABY NEBOL V KONFLIKTE S HLAVNOU LOGIKOU
-                }
-            }
-
-            document.addEventListener('DOMContentLoaded', function () {
-                finalPositionAdjustment();
-                setTimeout(finalPositionAdjustment, 100);
-            });
-
-            document.querySelectorAll('a[onclick*="contact"]').forEach(link => {
-                link.addEventListener('click', function () {
-                    setTimeout(finalPositionAdjustment, 150);
-                });
-            });
-
-            function forceTextPosition() {
-                const aboutTitle = document.querySelector('.about-text h3');
-                if (aboutTitle) {
-                    aboutTitle.style.marginTop = '-25px';
-                }
-                const serviceTitles = document.querySelectorAll('.service-card h3');
-                serviceTitles.forEach(title => {
-                    title.style.marginTop = '-25px';
-                });
-                const aboutTexts = document.querySelectorAll('.about-text p');
-                aboutTexts.forEach(text => {
-                    text.style.marginTop = '0';
-                });
-                const serviceTexts = document.querySelectorAll('.service-card p');
-                serviceTexts.forEach(text => {
-                    text.style.marginTop = '0';
-                });
-            }
-
-            // Spustenie funkcie na úpravu pozícií
-            forceTextPosition();
         });
     </script>
 </body>

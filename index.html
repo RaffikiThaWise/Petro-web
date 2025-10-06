@@ -2054,18 +2054,6 @@
                 });
             }
 
-            // =============================================
-            // 3. Section Navigation & Visibility - OPRAVENÉ
-            // =============================================
-            const allContent = document.querySelectorAll('section, .service-detail');
-            const headerElement = document.querySelector('header'); // Presunul som definíciu vyššie
-
-            function hideAllContent() {
-                allContent.forEach(content => {
-                    content.style.display = 'none';
-                });
-            }
-
             function showContent(contentId) {
                 hideAllContent();
                 const contentToShow = document.getElementById(contentId);
@@ -2077,30 +2065,19 @@
 
                     setTimeout(() => {
                         let scrollPosition = 0;
+                        // Pre všetky sekcie okrem 'hero', odpočítame výšku hlavičky
                         if (contentId !== 'hero') {
                             const headerHeight = headerElement.offsetHeight;
-                            // Vypočítame pozíciu vrchu sekcie a odpočítame výšku hlavičky
-                            scrollPosition = contentToShow.getBoundingClientRect().top + window.scrollY - headerHeight - 15;
+                            scrollPosition = contentToShow.offsetTop - headerHeight - 10;
                         }
 
                         window.scrollTo({
                             top: scrollPosition,
                             behavior: 'smooth'
                         });
-                    }, 10); // Malé oneskorenie pre plynulý efekt
+                    }, 0);
                 }
             }
-
-            window.showSection = function (sectionId, event) {
-                if (event) event.preventDefault();
-                showContent(sectionId);
-                document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
-                const activeLink = document.querySelector(`.nav-link[onclick*="'${sectionId}'"]`);
-                if (activeLink) activeLink.classList.add('active');
-            };
-
-            // Zabezpečíme, že pri načítaní sa zobrazí úvodná sekcia
-            showContent('hero');
 
             window.showSection = function (sectionId, event) {
                 if (event) event.preventDefault();

@@ -253,7 +253,6 @@
             width: 100%;
             z-index: 1000;
             padding: 8px 0;
-            /* Zmenšené z pôvodného */
             background-color: rgba(249, 246, 242, 0.95);
             backdrop-filter: blur(12px);
             border-bottom: 1px solid var(--color-border);
@@ -265,18 +264,13 @@
             justify-content: space-between;
             align-items: center;
             max-width: 1200px;
-            /* Pridané - obmedzenie šírky */
             margin: 0 auto;
-            /* Pridané - centrovanie */
             padding: 0 20px;
-            /* Pridané */
         }
 
         .logo-img {
             width: 45px;
-            /* Zmenšené z 60px */
             height: 45px;
-            /* Zmenšené z 60px */
             object-fit: contain;
             border-radius: 50%;
         }
@@ -284,7 +278,6 @@
         .logo-text {
             font-family: var(--font-secondary);
             font-size: 1.3rem;
-            /* Zmenšené z 1.5rem */
             font-weight: 700;
             color: var(--color-primary-dark);
         }
@@ -341,6 +334,7 @@
             font-weight: 500;
             padding: 0.5rem 0;
             color: var(--color-text);
+            cursor: pointer;
         }
 
         body.dark-mode .nav-link {
@@ -416,7 +410,7 @@
         }
 
         /* ============================================= */
-        /* 6. Hero Section - UPRAVENÉ */
+        /* 6. Hero Section */
         /* ============================================= */
         .hero {
             height: 100vh;
@@ -479,7 +473,6 @@
 
         .hero-image {
             display: none;
-            /* Skryjeme pôvodný obrázok */
         }
 
         .hero h1 {
@@ -534,26 +527,20 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: calc(var(--spacing-unit) * 3);
-            /* Zmenšené z *4 */
             align-items: start;
-            /* Zmenené z center na start */
         }
 
         .about-text {
             padding: 1rem 0;
-            /* Zmenšené z 2rem 0 */
             margin-top: -10px;
-            /* Pridané - posunie text vyššie */
         }
 
         .about-text h3 {
             margin-bottom: 1rem;
-            /* Zmenšené z 1.5rem */
         }
 
         .about-text p {
             margin-bottom: 1rem;
-            /* Zmenšené z 1.5rem */
         }
 
         /* ============================================= */
@@ -596,7 +583,6 @@
         .service-card-img {
             width: 100%;
             height: 200px;
-            /* Ešte menšie */
             overflow: hidden;
         }
 
@@ -613,7 +599,6 @@
 
         .service-card-content {
             padding: calc(var(--spacing-unit) * 1.25);
-            /* Ešte menšie */
         }
 
         .service-card h3 {
@@ -627,11 +612,8 @@
 
         .service-card p {
             margin-bottom: 0.75rem;
-            /* Ešte menšie */
             font-size: 0.95rem;
-            /* Trochu menšie písmo */
             line-height: 1.5;
-            /* Kompaktnejšie */
         }
 
         /* ============================================= */
@@ -844,7 +826,7 @@
         }
 
         /* ============================================= */
-        /* 11. Contact Section - KOMPLETNE OPRAVENÉ */
+        /* 11. Contact Section */
         /* ============================================= */
         .contact {
             background-color: var(--color-background);
@@ -861,7 +843,6 @@
             grid-template-columns: 1fr 1fr;
             gap: 25px;
             align-items: stretch;
-            /* Toto spraví karty rovnako vysoké */
         }
 
         .contact-info,
@@ -885,7 +866,6 @@
             margin-bottom: 20px;
             color: var(--color-primary-dark);
             font-size: 1.4rem;
-            /* Väčšie aby bolo vidno */
             font-family: var(--font-secondary);
             text-align: center;
         }
@@ -994,27 +974,23 @@
             resize: vertical;
         }
 
-        /* MALÝ odoslať button */
         .contact-form .btn-primary {
             padding: 10px 20px;
             font-size: 0.9rem;
             margin-top: 10px;
         }
 
-
         /* ============================================= */
-        /* Section Title Fix - "Kontaktujte nás" EŠTE NIŽŠIE */
+        /* Section Title Fix */
         /* ============================================= */
         .section-title {
             padding-top: 65px !important;
-            /* Zvýšené z 60px na 65px */
             margin-bottom: 0 !important;
         }
 
         .section-title h2 {
             font-size: 2.5rem !important;
             margin-bottom: 5px !important;
-            /* Zmenšené z 10px */
             padding-top: 0 !important;
             text-align: center;
             color: var(--color-primary-dark) !important;
@@ -1022,12 +998,11 @@
         }
 
         /* ============================================= */
-        /* Contact Section - Karty nižšie */
+        /* Contact Section */
         /* ============================================= */
         .contact {
             background-color: var(--color-background);
             padding: 10px 0 30px 0 !important;
-            /* ZMENENÉ: Zmenšené spodné padding z 50px na 30px */
             min-height: auto;
         }
 
@@ -1037,7 +1012,6 @@
             gap: 25px;
             align-items: stretch;
             margin-top: 20px !important;
-            /* Pridané - posunie karty nižšie */
         }
 
         .contact-info,
@@ -1048,11 +1022,10 @@
             box-shadow: var(--shadow-sm);
             height: auto;
             margin-top: 10px !important;
-            /* Pridané - každá karta ešte nižšie */
         }
 
         /* ============================================= */
-        /* Layout Fix - žiadny scroll */
+        /* Layout Fix */
         /* ============================================= */
         html,
         body {
@@ -1078,13 +1051,12 @@
         }
 
         /* ============================================= */
-        /* 12. Footer - KOMPAKTNÝ */
+        /* 12. Footer */
         /* ============================================= */
         footer {
             background-color: var(--color-primary-dark);
             color: var(--color-text-light);
             padding: 20px 0 15px;
-            /* Ešte menšie */
             margin-top: auto;
         }
 
@@ -1093,26 +1065,20 @@
             flex-direction: column;
             align-items: center;
             gap: 0.5rem;
-            /* Ešte menšie medzery */
             max-width: 1200px;
-            /* Pridané - obmedzenie šírky */
             margin: 0 auto;
-            /* Pridané - centrovanie */
             padding: 0 20px;
-            /* Pridané */
         }
 
         .footer-logo {
             font-family: var(--font-secondary);
             font-size: 1.2rem;
-            /* Ešte menšie */
             font-weight: 700;
             color: var(--color-text-light);
         }
 
         .copyright {
             font-size: 0.8rem;
-            /* Ešte menšie */
             opacity: 0.8;
             margin: 0;
         }
@@ -1257,10 +1223,6 @@
         @media (max-width: 768px) {
             .mobile-menu-btn {
                 display: block;
-            }
-
-            #hero {
-                display: flex !important;
             }
 
             .nav-links {
@@ -1463,21 +1425,19 @@
         }
 
         /* ============================================= */
-        /* 17. Kompaktný Header & Footer - Responzívne */
+        /* 17. Kompaktný Header & Footer */
         /* ============================================= */
         @media (max-width: 1240px) {
 
             .header-container,
             .footer-content {
                 max-width: 95%;
-                /* Na menších obrazovkách trochu viac */
             }
         }
 
         @media (max-width: 768px) {
             header {
                 padding: 6px 0;
-                /* Ešte menšie na mobile */
             }
 
             .header-container {
@@ -1486,33 +1446,28 @@
 
             .logo-text {
                 font-size: 1.1rem;
-                /* Menšie na mobile */
             }
 
             .logo-img {
                 width: 40px;
-                /* Menšie na mobile */
                 height: 40px;
             }
 
             footer {
                 padding: 15px 0 10px;
-                /* Menšie na mobile */
             }
 
             .footer-logo {
                 font-size: 1.1rem;
-                /* Menšie na mobile */
             }
 
             .copyright {
                 font-size: 0.75rem;
-                /* Menšie na mobile */
             }
         }
 
         /* ============================================= */
-        /* 18. Layout Fix - Footer vždy dole */
+        /* 18. Layout Fix */
         /* ============================================= */
         html,
         body {
@@ -1566,7 +1521,7 @@
         }
 
         /* ============================================= */
-        /* SILNÁ OPRAVA TEXTOV - FORCÉ */
+        /* SILNÁ OPRAVA TEXTOV */
         /* ============================================= */
         .section-title {
             margin-bottom: 2rem !important;
@@ -1634,9 +1589,9 @@
                 </button>
 
                 <div class="nav-links" id="navLinks">
-                    <a href="#" class="nav-link" onclick="showSection('about', event)">O nás</a>
-                    <a href="#" class="nav-link" onclick="showSection('services', event)">Služby</a>
-                    <a href="#" class="nav-link" onclick="showSection('contact', event)">Kontakt</a>
+                    <a href="#" class="nav-link" data-section="about">O nás</a>
+                    <a href="#" class="nav-link" data-section="services">Služby</a>
+                    <a href="#" class="nav-link" data-section="contact">Kontakt</a>
                     <button class="theme-toggle" id="themeToggle">
                         <i class="fas fa-moon"></i>
                     </button>
@@ -1646,7 +1601,7 @@
     </header>
 
     <main>
-        <section class="hero" id="hero">
+        <section class="hero active" id="hero">
             <div class="container">
                 <div class="hero-content">
                     <div class="hero-text">
@@ -1659,15 +1614,14 @@
                         <p>Okrem rakiev vyrábame aj dvere, schody, nábytok na mieru či iné drevené prvky do interiéru aj
                             exteriéru. Každý výrobok vzniká s precíznosťou, úctou k materiálu a láskou k detailu.</p>
                         <div class="hero-btns">
-                            <a href="#" class="btn btn-primary" onclick="showSection('services', event)">
+                            <a href="#" class="btn btn-primary" data-section="services">
                                 <i class="fas fa-hammer"></i> Naše služby
                             </a>
-                            <a href="#" class="btn btn-outline" onclick="showSection('contact', event)">
+                            <a href="#" class="btn btn-outline" data-section="contact">
                                 <i class="fas fa-phone-alt"></i> Kontaktujte nás
                             </a>
                         </div>
                     </div>
-                    <!-- Pôvodný hero-image div je teraz prázdny, lebo obrázok je v pozadí -->
                     <div class="hero-image">
                         <img src="Pozadie.png" alt="Ukážka našej práce">
                     </div>
@@ -1675,7 +1629,6 @@
             </div>
         </section>
 
-        <!-- ZBYTOK KÓDU OSTÁVA ÚPLNE ROVNAKÝ AKO V PÔVODNOM -->
         <section class="section about" id="about">
             <div class="container">
                 <div class="section-title">
@@ -1695,7 +1648,7 @@
                         <p>Špecializujeme sa na výrobu kvalitných rakiev, okien, prístreškov, schodov a dverí, ako aj na
                             predaj ekologických brikiet. Každý výrobok je starostlivo navrhnutý a vyrobený s dôrazom na
                             detail a kvalitu.</p>
-                        <a href="#" class="btn btn-primary" onclick="showSection('services', event)">
+                        <a href="#" class="btn btn-primary" data-section="services">
                             <i class="fas fa-arrow-right"></i> Pozrite si naše služby
                         </a>
                     </div>
@@ -1776,7 +1729,7 @@
 
                         <div class="gallery" id="gallery-coffins"></div>
 
-                        <a href="#" class="btn btn-primary" onclick="showSection('contact', event)">
+                        <a href="#" class="btn btn-primary" data-section="contact">
                             <i class="fas fa-envelope"></i> Požiadať o cenovú ponuku
                         </a>
                     </div>
@@ -1816,7 +1769,7 @@
 
                         <div class="gallery" id="gallery-furniture"></div>
 
-                        <a href="#" class="btn btn-primary" onclick="showSection('contact', event)">
+                        <a href="#" class="btn btn-primary" data-section="contact">
                             <i class="fas fa-envelope"></i> Konzultácia zdarma
                         </a>
                     </div>
@@ -1856,7 +1809,7 @@
 
                         <div class="gallery" id="gallery-briquettes"></div>
 
-                        <a href="#" class="btn btn-primary" onclick="showSection('contact', event)">
+                        <a href="#" class="btn btn-primary" data-section="contact">
                             <i class="fas fa-shopping-cart"></i> Objednať brikety
                         </a>
                     </div>
@@ -2002,15 +1955,6 @@
                 }
             });
 
-            document.querySelectorAll('.nav-link').forEach(link => {
-                link.addEventListener('click', function () {
-                    if (navLinks.classList.contains('active')) {
-                        navLinks.classList.remove('active');
-                        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-                    }
-                });
-            });
-
             // =============================================
             // 2. Dark Mode Toggle
             // =============================================
@@ -2034,7 +1978,7 @@
             });
 
             // =============================================
-            // 3. Section Navigation & Visibility - KOMPLETNE OPRAVENÉ
+            // 3. Section Navigation - KOMPLETNE OPRAVENÉ
             // =============================================
             const allSections = document.querySelectorAll('section');
             const allServiceDetails = document.querySelectorAll('.service-detail');
@@ -2054,7 +1998,7 @@
                     contentToShow.style.display = 'block';
                     contentToShow.classList.add('active');
 
-                    // Vždy scrollovať na začiatok sekcie
+                    // Scroll na začiatok sekcie
                     const headerHeight = headerElement ? headerElement.offsetHeight : 90;
                     window.scrollTo({
                         top: contentToShow.offsetTop - (headerHeight + 10),
@@ -2063,15 +2007,46 @@
                 }
             }
 
-            window.showSection = function (sectionId, event) {
+            // Funkcia pre navigáciu
+            function navigateToSection(sectionId, event) {
                 if (event) event.preventDefault();
                 showContent(sectionId);
-                document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
-                const activeLink = document.querySelector(`.nav-link[onclick*="'${sectionId}'"]`);
-                if (activeLink) activeLink.classList.add('active');
-            };
 
-            // Na začiatku ukáž iba hero sekciu
+                // Aktualizácia aktívneho linku v navigácii
+                document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
+                const activeLink = document.querySelector(`.nav-link[data-section="${sectionId}"]`);
+                if (activeLink) activeLink.classList.add('active');
+
+                // Zatvoriť mobilné menu
+                if (navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                }
+            }
+
+            // Pridanie event listenerov pre navigačné linky
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', function (event) {
+                    const sectionId = this.getAttribute('data-section');
+                    navigateToSection(sectionId, event);
+                });
+            });
+
+            // Pridanie event listenerov pre tlačidlá v hero sekcii
+            document.querySelectorAll('.hero-btns .btn, .about-text .btn').forEach(btn => {
+                btn.addEventListener('click', function (event) {
+                    const sectionId = this.getAttribute('data-section');
+                    navigateToSection(sectionId, event);
+                });
+            });
+
+            // Logo klik - vráti na hero
+            document.querySelector('.logo').addEventListener('click', function (event) {
+                event.preventDefault();
+                navigateToSection('hero', event);
+            });
+
+            // Na začiatku ukáž hero sekciu
             showContent('hero');
 
             // =============================================
@@ -2117,7 +2092,6 @@
                     { src: 'M10_smrek.jpg', caption: 'Model M10 Smrek' },
                     { src: 'M10_P_smrek_01.jpg', caption: 'Model M10 Smrek 01' },
                     { src: 'detail.jpg', caption: 'Model Detail' }
-
                 ],
                 furniture: [
                     { src: 'dvere_matne.jpg', caption: '' },
@@ -2157,9 +2131,9 @@
                         const galleryItem = document.createElement('div');
                         galleryItem.className = 'gallery-item';
                         galleryItem.innerHTML = `
-                <img src="${item.src}" alt="${item.caption}">
-                <div class="gallery-caption">${item.caption}</div>
-            `;
+                            <img src="${item.src}" alt="${item.caption}">
+                            <div class="gallery-caption">${item.caption}</div>
+                        `;
                         galleryItem.addEventListener('click', () => openLightbox(galleryId, index));
                         galleryContainer.appendChild(galleryItem);
                     });
@@ -2222,92 +2196,7 @@
                     closeLightbox();
                 }
             });
-
-            // =============================================
-            // 6. Mobile-specific fixes
-            // =============================================
-            function isMobile() {
-                return window.innerWidth <= 768;
-            }
-
-            // Oprava pre mobil - zabezpečí správne zobrazovanie sekcií
-            if (isMobile()) {
-                // Na mobile vždy začíname s hero sekciou
-                showContent('hero');
-
-                // Pridáme event listener pre zmenu veľkosti okna
-                window.addEventListener('resize', function () {
-                    if (!isMobile()) {
-                        // Ak sa vrátime na desktop, resetujeme zobrazenie
-                        showContent('hero');
-                    }
-                });
-            }
         });
-
-        // =============================================
-        // FINÁLNE POSUNUTIE NADPISU A KARIET NIŽŠIE
-        // =============================================
-        function finalPositionAdjustment() {
-            const contactSection = document.getElementById('contact');
-            const contactTitle = document.querySelector('.section-title h2');
-            const contactContainer = document.querySelector('.contact-container');
-
-            if (contactSection && contactTitle && contactContainer) {
-                // Force styles
-                contactSection.style.paddingTop = '5px'; /* Zmenšené z 10px */
-                contactSection.style.paddingBottom = '30px'; /* Zmenené z 50px na 30px */
-                contactTitle.style.marginTop = '25px'; /* Zvýšené z 20px */
-                contactContainer.style.marginTop = '25px';
-
-                // Scroll adjustment
-                const headerHeight = document.querySelector('header').offsetHeight;
-                window.scrollTo({
-                    top: contactSection.offsetTop - headerHeight - 15, /* Zvýšené z 10px */
-                    behavior: 'smooth'
-                });
-            }
-        }
-
-        // Spusti hneď a s oneskorením pre istotu
-        document.addEventListener('DOMContentLoaded', function () {
-            finalPositionAdjustment();
-            setTimeout(finalPositionAdjustment, 100);
-        });
-
-        // Aj keď sa klikne na kontakt
-        document.querySelectorAll('a[onclick*="contact"]').forEach(link => {
-            link.addEventListener('click', function () {
-                setTimeout(finalPositionAdjustment, 150);
-            });
-        });
-
-        // =============================================
-        // SILNÁ OPRAVA TEXTOV - FORCÉ POSUNUTIE
-        // =============================================
-        function forceTextPosition() {
-            // LEN NADPISY HORE
-            const aboutTitle = document.querySelector('.about-text h3');
-            if (aboutTitle) {
-                aboutTitle.style.marginTop = '-25px';
-            }
-
-            const serviceTitles = document.querySelectorAll('.service-card h3');
-            serviceTitles.forEach(title => {
-                title.style.marginTop = '-25px';
-            });
-
-            // TEXTY NA MIESTE - NIČ NEMENIŤ
-            const aboutTexts = document.querySelectorAll('.about-text p');
-            aboutTexts.forEach(text => {
-                text.style.marginTop = '0';
-            });
-
-            const serviceTexts = document.querySelectorAll('.service-card p');
-            serviceTexts.forEach(text => {
-                text.style.marginTop = '0';
-            });
-        }
     </script>
 </body>
 

@@ -16,15 +16,7 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-
     <style>
-        /* ============================================= */
-        /* 1. CSS Variables & Base Styles */
-        /* ============================================= */
         :root {
             --color-primary: #8B5F4C;
             --color-primary-dark: #5A3A2C;
@@ -65,6 +57,7 @@
         html {
             scroll-behavior: smooth;
             font-size: 100%;
+            overflow-x: hidden;
         }
 
         body {
@@ -74,6 +67,9 @@
             line-height: 1.6;
             overflow-x: hidden;
             transition: var(--transition);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
 
         body.dark-mode {
@@ -82,9 +78,10 @@
             background-image: linear-gradient(to bottom, #000000, #0a0a0a, #141414);
         }
 
-        /* ============================================= */
-        /* 2. Typography */
-        /* ============================================= */
+        main {
+            flex: 1 0 auto;
+        }
+
         h1,
         h2,
         h3,
@@ -132,9 +129,6 @@
             transition: var(--transition);
         }
 
-        /* ============================================= */
-        /* 3. Utility Classes */
-        /* ============================================= */
         .container {
             width: 100%;
             max-width: var(--max-width);
@@ -145,6 +139,9 @@
         .section {
             padding: calc(var(--spacing-unit) * 6) 0;
             position: relative;
+            min-height: calc(100vh - 77px);
+            display: flex;
+            align-items: center;
         }
 
         .section-title {
@@ -196,18 +193,6 @@
             color: var(--color-text-light);
         }
 
-        .text-center {
-            text-align: center;
-        }
-
-        /* ============================================= */
-        /* 4. Dark Mode Styles */
-        /* ============================================= */
-        body.dark-mode {
-            background-color: var(--color-dark-bg);
-            color: var(--color-dark-text);
-        }
-
         body.dark-mode h1,
         body.dark-mode h2,
         body.dark-mode h3,
@@ -243,9 +228,6 @@
             color: var(--color-dark-text-light);
         }
 
-        /* ============================================= */
-        /* 5. Header & Navigation */
-        /* ============================================= */
         header {
             position: fixed;
             top: 0;
@@ -259,6 +241,12 @@
             transition: var(--transition);
         }
 
+        body.dark-mode header {
+            background-color: rgba(10, 10, 10, 0.8);
+            border-bottom-color: var(--color-dark-border);
+            backdrop-filter: var(--backdrop-blur);
+        }
+
         .header-container {
             display: flex;
             justify-content: space-between;
@@ -266,6 +254,12 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
         }
 
         .logo-img {
@@ -278,38 +272,6 @@
         .logo-text {
             font-family: var(--font-secondary);
             font-size: 1.3rem;
-            font-weight: 700;
-            color: var(--color-primary-dark);
-        }
-
-        body.dark-mode header {
-            background-color: rgba(10, 10, 10, 0.8);
-            border-bottom-color: var(--color-dark-border);
-            backdrop-filter: var(--backdrop-blur);
-        }
-
-        .header-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .logo-img {
-            width: 60px;
-            height: 60px;
-            object-fit: contain;
-            border-radius: 50%;
-        }
-
-        .logo-text {
-            font-family: var(--font-secondary);
-            font-size: 1.5rem;
             font-weight: 700;
             color: var(--color-primary-dark);
         }
@@ -408,19 +370,15 @@
             background-color: rgba(255, 255, 255, 0.1);
         }
 
-        /* ============================================= */
-        /* 6. Hero Section - OPRAVENÉ BEZ SCROLLU */
-        /* ============================================= */
+        /* HERO - FIXED HEIGHT */
         .hero {
             height: 100vh;
-            min-height: 800px;
             display: flex;
             align-items: center;
             position: relative;
             overflow: hidden;
             background:
-                linear-gradient(rgba(0, 0, 0, 0.4),
-                    rgba(0, 0, 0, 0.2)),
+                linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.2)),
                 url('Pozadie.png') no-repeat center center/cover;
             color: var(--color-text-light);
         }
@@ -445,8 +403,6 @@
             max-width: var(--max-width);
             margin: 0 auto;
             padding: 0 calc(var(--spacing-unit) * 2);
-            margin-top: 60px;
-            padding-top: calc(var(--spacing-unit) * 4);
             display: grid;
             grid-template-columns: 1.2fr 0.8fr;
             gap: 4rem;
@@ -470,10 +426,6 @@
             backdrop-filter: var(--backdrop-blur);
         }
 
-        .hero-image {
-            display: none;
-        }
-
         .hero h1 {
             font-size: clamp(2.5rem, 5.5vw, 4.8rem);
             letter-spacing: -0.05em;
@@ -492,9 +444,6 @@
             margin-bottom: 2.5rem;
             opacity: 0;
             animation: fadeInUp 1s ease 0.3s forwards;
-            max-width: none;
-            margin-left: 0;
-            margin-right: 0;
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
             line-height: 1.7;
         }
@@ -519,9 +468,6 @@
             }
         }
 
-        /* ============================================= */
-        /* 7. About Section */
-        /* ============================================= */
         .about-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -538,10 +484,6 @@
             font-size: 1.8rem;
         }
 
-        .about-text p {
-            margin-bottom: 1rem;
-        }
-
         .about-image img {
             width: 100%;
             max-height: 400px;
@@ -549,14 +491,7 @@
             display: block;
         }
 
-        /* ============================================= */
-        /* 8. Services Section */
-        /* ============================================= */
         .services {
-            background-color: var(--color-accent);
-        }
-
-        body.dark-mode .services {
             background-color: transparent;
         }
 
@@ -623,13 +558,11 @@
             line-height: 1.5;
         }
 
-        /* ============================================= */
-        /* 9. Service Detail Section */
-        /* ============================================= */
         .service-detail {
             display: none;
             padding: calc(var(--spacing-unit) * 6) 0;
             background-color: var(--color-background);
+            min-height: calc(100vh - 77px);
         }
 
         body.dark-mode .service-detail {
@@ -685,11 +618,6 @@
             margin: 0;
         }
 
-        .service-detail-header h2::after {
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
         .service-detail-content {
             display: grid;
             grid-template-columns: 1fr;
@@ -707,10 +635,6 @@
             border-radius: var(--border-radius-lg);
             backdrop-filter: var(--backdrop-blur);
             border: 1px solid var(--color-dark-border);
-        }
-
-        .service-detail-text p {
-            margin-bottom: 1.5rem;
         }
 
         .service-features {
@@ -743,31 +667,6 @@
             color: var(--color-dark-accent);
         }
 
-        .service-detail-image {
-            border-radius: var(--border-radius-lg);
-            overflow: hidden;
-            box-shadow: var(--shadow-lg);
-        }
-
-        body.dark-mode .service-detail-image {
-            border: 1px solid var(--color-dark-border);
-        }
-
-        .service-detail-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .service-detail .btn-primary {
-            margin-top: 2.5rem;
-            margin-bottom: 1rem;
-            display: inline-block;
-        }
-
-        /* ============================================= */
-        /* 10. Gallery */
-        /* ============================================= */
         .service-detail .gallery {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -824,7 +723,6 @@
             font-family: var(--font-secondary);
             font-size: 0.9rem;
             background-color: var(--color-accent);
-            border-radius: 0 0 var(--border-radius) var(--border-radius);
         }
 
         body.dark-mode .service-detail .gallery-caption {
@@ -832,13 +730,9 @@
             background-color: var(--color-dark-surface-alt);
         }
 
-        /* ============================================= */
-        /* 11. Contact Section - OPRAVENÉ VIDITEĽNÉ NADPISY */
-        /* ============================================= */
         .contact {
             background-color: var(--color-background);
-            padding: 80px 0 50px 0 !important;
-            min-height: auto;
+            min-height: calc(100vh - 77px);
         }
 
         body.dark-mode .contact {
@@ -858,7 +752,6 @@
             padding: 25px;
             border-radius: var(--border-radius-lg);
             box-shadow: var(--shadow-sm);
-            height: auto;
         }
 
         body.dark-mode .contact-info,
@@ -930,7 +823,6 @@
             color: var(--color-dark-text);
         }
 
-        /* Form styles */
         .form-group {
             margin-bottom: 18px;
         }
@@ -981,80 +873,8 @@
             resize: vertical;
         }
 
-        .contact-form .btn-primary {
-            padding: 10px 20px;
-            font-size: 0.9rem;
-            margin-top: 10px;
-        }
-
-        /* ============================================= */
-        /* Section Title Fix */
-        /* ============================================= */
-        .section-title {
-            padding-top: 80px !important;
-            margin-bottom: 2rem !important;
-        }
-
-        .section-title h2 {
-            font-size: 2.8rem !important;
-            margin-bottom: 1rem !important;
-            padding-top: 0 !important;
-            text-align: center;
-            color: var(--color-primary-dark) !important;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        /* ============================================= */
-        /* Contact Section - Karty nižšie */
-        /* ============================================= */
-        .contact-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 25px;
-            align-items: stretch;
-            margin-top: 20px !important;
-        }
-
-        .contact-info,
-        .contact-form {
-            background-color: var(--color-text-light);
-            padding: 25px;
-            border-radius: var(--border-radius-lg);
-            box-shadow: var(--shadow-sm);
-            height: auto;
-            margin-top: 10px !important;
-        }
-
-        /* ============================================= */
-        /* Layout Fix - žiadny scroll */
-        /* ============================================= */
-        html,
-        body {
-            height: 100%;
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden;
-        }
-
-        body {
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-
-        main {
-            flex: 1 0 auto;
-        }
-
         footer {
             flex-shrink: 0;
-            margin-top: auto;
-        }
-
-        /* ============================================= */
-        /* 12. Footer - KOMPAKTNÝ */
-        /* ============================================= */
-        footer {
             background-color: var(--color-primary-dark);
             color: var(--color-text-light);
             padding: 20px 0 15px;
@@ -1090,9 +910,6 @@
             border-top: 1px solid var(--color-dark-border);
         }
 
-        /* ============================================= */
-        /* 13. Lightbox */
-        /* ============================================= */
         .lightbox {
             position: fixed;
             top: 0;
@@ -1193,9 +1010,6 @@
             background-color: var(--color-primary);
         }
 
-        /* ============================================= */
-        /* 14. Animations */
-        /* ============================================= */
         @keyframes fadeIn {
             from {
                 opacity: 0;
@@ -1205,19 +1019,6 @@
             to {
                 opacity: 1;
                 transform: translateY(0);
-            }
-        }
-
-        /* ============================================= */
-        /* 15. Responsive Design */
-        /* ============================================= */
-        @media (max-width: 1024px) {
-            .section {
-                padding: calc(var(--spacing-unit) * 4) 0;
-            }
-
-            .hero {
-                min-height: 700px;
             }
         }
 
@@ -1257,11 +1058,7 @@
             }
 
             .hero {
-                min-height: 600px;
-                background:
-                    linear-gradient(rgba(0, 0, 0, 0.5),
-                        rgba(0, 0, 0, 0.3)),
-                    url('Pozadie.png') no-repeat center center/cover;
+                height: 100vh;
             }
 
             .hero-content {
@@ -1273,39 +1070,25 @@
 
             .hero-text {
                 padding: 2rem;
-                backdrop-filter: blur(10px);
-                -webkit-backdrop-filter: blur(10px);
                 margin: 0 10px;
             }
 
             .hero h1 {
-                font-size: 2.2rem !important;
-                line-height: 1.2;
-                margin-bottom: 1.5rem;
+                font-size: 2.2rem;
                 text-align: center;
             }
 
             .hero p {
-                font-size: 1.1rem !important;
-                margin-bottom: 1.5rem;
+                font-size: 1.1rem;
                 text-align: center;
             }
 
             .hero-btns {
-                flex-direction: column !important;
+                flex-direction: column;
                 gap: 1rem;
                 justify-content: center;
             }
 
-            .hero-btns .btn {
-                padding: 1rem 1.5rem;
-                font-size: 1rem;
-                width: 100%;
-                max-width: 280px;
-                margin: 0 auto;
-            }
-
-            /* DÔLEŽITÉ: Oprava About sekcie pre mobil */
             .about-content {
                 grid-template-columns: 1fr;
                 gap: calc(var(--spacing-unit) * 2);
@@ -1315,54 +1098,17 @@
 
             .about-image img {
                 max-height: 300px;
-                width: 100%;
-                margin: 0 auto;
-            }
-
-            .about-text {
-                padding: 0 10px;
-                text-align: center;
-            }
-
-            .about-text h3 {
-                font-size: 1.6rem;
-                margin-bottom: 1rem;
-            }
-
-            .about-text p {
-                font-size: 1rem;
-                line-height: 1.5;
-                text-align: left;
             }
 
             .service-detail-header {
                 flex-direction: column;
                 align-items: flex-start;
                 gap: 1.5rem;
-                position: static;
-            }
-
-            .back-btn {
-                align-self: flex-start;
-                margin-left: 0;
             }
 
             .service-detail-header h2 {
                 width: 100%;
                 text-align: center;
-            }
-
-            .service-detail-text {
-                padding: 0;
-            }
-
-            .service-features {
-                padding-left: 1rem;
-            }
-
-            /* MOBILNÉ OPRAVY PRE KONTAKT */
-            .contact {
-                padding: 100px 0 50px 0 !important;
             }
 
             .contact-container {
@@ -1377,101 +1123,30 @@
                 margin: 0 10px;
             }
 
-            .contact-info h3,
-            .contact-form h3 {
-                font-size: 1.6rem;
-            }
-
-            .contact-text h4 {
-                font-size: 1rem;
-            }
-
-            .contact-text p {
-                font-size: 0.95rem;
-            }
-
-            /* OPRAVA PRE MOBIL - SERVICES SECTION */
             .services-grid {
                 grid-template-columns: 1fr;
-                gap: calc(var(--spacing-unit) * 2);
                 padding: 0 10px;
-            }
-
-            .service-card {
-                margin: 0 10px;
-            }
-
-            .service-card h3 {
-                font-size: 1.4rem;
-            }
-
-            /* DÔLEŽITÉ: Oprava pretekania na mobile */
-            .container {
-                padding: 0 10px;
-                width: 100%;
-                max-width: 100%;
             }
 
             .section {
-                padding: calc(var(--spacing-unit) * 3) 0;
-                width: 100%;
-                overflow: hidden;
-            }
-
-            .section-title {
-                padding-top: 90px !important;
+                min-height: auto;
             }
         }
 
         @media (max-width: 480px) {
-            .section {
-                padding: calc(var(--spacing-unit) * 2) 0;
-            }
-
-            .hero {
-                min-height: 500px;
-            }
-
-            .container {
-                padding: 0 10px;
-            }
-
-            .logo-text {
-                font-size: 1.25rem;
-            }
-
-            .nav-links {
-                top: 70px;
-            }
-
-            .lightbox-btn {
-                width: 50px;
-                height: 50px;
-                font-size: 1.2rem;
-            }
-
-            .lightbox-prev {
-                left: -20px;
-            }
-
-            .lightbox-next {
-                right: -20px;
-            }
-
             .hero-text {
                 padding: 1.5rem;
                 margin: 0 5px;
             }
 
             .hero h1 {
-                font-size: 1.8rem !important;
+                font-size: 1.8rem;
             }
 
             .hero p {
-                font-size: 1rem !important;
+                font-size: 1rem;
             }
 
-            /* EXTRA MALÉ ÚPRAVY PRE VEĽMI MALÉ DISPLEJE */
             .contact-info,
             .contact-form {
                 padding: 1rem;
@@ -1483,181 +1158,6 @@
                 align-items: center;
                 text-align: center;
                 gap: 8px;
-            }
-
-            .contact-icon {
-                width: 35px;
-                height: 35px;
-                font-size: 0.9rem;
-            }
-
-            .section-title h2 {
-                font-size: 2.2rem !important;
-            }
-
-            .about-content {
-                padding: 0 5px;
-            }
-
-            .about-text {
-                padding: 0 5px;
-            }
-        }
-
-        /* ============================================= */
-        /* 16. Kompaktný Header & Footer - Responzívne */
-        /* ============================================= */
-        @media (max-width: 1240px) {
-
-            .header-container,
-            .footer-content {
-                max-width: 95%;
-            }
-        }
-
-        @media (max-width: 768px) {
-            header {
-                padding: 6px 0;
-            }
-
-            .header-container {
-                padding: 0 15px;
-            }
-
-            .logo-text {
-                font-size: 1.1rem;
-            }
-
-            .logo-img {
-                width: 40px;
-                height: 40px;
-            }
-
-            footer {
-                padding: 15px 0 10px;
-            }
-
-            .footer-logo {
-                font-size: 1.1rem;
-            }
-
-            .copyright {
-                font-size: 0.75rem;
-            }
-        }
-
-        /* ============================================= */
-        /* 17. Layout Fix - Footer vždy dole */
-        /* ============================================= */
-        html,
-        body {
-            height: 100%;
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden;
-        }
-
-        body {
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-
-        main {
-            flex: 1 0 auto;
-        }
-
-        footer {
-            flex-shrink: 0;
-            margin-top: auto;
-        }
-
-        /* ============================================= */
-        /* 18. Scroll Bar Fix */
-        /* ============================================= */
-        body {
-            overflow-x: hidden;
-        }
-
-        /* ============================================= */
-        /* ODSTRÁNENIE BIELÉHO PÁSU V SLUŽBÁCH */
-        /* ============================================= */
-        .services {
-            background-color: transparent !important;
-            background: transparent !important;
-        }
-
-        /* ============================================= */
-        /* SILNÁ OPRAVA TEXTOV - FORCÉ */
-        /* ============================================= */
-        .section-title {
-            margin-bottom: 2rem !important;
-        }
-
-        .section-title h2 {
-            margin-bottom: 1rem !important;
-        }
-
-        .about-text h3,
-        .service-card h3 {
-            margin-top: -20px !important;
-            margin-bottom: 1rem !important;
-        }
-
-        .about-text p,
-        .service-card p {
-            margin-top: 0 !important;
-            margin-bottom: 1rem !important;
-        }
-
-        /* ============================================= */
-        /* NOVÉ: POSUNUTIE SEKCIÍ PODĽA POŽIADAVKY */
-        /* ============================================= */
-        .about .section-title {
-            margin-top: -40px !important;
-            margin-bottom: 2rem !important;
-        }
-
-        .services .section-title {
-            margin-top: -40px !important;
-            margin-bottom: 2rem !important;
-        }
-
-        .contact .section-title {
-            margin-top: -20px !important;
-            margin-bottom: 2rem !important;
-        }
-
-        /* ============================================= */
-        /* NOVÉ: ZVÄČŠENIE KONTAKTNÝCH NADPISOV */
-        /* ============================================= */
-        .contact-info h3,
-        .contact-form h3 {
-            font-size: 1.8rem !important;
-        }
-
-        .contact-text p {
-            font-size: 1.05rem !important;
-            line-height: 1.5 !important;
-        }
-
-        .contact-item {
-            margin-bottom: 20px !important;
-        }
-
-        /* ============================================= */
-        /* NOVÉ: OPRAVA HERO PRE PÁTU NA DESKTOPE */
-        /* ============================================= */
-        @media (min-width: 769px) {
-            .hero {
-                height: 100vh;
-                min-height: 800px;
-                padding-bottom: 0;
-            }
-
-            .hero-content {
-                align-items: center;
-                justify-content: center;
             }
         }
     </style>
@@ -1694,11 +1194,7 @@
                 <div class="hero-content">
                     <div class="hero-text">
                         <p>Sme rodinná stolárska dielňa, ktorej hlavným poslaním je výroba drevených rakiev. Každý kus
-                            vzniká s úctou, poctivým remeslom a citom, ktorý sa u nás dedí z generácie na generáciu.
-                            Naše
-                            rakvy spájajú tradičné hodnoty s moderným prístupom – aby boli dôstojné, kvalitné a
-                            esteticky
-                            jedinečné.</p>
+                            vzniká s úctou, poctivým remeslom a citom, ktorý sa u nás dedí z generácie na generáciu.</p>
                         <p>Okrem rakiev vyrábame aj dvere, schody, nábytok na mieru či iné drevené prvky do interiéru aj
                             exteriéru. Každý výrobok vzniká s precíznosťou, úctou k materiálu a láskou k detailu.</p>
                         <div class="hero-btns">
@@ -1709,9 +1205,6 @@
                                 <i class="fas fa-phone-alt"></i> Kontaktujte nás
                             </a>
                         </div>
-                    </div>
-                    <div class="hero-image">
-                        <img src="Pozadie.png" alt="Ukážka našej práce">
                     </div>
                 </div>
             </div>
@@ -1725,8 +1218,7 @@
 
                 <div class="about-content">
                     <div class="about-image">
-                        <img src="firma_logo_new.jpg" alt="Stolárska dielňa Petro"
-                            style="max-height: 400px; object-fit: contain;">
+                        <img src="firma_logo_new.jpg" alt="Stolárska dielňa Petro">
                     </div>
 
                     <div class="about-text">
@@ -1804,8 +1296,7 @@
                 <div class="service-detail-content">
                     <div class="service-detail-text">
                         <p>Ponúkame široký výber rakiev vyrobených z kvalitného dreva, ktoré spĺňajú najvyššie
-                            štandardy.
-                            Každá rakva je vyrábaná s úctou a respektom k zosnulému.</p>
+                            štandardy.</p>
 
                         <h3>Používané materiály:</h3>
                         <ul class="service-features">
@@ -1836,23 +1327,14 @@
                 <div class="service-detail-content">
                     <div class="service-detail-text">
                         <p>Prinášame kvalitne spracované drevené riešenia – od dverí a okien cez schody až po
-                            prístrešky,
-                            ktoré spájajú funkčnosť s estetikou.</p>
+                            prístrešky.</p>
 
                         <h3>Naša ponuka:</h3>
                         <ul class="service-features">
                             <li>Schodiská a zábradlia</li>
                             <li>Dvere na mieru</li>
-                            <li>Certifikované drevené Eeurookná</li>
+                            <li>Certifikované drevené Eurookná</li>
                             <li>Drevovýrobky do interiéru a exteriéru</li>
-                        </ul>
-
-                        <h3>Výhody:</h3>
-                        <ul class="service-features">
-                            <li>Individuálny prístup ku každému projektu</li>
-                            <li>Používame iba kvalitné a certifikované materiály</li>
-                            <li>Dlhá životnosť a odolnosť výrobkov</li>
-                            <li>Ekologické a zdravotne nezávadné spracovanie</li>
                         </ul>
 
                         <div class="gallery" id="gallery-furniture"></div>
@@ -1875,24 +1357,14 @@
                 </div>
                 <div class="service-detail-content">
                     <div class="service-detail-text">
-                        <p>Naše drevené brikety sú vyrábané z čistých pilín bez akýchkoľvek chemických prísad. Vznikajú
-                            lisovaním pri vysokom tlaku, čo im dodáva výnimočnú hustotu a vysokú výhrevnosť.</p>
+                        <p>Naše drevené brikety sú vyrábané z čistých pilín bez akýchkoľvek chemických prísad.</p>
 
                         <h3>Vlastnosti našich brikiet:</h3>
                         <ul class="service-features">
-                            <li>Vysoká výhrevnosť – až 18,31 MJ/kg (porovnateľná s čiernym uhlím)</li>
-                            <li>Nízka vlhkosť – iba 3,17 %</li>
-                            <li>OMinimálny obsah popola – len 1,45 %, vhodný ako hnojivo</li>
-                            <li>Rkologické palivo bez chemických prísad</li>
-                        </ul>
-
-                        <h3>Výhody:</h3>
-                        <ul class="service-features">
-                            <li>Dlhý čas horenia – približne 90 minút</li>
-                            <li>Vhodné pre takmer všetky typy kotlov, krbov a piecok na pevné palivo</li>
-                            <li>Horenie s jasným plameňom a minimálnym dymom</li>
-                            <li>Príjemná vôňa prírodného dreva</li>
-                            <li>Vhodné pre všetky druhy krbov a kachlí</li>
+                            <li>Vysoká výhrevnosť – až 18,31 MJ/kg</li>
+                            <li>Nízka vlhkosť – iba 3,17 %</li>
+                            <li>Minimálny obsah popola – len 1,45 %</li>
+                            <li>Ekologické palivo bez chemických prísad</li>
                         </ul>
 
                         <div class="gallery" id="gallery-briquettes"></div>
@@ -1997,7 +1469,6 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">Stolárstvo Petro</div>
-
                 <p class="copyright">&copy; Miloš Gall. Všetky práva vyhradené.</p>
             </div>
         </div>
@@ -2021,9 +1492,6 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            // =============================================
-            // 1. Mobile Navigation
-            // =============================================
             const mobileMenuBtn = document.getElementById('mobileMenuBtn');
             const navLinks = document.getElementById('navLinks');
             const headerElement = document.querySelector('header');
@@ -2037,12 +1505,6 @@
                     '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
             });
 
-            window.addEventListener('resize', function () {
-                if (navLinks.classList.contains('active')) {
-                    navLinks.style.top = headerElement.offsetHeight + 'px';
-                }
-            });
-
             document.querySelectorAll('.nav-link').forEach(link => {
                 link.addEventListener('click', function () {
                     if (navLinks.classList.contains('active')) {
@@ -2052,9 +1514,6 @@
                 });
             });
 
-            // =============================================
-            // 2. Dark Mode Toggle
-            // =============================================
             const themeToggle = document.getElementById('themeToggle');
             const body = document.body;
 
@@ -2074,9 +1533,6 @@
                 }
             });
 
-            // =============================================
-            // 3. Section Navigation & Visibility - KOMPLETNE OPRAVENÉ
-            // =============================================
             const allContent = document.querySelectorAll('section, .service-detail');
 
             function hideAllContent() {
@@ -2089,12 +1545,8 @@
                 hideAllContent();
                 const contentToShow = document.getElementById(contentId);
                 if (contentToShow) {
-                    contentToShow.style.display = 'block';
-
-                    // DÔLEŽITÉ: VŽDY resetovať scroll na vrch
-                    window.scrollTo(0, 0);
-
-                    // Aktualizovať aktívnu navigáciu
+                    contentToShow.style.display = 'flex';
+                    window.scrollTo({ top: 0, behavior: 'instant' });
                     document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
                     const activeLink = document.querySelector(`.nav-link[onclick*="'${contentId}'"]`);
                     if (activeLink) activeLink.classList.add('active');
@@ -2106,12 +1558,8 @@
                 showContent(sectionId);
             };
 
-            // Zobraziť úvodnú stránku pri načítaní
             showContent('hero');
 
-            // =============================================
-            // 4. Service Details
-            // =============================================
             window.showServiceDetail = function (serviceId, event) {
                 if (event) {
                     event.preventDefault();
@@ -2124,9 +1572,6 @@
                 showContent('services');
             };
 
-            // =============================================
-            // 5. Gallery & Lightbox
-            // =============================================
             const galleryData = {
                 coffins: [
                     { src: 'M21_Amerika_01.jpg', caption: 'Model M21 Amerika' },
@@ -2152,7 +1597,6 @@
                     { src: 'M10_smrek.jpg', caption: 'Model M10 Smrek' },
                     { src: 'M10_P_smrek_01.jpg', caption: 'Model M10 Smrek 01' },
                     { src: 'detail.jpg', caption: 'Model Detail' }
-
                 ],
                 furniture: [
                     { src: 'dvere_matne.jpg', caption: '' },
@@ -2192,9 +1636,9 @@
                         const galleryItem = document.createElement('div');
                         galleryItem.className = 'gallery-item';
                         galleryItem.innerHTML = `
-                <img src="${item.src}" alt="${item.caption}">
-                <div class="gallery-caption">${item.caption}</div>
-            `;
+                            <img src="${item.src}" alt="${item.caption}">
+                            <div class="gallery-caption">${item.caption}</div>
+                        `;
                         galleryItem.addEventListener('click', () => openLightbox(galleryId, index));
                         galleryContainer.appendChild(galleryItem);
                     });
@@ -2212,91 +1656,3 @@
             let currentIndex = 0;
 
             function openLightbox(galleryId, index) {
-                currentGallery = galleryId;
-                currentIndex = index;
-                updateLightboxImage();
-                lightbox.classList.add('active');
-                document.body.style.overflow = 'hidden';
-                document.addEventListener('keydown', handleKeyPress);
-            }
-
-            function closeLightbox() {
-                lightbox.classList.remove('active');
-                document.body.style.overflow = '';
-                document.removeEventListener('keydown', handleKeyPress);
-            }
-
-            function updateLightboxImage() {
-                const image = galleryData[currentGallery][currentIndex];
-                lightboxImg.src = image.src;
-                lightboxImg.alt = image.caption;
-                lightboxCaption.textContent = image.caption;
-            }
-
-            function showPrevImage() {
-                currentIndex = (currentIndex - 1 + galleryData[currentGallery].length) % galleryData[currentGallery].length;
-                updateLightboxImage();
-            }
-
-            function showNextImage() {
-                currentIndex = (currentIndex + 1) % galleryData[currentGallery].length;
-                updateLightboxImage();
-            }
-
-            function handleKeyPress(e) {
-                if (e.key === 'Escape') closeLightbox();
-                if (e.key === 'ArrowLeft') showPrevImage();
-                if (e.key === 'ArrowRight') showNextImage();
-            }
-
-            lightboxClose.addEventListener('click', closeLightbox);
-            lightboxPrev.addEventListener('click', showPrevImage);
-            lightboxNext.addEventListener('click', showNextImage);
-            lightbox.addEventListener('click', function (e) {
-                if (e.target === lightbox) {
-                    closeLightbox();
-                }
-            });
-
-            // =============================================
-            // 6. RESET SCROLL POSITION - NOVÁ FUNKCIA
-            // =============================================
-            function resetScrollPosition() {
-                // Resetovať scroll na vrch stránky
-                window.scrollTo(0, 0);
-
-                // Resetovať scroll vnútorných kontajnerov
-                document.querySelectorAll('.service-detail-content, .gallery, .contact-container').forEach(container => {
-                    container.scrollTop = 0;
-                });
-            }
-
-            // Override funkcie na zobrazenie sekcií
-            const originalShowSection = window.showSection;
-            window.showSection = function (sectionId, event) {
-                if (event) event.preventDefault();
-                originalShowSection(sectionId, event);
-                resetScrollPosition();
-            };
-
-            // Override funkcie pre service details
-            const originalShowServiceDetail = window.showServiceDetail;
-            window.showServiceDetail = function (serviceId, event) {
-                if (event) {
-                    event.preventDefault();
-                    event.stopPropagation();
-                }
-                originalShowServiceDetail(serviceId, event);
-                resetScrollPosition();
-            };
-
-            const originalHideServiceDetail = window.hideServiceDetail;
-            window.hideServiceDetail = function (serviceId) {
-                originalHideServiceDetail(serviceId);
-                resetScrollPosition();
-            };
-        });
-    </script>
-</body>
-
-</html>

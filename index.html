@@ -1668,6 +1668,25 @@
                 font-size: 0.9rem;
             }
         }
+
+        /* ============================================= */
+        /* OPRAVA PREKRÝVANIA SEKCIÍ NA MOBILE */
+        /* ============================================= */
+        @media (max-width: 768px) {
+
+            /* Hero sekcia je viditeľná LEN keď je aktívna */
+            #hero:not(.active) {
+                display: none !important;
+            }
+
+            /* Ostatné sekcie sú viditeľné LEN keď sú aktívne */
+            #about:not(.active),
+            #services:not(.active),
+            #contact:not(.active),
+            .service-detail:not(.active) {
+                display: none !important;
+            }
+        }
     </style>
 </head>
 
@@ -2084,7 +2103,10 @@
 
             function hideAllContent() {
                 allContent.forEach(content => {
-                    content.style.display = 'none';
+                    // Na mobile použijeme display: none, na desktope necháme pôvodné
+                    if (window.innerWidth <= 768) {
+                        content.style.display = 'none';
+                    }
                 });
             }
 
@@ -2092,9 +2114,9 @@
                 hideAllContent();
                 const contentToShow = document.getElementById(contentId);
                 if (contentToShow) {
+                    // Na mobile vždy zobrazíme
                     contentToShow.style.display = 'block';
 
-                    // Scroll na začiatok sekcie
                     const headerHeight = headerElement ? headerElement.offsetHeight : 90;
                     window.scrollTo({
                         top: contentToShow.offsetTop - (headerHeight + 10),

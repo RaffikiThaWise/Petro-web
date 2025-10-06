@@ -2099,14 +2099,14 @@
             // =============================================
             // 3. Section Navigation & Visibility - OPRAVENÉ
             // =============================================
+            // =============================================
+            // 3. Section Navigation & Visibility - PÔVODNÝ + MOBILE FIX
+            // =============================================
             const allContent = document.querySelectorAll('section, .service-detail');
 
             function hideAllContent() {
                 allContent.forEach(content => {
-                    // Na mobile použijeme display: none, na desktope necháme pôvodné
-                    if (window.innerWidth <= 768) {
-                        content.style.display = 'none';
-                    }
+                    content.style.display = 'none';
                 });
             }
 
@@ -2114,7 +2114,6 @@
                 hideAllContent();
                 const contentToShow = document.getElementById(contentId);
                 if (contentToShow) {
-                    // Na mobile vždy zobrazíme
                     contentToShow.style.display = 'block';
 
                     const headerHeight = headerElement ? headerElement.offsetHeight : 90;
@@ -2133,7 +2132,7 @@
                 if (activeLink) activeLink.classList.add('active');
             };
 
-            // ZOBRAZÍME LEN HERO SEKCIU NA ZAČIATKU
+            // NA ZAČIATKU: VŽDY skryť všetko a zobraziť hero
             hideAllContent();
             document.getElementById('hero').style.display = 'block';
 

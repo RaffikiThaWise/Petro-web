@@ -1026,8 +1026,8 @@
         /* ============================================= */
         .contact {
             background-color: var(--color-background);
-            padding: 10px 0 50px 0 !important;
-            /* VRCH ešte menší (10px), SPODOK väčší (50px) */
+            padding: 10px 0 30px 0 !important;
+            /* ZMENENÉ: Zmenšené spodné padding z 50px na 30px */
             min-height: auto;
         }
 
@@ -2000,7 +2000,7 @@
             });
 
             // =============================================
-            // 3. Section Navigation & Visibility
+            // 3. Section Navigation & Visibility - OPRAVENÉ
             // =============================================
             const allContent = document.querySelectorAll('section, .service-detail');
 
@@ -2015,15 +2015,13 @@
                 const contentToShow = document.getElementById(contentId);
                 if (contentToShow) {
                     contentToShow.style.display = 'block';
-                    if (contentId !== 'hero') {
-                        const headerHeight = headerElement ? headerElement.offsetHeight : 90;
-                        window.scrollTo({
-                            top: contentToShow.offsetTop - (headerHeight + 10), // MODIFIED: Offset with 10px gap
-                            behavior: 'smooth'
-                        });
-                    } else {
-                        window.scrollTo({ top: 0, behavior: 'smooth' });
-                    }
+
+                    // Vždy scrollovať na začiatok sekcie
+                    const headerHeight = headerElement ? headerElement.offsetHeight : 90;
+                    window.scrollTo({
+                        top: contentToShow.offsetTop - (headerHeight + 10),
+                        behavior: 'smooth'
+                    });
                 }
             }
 
@@ -2199,7 +2197,7 @@
             if (contactSection && contactTitle && contactContainer) {
                 // Force styles
                 contactSection.style.paddingTop = '5px'; /* Zmenšené z 10px */
-                contactSection.style.paddingBottom = '50px';
+                contactSection.style.paddingBottom = '30px'; /* Zmenené z 50px na 30px */
                 contactTitle.style.marginTop = '25px'; /* Zvýšené z 20px */
                 contactContainer.style.marginTop = '25px';
 

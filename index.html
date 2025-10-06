@@ -2061,27 +2061,28 @@
                     contentToShow.style.display = 'block';
 
                     if (window.innerWidth <= 768) {
-                        // --- IBA MOBILNÁ LOGIKA ---
-                        // KROK 1: Vynútený, OKAMŽITÝ skok na vrch stránky.
-                        // 'instant' správanie prepíše CSS 'smooth' scroll.
-                        window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+                        // MOBILNÁ LOGIKA - kompletne prepracovaná
+                        // Najprv OKAMŽITE skočíme úplne hore bez akéhokoľvek oneskorenia
+                        document.documentElement.scrollTop = 0;
+                        document.body.scrollTop = 0;
 
-                        // KROK 2: S minimálnym oneskorením, aby prehliadač stihol zaregistrovať skok,
-                        // urobíme plynulý scroll na cieľovú sekciu.
-                        setTimeout(() => {
-                            let scrollPosition = 0;
-                            if (contentId !== 'hero') {
-                                const headerHeight = headerElement.offsetHeight;
-                                scrollPosition = contentToShow.getBoundingClientRect().top + window.scrollY - headerHeight - 15;
-                            }
-                            window.scrollTo({
-                                top: scrollPosition,
-                                behavior: 'smooth' // Tento scroll už bude plynulý
+                        // Potom počkáme kým prehliadač vykreslí obsah a až potom scrollujeme na sekciu
+                        requestAnimationFrame(() => {
+                            requestAnimationFrame(() => {
+                                let scrollPosition = 0;
+                                if (contentId !== 'hero') {
+                                    const headerHeight = headerElement.offsetHeight;
+                                    scrollPosition = contentToShow.getBoundingClientRect().top + window.scrollY - headerHeight - 15;
+                                }
+                                window.scrollTo({
+                                    top: scrollPosition,
+                                    behavior: 'smooth'
+                                });
                             });
-                        }, 50); // Mierne zvýšené oneskorenie pre istotu
+                        });
 
                     } else {
-                        // --- IBA DESKTOPOVÁ LOGIKA (PÔVODNÁ, FUNKČNÁ) ---
+                        // DESKTOPOVÁ LOGIKA (pôvodná, funguje správne)
                         setTimeout(() => {
                             let scrollPosition = 0;
                             if (contentId !== 'hero') {

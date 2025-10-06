@@ -16,7 +16,15 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+
     <style>
+        /* ============================================= */
+        /* 1. CSS Variables & Base Styles */
+        /* ============================================= */
         :root {
             --color-primary: #8B5F4C;
             --color-primary-dark: #5A3A2C;
@@ -57,7 +65,6 @@
         html {
             scroll-behavior: smooth;
             font-size: 100%;
-            overflow-x: hidden;
         }
 
         body {
@@ -67,9 +74,6 @@
             line-height: 1.6;
             overflow-x: hidden;
             transition: var(--transition);
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
         }
 
         body.dark-mode {
@@ -78,10 +82,9 @@
             background-image: linear-gradient(to bottom, #000000, #0a0a0a, #141414);
         }
 
-        main {
-            flex: 1 0 auto;
-        }
-
+        /* ============================================= */
+        /* 2. Typography */
+        /* ============================================= */
         h1,
         h2,
         h3,
@@ -129,6 +132,9 @@
             transition: var(--transition);
         }
 
+        /* ============================================= */
+        /* 3. Utility Classes */
+        /* ============================================= */
         .container {
             width: 100%;
             max-width: var(--max-width);
@@ -139,9 +145,6 @@
         .section {
             padding: calc(var(--spacing-unit) * 6) 0;
             position: relative;
-            min-height: calc(100vh - 77px);
-            display: flex;
-            align-items: center;
         }
 
         .section-title {
@@ -193,6 +196,18 @@
             color: var(--color-text-light);
         }
 
+        .text-center {
+            text-align: center;
+        }
+
+        /* ============================================= */
+        /* 4. Dark Mode Styles */
+        /* ============================================= */
+        body.dark-mode {
+            background-color: var(--color-dark-bg);
+            color: var(--color-dark-text);
+        }
+
         body.dark-mode h1,
         body.dark-mode h2,
         body.dark-mode h3,
@@ -228,6 +243,9 @@
             color: var(--color-dark-text-light);
         }
 
+        /* ============================================= */
+        /* 5. Header & Navigation */
+        /* ============================================= */
         header {
             position: fixed;
             top: 0;
@@ -241,12 +259,6 @@
             transition: var(--transition);
         }
 
-        body.dark-mode header {
-            background-color: rgba(10, 10, 10, 0.8);
-            border-bottom-color: var(--color-dark-border);
-            backdrop-filter: var(--backdrop-blur);
-        }
-
         .header-container {
             display: flex;
             justify-content: space-between;
@@ -254,12 +266,6 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
         }
 
         .logo-img {
@@ -272,6 +278,38 @@
         .logo-text {
             font-family: var(--font-secondary);
             font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--color-primary-dark);
+        }
+
+        body.dark-mode header {
+            background-color: rgba(10, 10, 10, 0.8);
+            border-bottom-color: var(--color-dark-border);
+            backdrop-filter: var(--backdrop-blur);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-img {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+            border-radius: 50%;
+        }
+
+        .logo-text {
+            font-family: var(--font-secondary);
+            font-size: 1.5rem;
             font-weight: 700;
             color: var(--color-primary-dark);
         }
@@ -370,15 +408,19 @@
             background-color: rgba(255, 255, 255, 0.1);
         }
 
-        /* HERO - FIXED HEIGHT */
+        /* ============================================= */
+        /* 6. Hero Section - UPRAVENÉ */
+        /* ============================================= */
         .hero {
             height: 100vh;
+            min-height: 800px;
             display: flex;
             align-items: center;
             position: relative;
             overflow: hidden;
             background:
-                linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.2)),
+                linear-gradient(rgba(0, 0, 0, 0.4),
+                    rgba(0, 0, 0, 0.2)),
                 url('Pozadie.png') no-repeat center center/cover;
             color: var(--color-text-light);
         }
@@ -403,6 +445,8 @@
             max-width: var(--max-width);
             margin: 0 auto;
             padding: 0 calc(var(--spacing-unit) * 2);
+            margin-top: 60px;
+            padding-top: calc(var(--spacing-unit) * 4);
             display: grid;
             grid-template-columns: 1.2fr 0.8fr;
             gap: 4rem;
@@ -426,6 +470,10 @@
             backdrop-filter: var(--backdrop-blur);
         }
 
+        .hero-image {
+            display: none;
+        }
+
         .hero h1 {
             font-size: clamp(2.5rem, 5.5vw, 4.8rem);
             letter-spacing: -0.05em;
@@ -444,6 +492,9 @@
             margin-bottom: 2.5rem;
             opacity: 0;
             animation: fadeInUp 1s ease 0.3s forwards;
+            max-width: none;
+            margin-left: 0;
+            margin-right: 0;
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
             line-height: 1.7;
         }
@@ -468,6 +519,9 @@
             }
         }
 
+        /* ============================================= */
+        /* 7. About Section - UPRAVENÉ */
+        /* ============================================= */
         .about-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -477,21 +531,27 @@
 
         .about-text {
             padding: 1rem 0;
+            margin-top: -10px;
         }
 
         .about-text h3 {
             margin-bottom: 1rem;
             font-size: 1.8rem;
+            /* Zmenšené z pôvodného */
         }
 
-        .about-image img {
-            width: 100%;
-            max-height: 400px;
-            object-fit: contain;
-            display: block;
+        .about-text p {
+            margin-bottom: 1rem;
         }
 
+        /* ============================================= */
+        /* 8. Services Section - UPRAVENÉ */
+        /* ============================================= */
         .services {
+            background-color: var(--color-accent);
+        }
+
+        body.dark-mode .services {
             background-color: transparent;
         }
 
@@ -546,6 +606,7 @@
             margin-bottom: 1rem;
             color: var(--color-primary-dark);
             font-size: 1.5rem;
+            /* Zmenšené z pôvodného */
         }
 
         body.dark-mode .service-card h3 {
@@ -558,11 +619,13 @@
             line-height: 1.5;
         }
 
+        /* ============================================= */
+        /* 9. Service Detail Section */
+        /* ============================================= */
         .service-detail {
             display: none;
             padding: calc(var(--spacing-unit) * 6) 0;
             background-color: var(--color-background);
-            min-height: calc(100vh - 77px);
         }
 
         body.dark-mode .service-detail {
@@ -618,6 +681,11 @@
             margin: 0;
         }
 
+        .service-detail-header h2::after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
         .service-detail-content {
             display: grid;
             grid-template-columns: 1fr;
@@ -635,6 +703,10 @@
             border-radius: var(--border-radius-lg);
             backdrop-filter: var(--backdrop-blur);
             border: 1px solid var(--color-dark-border);
+        }
+
+        .service-detail-text p {
+            margin-bottom: 1.5rem;
         }
 
         .service-features {
@@ -667,6 +739,31 @@
             color: var(--color-dark-accent);
         }
 
+        .service-detail-image {
+            border-radius: var(--border-radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+
+        body.dark-mode .service-detail-image {
+            border: 1px solid var(--color-dark-border);
+        }
+
+        .service-detail-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .service-detail .btn-primary {
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        /* ============================================= */
+        /* 10. Gallery */
+        /* ============================================= */
         .service-detail .gallery {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -723,6 +820,7 @@
             font-family: var(--font-secondary);
             font-size: 0.9rem;
             background-color: var(--color-accent);
+            border-radius: 0 0 var(--border-radius) var(--border-radius);
         }
 
         body.dark-mode .service-detail .gallery-caption {
@@ -730,9 +828,13 @@
             background-color: var(--color-dark-surface-alt);
         }
 
+        /* ============================================= */
+        /* 11. Contact Section - KOMPLETNE OPRAVENÉ */
+        /* ============================================= */
         .contact {
             background-color: var(--color-background);
-            min-height: calc(100vh - 77px);
+            padding: 30px 0;
+            min-height: auto;
         }
 
         body.dark-mode .contact {
@@ -752,6 +854,7 @@
             padding: 25px;
             border-radius: var(--border-radius-lg);
             box-shadow: var(--shadow-sm);
+            height: auto;
         }
 
         body.dark-mode .contact-info,
@@ -765,7 +868,8 @@
         .contact-form h3 {
             margin-bottom: 20px;
             color: var(--color-primary-dark);
-            font-size: 1.8rem;
+            font-size: 1.6rem;
+            /* Zvýšené */
             font-family: var(--font-secondary);
             text-align: center;
         }
@@ -803,6 +907,7 @@
         .contact-text h4 {
             font-family: var(--font-primary);
             font-size: 1.1rem;
+            /* Zvýšené */
             margin-bottom: 5px;
             color: var(--color-primary-dark);
             font-weight: 600;
@@ -810,8 +915,9 @@
 
         .contact-text p {
             margin-bottom: 0;
-            font-size: 1.05rem;
-            line-height: 1.5;
+            font-size: 1rem;
+            /* Zvýšené */
+            line-height: 1.4;
             color: var(--color-text);
         }
 
@@ -823,6 +929,7 @@
             color: var(--color-dark-text);
         }
 
+        /* Form styles */
         .form-group {
             margin-bottom: 18px;
         }
@@ -873,8 +980,86 @@
             resize: vertical;
         }
 
+        .contact-form .btn-primary {
+            padding: 10px 20px;
+            font-size: 0.9rem;
+            margin-top: 10px;
+        }
+
+        /* ============================================= */
+        /* Section Title Fix - "Kontaktujte nás" EŠTE NIŽŠIE */
+        /* ============================================= */
+        .section-title {
+            padding-top: 65px !important;
+            margin-bottom: 0 !important;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem !important;
+            margin-bottom: 5px !important;
+            padding-top: 0 !important;
+            text-align: center;
+            color: var(--color-primary-dark) !important;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* ============================================= */
+        /* Contact Section - Karty nižšie */
+        /* ============================================= */
+        .contact {
+            background-color: var(--color-background);
+            padding: 10px 0 50px 0 !important;
+            min-height: auto;
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            align-items: stretch;
+            margin-top: 20px !important;
+        }
+
+        .contact-info,
+        .contact-form {
+            background-color: var(--color-text-light);
+            padding: 25px;
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-sm);
+            height: auto;
+            margin-top: 10px !important;
+        }
+
+        /* ============================================= */
+        /* Layout Fix - žiadny scroll */
+        /* ============================================= */
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        main {
+            flex: 1 0 auto;
+        }
+
         footer {
             flex-shrink: 0;
+            margin-top: auto;
+        }
+
+        /* ============================================= */
+        /* 12. Footer - KOMPAKTNÝ */
+        /* ============================================= */
+        footer {
             background-color: var(--color-primary-dark);
             color: var(--color-text-light);
             padding: 20px 0 15px;
@@ -910,6 +1095,9 @@
             border-top: 1px solid var(--color-dark-border);
         }
 
+        /* ============================================= */
+        /* 13. Lightbox */
+        /* ============================================= */
         .lightbox {
             position: fixed;
             top: 0;
@@ -1010,6 +1198,9 @@
             background-color: var(--color-primary);
         }
 
+        /* ============================================= */
+        /* 14. Animations */
+        /* ============================================= */
         @keyframes fadeIn {
             from {
                 opacity: 0;
@@ -1022,9 +1213,26 @@
             }
         }
 
+        /* ============================================= */
+        /* 15. Responsive Design - VÝRAZNE VYLEPŠENÉ */
+        /* ============================================= */
+        @media (max-width: 1024px) {
+            .section {
+                padding: calc(var(--spacing-unit) * 4) 0;
+            }
+
+            .hero {
+                min-height: 700px;
+            }
+        }
+
         @media (max-width: 768px) {
             .mobile-menu-btn {
                 display: block;
+            }
+
+            #hero {
+                display: flex !important;
             }
 
             .nav-links {
@@ -1058,29 +1266,16 @@
             }
 
             .hero {
-                height: 100vh;
+                min-height: 600px;
             }
 
             .hero-content {
                 grid-template-columns: 1fr;
                 text-align: center;
-                gap: 2rem;
-                padding: 0 15px;
             }
 
             .hero-text {
-                padding: 2rem;
-                margin: 0 10px;
-            }
-
-            .hero h1 {
-                font-size: 2.2rem;
-                text-align: center;
-            }
-
-            .hero p {
-                font-size: 1.1rem;
-                text-align: center;
+                padding-right: 0;
             }
 
             .hero-btns {
@@ -1089,21 +1284,16 @@
                 justify-content: center;
             }
 
-            .about-content {
-                grid-template-columns: 1fr;
-                gap: calc(var(--spacing-unit) * 2);
-                text-align: center;
-                padding: 0 10px;
-            }
-
-            .about-image img {
-                max-height: 300px;
-            }
-
             .service-detail-header {
                 flex-direction: column;
                 align-items: flex-start;
                 gap: 1.5rem;
+                position: static;
+            }
+
+            .back-btn {
+                align-self: flex-start;
+                margin-left: 0;
             }
 
             .service-detail-header h2 {
@@ -1111,46 +1301,151 @@
                 text-align: center;
             }
 
+            .service-detail-text {
+                padding: 0;
+            }
+
+            .service-features {
+                padding-left: 1rem;
+            }
+
+            /* MOBILNÉ OPRAVY PRE KONTAKT */
             .contact-container {
                 grid-template-columns: 1fr;
                 gap: calc(var(--spacing-unit) * 1.5);
-                padding: 0 10px;
             }
 
             .contact-info,
             .contact-form {
                 padding: 1.25rem;
-                margin: 0 10px;
             }
 
+            .contact-info h3,
+            .contact-form h3 {
+                font-size: 1.4rem;
+            }
+
+            .contact-text h4 {
+                font-size: 1rem;
+            }
+
+            .contact-text p {
+                font-size: 0.95rem;
+            }
+
+            /* OPRAVA PRE MOBIL - ABOUT SECTION */
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .about-text {
+                margin-top: 0;
+            }
+
+            /* OPRAVA PRE MOBIL - SERVICES SECTION */
             .services-grid {
                 grid-template-columns: 1fr;
-                padding: 0 10px;
+                gap: calc(var(--spacing-unit) * 2);
             }
 
-            .section {
-                min-height: auto;
+            .service-card h3 {
+                font-size: 1.4rem;
+            }
+
+            /* OPRAVA PRE MOBIL - HERO SECTION */
+            .hero-content {
+                display: grid !important;
+                opacity: 1 !important;
+                visibility: visible !important;
+                gap: 1rem;
+                padding: 0 var(--spacing-unit);
+            }
+
+            .hero-text {
+                padding: 2rem;
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+            }
+
+            .hero h1 {
+                font-size: 2.2rem !important;
+                line-height: 1.2;
+                margin-bottom: 1.5rem;
+                text-align: center;
+            }
+
+            .hero p {
+                font-size: 1.1rem !important;
+                margin-bottom: 1.5rem;
+                text-align: center;
+            }
+
+            .hero-btns {
+                flex-direction: column !important;
+                gap: 1rem;
+            }
+
+            .hero-btns .btn {
+                padding: 1rem 1.5rem;
+                font-size: 1rem;
+                width: 100%;
+                max-width: 280px;
+                margin: 0 auto;
             }
         }
 
         @media (max-width: 480px) {
+            .section {
+                padding: calc(var(--spacing-unit) * 3) 0;
+            }
+
+            .hero {
+                min-height: 500px;
+            }
+
+            .container {
+                padding: 0 var(--spacing-unit);
+            }
+
+            .logo-text {
+                font-size: 1.25rem;
+            }
+
+            .nav-links {
+                top: 70px;
+            }
+
+            .lightbox-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+
+            .lightbox-prev {
+                left: -20px;
+            }
+
+            .lightbox-next {
+                right: -20px;
+            }
+
             .hero-text {
                 padding: 1.5rem;
-                margin: 0 5px;
             }
 
             .hero h1 {
-                font-size: 1.8rem;
+                font-size: 1.8rem !important;
             }
 
             .hero p {
-                font-size: 1rem;
+                font-size: 1rem !important;
             }
 
+            /* EXTRA MALÉ ÚPRAVY PRE VEĽMI MALÉ DISPLEJE */
             .contact-info,
             .contact-form {
                 padding: 1rem;
-                margin: 0 5px;
             }
 
             .contact-item {
@@ -1158,6 +1453,176 @@
                 align-items: center;
                 text-align: center;
                 gap: 8px;
+            }
+
+            .contact-icon {
+                width: 35px;
+                height: 35px;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* ============================================= */
+        /* 16. Kompaktný Header & Footer - Responzívne */
+        /* ============================================= */
+        @media (max-width: 1240px) {
+
+            .header-container,
+            .footer-content {
+                max-width: 95%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 6px 0;
+            }
+
+            .header-container {
+                padding: 0 15px;
+            }
+
+            .logo-text {
+                font-size: 1.1rem;
+            }
+
+            .logo-img {
+                width: 40px;
+                height: 40px;
+            }
+
+            footer {
+                padding: 15px 0 10px;
+            }
+
+            .footer-logo {
+                font-size: 1.1rem;
+            }
+
+            .copyright {
+                font-size: 0.75rem;
+            }
+        }
+
+        /* ============================================= */
+        /* 17. Layout Fix - Footer vždy dole */
+        /* ============================================= */
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        main {
+            flex: 1 0 auto;
+        }
+
+        footer {
+            flex-shrink: 0;
+            margin-top: auto;
+        }
+
+        /* ============================================= */
+        /* 18. Scroll Bar Fix */
+        /* ============================================= */
+        body {
+            overflow-x: hidden;
+        }
+
+        /* ============================================= */
+        /* ODSTRÁNENIE BIELÉHO PÁSU V SLUŽBÁCH */
+        /* ============================================= */
+        .services {
+            background-color: transparent !important;
+            background: transparent !important;
+        }
+
+        /* ============================================= */
+        /* SILNÁ OPRAVA TEXTOV - FORCÉ */
+        /* ============================================= */
+        .section-title {
+            margin-bottom: 2rem !important;
+        }
+
+        .section-title h2 {
+            margin-bottom: 1rem !important;
+        }
+
+        .about-text h3,
+        .service-card h3 {
+            margin-top: -20px !important;
+            margin-bottom: 1rem !important;
+        }
+
+        .about-text p,
+        .service-card p {
+            margin-top: 0 !important;
+            margin-bottom: 1rem !important;
+        }
+
+        /* ============================================= */
+        /* NOVÉ: POSUNUTIE SEKCIÍ PODĽA POŽIADAVKY */
+        /* ============================================= */
+        .about .section-title {
+            margin-top: -20px !important;
+            margin-bottom: 2rem !important;
+        }
+
+        .services .section-title {
+            margin-top: -20px !important;
+            margin-bottom: 2rem !important;
+        }
+
+        /* ============================================= */
+        /* NOVÉ: ZMENŠENIE ZAKRÚŽKOVANÝCH ČASTÍ */
+        /* ============================================= */
+        .service-card {
+            transform: scale(0.95);
+            transition: var(--transition);
+        }
+
+        .service-card:hover {
+            transform: scale(0.95) translateY(-10px);
+        }
+
+        /* ============================================= */
+        /* NOVÉ: ZVÄČŠENIE KONTAKTNÝCH ČASTÍ */
+        /* ============================================= */
+        .contact-info {
+            transform: scale(1.02);
+        }
+
+        .contact-text p {
+            font-size: 1.05rem !important;
+            line-height: 1.5 !important;
+        }
+
+        .contact-item {
+            margin-bottom: 20px !important;
+        }
+
+        /* ============================================= */
+        /* NOVÉ: MOBILNÉ ÚPRAVY PRE ZMENŠENÉ ČASTI */
+        /* ============================================= */
+        @media (max-width: 768px) {
+            .service-card {
+                transform: scale(1);
+            }
+
+            .service-card:hover {
+                transform: translateY(-10px);
+            }
+
+            .contact-info {
+                transform: scale(1);
             }
         }
     </style>
@@ -1188,287 +1653,309 @@
         </div>
     </header>
 
-    <main>
-        <section class="hero" id="hero">
-            <div class="container">
-                <div class="hero-content">
-                    <div class="hero-text">
-                        <p>Sme rodinná stolárska dielňa, ktorej hlavným poslaním je výroba drevených rakiev. Každý kus
-                            vzniká s úctou, poctivým remeslom a citom, ktorý sa u nás dedí z generácie na generáciu.</p>
-                        <p>Okrem rakiev vyrábame aj dvere, schody, nábytok na mieru či iné drevené prvky do interiéru aj
-                            exteriéru. Každý výrobok vzniká s precíznosťou, úctou k materiálu a láskou k detailu.</p>
-                        <div class="hero-btns">
-                            <a href="#" class="btn btn-primary" onclick="showSection('services', event)">
-                                <i class="fas fa-hammer"></i> Naše služby
-                            </a>
-                            <a href="#" class="btn btn-outline" onclick="showSection('contact', event)">
-                                <i class="fas fa-phone-alt"></i> Kontaktujte nás
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section about" id="about">
-            <div class="container">
-                <div class="section-title">
-                    <h2>O našej dielni</h2>
-                </div>
-
-                <div class="about-content">
-                    <div class="about-image">
-                        <img src="firma_logo_new.jpg" alt="Stolárska dielňa Petro">
-                    </div>
-
-                    <div class="about-text">
-                        <h3>Tradícia a kvalita od roku 1992</h3>
-                        <p>Sme rodinný podnik s dlhoročnou tradíciou v stolárskom remesle. Naša dielňa kombinuje moderné
-                            technológie s tradičnými postupmi, čo nám umožňuje vytvárať výnimočné drevené výrobky.</p>
-                        <p>Špecializujeme sa na výrobu kvalitných rakiev, okien, prístreškov, schodov a dverí, ako aj na
-                            predaj ekologických brikiet. Každý výrobok je starostlivo navrhnutý a vyrobený s dôrazom na
-                            detail a kvalitu.</p>
+    <section class="hero" id="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <p>Sme rodinná stolárska dielňa, ktorej hlavným poslaním je výroba drevených rakiev. Každý kus
+                        vzniká s úctou, poctivým remeslom a citom, ktorý sa u nás dedí z generácie na generáciu. Naše
+                        rakvy spájajú tradičné hodnoty s moderným prístupom – aby boli dôstojné, kvalitné a esteticky
+                        jedinečné.</p>
+                    <p>Okrem rakiev vyrábame aj dvere, schody, nábytok na mieru či iné drevené prvky do interiéru aj
+                        exteriéru. Každý výrobok vzniká s precíznosťou, úctou k materiálu a láskou k detailu.</p>
+                    <div class="hero-btns">
                         <a href="#" class="btn btn-primary" onclick="showSection('services', event)">
-                            <i class="fas fa-arrow-right"></i> Pozrite si naše služby
+                            <i class="fas fa-hammer"></i> Naše služby
+                        </a>
+                        <a href="#" class="btn btn-outline" onclick="showSection('contact', event)">
+                            <i class="fas fa-phone-alt"></i> Kontaktujte nás
                         </a>
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <section class="section services" id="services">
-            <div class="container">
-                <div class="section-title">
-                    <h2>Naše služby</h2>
-                </div>
-                <div class="services-grid">
-                    <div class="service-card" onclick="showServiceDetail('coffins')">
-                        <div class="service-card-img">
-                            <img src="M21_Amerika_01.jpg" alt="Výroba rakiev">
-                        </div>
-                        <div class="service-card-content">
-                            <h3>Výroba rakiev</h3>
-                            <p>Kvalitné a dôstojné rakvy vyrobené z rôznych druhov dreva podľa vašich požiadaviek.</p>
-                            <button class="btn btn-outline" onclick="showServiceDetail('coffins', event)">
-                                <i class="fas fa-arrow-right"></i> Zobraziť detail
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="service-card" onclick="showServiceDetail('furniture')">
-                        <div class="service-card-img">
-                            <img src="schody_tocive.jpg" alt="Drevený nábytok">
-                        </div>
-                        <div class="service-card-content">
-                            <h3>Drevené prvky pre váš domov aj exteriér</h3>
-                            <p>Exkluzívne drevené prvky na mieru, vyrobené z kvalitných materiálov podľa vášho návrhu.
-                            </p>
-                            <button class="btn btn-outline" onclick="showServiceDetail('furniture', event)">
-                                <i class="fas fa-arrow-right"></i> Zobraziť detail
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="service-card" onclick="showServiceDetail('briquettes')">
-                        <div class="service-card-img">
-                            <img src="briketa.jpg" alt="EKO brikety">
-                        </div>
-                        <div class="service-card-content">
-                            <h3>EKO brikety</h3>
-                            <p>Vysoko kvalitné drevené brikety vyrábané z čistých pilín bez chemických prísad.</p>
-                            <button class="btn btn-outline" onclick="showServiceDetail('briquettes', event)">
-                                <i class="fas fa-arrow-right"></i> Zobraziť detail
-                            </button>
-                        </div>
-                    </div>
+                <div class="hero-image">
+                    <img src="Pozadie.png" alt="Ukážka našej práce">
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <div class="service-detail" id="coffins">
-            <div class="container">
-                <div class="service-detail-header">
-                    <button class="back-btn" onclick="hideServiceDetail('coffins')">
-                        <i class="fas fa-arrow-left"></i> Späť na služby
-                    </button>
-                    <h2>Výroba rakiev</h2>
+    <section class="section about" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>O našej dielni</h2>
+            </div>
+
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="firma_logo_new.jpg" alt="Stolárska dielňa Petro"
+                        style="max-height: 400px; object-fit: contain;">
                 </div>
-                <div class="service-detail-content">
-                    <div class="service-detail-text">
-                        <p>Ponúkame široký výber rakiev vyrobených z kvalitného dreva, ktoré spĺňajú najvyššie
-                            štandardy.</p>
 
-                        <h3>Používané materiály:</h3>
-                        <ul class="service-features">
-                            <li>Dub - trvanlivý a pevný materiál</li>
-                            <li>Buk - jemná textúra a príjemný vzhľad</li>
-                            <li>Borovica - ľahký a cenovo dostupný variant</li>
-                            <li>Smrek - klasický výber s jemnou textúrou</li>
-                        </ul>
+                <div class="about-text">
+                    <h3>Tradícia a kvalita od roku 1992</h3>
+                    <p>Sme rodinný podnik s dlhoročnou tradíciou v stolárskom remesle. Naša dielňa kombinuje moderné
+                        technológie s tradičnými postupmi, čo nám umožňuje vytvárať výnimočné drevené výrobky.</p>
+                    <p>Špecializujeme sa na výrobu kvalitných rakiev, okien, prístreškov, schodov a dverí, ako aj na
+                        predaj ekologických brikiet. Každý výrobok je starostlivo navrhnutý a vyrobený s dôrazom na
+                        detail a kvalitu.</p>
+                    <a href="#" class="btn btn-primary" onclick="showSection('services', event)">
+                        <i class="fas fa-arrow-right"></i> Pozrite si naše služby
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                        <div class="gallery" id="gallery-coffins"></div>
+    <section class="section services" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Naše služby</h2>
+            </div>
+            <div class="services-grid">
+                <div class="service-card" onclick="showServiceDetail('coffins')">
+                    <div class="service-card-img">
+                        <img src="M21_Amerika_01.jpg" alt="Výroba rakiev">
+                    </div>
+                    <div class="service-card-content">
+                        <h3>Výroba rakiev</h3>
+                        <p>Kvalitné a dôstojné rakvy vyrobené z rôznych druhov dreva podľa vašich požiadaviek.</p>
+                        <button class="btn btn-outline" onclick="showServiceDetail('coffins', event)">
+                            <i class="fas fa-arrow-right"></i> Zobraziť detail
+                        </button>
+                    </div>
+                </div>
 
-                        <a href="#" class="btn btn-primary" onclick="showSection('contact', event)">
-                            <i class="fas fa-envelope"></i> Požiadať o cenovú ponuku
-                        </a>
+                <div class="service-card" onclick="showServiceDetail('furniture')">
+                    <div class="service-card-img">
+                        <img src="schody_tocive.jpg" alt="Drevený nábytok">
+                    </div>
+                    <div class="service-card-content">
+                        <h3>Drevené prvky pre váš domov aj exteriér</h3>
+                        <p>Exkluzívne drevené prvky na mieru, vyrobené z kvalitných materiálov podľa vášho návrhu.</p>
+                        <button class="btn btn-outline" onclick="showServiceDetail('furniture', event)">
+                            <i class="fas fa-arrow-right"></i> Zobraziť detail
+                        </button>
+                    </div>
+                </div>
+
+                <div class="service-card" onclick="showServiceDetail('briquettes')">
+                    <div class="service-card-img">
+                        <img src="briketa.jpg" alt="EKO brikety">
+                    </div>
+                    <div class="service-card-content">
+                        <h3>EKO brikety</h3>
+                        <p>Vysoko kvalitné drevené brikety vyrábané z čistých pilín bez chemických prísad.</p>
+                        <button class="btn btn-outline" onclick="showServiceDetail('briquettes', event)">
+                            <i class="fas fa-arrow-right"></i> Zobraziť detail
+                        </button>
                     </div>
                 </div>
             </div>
         </div>
+    </section>
 
-        <div class="service-detail" id="furniture">
-            <div class="container">
-                <div class="service-detail-header">
-                    <button class="back-btn" onclick="hideServiceDetail('furniture')">
-                        <i class="fas fa-arrow-left"></i> Späť na služby
-                    </button>
-                    <h2>Drevené prvky pre váš domov aj exteriér</h2>
-                </div>
-                <div class="service-detail-content">
-                    <div class="service-detail-text">
-                        <p>Prinášame kvalitne spracované drevené riešenia – od dverí a okien cez schody až po
-                            prístrešky.</p>
+    <div class="service-detail" id="coffins">
+        <div class="container">
+            <div class="service-detail-header">
+                <button class="back-btn" onclick="hideServiceDetail('coffins')">
+                    <i class="fas fa-arrow-left"></i> Späť na služby
+                </button>
+                <h2>Výroba rakiev</h2>
+            </div>
+            <div class="service-detail-content">
+                <div class="service-detail-text">
+                    <p>Ponúkame široký výber rakiev vyrobených z kvalitného dreva, ktoré spĺňajú najvyššie štandardy.
+                        Každá rakva je vyrábaná s úctou a respektom k zosnulému.</p>
 
-                        <h3>Naša ponuka:</h3>
-                        <ul class="service-features">
-                            <li>Schodiská a zábradlia</li>
-                            <li>Dvere na mieru</li>
-                            <li>Certifikované drevené Eurookná</li>
-                            <li>Drevovýrobky do interiéru a exteriéru</li>
-                        </ul>
+                    <h3>Používané materiály:</h3>
+                    <ul class="service-features">
+                        <li>Dub - trvanlivý a pevný materiál</li>
+                        <li>Buk - jemná textúra a príjemný vzhľad</li>
+                        <li>Borovica - ľahký a cenovo dostupný variant</li>
+                        <li>Smrek - klasický výber s jemnou textúrou</li>
+                    </ul>
 
-                        <div class="gallery" id="gallery-furniture"></div>
+                    <div class="gallery" id="gallery-coffins"></div>
 
-                        <a href="#" class="btn btn-primary" onclick="showSection('contact', event)">
-                            <i class="fas fa-envelope"></i> Konzultácia zdarma
-                        </a>
-                    </div>
+                    <a href="#" class="btn btn-primary" onclick="showSection('contact', event)">
+                        <i class="fas fa-envelope"></i> Požiadať o cenovú ponuku
+                    </a>
                 </div>
             </div>
         </div>
+    </div>
 
-        <div class="service-detail" id="briquettes">
-            <div class="container">
-                <div class="service-detail-header">
-                    <button class="back-btn" onclick="hideServiceDetail('briquettes')">
-                        <i class="fas fa-arrow-left"></i> Späť na služby
-                    </button>
-                    <h2>EKO brikety</h2>
-                </div>
-                <div class="service-detail-content">
-                    <div class="service-detail-text">
-                        <p>Naše drevené brikety sú vyrábané z čistých pilín bez akýchkoľvek chemických prísad.</p>
+    <div class="service-detail" id="furniture">
+        <div class="container">
+            <div class="service-detail-header">
+                <button class="back-btn" onclick="hideServiceDetail('furniture')">
+                    <i class="fas fa-arrow-left"></i> Späť na služby
+                </button>
+                <h2>Drevené prvky pre váš domov aj exteriér</h2>
+            </div>
+            <div class="service-detail-content">
+                <div class="service-detail-text">
+                    <p>Prinášame kvalitne spracované drevené riešenia – od dverí a okien cez schody až po prístrešky,
+                        ktoré spájajú funkčnosť s estetikou.</p>
 
-                        <h3>Vlastnosti našich brikiet:</h3>
-                        <ul class="service-features">
-                            <li>Vysoká výhrevnosť – až 18,31 MJ/kg</li>
-                            <li>Nízka vlhkosť – iba 3,17 %</li>
-                            <li>Minimálny obsah popola – len 1,45 %</li>
-                            <li>Ekologické palivo bez chemických prísad</li>
-                        </ul>
+                    <h3>Naša ponuka:</h3>
+                    <ul class="service-features">
+                        <li>Schodiská a zábradlia</li>
+                        <li>Dvere na mieru</li>
+                        <li>Certifikované drevené Eeurookná</li>
+                        <li>Drevovýrobky do interiéru a exteriéru</li>
+                    </ul>
 
-                        <div class="gallery" id="gallery-briquettes"></div>
+                    <h3>Výhody:</h3>
+                    <ul class="service-features">
+                        <li>Individuálny prístup ku každému projektu</li>
+                        <li>Používame iba kvalitné a certifikované materiály</li>
+                        <li>Dlhá životnosť a odolnosť výrobkov</li>
+                        <li>Ekologické a zdravotne nezávadné spracovanie</li>
+                    </ul>
 
-                        <a href="#" class="btn btn-primary" onclick="showSection('contact', event)">
-                            <i class="fas fa-shopping-cart"></i> Objednať brikety
-                        </a>
-                    </div>
+                    <div class="gallery" id="gallery-furniture"></div>
+
+                    <a href="#" class="btn btn-primary" onclick="showSection('contact', event)">
+                        <i class="fas fa-envelope"></i> Konzultácia zdarma
+                    </a>
                 </div>
             </div>
         </div>
+    </div>
 
-        <section class="section contact" id="contact">
-            <div class="container">
-                <div class="section-title">
-                    <h2>Kontaktujte nás</h2>
-                </div>
+    <div class="service-detail" id="briquettes">
+        <div class="container">
+            <div class="service-detail-header">
+                <button class="back-btn" onclick="hideServiceDetail('briquettes')">
+                    <i class="fas fa-arrow-left"></i> Späť na služby
+                </button>
+                <h2>EKO brikety</h2>
+            </div>
+            <div class="service-detail-content">
+                <div class="service-detail-text">
+                    <p>Naše drevené brikety sú vyrábané z čistých pilín bez akýchkoľvek chemických prísad. Vznikajú
+                        lisovaním pri vysokom tlaku, čo im dodáva výnimočnú hustotu a vysokú výhrevnosť.</p>
 
-                <div class="contact-container">
-                    <div class="contact-info">
-                        <h3>Kde nás nájdete</h3>
+                    <h3>Vlastnosti našich brikiet:</h3>
+                    <ul class="service-features">
+                        <li>Vysoká výhrevnosť – až 18,31 MJ/kg (porovnateľná s čiernym uhlím)</li>
+                        <li>Nízka vlhkosť – iba 3,17 %</li>
+                        <li>OMinimálny obsah popola – len 1,45 %, vhodný ako hnojivo</li>
+                        <li>Rkologické palivo bez chemických prísad</li>
+                    </ul>
 
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-map-marker-alt"></i>
-                            </div>
-                            <div class="contact-text">
-                                <h4>Adresa</h4>
-                                <p>Radatice 219, 08242 Radatice</p>
-                            </div>
-                        </div>
+                    <h3>Výhody:</h3>
+                    <ul class="service-features">
+                        <li>Dlhý čas horenia – približne 90 minút</li>
+                        <li>Vhodné pre takmer všetky typy kotlov, krbov a piecok na pevné palivo</li>
+                        <li>Horenie s jasným plameňom a minimálnym dymom</li>
+                        <li>Príjemná vôňa prírodného dreva</li>
+                        <li>Vhodné pre všetky druhy krbov a kachlí</li>
+                    </ul>
 
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-phone-alt"></i>
-                            </div>
-                            <div class="contact-text">
-                                <h4>Telefón</h4>
-                                <p>+421 905 609 059 (Stolárstvo)</p>
-                                <p>+421 905 213 426 (Doprava)</p>
-                                <p>+421 908 124 008 (Ekobrikety)</p>
-                            </div>
-                        </div>
+                    <div class="gallery" id="gallery-briquettes"></div>
 
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-envelope"></i>
-                            </div>
-                            <div class="contact-text">
-                                <h4>Email</h4>
-                                <p>petrostolarstvo@gmail.com</p>
-                            </div>
-                        </div>
-
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-clock"></i>
-                            </div>
-                            <div class="contact-text">
-                                <h4>Otváracie hodiny</h4>
-                                <p>Pondelok - Piatok: 8:00 - 18:00</p>
-                                <p>Sobota: Na objednávku</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="contact-form">
-                        <h3>Napíšte nám</h3>
-
-                        <form action="https://formspree.io/f/xgvkeypd" method="POST">
-                            <div class="form-group">
-                                <label for="name">Meno a priezvisko</label>
-                                <input type="text" id="name" name="name" class="form-control" required>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="email">Email</label>
-                                <input type="email" id="email" name="email" class="form-control" required>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="phone">Telefón</label>
-                                <input type="tel" id="phone" name="phone" class="form-control">
-                            </div>
-
-                            <div class="form-group">
-                                <label for="message">Vaša správa</label>
-                                <textarea id="message" name="message" class="form-control" required></textarea>
-                            </div>
-
-                            <button type="submit" class="btn btn-primary">
-                                <i class="fas fa-paper-plane"></i> Odoslať správu
-                            </button>
-                        </form>
-                    </div>
+                    <a href="#" class="btn btn-primary" onclick="showSection('contact', event)">
+                        <i class="fas fa-shopping-cart"></i> Objednať brikety
+                    </a>
                 </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </div>
+
+    <section class="section contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Kontaktujte nás</h2>
+            </div>
+
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Kde nás nájdete</h3>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Adresa</h4>
+                            <p>Radatice 219, 08242 Radatice</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Telefón</h4>
+                            <p>+421 905 609 059 (Stolárstvo)</p>
+                            <p>+421 905 213 426 (Doprava)</p>
+                            <p>+421 908 124 008 (Ekobrikety)</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Email</h4>
+                            <p>petrostolarstvo@gmail.com</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Otváracie hodiny</h4>
+                            <p>Pondelok - Piatok: 8:00 - 18:00</p>
+                            <p>Sobota: Na objednávku</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <h3>Napíšte nám</h3>
+
+                    <form action="https://formspree.io/f/xgvkeypd" method="POST">
+                        <div class="form-group">
+                            <label for="name">Meno a priezvisko</label>
+                            <input type="text" id="name" name="name" class="form-control" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" class="form-control" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Telefón</label>
+                            <input type="tel" id="phone" name="phone" class="form-control">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Vaša správa</label>
+                            <textarea id="message" name="message" class="form-control" required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i> Odoslať správu
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <footer>
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">Stolárstvo Petro</div>
+
                 <p class="copyright">&copy; Miloš Gall. Všetky práva vyhradené.</p>
             </div>
         </div>
@@ -1492,6 +1979,9 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
+            // =============================================
+            // 1. Mobile Navigation
+            // =============================================
             const mobileMenuBtn = document.getElementById('mobileMenuBtn');
             const navLinks = document.getElementById('navLinks');
             const headerElement = document.querySelector('header');
@@ -1505,6 +1995,12 @@
                     '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
             });
 
+            window.addEventListener('resize', function () {
+                if (navLinks.classList.contains('active')) {
+                    navLinks.style.top = headerElement.offsetHeight + 'px';
+                }
+            });
+
             document.querySelectorAll('.nav-link').forEach(link => {
                 link.addEventListener('click', function () {
                     if (navLinks.classList.contains('active')) {
@@ -1514,6 +2010,9 @@
                 });
             });
 
+            // =============================================
+            // 2. Dark Mode Toggle
+            // =============================================
             const themeToggle = document.getElementById('themeToggle');
             const body = document.body;
 
@@ -1533,6 +2032,9 @@
                 }
             });
 
+            // =============================================
+            // 3. Section Navigation & Visibility
+            // =============================================
             const allContent = document.querySelectorAll('section, .service-detail');
 
             function hideAllContent() {
@@ -1545,21 +2047,32 @@
                 hideAllContent();
                 const contentToShow = document.getElementById(contentId);
                 if (contentToShow) {
-                    contentToShow.style.display = 'flex';
-                    window.scrollTo({ top: 0, behavior: 'instant' });
-                    document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
-                    const activeLink = document.querySelector(`.nav-link[onclick*="'${contentId}'"]`);
-                    if (activeLink) activeLink.classList.add('active');
+                    contentToShow.style.display = 'block';
+                    if (contentId !== 'hero') {
+                        const headerHeight = headerElement ? headerElement.offsetHeight : 90;
+                        window.scrollTo({
+                            top: contentToShow.offsetTop - (headerHeight + 10),
+                            behavior: 'smooth'
+                        });
+                    } else {
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }
                 }
             }
 
             window.showSection = function (sectionId, event) {
                 if (event) event.preventDefault();
                 showContent(sectionId);
+                document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
+                const activeLink = document.querySelector(`.nav-link[onclick*="'${sectionId}'"]`);
+                if (activeLink) activeLink.classList.add('active');
             };
 
             showContent('hero');
 
+            // =============================================
+            // 4. Service Details
+            // =============================================
             window.showServiceDetail = function (serviceId, event) {
                 if (event) {
                     event.preventDefault();
@@ -1572,6 +2085,9 @@
                 showContent('services');
             };
 
+            // =============================================
+            // 5. Gallery & Lightbox
+            // =============================================
             const galleryData = {
                 coffins: [
                     { src: 'M21_Amerika_01.jpg', caption: 'Model M21 Amerika' },
@@ -1597,6 +2113,7 @@
                     { src: 'M10_smrek.jpg', caption: 'Model M10 Smrek' },
                     { src: 'M10_P_smrek_01.jpg', caption: 'Model M10 Smrek 01' },
                     { src: 'detail.jpg', caption: 'Model Detail' }
+
                 ],
                 furniture: [
                     { src: 'dvere_matne.jpg', caption: '' },
@@ -1636,9 +2153,9 @@
                         const galleryItem = document.createElement('div');
                         galleryItem.className = 'gallery-item';
                         galleryItem.innerHTML = `
-                            <img src="${item.src}" alt="${item.caption}">
-                            <div class="gallery-caption">${item.caption}</div>
-                        `;
+                <img src="${item.src}" alt="${item.caption}">
+                <div class="gallery-caption">${item.caption}</div>
+            `;
                         galleryItem.addEventListener('click', () => openLightbox(galleryId, index));
                         galleryContainer.appendChild(galleryItem);
                     });
@@ -1656,3 +2173,111 @@
             let currentIndex = 0;
 
             function openLightbox(galleryId, index) {
+                currentGallery = galleryId;
+                currentIndex = index;
+                updateLightboxImage();
+                lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden';
+                document.addEventListener('keydown', handleKeyPress);
+            }
+
+            function closeLightbox() {
+                lightbox.classList.remove('active');
+                document.body.style.overflow = '';
+                document.removeEventListener('keydown', handleKeyPress);
+            }
+
+            function updateLightboxImage() {
+                const image = galleryData[currentGallery][currentIndex];
+                lightboxImg.src = image.src;
+                lightboxImg.alt = image.caption;
+                lightboxCaption.textContent = image.caption;
+            }
+
+            function showPrevImage() {
+                currentIndex = (currentIndex - 1 + galleryData[currentGallery].length) % galleryData[currentGallery].length;
+                updateLightboxImage();
+            }
+
+            function showNextImage() {
+                currentIndex = (currentIndex + 1) % galleryData[currentGallery].length;
+                updateLightboxImage();
+            }
+
+            function handleKeyPress(e) {
+                if (e.key === 'Escape') closeLightbox();
+                if (e.key === 'ArrowLeft') showPrevImage();
+                if (e.key === 'ArrowRight') showNextImage();
+            }
+
+            lightboxClose.addEventListener('click', closeLightbox);
+            lightboxPrev.addEventListener('click', showPrevImage);
+            lightboxNext.addEventListener('click', showNextImage);
+            lightbox.addEventListener('click', function (e) {
+                if (e.target === lightbox) {
+                    closeLightbox();
+                }
+            });
+        });
+
+        // =============================================
+        // FINÁLNE POSUNUTIE NADPISU A KARIET NIŽŠIE
+        // =============================================
+        function finalPositionAdjustment() {
+            const contactSection = document.getElementById('contact');
+            const contactTitle = document.querySelector('.section-title h2');
+            const contactContainer = document.querySelector('.contact-container');
+
+            if (contactSection && contactTitle && contactContainer) {
+                contactSection.style.paddingTop = '5px';
+                contactSection.style.paddingBottom = '50px';
+                contactTitle.style.marginTop = '25px';
+                contactContainer.style.marginTop = '25px';
+
+                const headerHeight = document.querySelector('header').offsetHeight;
+                window.scrollTo({
+                    top: contactSection.offsetTop - headerHeight - 15,
+                    behavior: 'smooth'
+                });
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            finalPositionAdjustment();
+            setTimeout(finalPositionAdjustment, 100);
+        });
+
+        document.querySelectorAll('a[onclick*="contact"]').forEach(link => {
+            link.addEventListener('click', function () {
+                setTimeout(finalPositionAdjustment, 150);
+            });
+        });
+
+        // =============================================
+        // SILNÁ OPRAVA TEXTOV - FORCÉ POSUNUTIE
+        // =============================================
+        function forceTextPosition() {
+            const aboutTitle = document.querySelector('.about-text h3');
+            if (aboutTitle) {
+                aboutTitle.style.marginTop = '-25px';
+            }
+
+            const serviceTitles = document.querySelectorAll('.service-card h3');
+            serviceTitles.forEach(title => {
+                title.style.marginTop = '-25px';
+            });
+
+            const aboutTexts = document.querySelectorAll('.about-text p');
+            aboutTexts.forEach(text => {
+                text.style.marginTop = '0';
+            });
+
+            const serviceTexts = document.querySelectorAll('.service-card p');
+            serviceTexts.forEach(text => {
+                text.style.marginTop = '0';
+            });
+        }
+    </script>
+</body>
+
+</html>

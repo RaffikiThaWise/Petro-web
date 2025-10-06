@@ -1702,6 +1702,29 @@
                 display: block;
             }
         }
+
+        /* ============================================= */
+        /* MOBILE FIX - CSS ONLY SOLUTION */
+        /* ============================================= */
+        @media (max-width: 768px) {
+
+            /* Na mobile skryj všetky sekcie */
+            section,
+            .service-detail {
+                display: none !important;
+            }
+
+            /* Zobraz len aktívnu sekciu */
+            section.active-section,
+            .service-detail.active-section {
+                display: block !important;
+            }
+
+            /* Na začiatku zobraz hero */
+            #hero {
+                display: block !important;
+            }
+        }
     </style>
 </head>
 
@@ -2057,9 +2080,8 @@
     </div>
 
     <script>
-        // Pridáme mobile class na body
         if (window.innerWidth <= 768) {
-            document.body.classList.add('mobile-view');
+            document.getElementById('hero').classList.add('active-section');
         }
         document.addEventListener('DOMContentLoaded', function () {
             // =============================================
@@ -2116,41 +2138,35 @@
             });
 
             // =============================================
-            // 3. Section Navigation & Visibility - JEDNODUCHÁ MOBILE OPRAVA
+            // 3. Simple Mobile Navigation - CSS BASED
             // =============================================
-            const allContent = document.querySelectorAll('section, .service-detail');
-
-            function hideAllContent() {
-                allContent.forEach(content => {
-                    content.style.display = 'none';
-                });
-            }
-
-            function showContent(contentId) {
-                hideAllContent();
-                const contentToShow = document.getElementById(contentId);
-                if (contentToShow) {
-                    contentToShow.style.display = 'block';
-
-                    const headerHeight = headerElement ? headerElement.offsetHeight : 90;
-                    window.scrollTo({
-                        top: contentToShow.offsetTop - (headerHeight + 10),
-                        behavior: 'smooth'
-                    });
-                }
-            }
 
             window.showSection = function (sectionId, event) {
                 if (event) event.preventDefault();
-                showContent(sectionId);
+
+                // Len pre mobile - použijeme CSS classes
+                if (window.innerWidth <= 768) {
+                    // Odstráň active class zo všetkých sekcií
+                    document.querySelectorAll('section, .service-detail').forEach(section => {
+                        section.classList.remove('active-section');
+                    });
+                    // Pridaj active class k vybranej sekcii
+                    document.getElementById(sectionId).classList.add('active-section');
+
+                    // Scroll na sekciu
+                    const headerHeight = document.querySelector('header').offsetHeight;
+                    const targetSection = document.getElementById(sectionId);
+                    window.scrollTo({
+                        top: targetSection.offsetTop - headerHeight - 10,
+                        behavior: 'smooth'
+                    });
+                }
+
+                // Aktívny link v menu
                 document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
                 const activeLink = document.querySelector(`.nav-link[onclick*="'${sectionId}'"]`);
                 if (activeLink) activeLink.classList.add('active');
             };
-
-            // NA ZAČIATKU: VŽDY skryť všetko a zobraziť hero
-            hideAllContent();
-            document.getElementById('hero').style.display = 'block';
 
             // =============================================
             // 4. Service Details

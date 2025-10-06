@@ -1668,6 +1668,23 @@
                 font-size: 0.9rem;
             }
         }
+
+        /* ============================================= */
+        /* OPRAVA ZOBRAZOVANIA SEKCIÍ NA MOBILE */
+        /* ============================================= */
+        @media (max-width: 768px) {
+
+            #about,
+            #services,
+            #contact,
+            .service-detail {
+                display: none !important;
+            }
+
+            #hero {
+                display: flex !important;
+            }
+        }
     </style>
 </head>
 
@@ -2085,6 +2102,8 @@
             function hideAllContent() {
                 allContent.forEach(content => {
                     content.style.display = 'none';
+                    // Pridáme !important cez CSS classes
+                    content.classList.add('hidden-mobile');
                 });
             }
 
@@ -2093,6 +2112,7 @@
                 const contentToShow = document.getElementById(contentId);
                 if (contentToShow) {
                     contentToShow.style.display = 'block';
+                    contentToShow.classList.remove('hidden-mobile');
 
                     // Scroll na začiatok sekcie
                     const headerHeight = headerElement ? headerElement.offsetHeight : 90;

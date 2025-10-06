@@ -2044,7 +2044,7 @@
             });
 
             // =============================================
-            // 3. Section Navigation & Visibility - INTELIGENTNÁ OPRAVA
+            // 3. Section Navigation & Visibility - FINÁLNA OPRAVA
             // =============================================
             const allContent = document.querySelectorAll('section, .service-detail');
 
@@ -2060,33 +2060,32 @@
                 if (contentToShow) {
                     contentToShow.style.display = 'block';
 
-                    // Rozdelenie logiky podľa šírky okna
-                    // Breakpoint 768px je zhodný s CSS pre mobilné menu
                     if (window.innerWidth <= 768) {
                         // --- IBA MOBILNÁ LOGIKA ---
-                        // Okamžitý skok na vrch stránky, aby sa predišlo zlému výpočtu
-                        window.scrollTo(0, 0);
+                        // KROK 1: Vynútený, OKAMŽITÝ skok na vrch stránky.
+                        // 'instant' správanie prepíše CSS 'smooth' scroll.
+                        window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
 
+                        // KROK 2: S minimálnym oneskorením, aby prehliadač stihol zaregistrovať skok,
+                        // urobíme plynulý scroll na cieľovú sekciu.
                         setTimeout(() => {
                             let scrollPosition = 0;
                             if (contentId !== 'hero') {
                                 const headerHeight = headerElement.offsetHeight;
-                                // Použijeme presnejší výpočet pre dynamické layouty na mobile
                                 scrollPosition = contentToShow.getBoundingClientRect().top + window.scrollY - headerHeight - 15;
                             }
                             window.scrollTo({
                                 top: scrollPosition,
-                                behavior: 'smooth'
+                                behavior: 'smooth' // Tento scroll už bude plynulý
                             });
-                        }, 10);
+                        }, 50); // Mierne zvýšené oneskorenie pre istotu
 
                     } else {
-                        // --- IBA DESKTOPOVÁ LOGIKA (PÔVODNÁ, KTORÁ FUNGOVALA) ---
+                        // --- IBA DESKTOPOVÁ LOGIKA (PÔVODNÁ, FUNKČNÁ) ---
                         setTimeout(() => {
                             let scrollPosition = 0;
                             if (contentId !== 'hero') {
                                 const headerHeight = headerElement.offsetHeight;
-                                // Pôvodný výpočet, ktorý fungoval dobre na desktope
                                 scrollPosition = contentToShow.offsetTop - headerHeight - 10;
                             }
                             window.scrollTo({
@@ -2098,7 +2097,6 @@
                 }
             }
 
-
             window.showSection = function (sectionId, event) {
                 if (event) event.preventDefault();
                 showContent(sectionId);
@@ -2107,11 +2105,10 @@
                 if (activeLink) activeLink.classList.add('active');
             };
 
-            // Zabezpečíme, že pri načítaní sa zobrazí úvodná sekcia
             showContent('hero');
 
             // =============================================
-            // 4. Service Details
+            // 4. Service Details (bez zmeny)
             // =============================================
             window.showServiceDetail = function (serviceId, event) {
                 if (event) {
@@ -2126,7 +2123,7 @@
             };
 
             // =============================================
-            // 5. Gallery & Lightbox (a zvyšok skriptu - bez zmeny)
+            // 5. Gallery & Lightbox (bez zmeny)
             // =============================================
             const galleryData = {
                 coffins: [
@@ -2153,7 +2150,6 @@
                     { src: 'M10_smrek.jpg', caption: 'Model M10 Smrek' },
                     { src: 'M10_P_smrek_01.jpg', caption: 'Model M10 Smrek 01' },
                     { src: 'detail.jpg', caption: 'Model Detail' }
-
                 ],
                 furniture: [
                     { src: 'dvere_matne.jpg', caption: '' },
@@ -2192,10 +2188,7 @@
                     galleryData[galleryId].forEach((item, index) => {
                         const galleryItem = document.createElement('div');
                         galleryItem.className = 'gallery-item';
-                        galleryItem.innerHTML = `
-                        <img src="${item.src}" alt="${item.caption}">
-                        <div class="gallery-caption">${item.caption}</div>
-                    `;
+                        galleryItem.innerHTML = `<img src="${item.src}" alt="${item.caption}"><div class="gallery-caption">${item.caption}</div>`;
                         galleryItem.addEventListener('click', () => openLightbox(galleryId, index));
                         galleryContainer.appendChild(galleryItem);
                     });

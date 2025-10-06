@@ -1687,6 +1687,21 @@
                 display: none !important;
             }
         }
+
+        /* ============================================= */
+        /* MOBILE FIX - len pre mobile */
+        /* ============================================= */
+        @media (max-width: 768px) {
+
+            .mobile-view section,
+            .mobile-view .service-detail {
+                display: none;
+            }
+
+            .mobile-view section#hero {
+                display: block;
+            }
+        }
     </style>
 </head>
 
@@ -2042,6 +2057,10 @@
     </div>
 
     <script>
+        // Pridáme mobile class na body
+        if (window.innerWidth <= 768) {
+            document.body.classList.add('mobile-view');
+        }
         document.addEventListener('DOMContentLoaded', function () {
             // =============================================
             // 1. Mobile Navigation
@@ -2097,10 +2116,7 @@
             });
 
             // =============================================
-            // 3. Section Navigation & Visibility - OPRAVENÉ
-            // =============================================
-            // =============================================
-            // 3. Section Navigation & Visibility - PÔVODNÝ + MOBILE FIX
+            // 3. Section Navigation & Visibility - JEDNODUCHÁ MOBILE OPRAVA
             // =============================================
             const allContent = document.querySelectorAll('section, .service-detail');
 

@@ -1587,6 +1587,87 @@
             margin-top: 0 !important;
             margin-bottom: 1rem !important;
         }
+
+        /* ============================================= */
+        /* MOBILNÉ OPRAVY */
+        /* ============================================= */
+        @media (max-width: 768px) {
+
+            /* Hero sekcia - zobrazenie celého obsahu */
+            .hero {
+                height: auto;
+                min-height: 100vh;
+                display: flex;
+                align-items: center;
+                padding: 80px 0 40px;
+            }
+
+            .hero-content {
+                margin-top: 0;
+                padding-top: 0;
+                display: flex !important;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .hero-text {
+                width: 100%;
+                margin: 0 auto;
+                padding: 2rem 1.5rem !important;
+            }
+
+            .hero-btns {
+                margin-top: 1rem;
+            }
+
+            .hero-btns .btn {
+                width: 100%;
+                max-width: 280px;
+                margin: 0 auto;
+            }
+
+            /* O nás sekcia - oprava obrázku */
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .about-image img {
+                width: 100%;
+                max-width: 100%;
+                height: auto;
+                object-fit: contain;
+            }
+
+            /* Resetovanie scrollu */
+            html,
+            body {
+                scroll-behavior: smooth;
+            }
+
+            /* Kontakt button - oprava */
+            .btn-outline {
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-text {
+                padding: 1.5rem !important;
+            }
+
+            .hero p {
+                font-size: 1rem;
+                line-height: 1.5;
+            }
+
+            .hero-btns .btn {
+                padding: 0.9rem 1.2rem;
+                font-size: 0.9rem;
+            }
+        }
     </style>
 </head>
 
@@ -2000,7 +2081,7 @@
             });
 
             // =============================================
-            // 3. Section Navigation & Visibility - OPRAVENÉ
+            // 3. Section Navigation & Visibility - OPRAVENÉ PRE MOBIL
             // =============================================
             const allContent = document.querySelectorAll('section, .service-detail');
 
@@ -2016,8 +2097,9 @@
                 if (contentToShow) {
                     contentToShow.style.display = 'block';
 
-                    // Vždy scrollovať na začiatok sekcie
+                    // Vždy scrollovať na začiatok sekcie - OPRAVENÉ PRE MOBIL
                     const headerHeight = headerElement ? headerElement.offsetHeight : 90;
+                    // Pre mobil - okamžité scrollovanie bez oneskorenia
                     window.scrollTo({
                         top: contentToShow.offsetTop - (headerHeight + 10),
                         behavior: 'smooth'

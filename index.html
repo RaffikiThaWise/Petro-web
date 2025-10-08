@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stolárstvo Petro | Luxusná Drevovýroba</title>
-    <meta name="description"
+    <title data-translate-key="meta_title">Stolárstvo Petro | Luxusná Drevovýroba</title>
+    <meta name="description" data-translate-key="meta_description"
         content="Prémiové stolárske výrobky a remeselné riešenia z kvalitného dreva. Rodinná tradícia od roku 1992.">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -416,6 +416,31 @@
         .theme-toggle:hover {
             background-color: rgba(139, 95, 76, 0.1);
         }
+
+        /* NOVÉ ŠTÝLY PRE PREPÍNAČ JAZYKOV */
+        .lang-switch {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            /* Veľkosť emoji vlajky */
+            padding: 0 5px;
+            opacity: 0.6;
+            transition: var(--transition);
+        }
+
+        .lang-switch:hover {
+            opacity: 1;
+            transform: scale(1.1);
+        }
+
+        .lang-switch.active {
+            opacity: 1;
+            transform: scale(1.2);
+        }
+
+        /* KONIEC NOVÝCH ŠTÝLOV */
+
 
         body.dark-mode .theme-toggle {
             color: var(--color-dark-text-light);
@@ -1371,6 +1396,15 @@
                 top: 70px;
             }
 
+            /* Úprava medzery pre vlajky na mobile */
+            .nav-links {
+                gap: 1.2rem;
+            }
+
+            .lang-switch {
+                font-size: 1.3rem;
+            }
+
             .lightbox-btn {
                 width: 50px;
                 height: 50px;
@@ -1660,9 +1694,14 @@
                 </button>
 
                 <div class="nav-links" id="navLinks">
-                    <a href="#" class="nav-link" onclick="showSection('about', event)">O nás</a>
-                    <a href="#" class="nav-link" onclick="showSection('services', event)">Služby</a>
-                    <a href="#" class="nav-link" onclick="showSection('contact', event)">Kontakt</a>
+                    <a href="#" class="nav-link" onclick="showSection('about', event)" data-translate-key="nav_about">O
+                        nás</a>
+                    <a href="#" class="nav-link" onclick="showSection('services', event)"
+                        data-translate-key="nav_services">Služby</a>
+                    <a href="#" class="nav-link" onclick="showSection('contact', event)"
+                        data-translate-key="nav_contact">Kontakt</a>
+                    <button class="lang-switch" data-lang="sk">🇸🇰</button>
+                    <button class="lang-switch" data-lang="en">🇬🇧</button>
                     <button class="theme-toggle" id="themeToggle">
                         <i class="fas fa-moon"></i>
                     </button>
@@ -1675,22 +1714,24 @@
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
-                    <p>Sme rodinná stolárska dielňa, ktorej hlavným poslaním je výroba drevených rakiev. Každý kus
+                    <p data-translate-key="hero_p1">Sme rodinná stolárska dielňa, ktorej hlavným poslaním je výroba
+                        drevených rakiev. Každý kus
                         vzniká s úctou, poctivým remeslom a citom, ktorý sa u nás dedí z generácie na generáciu. Naše
                         rakvy spájajú tradičné hodnoty s moderným prístupom – aby boli dôstojné, kvalitné a esteticky
                         jedinečné.</p>
-                    <p>Okrem rakiev vyrábame aj dvere, schody, nábytok na mieru či iné drevené prvky do interiéru aj
+                    <p data-translate-key="hero_p2">Okrem rakiev vyrábame aj dvere, schody, nábytok na mieru či iné
+                        drevené prvky do interiéru aj
                         exteriéru.</p>
                     <div class="hero-btns">
                         <a href="#" class="btn btn-primary" onclick="showSection('services', event)">
-                            <i class="fas fa-hammer"></i> Naše služby
+                            <i class="fas fa-hammer"></i> <span data-translate-key="btn_ourservices">Naše služby</span>
                         </a>
                         <a href="#" class="btn btn-outline" onclick="showSection('contact', event)">
-                            <i class="fas fa-phone-alt"></i> Kontaktujte nás
+                            <i class="fas fa-phone-alt"></i> <span data-translate-key="btn_contactus">Kontaktujte
+                                nás</span>
                         </a>
                     </div>
                 </div>
-                <!-- Pôvodný hero-image div je teraz prázdny, lebo obrázok je v pozadí -->
                 <div class="hero-image">
                     <img src="Pozadie.png" alt="Ukážka našej práce">
                 </div>
@@ -1698,11 +1739,10 @@
         </div>
     </section>
 
-    <!-- ZBYTOK KÓDU OSTÁVA ÚPLNE ROVNAKÝ AKO V PÔVODNOM -->
     <section class="section about" id="about">
         <div class="container">
             <div class="section-title">
-                <h2>O našej dielni</h2>
+                <h2 data-translate-key="about_title">O našej dielni</h2>
             </div>
 
             <div class="about-content">
@@ -1712,14 +1752,17 @@
                 </div>
 
                 <div class="about-text">
-                    <h3>Tradícia a kvalita od roku 1992</h3>
-                    <p>Sme rodinný podnik s dlhoročnou tradíciou v stolárskom remesle. Naša dielňa kombinuje moderné
+                    <h3 data-translate-key="about_h3">Tradícia a kvalita od roku 1992</h3>
+                    <p data-translate-key="about_p1">Sme rodinný podnik s dlhoročnou tradíciou v stolárskom remesle.
+                        Naša dielňa kombinuje moderné
                         technológie s tradičnými postupmi, čo nám umožňuje vytvárať výnimočné drevené výrobky.</p>
-                    <p>Špecializujeme sa na výrobu kvalitných rakiev, okien, prístreškov, schodov a dverí, ako aj na
+                    <p data-translate-key="about_p2">Špecializujeme sa na výrobu kvalitných rakiev, okien, prístreškov,
+                        schodov a dverí, ako aj na
                         predaj ekologických brikiet. Každý výrobok je starostlivo navrhnutý a vyrobený s dôrazom na
                         detail a kvalitu.</p>
                     <a href="#" class="btn btn-primary" onclick="showSection('services', event)">
-                        <i class="fas fa-arrow-right"></i> Pozrite si naše služby
+                        <i class="fas fa-arrow-right"></i> <span data-translate-key="btn_viewservices">Pozrite si naše
+                            služby</span>
                     </a>
                 </div>
             </div>
@@ -1729,7 +1772,7 @@
     <section class="section services" id="services">
         <div class="container">
             <div class="section-title">
-                <h2>Naše služby</h2>
+                <h2 data-translate-key="services_title">Naše služby</h2>
             </div>
             <div class="services-grid">
                 <div class="service-card" onclick="showServiceDetail('coffins')">
@@ -1737,10 +1780,12 @@
                         <img src="M21_Amerika_01.jpg" alt="Výroba rakiev">
                     </div>
                     <div class="service-card-content">
-                        <h3>Výroba rakiev</h3>
-                        <p>Kvalitné a dôstojné rakvy vyrobené z rôznych druhov dreva podľa vašich požiadaviek.</p>
+                        <h3 data-translate-key="service1_h3">Výroba rakiev</h3>
+                        <p data-translate-key="service1_p">Kvalitné a dôstojné rakvy vyrobené z rôznych druhov dreva
+                            podľa vašich požiadaviek.</p>
                         <button class="btn btn-outline" onclick="showServiceDetail('coffins', event)">
-                            <i class="fas fa-arrow-right"></i> Zobraziť detail
+                            <i class="fas fa-arrow-right"></i> <span data-translate-key="btn_viewdetail">Zobraziť
+                                detail</span>
                         </button>
                     </div>
                 </div>
@@ -1750,10 +1795,12 @@
                         <img src="schody_tocive.jpg" alt="Drevený nábytok">
                     </div>
                     <div class="service-card-content">
-                        <h3>Drevené prvky pre váš domov aj exteriér</h3>
-                        <p>Exkluzívne drevené prvky na mieru, vyrobené z kvalitných materiálov podľa vášho návrhu.</p>
+                        <h3 data-translate-key="service2_h3">Drevené prvky pre váš domov aj exteriér</h3>
+                        <p data-translate-key="service2_p">Exkluzívne drevené prvky na mieru, vyrobené z kvalitných
+                            materiálov podľa vášho návrhu.</p>
                         <button class="btn btn-outline" onclick="showServiceDetail('furniture', event)">
-                            <i class="fas fa-arrow-right"></i> Zobraziť detail
+                            <i class="fas fa-arrow-right"></i> <span data-translate-key="btn_viewdetail">Zobraziť
+                                detail</span>
                         </button>
                     </div>
                 </div>
@@ -1763,10 +1810,12 @@
                         <img src="briketa.jpg" alt="EKO brikety">
                     </div>
                     <div class="service-card-content">
-                        <h3>EKO brikety</h3>
-                        <p>Vysoko kvalitné drevené brikety vyrábané z čistých pilín bez chemických prísad.</p>
+                        <h3 data-translate-key="service3_h3">EKO brikety</h3>
+                        <p data-translate-key="service3_p">Vysoko kvalitné drevené brikety vyrábané z čistých pilín bez
+                            chemických prísad.</p>
                         <button class="btn btn-outline" onclick="showServiceDetail('briquettes', event)">
-                            <i class="fas fa-arrow-right"></i> Zobraziť detail
+                            <i class="fas fa-arrow-right"></i> <span data-translate-key="btn_viewdetail">Zobraziť
+                                detail</span>
                         </button>
                     </div>
                 </div>
@@ -1778,27 +1827,26 @@
         <div class="container">
             <div class="service-detail-header">
                 <button class="back-btn" onclick="hideServiceDetail('coffins')">
-                    <i class="fas fa-arrow-left"></i> Späť na služby
+                    <i class="fas fa-arrow-left"></i> <span data-translate-key="btn_back">Späť na služby</span>
                 </button>
-                <h2>Výroba rakiev</h2>
+                <h2 data-translate-key="detail_coffins_title">Výroba rakiev</h2>
             </div>
             <div class="service-detail-content">
                 <div class="service-detail-text">
-                    <p>Ponúkame široký výber rakiev vyrobených z kvalitného dreva, ktoré spĺňajú najvyššie štandardy.
+                    <p data-translate-key="detail_coffins_p">Ponúkame široký výber rakiev vyrobených z kvalitného dreva,
+                        ktoré spĺňajú najvyššie štandardy.
                         Každá rakva je vyrábaná s úctou a respektom k zosnulému.</p>
-
-                    <h3>Používané materiály:</h3>
+                    <h3 data-translate-key="detail_coffins_materials_h3">Používané materiály:</h3>
                     <ul class="service-features">
-                        <li>Dub - trvanlivý a pevný materiál</li>
-                        <li>Buk - jemná textúra a príjemný vzhľad</li>
-                        <li>Borovica - ľahký a cenovo dostupný variant</li>
-                        <li>Smrek - klasický výber s jemnou textúrou</li>
+                        <li data-translate-key="detail_coffins_mat1">Dub - trvanlivý a pevný materiál</li>
+                        <li data-translate-key="detail_coffins_mat2">Buk - jemná textúra a príjemný vzhľad</li>
+                        <li data-translate-key="detail_coffins_mat3">Borovica - ľahký a cenovo dostupný variant</li>
+                        <li data-translate-key="detail_coffins_mat4">Smrek - klasický výber s jemnou textúrou</li>
                     </ul>
-
                     <div class="gallery" id="gallery-coffins"></div>
-
                     <a href="#" class="btn btn-primary" onclick="showSection('contact', event)">
-                        <i class="fas fa-envelope"></i> Požiadať o cenovú ponuku
+                        <i class="fas fa-envelope"></i> <span data-translate-key="btn_requestquote">Požiadať o cenovú
+                            ponuku</span>
                     </a>
                 </div>
             </div>
@@ -1809,35 +1857,34 @@
         <div class="container">
             <div class="service-detail-header">
                 <button class="back-btn" onclick="hideServiceDetail('furniture')">
-                    <i class="fas fa-arrow-left"></i> Späť na služby
+                    <i class="fas fa-arrow-left"></i> <span data-translate-key="btn_back">Späť na služby</span>
                 </button>
-                <h2>Drevené prvky pre váš domov aj exteriér</h2>
+                <h2 data-translate-key="detail_furniture_title">Drevené prvky pre váš domov aj exteriér</h2>
             </div>
             <div class="service-detail-content">
                 <div class="service-detail-text">
-                    <p>Prinášame kvalitne spracované drevené riešenia – od dverí a okien cez schody až po prístrešky,
+                    <p data-translate-key="detail_furniture_p">Prinášame kvalitne spracované drevené riešenia – od dverí
+                        a okien cez schody až po prístrešky,
                         ktoré spájajú funkčnosť s estetikou.</p>
-
-                    <h3>Naša ponuka:</h3>
+                    <h3 data-translate-key="detail_furniture_offer_h3">Naša ponuka:</h3>
                     <ul class="service-features">
-                        <li>Schodiská a zábradlia</li>
-                        <li>Dvere na mieru</li>
-                        <li>Certifikované drevené Eeurookná</li>
-                        <li>Drevovýrobky do interiéru a exteriéru</li>
+                        <li data-translate-key="detail_furniture_offer1">Schodiská a zábradlia</li>
+                        <li data-translate-key="detail_furniture_offer2">Dvere na mieru</li>
+                        <li data-translate-key="detail_furniture_offer3">Certifikované drevené Eeurookná</li>
+                        <li data-translate-key="detail_furniture_offer4">Drevovýrobky do interiéru a exteriéru</li>
                     </ul>
-
-                    <h3>Výhody:</h3>
+                    <h3 data-translate-key="detail_furniture_adv_h3">Výhody:</h3>
                     <ul class="service-features">
-                        <li>Individuálny prístup ku každému projektu</li>
-                        <li>Používame iba kvalitné a certifikované materiály</li>
-                        <li>Dlhá životnosť a odolnosť výrobkov</li>
-                        <li>Ekologické a zdravotne nezávadné spracovanie</li>
+                        <li data-translate-key="detail_furniture_adv1">Individuálny prístup ku každému projektu</li>
+                        <li data-translate-key="detail_furniture_adv2">Používame iba kvalitné a certifikované materiály
+                        </li>
+                        <li data-translate-key="detail_furniture_adv3">Dlhá životnosť a odolnosť výrobkov</li>
+                        <li data-translate-key="detail_furniture_adv4">Ekologické a zdravotne nezávadné spracovanie</li>
                     </ul>
-
                     <div class="gallery" id="gallery-furniture"></div>
-
                     <a href="#" class="btn btn-primary" onclick="showSection('contact', event)">
-                        <i class="fas fa-envelope"></i> Konzultácia zdarma
+                        <i class="fas fa-envelope"></i> <span data-translate-key="btn_freeconsult">Konzultácia
+                            zdarma</span>
                     </a>
                 </div>
             </div>
@@ -1848,36 +1895,38 @@
         <div class="container">
             <div class="service-detail-header">
                 <button class="back-btn" onclick="hideServiceDetail('briquettes')">
-                    <i class="fas fa-arrow-left"></i> Späť na služby
+                    <i class="fas fa-arrow-left"></i> <span data-translate-key="btn_back">Späť na služby</span>
                 </button>
-                <h2>EKO brikety</h2>
+                <h2 data-translate-key="detail_briquettes_title">EKO brikety</h2>
             </div>
             <div class="service-detail-content">
                 <div class="service-detail-text">
-                    <p>Naše drevené brikety sú vyrábané z čistých pilín bez akýchkoľvek chemických prísad. Vznikajú
+                    <p data-translate-key="detail_briquettes_p">Naše drevené brikety sú vyrábané z čistých pilín bez
+                        akýchkoľvek chemických prísad. Vznikajú
                         lisovaním pri vysokom tlaku, čo im dodáva výnimočnú hustotu a vysokú výhrevnosť.</p>
-
-                    <h3>Vlastnosti našich brikiet:</h3>
+                    <h3 data-translate-key="detail_briquettes_prop_h3">Vlastnosti našich brikiet:</h3>
                     <ul class="service-features">
-                        <li>Vysoká výhrevnosť – až 18,31 MJ/kg (porovnateľná s čiernym uhlím)</li>
-                        <li>Nízka vlhkosť – iba 3,17 %</li>
-                        <li>OMinimálny obsah popola – len 1,45 %, vhodný ako hnojivo</li>
-                        <li>Rkologické palivo bez chemických prísad</li>
+                        <li data-translate-key="detail_briquettes_prop1">Vysoká výhrevnosť – až 18,31 MJ/kg
+                            (porovnateľná s čiernym uhlím)</li>
+                        <li data-translate-key="detail_briquettes_prop2">Nízka vlhkosť – iba 3,17 %</li>
+                        <li data-translate-key="detail_briquettes_prop3">Minimálny obsah popola – len 1,45 %, vhodný ako
+                            hnojivo</li>
+                        <li data-translate-key="detail_briquettes_prop4">Ekologické palivo bez chemických prísad</li>
                     </ul>
-
-                    <h3>Výhody:</h3>
+                    <h3 data-translate-key="detail_briquettes_adv_h3">Výhody:</h3>
                     <ul class="service-features">
-                        <li>Dlhý čas horenia – približne 90 minút</li>
-                        <li>Vhodné pre takmer všetky typy kotlov, krbov a piecok na pevné palivo</li>
-                        <li>Horenie s jasným plameňom a minimálnym dymom</li>
-                        <li>Príjemná vôňa prírodného dreva</li>
-                        <li>Vhodné pre všetky druhy krbov a kachlí</li>
+                        <li data-translate-key="detail_briquettes_adv1">Dlhý čas horenia – približne 90 minút</li>
+                        <li data-translate-key="detail_briquettes_adv2">Vhodné pre takmer všetky typy kotlov, krbov a
+                            piecok na pevné palivo</li>
+                        <li data-translate-key="detail_briquettes_adv3">Horenie s jasným plameňom a minimálnym dymom
+                        </li>
+                        <li data-translate-key="detail_briquettes_adv4">Príjemná vôňa prírodného dreva</li>
+                        <li data-translate-key="detail_briquettes_adv5">Vhodné pre všetky druhy krbov a kachlí</li>
                     </ul>
-
                     <div class="gallery" id="gallery-briquettes"></div>
-
                     <a href="#" class="btn btn-primary" onclick="showSection('contact', event)">
-                        <i class="fas fa-shopping-cart"></i> Objednať brikety
+                        <i class="fas fa-shopping-cart"></i> <span data-translate-key="btn_order">Objednať
+                            brikety</span>
                     </a>
                 </div>
             </div>
@@ -1887,35 +1936,31 @@
     <section class="section contact" id="contact">
         <div class="container">
             <div class="section-title">
-                <h2>Kontaktujte nás</h2>
+                <h2 data-translate-key="contact_title">Kontaktujte nás</h2>
             </div>
-
             <div class="contact-container">
                 <div class="contact-info">
-                    <h3>Kde nás nájdete</h3>
-
+                    <h3 data-translate-key="contact_findus">Kde nás nájdete</h3>
                     <div class="contact-item">
                         <div class="contact-icon">
                             <i class="fas fa-map-marker-alt"></i>
                         </div>
                         <div class="contact-text">
-                            <h4>Adresa</h4>
+                            <h4 data-translate-key="contact_address">Adresa</h4>
                             <p>Radatice 219, 08242 Radatice</p>
                         </div>
                     </div>
-
                     <div class="contact-item">
                         <div class="contact-icon">
                             <i class="fas fa-phone-alt"></i>
                         </div>
                         <div class="contact-text">
-                            <h4>Telefón</h4>
-                            <p>+421 905 609 059 (Stolárstvo)</p>
-                            <p>+421 905 213 426 (Doprava)</p>
-                            <p>+421 908 124 008 (Ekobrikety)</p>
+                            <h4 data-translate-key="contact_phone">Telefón</h4>
+                            <p data-translate-key="contact_phone_joinery">+421 905 609 059 (Stolárstvo)</p>
+                            <p data-translate-key="contact_phone_transport">+421 905 213 426 (Doprava)</p>
+                            <p data-translate-key="contact_phone_briquettes">+421 908 124 008 (Ekobrikety)</p>
                         </div>
                     </div>
-
                     <div class="contact-item">
                         <div class="contact-icon">
                             <i class="fas fa-envelope"></i>
@@ -1925,45 +1970,38 @@
                             <p>petrostolarstvo@gmail.com</p>
                         </div>
                     </div>
-
                     <div class="contact-item">
                         <div class="contact-icon">
                             <i class="fas fa-clock"></i>
                         </div>
                         <div class="contact-text">
-                            <h4>Otváracie hodiny</h4>
-                            <p>Pondelok - Piatok: 8:00 - 18:00</p>
-                            <p>Sobota: Na objednávku</p>
+                            <h4 data-translate-key="contact_hours">Otváracie hodiny</h4>
+                            <p data-translate-key="contact_hours_monfri">Pondelok - Piatok: 8:00 - 18:00</p>
+                            <p data-translate-key="contact_hours_sat">Sobota: Na objednávku</p>
                         </div>
                     </div>
                 </div>
-
                 <div class="contact-form">
-                    <h3>Napíšte nám</h3>
-
+                    <h3 data-translate-key="contact_form_title">Napíšte nám</h3>
                     <form action="https://formspree.io/f/xgvkeypd" method="POST">
                         <div class="form-group">
-                            <label for="name">Meno a priezvisko</label>
+                            <label for="name" data-translate-key="form_name">Meno a priezvisko</label>
                             <input type="text" id="name" name="name" class="form-control" required>
                         </div>
-
                         <div class="form-group">
                             <label for="email">Email</label>
                             <input type="email" id="email" name="email" class="form-control" required>
                         </div>
-
                         <div class="form-group">
-                            <label for="phone">Telefón</label>
+                            <label for="phone" data-translate-key="form_phone">Telefón</label>
                             <input type="tel" id="phone" name="phone" class="form-control">
                         </div>
-
                         <div class="form-group">
-                            <label for="message">Vaša správa</label>
+                            <label for="message" data-translate-key="form_message">Vaša správa</label>
                             <textarea id="message" name="message" class="form-control" required></textarea>
                         </div>
-
                         <button type="submit" class="btn btn-primary">
-                            <i class="fas fa-paper-plane"></i> Odoslať správu
+                            <i class="fas fa-paper-plane"></i> <span data-translate-key="btn_send">Odoslať správu</span>
                         </button>
                     </form>
                 </div>
@@ -1975,8 +2013,8 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">Stolárstvo Petro</div>
-
-                <p class="copyright">&copy; Miloš Gall. Všetky práva vyhradené.</p>
+                <p class="copyright" data-translate-key="footer_copyright">&copy; Miloš Gall. Všetky práva vyhradené.
+                </p>
             </div>
         </div>
     </footer>
@@ -2001,7 +2039,216 @@
         if ('scrollRestoration' in history) {
             history.scrollRestoration = 'manual';
         }
+
+        // =============================================
+        // NOVÉ: Objekt s prekladmi
+        // =============================================
+        const translations = {
+            // Anglické preklady
+            en: {
+                meta_title: "Petro Carpentry | Luxury Woodwork",
+                meta_description: "Premium carpentry products and custom solutions from quality wood. Family tradition since 1992.",
+                nav_about: "About Us",
+                nav_services: "Services",
+                nav_contact: "Contact",
+                hero_p1: "We are a family carpentry workshop whose main mission is the production of wooden coffins. Each piece is created with respect, honest craftsmanship, and a sensibility that has been passed down from generation to generation. Our coffins combine traditional values with a modern approach – to be dignified, high-quality, and aesthetically unique.",
+                hero_p2: "In addition to coffins, we also produce doors, stairs, custom furniture, and other wooden elements for both interior and exterior.",
+                btn_ourservices: "Our Services",
+                btn_contactus: "Contact Us",
+                about_title: "About Our Workshop",
+                about_h3: "Tradition and Quality Since 1992",
+                about_p1: "We are a family business with a long tradition in the craft of carpentry. Our workshop combines modern technology with traditional methods, allowing us to create exceptional wooden products.",
+                about_p2: "We specialize in the production of quality coffins, windows, shelters, stairs, and doors, as well as the sale of ecological briquettes. Each product is carefully designed and manufactured with an emphasis on detail and quality.",
+                btn_viewservices: "View Our Services",
+                services_title: "Our Services",
+                service1_h3: "Coffin Production",
+                service1_p: "High-quality and dignified coffins made from various types of wood according to your requirements.",
+                btn_viewdetail: "View Detail",
+                service2_h3: "Wooden Elements for Your Home and Exterior",
+                service2_p: "Exclusive custom-made wooden elements, crafted from high-quality materials based on your design.",
+                service3_h3: "ECO Briquettes",
+                service3_p: "High-quality wooden briquettes made from pure sawdust without chemical additives.",
+                btn_back: "Back to Services",
+                detail_coffins_title: "Coffin Production",
+                detail_coffins_p: "We offer a wide selection of coffins made from high-quality wood that meet the highest standards. Each coffin is produced with respect and reverence for the deceased.",
+                detail_coffins_materials_h3: "Materials Used:",
+                detail_coffins_mat1: "Oak - durable and strong material",
+                detail_coffins_mat2: "Beech - fine texture and pleasant appearance",
+                detail_coffins_mat3: "Pine - lightweight and affordable option",
+                detail_coffins_mat4: "Spruce - classic choice with a fine texture",
+                btn_requestquote: "Request a Quote",
+                detail_furniture_title: "Wooden Elements for Your Home and Exterior",
+                detail_furniture_p: "We provide high-quality wooden solutions – from doors and windows to stairs and shelters, combining functionality with aesthetics.",
+                detail_furniture_offer_h3: "Our Offer:",
+                detail_furniture_offer1: "Staircases and railings",
+                detail_furniture_offer2: "Custom-made doors",
+                detail_furniture_offer3: "Certified wooden Euro-windows",
+                detail_furniture_offer4: "Wooden products for interior and exterior",
+                detail_furniture_adv_h3: "Advantages:",
+                detail_furniture_adv1: "Individual approach to each project",
+                detail_furniture_adv2: "We use only high-quality and certified materials",
+                detail_furniture_adv3: "Long lifespan and durability of products",
+                detail_furniture_adv4: "Ecological and health-safe processing",
+                btn_freeconsult: "Free Consultation",
+                detail_briquettes_title: "ECO Briquettes",
+                detail_briquettes_p: "Our wooden briquettes are made from pure sawdust without any chemical additives. They are formed by pressing at high pressure, which gives them exceptional density and high heating value.",
+                detail_briquettes_prop_h3: "Properties of Our Briquettes:",
+                detail_briquettes_prop1: "High heating value – up to 18.31 MJ/kg (comparable to black coal)",
+                detail_briquettes_prop2: "Low moisture content – only 3.17%",
+                detail_briquettes_prop3: "Minimal ash content – only 1.45%, suitable as fertilizer",
+                detail_briquettes_prop4: "Ecological fuel without chemical additives",
+                detail_briquettes_adv_h3: "Advantages:",
+                detail_briquettes_adv1: "Long burning time – approximately 90 minutes",
+                detail_briquettes_adv2: "Suitable for almost all types of boilers, fireplaces, and solid fuel stoves",
+                detail_briquettes_adv3: "Burns with a bright flame and minimal smoke",
+                detail_briquettes_adv4: "Pleasant scent of natural wood",
+                detail_briquettes_adv5: "Suitable for all types of fireplaces and stoves",
+                btn_order: "Order Briquettes",
+                contact_title: "Contact Us",
+                contact_findus: "Where to Find Us",
+                contact_address: "Address",
+                contact_phone: "Phone",
+                contact_phone_joinery: "+421 905 609 059 (Carpentry)",
+                contact_phone_transport: "+421 905 213 426 (Transport)",
+                contact_phone_briquettes: "+421 908 124 008 (Ecobriquettes)",
+                contact_hours: "Opening Hours",
+                contact_hours_monfri: "Monday - Friday: 8:00 - 18:00",
+                contact_hours_sat: "Saturday: By appointment",
+                contact_form_title: "Write to Us",
+                form_name: "Full Name",
+                form_phone: "Phone",
+                form_message: "Your Message",
+                btn_send: "Send Message",
+                footer_copyright: "© Miloš Gall. All rights reserved."
+            },
+            // Slovenské preklady
+            sk: {
+                meta_title: "Stolárstvo Petro | Luxusná Drevovýroba",
+                meta_description: "Prémiové stolárske výrobky a remeselné riešenia z kvalitného dreva. Rodinná tradícia od roku 1992.",
+                nav_about: "O nás",
+                nav_services: "Služby",
+                nav_contact: "Kontakt",
+                hero_p1: "Sme rodinná stolárska dielňa, ktorej hlavným poslaním je výroba drevených rakiev. Každý kus vzniká s úctou, poctivým remeslom a citom, ktorý sa u nás dedí z generácie na generáciu. Naše rakvy spájajú tradičné hodnoty s moderným prístupom – aby boli dôstojné, kvalitné a esteticky jedinečné.",
+                hero_p2: "Okrem rakiev vyrábame aj dvere, schody, nábytok na mieru či iné drevené prvky do interiéru aj exteriéru.",
+                btn_ourservices: "Naše služby",
+                btn_contactus: "Kontaktujte nás",
+                about_title: "O našej dielni",
+                about_h3: "Tradícia a kvalita od roku 1992",
+                about_p1: "Sme rodinný podnik s dlhoročnou tradíciou v stolárskom remesle. Naša dielňa kombinuje moderné technológie s tradičnými postupmi, čo nám umožňuje vytvárať výnimočné drevené výrobky.",
+                about_p2: "Špecializujeme sa na výrobu kvalitných rakiev, okien, prístreškov, schodov a dverí, ako aj na predaj ekologických brikiet. Každý výrobok je starostlivo navrhnutý a vyrobený s dôrazom na detail a kvalitu.",
+                btn_viewservices: "Pozrite si naše služby",
+                services_title: "Naše služby",
+                service1_h3: "Výroba rakiev",
+                service1_p: "Kvalitné a dôstojné rakvy vyrobené z rôznych druhov dreva podľa vašich požiadaviek.",
+                btn_viewdetail: "Zobraziť detail",
+                service2_h3: "Drevené prvky pre váš domov aj exteriér",
+                service2_p: "Exkluzívne drevené prvky na mieru, vyrobené z kvalitných materiálov podľa vášho návrhu.",
+                service3_h3: "EKO brikety",
+                service3_p: "Vysoko kvalitné drevené brikety vyrábané z čistých pilín bez chemických prísad.",
+                btn_back: "Späť na služby",
+                detail_coffins_title: "Výroba rakiev",
+                detail_coffins_p: "Ponúkame široký výber rakiev vyrobených z kvalitného dreva, ktoré spĺňajú najvyššie štandardy. Každá rakva je vyrábaná s úctou a respektom k zosnulému.",
+                detail_coffins_materials_h3: "Používané materiály:",
+                detail_coffins_mat1: "Dub - trvanlivý a pevný materiál",
+                detail_coffins_mat2: "Buk - jemná textúra a príjemný vzhľad",
+                detail_coffins_mat3: "Borovica - ľahký a cenovo dostupný variant",
+                detail_coffins_mat4: "Smrek - klasický výber s jemnou textúrou",
+                btn_requestquote: "Požiadať o cenovú ponuku",
+                detail_furniture_title: "Drevené prvky pre váš domov aj exteriér",
+                detail_furniture_p: "Prinášame kvalitne spracované drevené riešenia – od dverí a okien cez schody až po prístrešky, ktoré spájajú funkčnosť s estetikou.",
+                detail_furniture_offer_h3: "Naša ponuka:",
+                detail_furniture_offer1: "Schodiská a zábradlia",
+                detail_furniture_offer2: "Dvere na mieru",
+                detail_furniture_offer3: "Certifikované drevené Eeurookná",
+                detail_furniture_offer4: "Drevovýrobky do interiéru a exteriéru",
+                detail_furniture_adv_h3: "Výhody:",
+                detail_furniture_adv1: "Individuálny prístup ku každému projektu",
+                detail_furniture_adv2: "Používame iba kvalitné a certifikované materiály",
+                detail_furniture_adv3: "Dlhá životnosť a odolnosť výrobkov",
+                detail_furniture_adv4: "Ekologické a zdravotne nezávadné spracovanie",
+                btn_freeconsult: "Konzultácia zdarma",
+                detail_briquettes_title: "EKO brikety",
+                detail_briquettes_p: "Naše drevené brikety sú vyrábané z čistých pilín bez akýchkoľvek chemických prísad. Vznikajú lisovaním pri vysokom tlaku, čo im dodáva výnimočnú hustotu a vysokú výhrevnosť.",
+                detail_briquettes_prop_h3: "Vlastnosti našich brikiet:",
+                detail_briquettes_prop1: "Vysoká výhrevnosť – až 18,31 MJ/kg (porovnateľná s čiernym uhlím)",
+                detail_briquettes_prop2: "Nízka vlhkosť – iba 3,17 %",
+                detail_briquettes_prop3: "Minimálny obsah popola – len 1,45 %, vhodný ako hnojivo",
+                detail_briquettes_prop4: "Ekologické palivo bez chemických prísad",
+                detail_briquettes_adv_h3: "Výhody:",
+                detail_briquettes_adv1: "Dlhý čas horenia – približne 90 minút",
+                detail_briquettes_adv2: "Vhodné pre takmer všetky typy kotlov, krbov a piecok na pevné palivo",
+                detail_briquettes_adv3: "Horenie s jasným plameňom a minimálnym dymom",
+                detail_briquettes_adv4: "Príjemná vôňa prírodného dreva",
+                detail_briquettes_adv5: "Vhodné pre všetky druhy krbov a kachlí",
+                btn_order: "Objednať brikety",
+                contact_title: "Kontaktujte nás",
+                contact_findus: "Kde nás nájdete",
+                contact_address: "Adresa",
+                contact_phone: "Telefón",
+                contact_phone_joinery: "+421 905 609 059 (Stolárstvo)",
+                contact_phone_transport: "+421 905 213 426 (Doprava)",
+                contact_phone_briquettes: "+421 908 124 008 (Ekobrikety)",
+                contact_hours: "Otváracie hodiny",
+                contact_hours_monfri: "Pondelok - Piatok: 8:00 - 18:00",
+                contact_hours_sat: "Sobota: Na objednávku",
+                contact_form_title: "Napíšte nám",
+                form_name: "Meno a priezvisko",
+                form_phone: "Telefón",
+                form_message: "Vaša správa",
+                btn_send: "Odoslať správu",
+                footer_copyright: "© Miloš Gall. Všetky práva vyhradené."
+            }
+        };
+
+
         document.addEventListener('DOMContentLoaded', function () {
+
+            // =============================================
+            // NOVÉ: Logika pre preklady
+            // =============================================
+            const langSwitches = document.querySelectorAll('.lang-switch');
+
+            const setLanguage = (lang) => {
+                document.documentElement.lang = lang; // Nastaví atribút 'lang' na <html>
+
+                document.querySelectorAll('[data-translate-key]').forEach(element => {
+                    const key = element.dataset.translateKey;
+                    const translation = translations[lang][key];
+                    if (translation !== undefined) {
+                        // Špeciálne pravidlo pre tlačidlá s ikonami: nahrádza iba text
+                        if (element.querySelector('i') && element.querySelector('span')) {
+                            element.querySelector('span').textContent = translation;
+                        } else if (key === 'meta_description') {
+                            element.setAttribute('content', translation); // Pre meta tag
+                        } else {
+                            element.textContent = translation; // Pre ostatné elementy
+                        }
+                    }
+                });
+
+                // Uloženie voľby do localStorage
+                localStorage.setItem('language', lang);
+
+                // Vizuálne označenie aktívnej vlajky
+                langSwitches.forEach(sw => {
+                    sw.classList.remove('active');
+                    if (sw.dataset.lang === lang) {
+                        sw.classList.add('active');
+                    }
+                });
+            };
+
+            langSwitches.forEach(button => {
+                button.addEventListener('click', (event) => {
+                    setLanguage(event.currentTarget.dataset.lang);
+                });
+            });
+
+            // Načítanie jazyka z localStorage alebo použitie 'sk' ako predvoleného
+            const savedLang = localStorage.getItem('language') || 'sk';
+            setLanguage(savedLang);
+
+
             // =============================================
             // 1. Mobile Navigation
             // =============================================
@@ -2073,12 +2320,9 @@
                     contentToShow.style.display = 'block';
 
                     if (window.innerWidth <= 768) {
-                        // MOBILNÁ LOGIKA - kompletne prepracovaná
-                        // Najprv OKAMŽITE skočíme úplne hore bez akéhokoľvek oneskorenia
                         document.documentElement.scrollTop = 0;
                         document.body.scrollTop = 0;
 
-                        // Potom počkáme kým prehliadač vykreslí obsah a až potom scrollujeme na sekciu
                         requestAnimationFrame(() => {
                             requestAnimationFrame(() => {
                                 let scrollPosition = 0;
@@ -2094,7 +2338,6 @@
                         });
 
                     } else {
-                        // DESKTOPOVÁ LOGIKA (pôvodná, funguje správne)
                         setTimeout(() => {
                             let scrollPosition = 0;
                             if (contentId !== 'hero') {

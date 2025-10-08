@@ -263,7 +263,6 @@
             width: 100%;
             z-index: 1000;
             padding: 8px 0;
-            /* Zmenšené z pôvodného */
             background-color: rgba(249, 246, 242, 0.95);
             backdrop-filter: blur(12px);
             border-bottom: 1px solid var(--color-border);
@@ -275,18 +274,13 @@
             justify-content: space-between;
             align-items: center;
             max-width: 1200px;
-            /* Pridané - obmedzenie šírky */
             margin: 0 auto;
-            /* Pridané - centrovanie */
             padding: 0 20px;
-            /* Pridané */
         }
 
         .logo-img {
             width: 45px;
-            /* Zmenšené z 60px */
             height: 45px;
-            /* Zmenšené z 60px */
             object-fit: contain;
             border-radius: 50%;
         }
@@ -294,7 +288,6 @@
         .logo-text {
             font-family: var(--font-secondary);
             font-size: 1.3rem;
-            /* Zmenšené z 1.5rem */
             font-weight: 700;
             color: var(--color-primary-dark);
         }
@@ -417,16 +410,24 @@
             background-color: rgba(139, 95, 76, 0.1);
         }
 
-        /* NOVÉ ŠTÝLY PRE PREPÍNAČ JAZYKOV */
+        /* ÚPRAVA PREPÍNAČA JAZYKOV S OBRÁZKAMI VLÁJOK */
         .lang-switch {
             background: none;
             border: none;
             cursor: pointer;
-            font-size: 1.5rem;
-            /* Veľkosť emoji vlajky */
-            padding: 0 5px;
-            opacity: 0.6;
+            padding: 0 6px;
+            opacity: 0.7;
             transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .lang-switch img {
+            width: 26px;
+            height: auto;
+            border-radius: 4px;
+            transition: var(--transition);
+            display: block;
         }
 
         .lang-switch:hover {
@@ -436,10 +437,14 @@
 
         .lang-switch.active {
             opacity: 1;
-            transform: scale(1.2);
+            transform: scale(1.1);
         }
 
-        /* KONIEC NOVÝCH ŠTÝLOV */
+        .lang-switch.active img {
+            box-shadow: 0 0 0 2px var(--color-primary);
+        }
+
+        /* KONIEC ŠTÝLOV PRE VLAJKY */
 
 
         body.dark-mode .theme-toggle {
@@ -449,6 +454,20 @@
         body.dark-mode .theme-toggle:hover {
             background-color: rgba(255, 255, 255, 0.1);
         }
+
+        /* === NOVÉ: OPRAVA VIDITEĽNOSTI VLAJOK V DARK MODE === */
+        body.dark-mode .lang-switch {
+            opacity: 1;
+            /* Zabezpečí plnú viditeľnosť v tmavom režime */
+        }
+
+        body.dark-mode .lang-switch.active img {
+            box-shadow: 0 0 0 2px var(--color-dark-accent);
+            /* Rámik v štýle dark mode */
+        }
+
+        /* === KONIEC OPRAVY === */
+
 
         /* ============================================= */
         /* 6. Hero Section - UPRAVENÉ */
@@ -1401,8 +1420,8 @@
                 gap: 1.2rem;
             }
 
-            .lang-switch {
-                font-size: 1.3rem;
+            .lang-switch img {
+                width: 24px;
             }
 
             .lightbox-btn {
@@ -1700,8 +1719,12 @@
                         data-translate-key="nav_services">Služby</a>
                     <a href="#" class="nav-link" onclick="showSection('contact', event)"
                         data-translate-key="nav_contact">Kontakt</a>
-                    <button class="lang-switch" data-lang="sk">🇸🇰</button>
-                    <button class="lang-switch" data-lang="en">🇬🇧</button>
+
+                    <button class="lang-switch" data-lang="sk"><img src="https://flagcdn.com/sk.svg"
+                            alt="Slovenčina"></button>
+                    <button class="lang-switch" data-lang="en"><img src="https://flagcdn.com/gb.svg"
+                            alt="English"></button>
+
                     <button class="theme-toggle" id="themeToggle">
                         <i class="fas fa-moon"></i>
                     </button>

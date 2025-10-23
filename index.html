@@ -473,8 +473,11 @@
         /* 6. Hero Section - UPRAVENÉ */
         /* ============================================= */
         .hero {
-            height: 100vh;
-            min-height: 800px;
+            /* === OPRAVA SCROLLBARU === */
+            /* Výška 100% zabezpečí, že sekcia vyplní rodiča (main), ktorý je natiahnutý (flex:1) */
+            height: 100%;
+            /* === KONIEC OPRAVY SCROLLBARU === */
+
             display: flex;
             align-items: center;
             position: relative;
@@ -1204,34 +1207,37 @@
         }
 
         /* */
-        /* Kontajner sa prispôsobí viewportu, aby sa zabránilo veľkým čiernym pásom */
+        /* OPRAVA VEĽKOSTI: "Gustiózna" veľkosť na PC aj Mobile */
         .lightbox-content {
             position: relative;
-            max-width: 90vw;
-            /* OPRAVA: Kontajner je max 90% šírky viewportu */
-            max-height: 90vh;
-            /* OPRAVA: Kontajner je max 90% výšky viewportu */
+
+            /* Na mobile/malých oknách bude mať 90% šírky */
+            width: 90vw;
+
+            /* MAXIMÁLNA šírka na veľkých PC bude 1000px (bolo 1200px) */
+            max-width: 1000px;
+
+            /* Maximálna výška bude 80% okna (bolo 85vh) */
+            max-height: 80vh;
+
             display: flex;
-            /* Pridané: Aby sa kontajner prispôsobil obrázku */
             align-items: center;
-            /* Pridané: Centrovanie obrázku */
             justify-content: center;
-            /* Pridané: Centrovanie obrázku */
         }
 
         /* Obrázok sa prispôsobí svojmu kontajneru a zachová si pomer strán */
         .lightbox-img {
             width: auto;
-            /* OPRAVA: Šírka sa prispôsobí */
             height: auto;
-            /* OPRAVA: Výška sa prispôsobí */
             max-width: 100%;
-            /* OPRAVA: Obrázok vyplní kontajner, ale nepretečie */
+            /* 100% kontajnera (ktorý má max 1000px) */
             max-height: 100%;
-            /* OPRAVA: Obrázok vyplní kontajner, ale nepretečie */
+            /* 100% kontajnera (ktorý má max 80vh) */
             object-fit: contain;
-            /* Dôležité: Zachová pomer strán */
             border-radius: var(--border-radius);
+
+            /* Pridaný tieň pre "gustiózny" vzhľad */
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
         }
 
         /* */
@@ -1324,9 +1330,8 @@
                 padding: calc(var(--spacing-unit) * 4) 0;
             }
 
-            .hero {
-                min-height: 700px;
-            }
+            /* === OPRAVA SCROLLBARU: Odstránené min-height === */
+            /* .hero { min-height: 700px; } */
         }
 
         @media (max-width: 768px) {
@@ -1366,9 +1371,8 @@
                 visibility: visible;
             }
 
-            .hero {
-                min-height: 600px;
-            }
+            /* === OPRAVA SCROLLBARU: Odstránené min-height === */
+            /* .hero { min-height: 600px; } */
 
             .hero-content {
                 grid-template-columns: 1fr;
@@ -1416,9 +1420,8 @@
                 padding: calc(var(--spacing-unit) * 3) 0;
             }
 
-            .hero {
-                min-height: 500px;
-            }
+            /* === OPRAVA SCROLLBARU: Odstránené min-height === */
+            /* .hero { min-height: 500px; } */
 
             .container {
                 padding: 0 var(--spacing-unit);
@@ -1478,7 +1481,8 @@
 
         @media (max-width: 768px) {
             .hero {
-                min-height: 600px;
+                /* === OPRAVA SCROLLBARU: Odstránené min-height a height === */
+                /* min-height: 600px; */
                 background:
                     linear-gradient(rgba(0, 0, 0, 0.5),
                         rgba(0, 0, 0, 0.3)),
@@ -1527,9 +1531,8 @@
         }
 
         @media (max-width: 480px) {
-            .hero {
-                min-height: 500px;
-            }
+            /* === OPRAVA SCROLLBARU: Odstránené min-height === */
+            /* .hero { min-height: 500px; } */
 
             .hero-text {
                 padding: 1.5rem;
@@ -1677,10 +1680,9 @@
         /* Krok 1: Zmenšenie obsahu v HERO sekcii, aby boli viditeľné obe tlačidlá */
         @media (max-width: 768px) {
             .hero {
-                min-height: 0;
-                /* Odstráni prebytočnú minimálnu výšku */
-                height: 100vh;
-                /* Výška sa prispôsobí obrazovke */
+                /* === OPRAVA SCROLLBARU: Odstránené min-height a height === */
+                /* min-height: 0; */
+                /* height: 100vh; */
             }
 
             .hero-text {
@@ -1729,10 +1731,9 @@
         }
 
         .hero {
-            /* Použitie dynamickej výšky viewportu pre lepšiu kompatibilitu */
-            min-height: 100dvh;
-            /* Nová jednotka, ktorá reaguje na zmeny UI v mobile */
-            height: 100dvh;
+            /* === OPRAVA SCROLLBARU: Odstránené min-height a height === */
+            /* min-height: 100dvh; */
+            /* height: 100dvh; */
             padding-bottom: env(safe-area-inset-bottom);
             /* Odsadenie pre spodnú lištu */
         }

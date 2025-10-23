@@ -2377,24 +2377,16 @@
                 if (contentToShow) {
                     contentToShow.style.display = 'block';
 
-                    // // OPRAVA PROBLÉMU SO SKROLOVANÍM - ZAČIATOK
-                    // Pri každom prepnutí sekcie (cez display: block/none)
-                    // chceme začať od samého vrchu stránky ("natvrdo").
-                    // Interné odsadenie (padding-top) v sekciách už rieši
-                    // prekrytie fixným headerom.
-                    window.scrollTo({ top: 0, behavior: 'auto' });
-                    // // OPRAVA PROBLÉMU SO SKROLOVANÍM - KONIEC
+                    // === OPRAVA PRE SCROLL NA MOBILE ===
+                    // Dáme scrollTo do setTimeout(..., 0).
+                    // Tým sa príkaz vykoná až po tom, čo prehliadač 
+                    // spracuje zmenu 'display: block' a nebude 
+                    // prepísaný natívnym scroll restoration.
+                    setTimeout(() => {
+                        window.scrollTo({ top: 0, behavior: 'auto' });
+                    }, 0);
+                    // === KONIEC OPRAVY ===
 
-                    /*
-                    // PÔVODNÁ CHYBNÁ LOGIKA
-                    // Plynulé skrolovanie na sekciu
-                    let scrollPosition = 0;
-                    if (contentId !== 'hero') {
-                        const headerHeight = headerElement.offsetHeight;
-                        scrollPosition = contentToShow.offsetTop - headerHeight - 10;
-                    }
-                    window.scrollTo({ top: scrollPosition, behavior: 'auto' }); // Zmenené na 'auto' pre okamžitý skok
-                    */
                 }
                 // Aktualizácia aktívneho linku v menu
                 document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));

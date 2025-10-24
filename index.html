@@ -2325,11 +2325,10 @@
                 }
             });
 
-            / =============================================
-            // 3. Section Navigation & Visibility - OPRAVENÉ
+            // =============================================
+            // 3. Section Navigation & Visibility - FINÁLNA OPRAVA
             // =============================================
             const allContent = document.querySelectorAll('section, .service-detail');
-            const headerElement = document.querySelector('header'); // Definujeme si header tu
 
             function hideAllContent() {
                 allContent.forEach(content => {
@@ -2340,34 +2339,40 @@
             function showContent(contentId) {
                 hideAllContent();
                 const contentToShow = document.getElementById(contentId);
-
                 if (contentToShow) {
-                    // Najprv zobrazíme obsah
                     contentToShow.style.display = 'block';
 
-                    // Táto zjednotená logika funguje pre mobil aj desktop.
-                    // Použijeme setTimeout(0), aby sme zaručili, že prehliadač stihol
-                    // aplikovať 'display: block' a vie správne vypočítať offsetTop.
-                    setTimeout(() => {
-                        let scrollPosition = 0; // Pre 'hero' sekciu ideme na samý vrch
+                    if (window.innerWidth <= 768) {
+                        document.documentElement.scrollTop = 0;
+                        document.body.scrollTop = 0;
 
-                        if (contentId !== 'hero') {
-                            const headerHeight = headerElement ? headerElement.offsetHeight : 70; // Výška hlavičky
-
-                            // offsetTop je vzdialenosť elementu od vrchu *dokumentu*.
-                            // Toto nie je ovplyvnené aktuálnym scrollom.
-                            // Odpočítame výšku hlavičky a malú medzeru (10px).
-                            scrollPosition = contentToShow.offsetTop - headerHeight - 10;
-                        }
-
-                        // Použijeme window.scrollTo na presun na vypočítanú pozíciu.
-                        // Zmenil som 'behavior' na 'auto' pre okamžitý "skok".
-                        // Ak chcete plynulý scroll, vráťte späť 'smooth'.
-                        window.scrollTo({
-                            top: scrollPosition,
-                            behavior: 'auto'
+                        requestAnimationFrame(() => {
+                            requestAnimationFrame(() => {
+                                let scrollPosition = 0;
+                                if (contentId !== 'hero') {
+                                    const headerHeight = headerElement.offsetHeight;
+                                    scrollPosition = contentToShow.getBoundingClientRect().top + window.scrollY - headerHeight - 15;
+                                }
+                                window.scrollTo({
+                                    top: scrollPosition,
+                                    behavior: 'smooth'
+                                });
+                            });
                         });
-                    }, 0);
+
+                    } else {
+                        setTimeout(() => {
+                            let scrollPosition = 0;
+                            if (contentId !== 'hero') {
+                                const headerHeight = headerElement.offsetHeight;
+                                scrollPosition = contentToShow.offsetTop - headerHeight - 10;
+                            }
+                            window.scrollTo({
+                                top: scrollPosition,
+                                behavior: 'smooth'
+                            });
+                        }, 0);
+                    }
                 }
             }
 
